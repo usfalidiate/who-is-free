@@ -60,7 +60,7 @@ body {
   padding: 0;
   background: black;
   margin: auto;
-  width: 80%; 
+  width: 90%; 
 }
 
 .availSumDatesArticle {
@@ -69,27 +69,27 @@ body {
   background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );
   border-radius: 5px;
   margin: auto;
-  width: 80%; 
+  width: 95%; 
 }
   
 .monthArticle {
   padding: 0;
   background: black;
   margin: auto;
-  width: 80%;
+  width: 95%;
 }
 
 .yearArticle {
   padding: 0;
   background: black;
-  width: 80%;
+  width: 95%;
   margin: auto;
   text-align: center;
 }
 
 .telArticle {
   margin: auto;
-  width: 80%;
+  width: 95%;
   text-align: center;
   border: none;
   }
@@ -120,7 +120,7 @@ body {
   background-color: black;
   letter-spacing: 1px;
   font-family: sans-serif;
-  width: 80%;
+  width: 95%;
   height: 50px; 
 }
 
@@ -133,7 +133,7 @@ body {
   background-color: black;
   letter-spacing: 1px;
   font-family: sans-serif;
-  width: 80%;
+  width: 95%;
   height: 50px; 
 }
 
@@ -449,7 +449,7 @@ outline: 2px solid rgb(180, 178, 178);
   color: white;
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
-  width: 80%;
+  width: 95%;
   height: 40px;
   border: 1.5px solid black;
   border-radius: 5px;
@@ -470,7 +470,7 @@ outline: 2px solid rgb(180, 178, 178);
   color: white;
   /* background-color:rgb(113, 5, 5); */
   background: linear-gradient(91.4deg, rgb(185, 37, 37) 0%, rgb(123, 22, 22) 100%); 
-  width: 80%;
+  width: 95%;
   height: 40px;
   border: 1.5px solid black;
   opacity: 0.95;
