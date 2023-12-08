@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Inter } from "next/font/google"
 import styles from '@/styles/Home.module.css'
 import {useState, useEffect, useRef} from 'react';
+import personAvailable from '../public/person-available.svg';
+import personUnavailable from '../public/person-unavailable.svg';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -3575,7 +3577,7 @@ return (
           onClick={ () => {
             handleClick1(1);    
           }} className={ users.user1.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day1  ? 'Y' : 'N' }
+          > { users.user1.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -3585,7 +3587,7 @@ return (
           onClick={ () => {
             handleClick2(1);    
           }} className={ users.user2.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day1  ? 'Y' : 'N' } 
+          >{ users.user2.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3595,7 +3597,7 @@ return (
         onClick={ () => {
           handleClick3(1);    
           }} className={ users.user3.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day1  ? 'Y' : 'N' } 
+          >{ users.user3.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3605,7 +3607,7 @@ return (
           onClick={ () => {
             handleClick4(1);    
           }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day1  ? 'Y' : 'N' } 
+          >{ users.user4.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3615,7 +3617,7 @@ return (
           onClick={ () => {
             handleClick5(1);    
           }} className={ users.user5.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day1  ? 'Y' : 'N' } 
+          >{ users.user5.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3625,7 +3627,7 @@ return (
           onClick={ () => {
             handleClick6(1);    
           }} className={ users.user6.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day1  ? 'Y' : 'N' } 
+          >{ users.user6.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3635,7 +3637,7 @@ return (
           onClick={ () => {
             handleClick7(1);    
           }} className={ users.user7.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day1  ? 'Y' : 'N' } 
+          >{ users.user7.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3645,7 +3647,7 @@ return (
           onClick={ () => {
             handleClick8(1);    
           }} className={ users.user8.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day1  ? 'Y' : 'N' } 
+          >{ users.user8.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3655,7 +3657,7 @@ return (
           onClick={ () => {
             handleClick9(1);    
           }} className={ users.user9.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day1  ? 'Y' : 'N' } 
+          >{ users.user9.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3665,7 +3667,7 @@ return (
           onClick={ () => {
             handleClick10(1);    
           }} className={ users.user10.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day1  ? 'Y' : 'N' } 
+          >{ users.user10.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -3680,7 +3682,7 @@ return (
           onClick={ () => {
             handleClick1(2);    
           }} className={ users.user1.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day2  ? 'Y' : 'N' }
+          > { users.user1.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -3690,7 +3692,7 @@ return (
           onClick={ () => {
             handleClick2(2);    
           }} className={ users.user2.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day2  ? 'Y' : 'N' } 
+          >{ users.user2.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3700,7 +3702,7 @@ return (
         onClick={ () => {
           handleClick3(2);    
           }} className={ users.user3.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day2  ? 'Y' : 'N' } 
+          >{ users.user3.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3710,7 +3712,7 @@ return (
           onClick={ () => {
             handleClick4(2);    
           }} className={ users.user4.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day2  ? 'Y' : 'N' } 
+          >{ users.user4.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3720,7 +3722,7 @@ return (
           onClick={ () => {
             handleClick5(2);    
           }} className={ users.user5.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day2  ? 'Y' : 'N' } 
+          >{ users.user5.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3730,7 +3732,7 @@ return (
           onClick={ () => {
             handleClick6(2);    
           }} className={ users.user6.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day2  ? 'Y' : 'N' } 
+          >{ users.user6.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3740,7 +3742,7 @@ return (
           onClick={ () => {
             handleClick7(2);    
           }} className={ users.user7.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day2  ? 'Y' : 'N' } 
+          >{ users.user7.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3750,7 +3752,7 @@ return (
           onClick={ () => {
             handleClick8(2);    
           }} className={ users.user8.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day2  ? 'Y' : 'N' } 
+          >{ users.user8.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3760,7 +3762,7 @@ return (
           onClick={ () => {
             handleClick9(2);    
           }} className={ users.user9.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day2  ? 'Y' : 'N' } 
+          >{ users.user9.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3770,7 +3772,7 @@ return (
           onClick={ () => {
             handleClick10(2);    
           }} className={ users.user10.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day2  ? 'Y' : 'N' } 
+          >{ users.user10.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -3786,7 +3788,7 @@ return (
           onClick={ () => {
             handleClick1(3);    
           }} className={ users.user1.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day3  ? 'Y' : 'N' }
+          > { users.user1.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -3796,7 +3798,7 @@ return (
           onClick={ () => {
             handleClick2(3);    
           }} className={ users.user2.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day3  ? 'Y' : 'N' } 
+          >{ users.user2.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3806,7 +3808,7 @@ return (
         onClick={ () => {
           handleClick3(3);    
           }} className={ users.user3.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day3  ? 'Y' : 'N' } 
+          >{ users.user3.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3816,7 +3818,7 @@ return (
           onClick={ () => {
             handleClick4(3);    
           }} className={ users.user4.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day3  ? 'Y' : 'N' } 
+          >{ users.user4.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3826,7 +3828,7 @@ return (
           onClick={ () => {
             handleClick5(3);    
           }} className={ users.user5.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day3  ? 'Y' : 'N' } 
+          >{ users.user5.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3836,7 +3838,7 @@ return (
           onClick={ () => {
             handleClick6(3);    
           }} className={ users.user6.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day3  ? 'Y' : 'N' } 
+          >{ users.user6.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3846,7 +3848,7 @@ return (
           onClick={ () => {
             handleClick7(3);    
           }} className={ users.user7.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day3  ? 'Y' : 'N' } 
+          >{ users.user7.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3856,7 +3858,7 @@ return (
           onClick={ () => {
             handleClick8(3);    
           }} className={ users.user8.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day3  ? 'Y' : 'N' } 
+          >{ users.user8.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3866,7 +3868,7 @@ return (
           onClick={ () => {
             handleClick9(3);    
           }} className={ users.user9.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day3  ? 'Y' : 'N' } 
+          >{ users.user9.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3876,7 +3878,7 @@ return (
           onClick={ () => {
             handleClick10(3);    
           }} className={ users.user10.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day3  ? 'Y' : 'N' } 
+          >{ users.user10.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -3892,7 +3894,7 @@ return (
           onClick={ () => {
             handleClick1(4);    
           }} className={ users.user1.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day4  ? 'Y' : 'N' }
+          > { users.user1.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -3902,7 +3904,7 @@ return (
           onClick={ () => {
             handleClick2(4);    
           }} className={ users.user2.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day4  ? 'Y' : 'N' } 
+          >{ users.user2.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3912,7 +3914,7 @@ return (
         onClick={ () => {
           handleClick3(4);    
           }} className={ users.user3.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day4  ? 'Y' : 'N' } 
+          >{ users.user3.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3922,7 +3924,7 @@ return (
           onClick={ () => {
             handleClick4(4);    
           }} className={ users.user4.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day4  ? 'Y' : 'N' } 
+          >{ users.user4.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3932,7 +3934,7 @@ return (
           onClick={ () => {
             handleClick5(4);    
           }} className={ users.user5.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day4  ? 'Y' : 'N' } 
+          >{ users.user5.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -3942,7 +3944,7 @@ return (
           onClick={ () => {
             handleClick6(4);    
           }} className={ users.user6.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day4  ? 'Y' : 'N' } 
+          >{ users.user6.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3952,7 +3954,7 @@ return (
           onClick={ () => {
             handleClick7(4);    
           }} className={ users.user7.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day4  ? 'Y' : 'N' } 
+          >{ users.user7.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3962,7 +3964,7 @@ return (
           onClick={ () => {
             handleClick8(4);    
           }} className={ users.user8.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day4  ? 'Y' : 'N' } 
+          >{ users.user8.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3972,7 +3974,7 @@ return (
           onClick={ () => {
             handleClick9(4);    
           }} className={ users.user9.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day4  ? 'Y' : 'N' } 
+          >{ users.user9.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -3982,7 +3984,7 @@ return (
           onClick={ () => {
             handleClick10(4);    
           }} className={ users.user10.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day4  ? 'Y' : 'N' } 
+          >{ users.user10.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -3996,7 +3998,7 @@ return (
           onClick={ () => {
             handleClick1(5);    
           }} className={ users.user1.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day5  ? 'Y' : 'N' }
+          > { users.user1.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4006,7 +4008,7 @@ return (
           onClick={ () => {
             handleClick2(5);    
           }} className={ users.user2.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day5  ? 'Y' : 'N' } 
+          >{ users.user2.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4016,7 +4018,7 @@ return (
         onClick={ () => {
           handleClick3(5);    
           }} className={ users.user3.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day5  ? 'Y' : 'N' } 
+          >{ users.user3.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4026,7 +4028,7 @@ return (
           onClick={ () => {
             handleClick4(5);    
           }} className={ users.user4.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day5  ? 'Y' : 'N' } 
+          >{ users.user4.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4036,7 +4038,7 @@ return (
           onClick={ () => {
             handleClick5(5);    
           }} className={ users.user5.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day5  ? 'Y' : 'N' } 
+          >{ users.user5.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4046,7 +4048,7 @@ return (
           onClick={ () => {
             handleClick6(5);    
           }} className={ users.user6.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day5  ? 'Y' : 'N' } 
+          >{ users.user6.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4056,7 +4058,7 @@ return (
           onClick={ () => {
             handleClick7(5);    
           }} className={ users.user7.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day5  ? 'Y' : 'N' } 
+          >{ users.user7.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4066,7 +4068,7 @@ return (
           onClick={ () => {
             handleClick8(5);    
           }} className={ users.user8.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day5  ? 'Y' : 'N' } 
+          >{ users.user8.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4076,7 +4078,7 @@ return (
           onClick={ () => {
             handleClick9(5);    
           }} className={ users.user9.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day5  ? 'Y' : 'N' } 
+          >{ users.user9.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4086,7 +4088,7 @@ return (
           onClick={ () => {
             handleClick10(5);    
           }} className={ users.user10.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day5  ? 'Y' : 'N' } 
+          >{ users.user10.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4103,7 +4105,7 @@ return (
           onClick={ () => {
             handleClick1(6);    
           }} className={ users.user1.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day6  ? 'Y' : 'N' }
+          > { users.user1.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4113,7 +4115,7 @@ return (
           onClick={ () => {
             handleClick2(6);    
           }} className={ users.user2.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day6  ? 'Y' : 'N' } 
+          >{ users.user2.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4123,7 +4125,7 @@ return (
         onClick={ () => {
           handleClick3(6);    
           }} className={ users.user3.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day6  ? 'Y' : 'N' } 
+          >{ users.user3.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4133,7 +4135,7 @@ return (
           onClick={ () => {
             handleClick4(6);    
           }} className={ users.user4.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day6  ? 'Y' : 'N' } 
+          >{ users.user4.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4143,7 +4145,7 @@ return (
           onClick={ () => {
             handleClick5(6);    
           }} className={ users.user5.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day6  ? 'Y' : 'N' } 
+          >{ users.user5.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4153,7 +4155,7 @@ return (
           onClick={ () => {
             handleClick6(6);    
           }} className={ users.user6.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day6  ? 'Y' : 'N' } 
+          >{ users.user6.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4163,7 +4165,7 @@ return (
           onClick={ () => {
             handleClick7(6);    
           }} className={ users.user7.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day6  ? 'Y' : 'N' } 
+          >{ users.user7.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4173,7 +4175,7 @@ return (
           onClick={ () => {
             handleClick8(6);    
           }} className={ users.user8.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day6  ? 'Y' : 'N' } 
+          >{ users.user8.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4183,7 +4185,7 @@ return (
           onClick={ () => {
             handleClick9(6);    
           }} className={ users.user9.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day6  ? 'Y' : 'N' } 
+          >{ users.user9.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4193,7 +4195,7 @@ return (
           onClick={ () => {
             handleClick10(6);    
           }} className={ users.user10.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day6  ? 'Y' : 'N' } 
+          >{ users.user10.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4209,7 +4211,7 @@ return (
           onClick={ () => {
             handleClick1(7);    
           }} className={ users.user1.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day7  ? 'Y' : 'N' }
+          > { users.user1.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4219,7 +4221,7 @@ return (
           onClick={ () => {
             handleClick2(7);    
           }} className={ users.user2.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day7  ? 'Y' : 'N' } 
+          >{ users.user2.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4229,7 +4231,7 @@ return (
         onClick={ () => {
           handleClick3(7);    
           }} className={ users.user3.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day7  ? 'Y' : 'N' } 
+          >{ users.user3.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4239,7 +4241,7 @@ return (
           onClick={ () => {
             handleClick4(7);    
           }} className={ users.user4.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day7  ? 'Y' : 'N' } 
+          >{ users.user4.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4249,7 +4251,7 @@ return (
           onClick={ () => {
             handleClick5(7);    
           }} className={ users.user5.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day7  ? 'Y' : 'N' } 
+          >{ users.user5.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4259,7 +4261,7 @@ return (
           onClick={ () => {
             handleClick6(7);    
           }} className={ users.user6.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day7  ? 'Y' : 'N' } 
+          >{ users.user6.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4269,7 +4271,7 @@ return (
           onClick={ () => {
             handleClick7(7);    
           }} className={ users.user7.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day7  ? 'Y' : 'N' } 
+          >{ users.user7.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4279,7 +4281,7 @@ return (
           onClick={ () => {
             handleClick8(7);    
           }} className={ users.user8.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day7  ? 'Y' : 'N' } 
+          >{ users.user8.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4289,7 +4291,7 @@ return (
           onClick={ () => {
             handleClick9(7);    
           }} className={ users.user9.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day7  ? 'Y' : 'N' } 
+          >{ users.user9.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4299,7 +4301,7 @@ return (
           onClick={ () => {
             handleClick10(7);    
           }} className={ users.user10.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day7  ? 'Y' : 'N' } 
+          >{ users.user10.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4318,7 +4320,7 @@ return (
           onClick={ () => {
             handleClick1(8);    
           }} className={ users.user1.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day8  ? 'Y' : 'N' }
+          > { users.user1.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4328,7 +4330,7 @@ return (
           onClick={ () => {
             handleClick2(8);    
           }} className={ users.user2.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day8  ? 'Y' : 'N' } 
+          >{ users.user2.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4338,7 +4340,7 @@ return (
         onClick={ () => {
           handleClick3(8);    
           }} className={ users.user3.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day8  ? 'Y' : 'N' } 
+          >{ users.user3.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4348,7 +4350,7 @@ return (
           onClick={ () => {
             handleClick4(8);    
           }} className={ users.user4.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day8  ? 'Y' : 'N' } 
+          >{ users.user4.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4358,7 +4360,7 @@ return (
           onClick={ () => {
             handleClick5(8);    
           }} className={ users.user5.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day8  ? 'Y' : 'N' } 
+          >{ users.user5.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4368,7 +4370,7 @@ return (
           onClick={ () => {
             handleClick6(8);    
           }} className={ users.user6.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day8  ? 'Y' : 'N' } 
+          >{ users.user6.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4378,7 +4380,7 @@ return (
           onClick={ () => {
             handleClick7(8);    
           }} className={ users.user7.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day8  ? 'Y' : 'N' } 
+          >{ users.user7.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4388,7 +4390,7 @@ return (
           onClick={ () => {
             handleClick8(8);    
           }} className={ users.user8.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day8  ? 'Y' : 'N' } 
+          >{ users.user8.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4398,7 +4400,7 @@ return (
           onClick={ () => {
             handleClick9(8);    
           }} className={ users.user9.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day8  ? 'Y' : 'N' } 
+          >{ users.user9.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4408,7 +4410,7 @@ return (
           onClick={ () => {
             handleClick10(8);    
           }} className={ users.user10.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day8  ? 'Y' : 'N' } 
+          >{ users.user10.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4424,7 +4426,7 @@ return (
           onClick={ () => {
             handleClick1(9);    
           }} className={ users.user1.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day9  ? 'Y' : 'N' }
+          > { users.user1.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4434,7 +4436,7 @@ return (
           onClick={ () => {
             handleClick2(9);    
           }} className={ users.user2.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day9  ? 'Y' : 'N' } 
+          >{ users.user2.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4444,7 +4446,7 @@ return (
         onClick={ () => {
           handleClick3(9);    
           }} className={ users.user3.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day9  ? 'Y' : 'N' } 
+          >{ users.user3.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4454,7 +4456,7 @@ return (
           onClick={ () => {
             handleClick4(9);    
           }} className={ users.user4.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day9  ? 'Y' : 'N' } 
+          >{ users.user4.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4464,7 +4466,7 @@ return (
           onClick={ () => {
             handleClick5(9);    
           }} className={ users.user5.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day9  ? 'Y' : 'N' } 
+          >{ users.user5.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4474,7 +4476,7 @@ return (
           onClick={ () => {
             handleClick6(9);    
           }} className={ users.user6.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day9  ? 'Y' : 'N' } 
+          >{ users.user6.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4484,7 +4486,7 @@ return (
           onClick={ () => {
             handleClick7(9);    
           }} className={ users.user7.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day9  ? 'Y' : 'N' } 
+          >{ users.user7.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4494,7 +4496,7 @@ return (
           onClick={ () => {
             handleClick8(9);    
           }} className={ users.user8.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day9  ? 'Y' : 'N' } 
+          >{ users.user8.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4504,7 +4506,7 @@ return (
           onClick={ () => {
             handleClick9(9);    
           }} className={ users.user9.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day9  ? 'Y' : 'N' } 
+          >{ users.user9.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4514,7 +4516,7 @@ return (
           onClick={ () => {
             handleClick10(9);    
           }} className={ users.user10.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day9  ? 'Y' : 'N' } 
+          >{ users.user10.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4530,7 +4532,7 @@ return (
           onClick={ () => {
             handleClick1(10);    
           }} className={ users.user1.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day10  ? 'Y' : 'N' }
+          > { users.user1.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4540,7 +4542,7 @@ return (
           onClick={ () => {
             handleClick2(10);    
           }} className={ users.user2.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day10  ? 'Y' : 'N' } 
+          >{ users.user2.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4550,7 +4552,7 @@ return (
         onClick={ () => {
           handleClick3(10);    
           }} className={ users.user3.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day10  ? 'Y' : 'N' } 
+          >{ users.user3.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4560,7 +4562,7 @@ return (
           onClick={ () => {
             handleClick4(10);    
           }} className={ users.user4.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day10  ? 'Y' : 'N' } 
+          >{ users.user4.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4570,7 +4572,7 @@ return (
           onClick={ () => {
             handleClick5(10);    
           }} className={ users.user5.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day10  ? 'Y' : 'N' } 
+          >{ users.user5.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4580,7 +4582,7 @@ return (
           onClick={ () => {
             handleClick6(10);    
           }} className={ users.user6.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day10  ? 'Y' : 'N' } 
+          >{ users.user6.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4590,7 +4592,7 @@ return (
           onClick={ () => {
             handleClick7(10);    
           }} className={ users.user7.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day10  ? 'Y' : 'N' } 
+          >{ users.user7.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4600,7 +4602,7 @@ return (
           onClick={ () => {
             handleClick8(10);    
           }} className={ users.user8.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day10  ? 'Y' : 'N' } 
+          >{ users.user8.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4610,7 +4612,7 @@ return (
           onClick={ () => {
             handleClick9(10);    
           }} className={ users.user9.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day10  ? 'Y' : 'N' } 
+          >{ users.user9.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4620,7 +4622,7 @@ return (
           onClick={ () => {
             handleClick10(10);    
           }} className={ users.user10.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day10  ? 'Y' : 'N' } 
+          >{ users.user10.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4636,7 +4638,7 @@ return (
           onClick={ () => {
             handleClick1(11);    
           }} className={ users.user1.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day11  ? 'Y' : 'N' }
+          > { users.user1.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4646,7 +4648,7 @@ return (
           onClick={ () => {
             handleClick2(11);    
           }} className={ users.user2.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day11  ? 'Y' : 'N' } 
+          >{ users.user2.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4656,7 +4658,7 @@ return (
         onClick={ () => {
           handleClick3(11);    
           }} className={ users.user3.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day11  ? 'Y' : 'N' } 
+          >{ users.user3.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4666,7 +4668,7 @@ return (
           onClick={ () => {
             handleClick4(11);    
           }} className={ users.user4.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day11  ? 'Y' : 'N' } 
+          >{ users.user4.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4676,7 +4678,7 @@ return (
           onClick={ () => {
             handleClick5(11);    
           }} className={ users.user5.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day11  ? 'Y' : 'N' } 
+          >{ users.user5.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4686,7 +4688,7 @@ return (
           onClick={ () => {
             handleClick6(11);    
           }} className={ users.user6.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day11  ? 'Y' : 'N' } 
+          >{ users.user6.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4696,7 +4698,7 @@ return (
           onClick={ () => {
             handleClick7(11);    
           }} className={ users.user7.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day11  ? 'Y' : 'N' } 
+          >{ users.user7.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4706,7 +4708,7 @@ return (
           onClick={ () => {
             handleClick8(11);    
           }} className={ users.user8.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day11  ? 'Y' : 'N' } 
+          >{ users.user8.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4716,7 +4718,7 @@ return (
           onClick={ () => {
             handleClick9(11);    
           }} className={ users.user9.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day11  ? 'Y' : 'N' } 
+          >{ users.user9.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4726,7 +4728,7 @@ return (
           onClick={ () => {
             handleClick10(11);    
           }} className={ users.user10.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day11  ? 'Y' : 'N' } 
+          >{ users.user10.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4742,7 +4744,7 @@ return (
           onClick={ () => {
             handleClick1(12);    
           }} className={ users.user1.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day12  ? 'Y' : 'N' }
+          > { users.user1.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4752,7 +4754,7 @@ return (
           onClick={ () => {
             handleClick2(12);    
           }} className={ users.user2.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day12  ? 'Y' : 'N' } 
+          >{ users.user2.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4762,7 +4764,7 @@ return (
         onClick={ () => {
           handleClick3(12);    
           }} className={ users.user3.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day12  ? 'Y' : 'N' } 
+          >{ users.user3.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4772,7 +4774,7 @@ return (
           onClick={ () => {
             handleClick4(12);    
           }} className={ users.user4.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day12  ? 'Y' : 'N' } 
+          >{ users.user4.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4782,7 +4784,7 @@ return (
           onClick={ () => {
             handleClick5(12);    
           }} className={ users.user5.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day12  ? 'Y' : 'N' } 
+          >{ users.user5.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4792,7 +4794,7 @@ return (
           onClick={ () => {
             handleClick6(12);    
           }} className={ users.user6.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day12  ? 'Y' : 'N' } 
+          >{ users.user6.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4802,7 +4804,7 @@ return (
           onClick={ () => {
             handleClick7(12);    
           }} className={ users.user7.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day12  ? 'Y' : 'N' } 
+          >{ users.user7.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4812,7 +4814,7 @@ return (
           onClick={ () => {
             handleClick8(12);    
           }} className={ users.user8.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day12  ? 'Y' : 'N' } 
+          >{ users.user8.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4822,7 +4824,7 @@ return (
           onClick={ () => {
             handleClick9(12);    
           }} className={ users.user9.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day12  ? 'Y' : 'N' } 
+          >{ users.user9.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4832,7 +4834,7 @@ return (
           onClick={ () => {
             handleClick10(12);    
           }} className={ users.user10.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day12  ? 'Y' : 'N' } 
+          >{ users.user10.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4848,7 +4850,7 @@ return (
           onClick={ () => {
             handleClick1(13);    
           }} className={ users.user1.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day13  ? 'Y' : 'N' }
+          > { users.user1.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4858,7 +4860,7 @@ return (
           onClick={ () => {
             handleClick2(13);    
           }} className={ users.user2.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day13  ? 'Y' : 'N' } 
+          >{ users.user2.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4868,7 +4870,7 @@ return (
         onClick={ () => {
           handleClick3(13);    
           }} className={ users.user3.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day13  ? 'Y' : 'N' } 
+          >{ users.user3.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4878,7 +4880,7 @@ return (
           onClick={ () => {
             handleClick4(13);    
           }} className={ users.user4.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day13  ? 'Y' : 'N' } 
+          >{ users.user4.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4888,7 +4890,7 @@ return (
           onClick={ () => {
             handleClick5(13);    
           }} className={ users.user5.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day13  ? 'Y' : 'N' } 
+          >{ users.user5.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4898,7 +4900,7 @@ return (
           onClick={ () => {
             handleClick6(13);    
           }} className={ users.user6.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day13  ? 'Y' : 'N' } 
+          >{ users.user6.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4908,7 +4910,7 @@ return (
           onClick={ () => {
             handleClick7(13);    
           }} className={ users.user7.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day13  ? 'Y' : 'N' } 
+          >{ users.user7.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4918,7 +4920,7 @@ return (
           onClick={ () => {
             handleClick8(13);    
           }} className={ users.user8.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day13  ? 'Y' : 'N' } 
+          >{ users.user8.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4928,7 +4930,7 @@ return (
           onClick={ () => {
             handleClick9(13);    
           }} className={ users.user9.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day13  ? 'Y' : 'N' } 
+          >{ users.user9.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -4938,7 +4940,7 @@ return (
           onClick={ () => {
             handleClick10(13);    
           }} className={ users.user10.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day13  ? 'Y' : 'N' } 
+          >{ users.user10.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -4954,7 +4956,7 @@ return (
           onClick={ () => {
             handleClick1(14);    
           }} className={ users.user1.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day14  ? 'Y' : 'N' }
+          > { users.user1.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -4964,7 +4966,7 @@ return (
           onClick={ () => {
             handleClick2(14);    
           }} className={ users.user2.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day14  ? 'Y' : 'N' } 
+          >{ users.user2.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4974,7 +4976,7 @@ return (
         onClick={ () => {
           handleClick3(14);    
           }} className={ users.user3.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day14  ? 'Y' : 'N' } 
+          >{ users.user3.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4984,7 +4986,7 @@ return (
           onClick={ () => {
             handleClick4(14);    
           }} className={ users.user4.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day14  ? 'Y' : 'N' } 
+          >{ users.user4.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -4994,7 +4996,7 @@ return (
           onClick={ () => {
             handleClick5(14);    
           }} className={ users.user5.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day14  ? 'Y' : 'N' } 
+          >{ users.user5.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5004,7 +5006,7 @@ return (
           onClick={ () => {
             handleClick6(14);    
           }} className={ users.user6.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day14  ? 'Y' : 'N' } 
+          >{ users.user6.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5014,7 +5016,7 @@ return (
           onClick={ () => {
             handleClick7(14);    
           }} className={ users.user7.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day14  ? 'Y' : 'N' } 
+          >{ users.user7.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5024,7 +5026,7 @@ return (
           onClick={ () => {
             handleClick8(14);    
           }} className={ users.user8.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day14  ? 'Y' : 'N' } 
+          >{ users.user8.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5034,7 +5036,7 @@ return (
           onClick={ () => {
             handleClick9(14);    
           }} className={ users.user9.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day14  ? 'Y' : 'N' } 
+          >{ users.user9.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5044,7 +5046,7 @@ return (
           onClick={ () => {
             handleClick10(14);    
           }} className={ users.user10.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day14  ? 'Y' : 'N' } 
+          >{ users.user10.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5060,7 +5062,7 @@ return (
           onClick={ () => {
             handleClick1(15);    
           }} className={ users.user1.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day15  ? 'Y' : 'N' }
+          > { users.user1.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5070,7 +5072,7 @@ return (
           onClick={ () => {
             handleClick2(15);    
           }} className={ users.user2.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day15  ? 'Y' : 'N' } 
+          >{ users.user2.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5080,7 +5082,7 @@ return (
         onClick={ () => {
           handleClick3(15);    
           }} className={ users.user3.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day15  ? 'Y' : 'N' } 
+          >{ users.user3.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5090,7 +5092,7 @@ return (
           onClick={ () => {
             handleClick4(15);    
           }} className={ users.user4.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day15  ? 'Y' : 'N' } 
+          >{ users.user4.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5100,7 +5102,7 @@ return (
           onClick={ () => {
             handleClick5(15);    
           }} className={ users.user5.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day15  ? 'Y' : 'N' } 
+          >{ users.user5.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5110,7 +5112,7 @@ return (
           onClick={ () => {
             handleClick6(15);    
           }} className={ users.user6.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day15  ? 'Y' : 'N' } 
+          >{ users.user6.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5120,7 +5122,7 @@ return (
           onClick={ () => {
             handleClick7(15);    
           }} className={ users.user7.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day15  ? 'Y' : 'N' } 
+          >{ users.user7.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5130,7 +5132,7 @@ return (
           onClick={ () => {
             handleClick8(15);    
           }} className={ users.user8.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day15  ? 'Y' : 'N' } 
+          >{ users.user8.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5140,7 +5142,7 @@ return (
           onClick={ () => {
             handleClick9(15);    
           }} className={ users.user9.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day15  ? 'Y' : 'N' } 
+          >{ users.user9.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5150,7 +5152,7 @@ return (
           onClick={ () => {
             handleClick10(15);    
           }} className={ users.user10.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day15  ? 'Y' : 'N' } 
+          >{ users.user10.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5166,7 +5168,7 @@ return (
           onClick={ () => {
             handleClick1(16);    
           }} className={ users.user1.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day16  ? 'Y' : 'N' }
+          > { users.user1.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5176,7 +5178,7 @@ return (
           onClick={ () => {
             handleClick2(16);    
           }} className={ users.user2.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day16  ? 'Y' : 'N' } 
+          >{ users.user2.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5186,7 +5188,7 @@ return (
         onClick={ () => {
           handleClick3(16);    
           }} className={ users.user3.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day16  ? 'Y' : 'N' } 
+          >{ users.user3.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5196,7 +5198,7 @@ return (
           onClick={ () => {
             handleClick4(16);    
           }} className={ users.user4.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day16  ? 'Y' : 'N' } 
+          >{ users.user4.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5206,7 +5208,7 @@ return (
           onClick={ () => {
             handleClick5(16);    
           }} className={ users.user5.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day16  ? 'Y' : 'N' } 
+          >{ users.user5.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5216,7 +5218,7 @@ return (
           onClick={ () => {
             handleClick6(16);    
           }} className={ users.user6.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day16  ? 'Y' : 'N' } 
+          >{ users.user6.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5226,7 +5228,7 @@ return (
           onClick={ () => {
             handleClick7(16);    
           }} className={ users.user7.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day16  ? 'Y' : 'N' } 
+          >{ users.user7.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5236,7 +5238,7 @@ return (
           onClick={ () => {
             handleClick8(16);    
           }} className={ users.user8.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day16  ? 'Y' : 'N' } 
+          >{ users.user8.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5246,7 +5248,7 @@ return (
           onClick={ () => {
             handleClick9(16);    
           }} className={ users.user9.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day16  ? 'Y' : 'N' } 
+          >{ users.user9.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5256,7 +5258,7 @@ return (
           onClick={ () => {
             handleClick10(16);    
           }} className={ users.user10.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day16  ? 'Y' : 'N' } 
+          >{ users.user10.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5272,7 +5274,7 @@ return (
           onClick={ () => {
             handleClick1(17);    
           }} className={ users.user1.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day17  ? 'Y' : 'N' }
+          > { users.user1.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5282,7 +5284,7 @@ return (
           onClick={ () => {
             handleClick2(17);    
           }} className={ users.user2.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day17  ? 'Y' : 'N' } 
+          >{ users.user2.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5292,7 +5294,7 @@ return (
         onClick={ () => {
           handleClick3(17);    
           }} className={ users.user3.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day17  ? 'Y' : 'N' } 
+          >{ users.user3.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5302,7 +5304,7 @@ return (
           onClick={ () => {
             handleClick4(17);    
           }} className={ users.user4.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day17  ? 'Y' : 'N' } 
+          >{ users.user4.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5312,7 +5314,7 @@ return (
           onClick={ () => {
             handleClick5(17);    
           }} className={ users.user5.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day17  ? 'Y' : 'N' } 
+          >{ users.user5.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5322,7 +5324,7 @@ return (
           onClick={ () => {
             handleClick6(17);    
           }} className={ users.user6.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day17  ? 'Y' : 'N' } 
+          >{ users.user6.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5332,7 +5334,7 @@ return (
           onClick={ () => {
             handleClick7(17);    
           }} className={ users.user7.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day17  ? 'Y' : 'N' } 
+          >{ users.user7.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5342,7 +5344,7 @@ return (
           onClick={ () => {
             handleClick8(17);    
           }} className={ users.user8.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day17  ? 'Y' : 'N' } 
+          >{ users.user8.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5352,7 +5354,7 @@ return (
           onClick={ () => {
             handleClick9(17);    
           }} className={ users.user9.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day17  ? 'Y' : 'N' } 
+          >{ users.user9.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5362,7 +5364,7 @@ return (
           onClick={ () => {
             handleClick10(17);    
           }} className={ users.user10.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day17  ? 'Y' : 'N' } 
+          >{ users.user10.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5378,7 +5380,7 @@ return (
           onClick={ () => {
             handleClick1(18);    
           }} className={ users.user1.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day18  ? 'Y' : 'N' }
+          > { users.user1.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5388,7 +5390,7 @@ return (
           onClick={ () => {
             handleClick2(18);    
           }} className={ users.user2.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day18  ? 'Y' : 'N' } 
+          >{ users.user2.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5398,7 +5400,7 @@ return (
         onClick={ () => {
           handleClick3(18);    
           }} className={ users.user3.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day18  ? 'Y' : 'N' } 
+          >{ users.user3.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5408,7 +5410,7 @@ return (
           onClick={ () => {
             handleClick4(18);    
           }} className={ users.user4.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day18  ? 'Y' : 'N' } 
+          >{ users.user4.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5418,7 +5420,7 @@ return (
           onClick={ () => {
             handleClick5(18);    
           }} className={ users.user5.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day18  ? 'Y' : 'N' } 
+          >{ users.user5.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5428,7 +5430,7 @@ return (
           onClick={ () => {
             handleClick6(18);    
           }} className={ users.user6.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day18  ? 'Y' : 'N' } 
+          >{ users.user6.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5438,7 +5440,7 @@ return (
           onClick={ () => {
             handleClick7(18);    
           }} className={ users.user7.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day18  ? 'Y' : 'N' } 
+          >{ users.user7.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5448,7 +5450,7 @@ return (
           onClick={ () => {
             handleClick8(18);    
           }} className={ users.user8.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day18  ? 'Y' : 'N' } 
+          >{ users.user8.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5458,7 +5460,7 @@ return (
           onClick={ () => {
             handleClick9(18);    
           }} className={ users.user9.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day18  ? 'Y' : 'N' } 
+          >{ users.user9.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5468,7 +5470,7 @@ return (
           onClick={ () => {
             handleClick10(18);    
           }} className={ users.user10.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day18  ? 'Y' : 'N' } 
+          >{ users.user10.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5484,7 +5486,7 @@ return (
           onClick={ () => {
             handleClick1(19);    
           }} className={ users.user1.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day19  ? 'Y' : 'N' }
+          > { users.user1.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5494,7 +5496,7 @@ return (
           onClick={ () => {
             handleClick2(19);    
           }} className={ users.user2.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day19  ? 'Y' : 'N' } 
+          >{ users.user2.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5504,7 +5506,7 @@ return (
         onClick={ () => {
           handleClick3(19);    
           }} className={ users.user3.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day19  ? 'Y' : 'N' } 
+          >{ users.user3.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5514,7 +5516,7 @@ return (
           onClick={ () => {
             handleClick4(19);    
           }} className={ users.user4.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day19  ? 'Y' : 'N' } 
+          >{ users.user4.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5524,7 +5526,7 @@ return (
           onClick={ () => {
             handleClick5(19);    
           }} className={ users.user5.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day19  ? 'Y' : 'N' } 
+          >{ users.user5.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5534,7 +5536,7 @@ return (
           onClick={ () => {
             handleClick6(19);    
           }} className={ users.user6.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day19  ? 'Y' : 'N' } 
+          >{ users.user6.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5544,7 +5546,7 @@ return (
           onClick={ () => {
             handleClick7(19);    
           }} className={ users.user7.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day19  ? 'Y' : 'N' } 
+          >{ users.user7.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5554,7 +5556,7 @@ return (
           onClick={ () => {
             handleClick8(19);    
           }} className={ users.user8.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day19  ? 'Y' : 'N' } 
+          >{ users.user8.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5564,7 +5566,7 @@ return (
           onClick={ () => {
             handleClick9(19);    
           }} className={ users.user9.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day19  ? 'Y' : 'N' } 
+          >{ users.user9.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5574,7 +5576,7 @@ return (
           onClick={ () => {
             handleClick10(19);    
           }} className={ users.user10.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day19  ? 'Y' : 'N' } 
+          >{ users.user10.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5590,7 +5592,7 @@ return (
           onClick={ () => {
             handleClick1(20);    
           }} className={ users.user1.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day20  ? 'Y' : 'N' }
+          > { users.user1.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5600,7 +5602,7 @@ return (
           onClick={ () => {
             handleClick2(20);    
           }} className={ users.user2.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day20  ? 'Y' : 'N' } 
+          >{ users.user2.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5610,7 +5612,7 @@ return (
         onClick={ () => {
           handleClick3(20);    
           }} className={ users.user3.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day20  ? 'Y' : 'N' } 
+          >{ users.user3.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5620,7 +5622,7 @@ return (
           onClick={ () => {
             handleClick4(20);    
           }} className={ users.user4.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day20  ? 'Y' : 'N' } 
+          >{ users.user4.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5630,7 +5632,7 @@ return (
           onClick={ () => {
             handleClick5(20);    
           }} className={ users.user5.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day20  ? 'Y' : 'N' } 
+          >{ users.user5.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5640,7 +5642,7 @@ return (
           onClick={ () => {
             handleClick6(20);    
           }} className={ users.user6.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day20  ? 'Y' : 'N' } 
+          >{ users.user6.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5650,7 +5652,7 @@ return (
           onClick={ () => {
             handleClick7(20);    
           }} className={ users.user7.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day20  ? 'Y' : 'N' } 
+          >{ users.user7.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5660,7 +5662,7 @@ return (
           onClick={ () => {
             handleClick8(20);    
           }} className={ users.user8.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day20  ? 'Y' : 'N' } 
+          >{ users.user8.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5670,7 +5672,7 @@ return (
           onClick={ () => {
             handleClick9(20);    
           }} className={ users.user9.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day20  ? 'Y' : 'N' } 
+          >{ users.user9.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5680,7 +5682,7 @@ return (
           onClick={ () => {
             handleClick10(20);    
           }} className={ users.user10.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day20  ? 'Y' : 'N' } 
+          >{ users.user10.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5696,7 +5698,7 @@ return (
           onClick={ () => {
             handleClick1(21);    
           }} className={ users.user1.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day21  ? 'Y' : 'N' }
+          > { users.user1.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5706,7 +5708,7 @@ return (
           onClick={ () => {
             handleClick2(21);    
           }} className={ users.user2.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day21  ? 'Y' : 'N' } 
+          >{ users.user2.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5716,7 +5718,7 @@ return (
         onClick={ () => {
           handleClick3(21);    
           }} className={ users.user3.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day21  ? 'Y' : 'N' } 
+          >{ users.user3.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5726,7 +5728,7 @@ return (
           onClick={ () => {
             handleClick4(21);    
           }} className={ users.user4.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day21  ? 'Y' : 'N' } 
+          >{ users.user4.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5736,7 +5738,7 @@ return (
           onClick={ () => {
             handleClick5(21);    
           }} className={ users.user5.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day21  ? 'Y' : 'N' } 
+          >{ users.user5.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5746,7 +5748,7 @@ return (
           onClick={ () => {
             handleClick6(21);    
           }} className={ users.user6.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day21  ? 'Y' : 'N' } 
+          >{ users.user6.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5756,7 +5758,7 @@ return (
           onClick={ () => {
             handleClick7(21);    
           }} className={ users.user7.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day21  ? 'Y' : 'N' } 
+          >{ users.user7.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5766,7 +5768,7 @@ return (
           onClick={ () => {
             handleClick8(21);    
           }} className={ users.user8.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day21  ? 'Y' : 'N' } 
+          >{ users.user8.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5776,7 +5778,7 @@ return (
           onClick={ () => {
             handleClick9(21);    
           }} className={ users.user9.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day21  ? 'Y' : 'N' } 
+          >{ users.user9.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5786,7 +5788,7 @@ return (
           onClick={ () => {
             handleClick10(21);    
           }} className={ users.user10.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day21  ? 'Y' : 'N' } 
+          >{ users.user10.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5802,7 +5804,7 @@ return (
           onClick={ () => {
             handleClick1(22);    
           }} className={ users.user1.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day22  ? 'Y' : 'N' }
+          > { users.user1.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5812,7 +5814,7 @@ return (
           onClick={ () => {
             handleClick2(22);    
           }} className={ users.user2.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day22  ? 'Y' : 'N' } 
+          >{ users.user2.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5822,7 +5824,7 @@ return (
         onClick={ () => {
           handleClick3(22);    
           }} className={ users.user3.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day22  ? 'Y' : 'N' } 
+          >{ users.user3.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5832,7 +5834,7 @@ return (
           onClick={ () => {
             handleClick4(22);    
           }} className={ users.user4.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day22  ? 'Y' : 'N' } 
+          >{ users.user4.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5842,7 +5844,7 @@ return (
           onClick={ () => {
             handleClick5(22);    
           }} className={ users.user5.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day22  ? 'Y' : 'N' } 
+          >{ users.user5.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5852,7 +5854,7 @@ return (
           onClick={ () => {
             handleClick6(22);    
           }} className={ users.user6.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day22  ? 'Y' : 'N' } 
+          >{ users.user6.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5862,7 +5864,7 @@ return (
           onClick={ () => {
             handleClick7(22);    
           }} className={ users.user7.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day22  ? 'Y' : 'N' } 
+          >{ users.user7.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5872,7 +5874,7 @@ return (
           onClick={ () => {
             handleClick8(22);    
           }} className={ users.user8.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day22  ? 'Y' : 'N' } 
+          >{ users.user8.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5882,7 +5884,7 @@ return (
           onClick={ () => {
             handleClick9(22);    
           }} className={ users.user9.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day22  ? 'Y' : 'N' } 
+          >{ users.user9.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5892,7 +5894,7 @@ return (
           onClick={ () => {
             handleClick10(22);    
           }} className={ users.user10.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day22  ? 'Y' : 'N' } 
+          >{ users.user10.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -5908,7 +5910,7 @@ return (
           onClick={ () => {
             handleClick1(23);    
           }} className={ users.user1.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day23  ? 'Y' : 'N' }
+          > { users.user1.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -5918,7 +5920,7 @@ return (
           onClick={ () => {
             handleClick2(23);    
           }} className={ users.user2.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day23  ? 'Y' : 'N' } 
+          >{ users.user2.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5928,7 +5930,7 @@ return (
         onClick={ () => {
           handleClick3(23);    
           }} className={ users.user3.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day23  ? 'Y' : 'N' } 
+          >{ users.user3.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5938,7 +5940,7 @@ return (
           onClick={ () => {
             handleClick4(23);    
           }} className={ users.user4.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day23  ? 'Y' : 'N' } 
+          >{ users.user4.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5948,7 +5950,7 @@ return (
           onClick={ () => {
             handleClick5(23);    
           }} className={ users.user5.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day23  ? 'Y' : 'N' } 
+          >{ users.user5.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -5958,7 +5960,7 @@ return (
           onClick={ () => {
             handleClick6(23);    
           }} className={ users.user6.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day23  ? 'Y' : 'N' } 
+          >{ users.user6.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5968,7 +5970,7 @@ return (
           onClick={ () => {
             handleClick7(23);    
           }} className={ users.user7.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day23  ? 'Y' : 'N' } 
+          >{ users.user7.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5978,7 +5980,7 @@ return (
           onClick={ () => {
             handleClick8(23);    
           }} className={ users.user8.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day23  ? 'Y' : 'N' } 
+          >{ users.user8.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5988,7 +5990,7 @@ return (
           onClick={ () => {
             handleClick9(23);    
           }} className={ users.user9.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day23  ? 'Y' : 'N' } 
+          >{ users.user9.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -5998,7 +6000,7 @@ return (
           onClick={ () => {
             handleClick10(23);    
           }} className={ users.user10.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day23  ? 'Y' : 'N' } 
+          >{ users.user10.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6014,7 +6016,7 @@ return (
           onClick={ () => {
             handleClick1(24);    
           }} className={ users.user1.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day24  ? 'Y' : 'N' }
+          > { users.user1.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -6024,7 +6026,7 @@ return (
           onClick={ () => {
             handleClick2(24);    
           }} className={ users.user2.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day24  ? 'Y' : 'N' } 
+          >{ users.user2.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6034,7 +6036,7 @@ return (
         onClick={ () => {
           handleClick3(24);    
           }} className={ users.user3.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day24  ? 'Y' : 'N' } 
+          >{ users.user3.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6044,7 +6046,7 @@ return (
           onClick={ () => {
             handleClick4(24);    
           }} className={ users.user4.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day24  ? 'Y' : 'N' } 
+          >{ users.user4.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6054,7 +6056,7 @@ return (
           onClick={ () => {
             handleClick5(24);    
           }} className={ users.user5.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day24  ? 'Y' : 'N' } 
+          >{ users.user5.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6064,7 +6066,7 @@ return (
           onClick={ () => {
             handleClick6(24);    
           }} className={ users.user6.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day24  ? 'Y' : 'N' } 
+          >{ users.user6.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6074,7 +6076,7 @@ return (
           onClick={ () => {
             handleClick7(24);    
           }} className={ users.user7.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day24  ? 'Y' : 'N' } 
+          >{ users.user7.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6084,7 +6086,7 @@ return (
           onClick={ () => {
             handleClick8(24);    
           }} className={ users.user8.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day24  ? 'Y' : 'N' } 
+          >{ users.user8.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6094,7 +6096,7 @@ return (
           onClick={ () => {
             handleClick9(24);    
           }} className={ users.user9.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day24  ? 'Y' : 'N' } 
+          >{ users.user9.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6104,7 +6106,7 @@ return (
           onClick={ () => {
             handleClick10(24);    
           }} className={ users.user10.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day24  ? 'Y' : 'N' } 
+          >{ users.user10.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6120,7 +6122,7 @@ return (
           onClick={ () => {
             handleClick1(25);    
           }} className={ users.user1.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day25  ? 'Y' : 'N' }
+          > { users.user1.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -6130,7 +6132,7 @@ return (
           onClick={ () => {
             handleClick2(25);    
           }} className={ users.user2.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day25  ? 'Y' : 'N' } 
+          >{ users.user2.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6140,7 +6142,7 @@ return (
         onClick={ () => {
           handleClick3(25);    
           }} className={ users.user3.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day25  ? 'Y' : 'N' } 
+          >{ users.user3.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6150,7 +6152,7 @@ return (
           onClick={ () => {
             handleClick4(25);    
           }} className={ users.user4.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day25  ? 'Y' : 'N' } 
+          >{ users.user4.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6160,7 +6162,7 @@ return (
           onClick={ () => {
             handleClick5(25);    
           }} className={ users.user5.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day25  ? 'Y' : 'N' } 
+          >{ users.user5.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6170,7 +6172,7 @@ return (
           onClick={ () => {
             handleClick6(25);    
           }} className={ users.user6.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day25  ? 'Y' : 'N' } 
+          >{ users.user6.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6180,7 +6182,7 @@ return (
           onClick={ () => {
             handleClick7(25);    
           }} className={ users.user7.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day25  ? 'Y' : 'N' } 
+          >{ users.user7.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6190,7 +6192,7 @@ return (
           onClick={ () => {
             handleClick8(25);    
           }} className={ users.user8.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day25  ? 'Y' : 'N' } 
+          >{ users.user8.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6200,7 +6202,7 @@ return (
           onClick={ () => {
             handleClick9(25);    
           }} className={ users.user9.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day25  ? 'Y' : 'N' } 
+          >{ users.user9.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6210,7 +6212,7 @@ return (
           onClick={ () => {
             handleClick10(25);    
           }} className={ users.user10.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day25  ? 'Y' : 'N' } 
+          >{ users.user10.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6226,7 +6228,7 @@ return (
           onClick={ () => {
             handleClick1(26);    
           }} className={ users.user1.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day26  ? 'Y' : 'N' }
+          > { users.user1.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -6236,7 +6238,7 @@ return (
           onClick={ () => {
             handleClick2(26);    
           }} className={ users.user2.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day26  ? 'Y' : 'N' } 
+          >{ users.user2.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6246,7 +6248,7 @@ return (
         onClick={ () => {
           handleClick3(26);    
           }} className={ users.user3.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day26  ? 'Y' : 'N' } 
+          >{ users.user3.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6256,7 +6258,7 @@ return (
           onClick={ () => {
             handleClick4(26);    
           }} className={ users.user4.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day26  ? 'Y' : 'N' } 
+          >{ users.user4.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6266,7 +6268,7 @@ return (
           onClick={ () => {
             handleClick5(26);    
           }} className={ users.user5.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day26  ? 'Y' : 'N' } 
+          >{ users.user5.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6276,7 +6278,7 @@ return (
           onClick={ () => {
             handleClick6(26);    
           }} className={ users.user6.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day26  ? 'Y' : 'N' } 
+          >{ users.user6.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6286,7 +6288,7 @@ return (
           onClick={ () => {
             handleClick7(26);    
           }} className={ users.user7.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day26  ? 'Y' : 'N' } 
+          >{ users.user7.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6296,7 +6298,7 @@ return (
           onClick={ () => {
             handleClick8(26);    
           }} className={ users.user8.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day26  ? 'Y' : 'N' } 
+          >{ users.user8.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6306,7 +6308,7 @@ return (
           onClick={ () => {
             handleClick9(26);    
           }} className={ users.user9.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day26  ? 'Y' : 'N' } 
+          >{ users.user9.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6316,7 +6318,7 @@ return (
           onClick={ () => {
             handleClick10(26);    
           }} className={ users.user10.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day26  ? 'Y' : 'N' } 
+          >{ users.user10.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6332,7 +6334,7 @@ return (
           onClick={ () => {
             handleClick1(27);    
           }} className={ users.user1.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day27  ? 'Y' : 'N' }
+          > { users.user1.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -6342,7 +6344,7 @@ return (
           onClick={ () => {
             handleClick2(27);    
           }} className={ users.user2.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day27  ? 'Y' : 'N' } 
+          >{ users.user2.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6352,7 +6354,7 @@ return (
         onClick={ () => {
           handleClick3(27);    
           }} className={ users.user3.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day27  ? 'Y' : 'N' } 
+          >{ users.user3.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6362,7 +6364,7 @@ return (
           onClick={ () => {
             handleClick4(27);    
           }} className={ users.user4.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day27  ? 'Y' : 'N' } 
+          >{ users.user4.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6372,7 +6374,7 @@ return (
           onClick={ () => {
             handleClick5(27);    
           }} className={ users.user5.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day27  ? 'Y' : 'N' } 
+          >{ users.user5.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6382,7 +6384,7 @@ return (
           onClick={ () => {
             handleClick6(27);    
           }} className={ users.user6.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day27  ? 'Y' : 'N' } 
+          >{ users.user6.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6392,7 +6394,7 @@ return (
           onClick={ () => {
             handleClick7(27);    
           }} className={ users.user7.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day27  ? 'Y' : 'N' } 
+          >{ users.user7.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6402,7 +6404,7 @@ return (
           onClick={ () => {
             handleClick8(27);    
           }} className={ users.user8.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day27  ? 'Y' : 'N' } 
+          >{ users.user8.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6412,7 +6414,7 @@ return (
           onClick={ () => {
             handleClick9(27);    
           }} className={ users.user9.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day27  ? 'Y' : 'N' } 
+          >{ users.user9.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6422,7 +6424,7 @@ return (
           onClick={ () => {
             handleClick10(27);    
           }} className={ users.user10.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day27  ? 'Y' : 'N' } 
+          >{ users.user10.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6438,7 +6440,7 @@ return (
           onClick={ () => {
             handleClick1(28);    
           }} className={ users.user1.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day28  ? 'Y' : 'N' }
+          > { users.user1.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
           </button>     
         </td>
 
@@ -6448,7 +6450,7 @@ return (
           onClick={ () => {
             handleClick2(28);    
           }} className={ users.user2.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day28  ? 'Y' : 'N' } 
+          >{ users.user2.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6458,7 +6460,7 @@ return (
         onClick={ () => {
           handleClick3(28);    
           }} className={ users.user3.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day28  ? 'Y' : 'N' } 
+          >{ users.user3.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6468,7 +6470,7 @@ return (
           onClick={ () => {
             handleClick4(28);    
           }} className={ users.user4.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day28  ? 'Y' : 'N' } 
+          >{ users.user4.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6478,7 +6480,7 @@ return (
           onClick={ () => {
             handleClick5(28);    
           }} className={ users.user5.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day28  ? 'Y' : 'N' } 
+          >{ users.user5.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
 
@@ -6488,7 +6490,7 @@ return (
           onClick={ () => {
             handleClick6(28);    
           }} className={ users.user6.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day28  ? 'Y' : 'N' } 
+          >{ users.user6.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6498,7 +6500,7 @@ return (
           onClick={ () => {
             handleClick7(28);    
           }} className={ users.user7.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day28  ? 'Y' : 'N' } 
+          >{ users.user7.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6508,7 +6510,7 @@ return (
           onClick={ () => {
             handleClick8(28);    
           }} className={ users.user8.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day28  ? 'Y' : 'N' } 
+          >{ users.user8.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6518,7 +6520,7 @@ return (
           onClick={ () => {
             handleClick9(28);    
           }} className={ users.user9.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day28  ? 'Y' : 'N' } 
+          >{ users.user9.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
         
@@ -6528,7 +6530,7 @@ return (
           onClick={ () => {
             handleClick10(28);    
           }} className={ users.user10.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day28  ? 'Y' : 'N' } 
+          >{ users.user10.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
           </button>     
         </td>
     </tr>
@@ -6548,7 +6550,7 @@ return (
           onClick={ () => {
               handleClick1(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user1.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user1.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user1.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6557,7 +6559,7 @@ return (
           onClick={ () => {
               handleClick2(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user2.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user2.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user2.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6566,7 +6568,7 @@ return (
           onClick={ () => {
               handleClick3(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user3.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user3.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user3.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6575,7 +6577,7 @@ return (
           onClick={ () => {
               handleClick4(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user4.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user4.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user4.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6584,7 +6586,7 @@ return (
           onClick={ () => {
               handleClick5(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user5.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user5.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user5.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6593,7 +6595,7 @@ return (
           onClick={ () => {
               handleClick6(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user6.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user6.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user6.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6602,7 +6604,7 @@ return (
           onClick={ () => {
               handleClick7(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user7.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user7.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user7.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6611,7 +6613,7 @@ return (
           onClick={ () => {
               handleClick8(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user8.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user8.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user8.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6620,7 +6622,7 @@ return (
           onClick={ () => {
               handleClick9(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user9.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user9.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user9.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
@@ -6629,7 +6631,7 @@ return (
           onClick={ () => {
               handleClick10(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user10.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user10.day29 ? 'Y' : 'N' } 
+            > { hide29 ? ' ' : users.user10.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
     </tr>
@@ -6642,7 +6644,7 @@ return (
           onClick={ () => {
               handleClick1(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user1.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user1.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user1.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6651,7 +6653,7 @@ return (
           onClick={ () => {
               handleClick2(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user2.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user2.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user2.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6660,7 +6662,7 @@ return (
           onClick={ () => {
               handleClick3(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user3.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user3.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user3.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6669,7 +6671,7 @@ return (
           onClick={ () => {
               handleClick4(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user4.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user4.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user4.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6678,7 +6680,7 @@ return (
           onClick={ () => {
               handleClick5(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user5.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user5.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user5.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6687,7 +6689,7 @@ return (
           onClick={ () => {
               handleClick6(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user6.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user6.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user6.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6696,7 +6698,7 @@ return (
           onClick={ () => {
               handleClick7(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user7.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user7.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user7.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6705,7 +6707,7 @@ return (
           onClick={ () => {
               handleClick8(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user8.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user8.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user8.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6714,7 +6716,7 @@ return (
           onClick={ () => {
               handleClick9(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user9.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user9.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user9.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
@@ -6723,7 +6725,7 @@ return (
           onClick={ () => {
               handleClick10(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user10.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user10.day30 ? 'Y' : 'N' } 
+            > { hide30 ? ' ' : users.user10.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
     </tr>
@@ -6736,7 +6738,7 @@ return (
           onClick={ () => {
               handleClick1(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user1.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user1.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user1.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6745,7 +6747,7 @@ return (
           onClick={ () => {
               handleClick2(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user2.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user2.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user2.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6754,7 +6756,7 @@ return (
           onClick={ () => {
               handleClick3(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user3.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user3.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user3.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6763,7 +6765,7 @@ return (
           onClick={ () => {
               handleClick4(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user4.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user4.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user4.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6772,7 +6774,7 @@ return (
           onClick={ () => {
               handleClick5(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user5.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user5.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user5.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6781,7 +6783,7 @@ return (
           onClick={ () => {
               handleClick6(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user6.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user6.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user6.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6790,7 +6792,7 @@ return (
           onClick={ () => {
               handleClick7(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user7.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user7.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user7.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6799,7 +6801,7 @@ return (
           onClick={ () => {
               handleClick8(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user8.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user8.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user8.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6808,7 +6810,7 @@ return (
           onClick={ () => {
               handleClick9(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user9.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user9.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user9.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
@@ -6817,7 +6819,7 @@ return (
           onClick={ () => {
               handleClick10(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user10.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user10.day31 ? 'Y' : 'N' } 
+            > { hide31 ? ' ' : users.user10.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
             </button>      
         </td>
     </tr>  
