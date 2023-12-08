@@ -454,7 +454,7 @@ outline: 2px solid rgb(180, 178, 178);
   border: 1.5px solid black;
   border-radius: 5px;
   opacity: 0.95;
-  padding: 1px 1px;
+  padding: 2px 2px 2px 1px;
  }
 
 .buttonAvail:hover {
@@ -475,7 +475,7 @@ outline: 2px solid rgb(180, 178, 178);
   border: 1.5px solid black;
   opacity: 0.95;
   border-radius: 5px;
-  padding: 1px 1px;
+  padding: 2px 2px 2px 1px;
 
 
 }
