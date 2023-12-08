@@ -439,8 +439,8 @@ outline: 2px solid rgb(180, 178, 178);
   color: white;
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
-  width: 95%;
-  /* height: 75px; */
+  width: 80%;
+  height: 40px;
   border: 1.5px solid black;
   border-radius: 5px;
   opacity: 0.95;

@@ -1901,6 +1901,131 @@ return (
 
 
 <article>
+  <table className='tableAvails'>
+    <tbody>
+    <tr>
+      <th className="thHeadDate"> Day <br/> Date </th>
+      <th className="thHeadUser"> { user1Name } </th>
+      <th className="thHeadUser"> { user2Name } </th>  
+      <th className="thHeadUser"> { user3Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+
+    </tr>
+    <tr>
+      <th className="thDate"> { tableDayName(0) } <br/> { monthToName() } { tableDayNameArray[0] } <br/>  </th>
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user1Unlock}
+          onClick={ () => {
+            handleClick1(1);    
+          }} className={ users.user1.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          > { users.user1.day1  ? 'Available' : 'N/A' }
+          </button>     
+        </td>
+
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user2Unlock}
+          onClick={ () => {
+            handleClick2(1);    
+          }} className={ users.user2.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user2.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+
+        <td className = "tdUser">       
+        <button 
+        disabled={unlock.user3Unlock}
+        onClick={ () => {
+          handleClick3(1);    
+          }} className={ users.user3.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user3.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+        
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+        
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+        
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+        
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+        
+        <td className = "tdUser">       
+          <button 
+          disabled={unlock.user4Unlock}
+          onClick={ () => {
+            handleClick4(1);    
+          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
+          >{ users.user4.day1  ? 'Available' : 'N/A' } 
+          </button>     
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</article>
+
+<br></br>
+
+<article>
 <table className='tableAvails'>
   <tbody>
     <tr>
