@@ -156,7 +156,7 @@ body {
   text-orientation: mixed;
   border: solid black 1px;
   background: black;
-  width: 10%;
+  width: 8.3%;
   /* height: 50px; */
   text-align: center;
 }
@@ -173,7 +173,8 @@ body {
 .thHeadDay {
   font-size: 0.7em; 
   border: 1px solid black;
-  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   height: 80px;
+  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   
+  min-height: 80px;
 }
 
 .thHeadUser {
@@ -181,7 +182,9 @@ body {
   text-orientation: mixed;
   font-size: 0.7em;
   border: 1px solid black;
-  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   height: 80px;
+  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   
+  min-height: 80px;
+  width: 8.3%;
 }
 
 .thDate {
@@ -205,7 +208,7 @@ body {
 .tdUser {
   border: 1px solid black;
   background: rgb(108, 107, 107);
-  width: 16.6666%;
+  width: 8.3%;
   height: 50px;
   text-align: center;
 }
@@ -437,6 +440,8 @@ outline: 2px solid rgb(180, 178, 178);
 }
 
 .buttonAvail {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
   font-size: 0.6em;
   /* background-color:green; */
   background: linear-gradient(91.4deg, rgb(47, 149, 47) 0%, rgb(5, 99, 5) 100%); 
@@ -458,6 +463,8 @@ outline: 2px solid rgb(180, 178, 178);
 
 
 .buttonUnavail {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
   font-size: 0.7em;
   color: white;
   /* background-color:rgb(113, 5, 5); */
