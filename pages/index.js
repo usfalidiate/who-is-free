@@ -1615,25 +1615,17 @@ const BandNumberInput = () => {
   return (
     <div>
       Number of band members: 
-      <input 
-        value={numberOfMembers}
-        onChange={e=> setNumberOfMembers(e.target.value)}
-        />
-      {/* <button> Enter </button> */}
+
     </div>
   )
 };
 
 const BandNameInput = () => {
-  const handleChange = (e) => {
-  }
+
   return (
     <div>
       Band Name:
-      <input 
-        value={bandName}
-        onChange={handleChange}
-      />
+
     </div>
   )
 }

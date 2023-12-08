@@ -379,7 +379,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
   width: 95%; 
-  height: 55px;
+  height: 40px;
   opacity: 1;
   outline: 1px solid black;
 
@@ -440,7 +440,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
   width: 95%;
-  height: 75px;
+  /* height: 75px; */
   border: 1.5px solid black;
   border-radius: 5px;
   opacity: 0.95;
