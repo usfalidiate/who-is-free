@@ -138,6 +138,7 @@ body {
 }
 
 .thDateNude {
+  font-size: 12px;
   border: solid black 1px;
   background: black;
   width: 16.6666%;
@@ -152,12 +153,12 @@ body {
 }
 
 .tdUserNude {
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
+  /* writing-mode: vertical-lr;
+  text-orientation: mixed; */
   border: solid black 1px;
   background: black;
   width: 8.3%;
-  /* height: 50px; */
+  height: 40px;
   text-align: center;
 }
 
@@ -364,8 +365,8 @@ outline: 2px solid rgb(180, 178, 178);
   color: black;
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
-  width: 80%; 
-  height: 40px;
+  width: 95%; 
+  height: 95%;
   border: 0.5px solid black;
   border-radius: 30px;
   opacity: 1;
@@ -386,7 +387,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
   width: 95%; 
-  height: 40px;
+  height: 95%;
   opacity: 1;
   outline: 1px solid black;
 
@@ -407,7 +408,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
   width: 95%; 
-  /* height: 60px; */
+  height: 95%;
   outline: 1px solid black;
   opacity: 1;
 
@@ -429,7 +430,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
   width: 95%; 
-  /* height: 60px;  */
+  height: 95%; 
   outline: 1px solid black;
   opacity: 1;
 
@@ -440,8 +441,8 @@ outline: 2px solid rgb(180, 178, 178);
 }
 
 .buttonAvail {
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
+  /* writing-mode: vertical-lr;
+  text-orientation: mixed; */
   font-size: 0.6em;
   /* background-color:green; */
   background: linear-gradient(91.4deg, rgb(47, 149, 47) 0%, rgb(5, 99, 5) 100%); 
@@ -463,8 +464,8 @@ outline: 2px solid rgb(180, 178, 178);
 
 
 .buttonUnavail {
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
+  /* writing-mode: vertical-lr;
+  text-orientation: mixed; */
   font-size: 0.7em;
   color: white;
   /* background-color:rgb(113, 5, 5); */
