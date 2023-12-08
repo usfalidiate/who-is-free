@@ -5,6 +5,11 @@ import styles from '@/styles/Home.module.css'
 import {useState, useEffect, useRef} from 'react';
 import personAvailable from '../public/person-available.svg';
 import personUnavailable from '../public/person-unavailable.svg';
+import personAvailableSolid from '../public/person-available-solid.svg';
+import personUnavailableSolid from '../public/person-unavailable-solid.svg';
+import lockIcon from '../public/lock.svg';
+import unlockIcon from '../public/unlock.svg';
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -3297,7 +3302,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user1Unlock: !unlock.user1Unlock};})} 
           className={ unlock.user1Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user1Unlock ? 'L' : 'U'} 
+          > { unlock.user1Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}} /> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}} />} 
         </button>
       </td>
 
@@ -3305,7 +3310,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user2Unlock: !unlock.user2Unlock}})} 
           className={ unlock.user2Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user2Unlock ? 'L' : 'U'} 
+          > { unlock.user2Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
       
@@ -3313,7 +3318,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user3Unlock: !unlock.user3Unlock}})} 
           className={ unlock.user3Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user3Unlock ? 'L' : 'U'} 
+          > { unlock.user3Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
       
@@ -3321,7 +3326,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user4Unlock: !unlock.user4Unlock}})} 
           className={ unlock.user4Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user4Unlock ? 'L' : 'U'} 
+          > { unlock.user4Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3329,7 +3334,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user5Unlock: !unlock.user5Unlock}})} 
           className={ unlock.user5Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user5Unlock ? 'L' : 'U'} 
+          > { unlock.user5Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3337,7 +3342,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user6Unlock: !unlock.user6Unlock}})} 
           className={ unlock.user6Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user6Unlock ? 'L' : 'U'} 
+          > { unlock.user6Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3345,7 +3350,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user7Unlock: !unlock.user7Unlock}})} 
           className={ unlock.user7Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user7Unlock ? 'L' : 'U'} 
+          > { unlock.user7Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3353,7 +3358,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user8Unlock: !unlock.user8Unlock}})} 
           className={ unlock.user8Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user8Unlock ? 'L' : 'U'} 
+          > { unlock.user8Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3361,7 +3366,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user9Unlock: !unlock.user9Unlock}})} 
           className={ unlock.user9Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user9Unlock ? 'L' : 'U'} 
+          > { unlock.user9Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
 
@@ -3369,7 +3374,7 @@ return (
         <button onClick={()=>
           setUnlock(prev=>{return {...prev, user10Unlock: !unlock.user10Unlock}})} 
           className={ unlock.user10Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user10Unlock ? 'L' : 'U'} 
+          > { unlock.user10Unlock ? <Image src={lockIcon} alt="lock" style={{height: 16, width: 16}}/> : <Image src={unlockIcon} alt="unlock" style={{height: 16, width: 16}}/>} 
         </button>
       </td>
     </tr> 
@@ -3383,7 +3388,7 @@ return (
         <button disabled={ unlock.user1Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser1 }>
-          x <br></br> 
+          <Image src={personAvailableSolid} alt="available" /> <br></br> 
         </button>
       </td>
       
@@ -3391,7 +3396,7 @@ return (
         <button disabled={ unlock.user2Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser2 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td>
       
@@ -3399,7 +3404,7 @@ return (
         <button disabled={ unlock.user3Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser3 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td>
       
@@ -3407,7 +3412,7 @@ return (
         <button disabled={ unlock.user4Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser4 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3415,7 +3420,7 @@ return (
         <button disabled={ unlock.user5Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser5 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3423,7 +3428,7 @@ return (
         <button disabled={ unlock.user6Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser6 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3431,7 +3436,7 @@ return (
         <button disabled={ unlock.user7Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser7 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3439,7 +3444,7 @@ return (
         <button disabled={ unlock.user8Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser8 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3447,7 +3452,7 @@ return (
         <button disabled={ unlock.user9Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser9 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
 
@@ -3455,7 +3460,7 @@ return (
         <button disabled={ unlock.user10Unlock } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser10 }>
-          x <br></br>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
         </button>
       </td> 
     </tr>
@@ -3468,7 +3473,7 @@ return (
         <button disabled={ unlock.user1Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser1 }>
-          X <br></br> 
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
         </button>
       </td>
       
@@ -3476,7 +3481,7 @@ return (
         <button disabled={ unlock.user2Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser2 }>
-          X <br></br> 
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
         </button>
       </td>
       
@@ -3484,7 +3489,7 @@ return (
         <button disabled={ unlock.user3Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser3 }>
-          X <br></br> 
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
         </button>
       </td>
       
@@ -3492,7 +3497,7 @@ return (
         <button disabled={ unlock.user4Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser4 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3500,7 +3505,7 @@ return (
         <button disabled={ unlock.user5Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser5 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3508,7 +3513,7 @@ return (
         <button disabled={ unlock.user6Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser6 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3516,7 +3521,7 @@ return (
         <button disabled={ unlock.user7Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser7 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3524,7 +3529,7 @@ return (
         <button disabled={ unlock.user8Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser8 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3532,7 +3537,7 @@ return (
         <button disabled={ unlock.user9Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser9 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
 
@@ -3540,7 +3545,7 @@ return (
         <button disabled={ unlock.user10Unlock } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser10 }>
-          X <br></br>
+          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
         </button>
       </td> 
     </tr>

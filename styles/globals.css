@@ -156,9 +156,10 @@ body {
   /* writing-mode: vertical-lr;
   text-orientation: mixed; */
   border: solid black 1px;
+  padding: 0%;
   background: black;
   width: 8.3%;
-  height: 40px;
+  height: 50px;
   text-align: center;
 }
 
@@ -365,7 +366,7 @@ outline: 2px solid rgb(180, 178, 178);
   color: black;
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
-  width: 95%; 
+  max-width: 95%; 
   height: 95%;
   border: 0.5px solid black;
   border-radius: 30px;
@@ -380,13 +381,13 @@ outline: 2px solid rgb(180, 178, 178);
 .myButtonUnlocked {
   font-size: 0.5em;
   background: linear-gradient(91.4deg, #e08345 0%, #905007 100%); 
-  padding: 0;  
+  /* padding: 0;   */
   border: none;
   border-radius: 30px;
   color: white;
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
-  width: 95%; 
+  max-width: 95%; 
   height: 95%;
   opacity: 1;
   outline: 1px solid black;
@@ -411,6 +412,7 @@ outline: 2px solid rgb(180, 178, 178);
   height: 95%;
   outline: 1px solid black;
   opacity: 1;
+  padding: 2px 2px 2px 1px;
 
 }
 
