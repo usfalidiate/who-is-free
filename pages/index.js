@@ -70,40 +70,47 @@ export default function Home() {
 
   ///// BAND INFORMATION /////
 
-const [bandInfoToggle, setBandInfoToggle] = useState(false);
-const [numberOfMembers, setNumberOfMembers] = useState(4);
-const [bandName, setBandName] = useState('');
+const [bandInfoToggle, setBandInfoToggle] = useState(true);
 
 const BandInfoToggleButton = () => {
   const changeToggleState = () => {
     setBandInfoToggle(prev=>!prev)
   }
-  console.log('bandinfo', bandInfoToggle)
+  // console.log('bandinfo', bandInfoToggle)
   return (
     <button onClick={changeToggleState}> Toggle Band Info </button>
   )
 };
 
 const BandNumberInput = () => {
-  return (
-    <div>
-      Number of band members: 
+  const [numberOfMembers, setNumberOfMembers] = useState(4);
 
-    </div>
+  console.log('numberOfMembers', numberOfMembers);
+  return (
+    <label>
+      Number of members: 
+      <input value={numberOfMembers} onChange={e => setNumberOfMembers(e.target.value)} />
+    </label>
   )
 };
 
-const BandNameInput = () => {
+// const [savedName, setSavedName] = useState(bandName);
 
+function BandNameInput() {
+  const [bandName, setBandName] = useState('');
+
+  console.log('bandName', bandName);
   return (
-    <div>
-      Band Name:
-
-    </div>
+    <>
+      <label>
+        Enter Band Name: 
+        <input value={bandName} onChange={e => setBandName(e.target.value)}/>
+      </label>
+    </>
   )
-}
+};
 
-console.log('numb', bandName);
+// console.log('numb', bandName);
 
 //////   LOGIN AND AUTH   //////
 const [loading, setLoading] = useState(false);
@@ -618,7 +625,7 @@ useEffect(()=> {
       try {
         const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
+        // if (docSnap.exists()) {
         const cloudState = docSnap.data();
         cloudState.id = docSnap.id;
         initList.push(cloudState);
@@ -965,8 +972,344 @@ useEffect(()=> {
 
         })         
                      
-        } else {
+        // } else {
           console.log('loadDoc shat the bed')
+          // setDoc(setDocRef, {
+          //   user1:[ 
+          //     {day1: users.user1.day1},
+          //     {day2: users.user1.day2}, 
+          //     {day3: users.user1.day3},
+          //     {day4: users.user1.day4},
+          //     {day5: users.user1.day5},
+          //     {day6: users.user1.day6},
+          //     {day7: users.user1.day7},
+          //     {day8: users.user1.day8},
+          //     {day9: users.user1.day9},
+          //     {day10: users.user1.day10}, 
+          //     {day11: users.user1.day11},
+          //     {day12: users.user1.day12}, 
+          //     {day13: users.user1.day13},
+          //     {day14: users.user1.day14},
+          //     {day15: users.user1.day15},
+          //     {day16: users.user1.day16},
+          //     {day17: users.user1.day17},
+          //     {day18: users.user1.day18},
+          //     {day19: users.user1.day19},
+          //     {day20: users.user1.day20},
+          //     {day21: users.user1.day21},
+          //     {day22: users.user1.day22}, 
+          //     {day23: users.user1.day23},
+          //     {day24: users.user1.day24},
+          //     {day25: users.user1.day25},
+          //     {day26: users.user1.day26},
+          //     {day27: users.user1.day27},
+          //     {day28: users.user1.day28},
+          //     {day29: users.user1.day29},
+          //     {day30: users.user1.day30},
+          //     {day31: users.user1.day31},    
+          //   ],   
+          //   user2:[ 
+          //     {day1: users.user2.day1},
+          //     {day2: users.user2.day2}, 
+          //     {day3: users.user2.day3},
+          //     {day4: users.user2.day4},
+          //     {day5: users.user2.day5},
+          //     {day6: users.user2.day6},
+          //     {day7: users.user2.day7},
+          //     {day8: users.user2.day8},
+          //     {day9: users.user2.day9},
+          //     {day10: users.user2.day10}, 
+          //     {day11: users.user2.day11},
+          //     {day12: users.user2.day12}, 
+          //     {day13: users.user2.day13},
+          //     {day14: users.user2.day14},
+          //     {day15: users.user2.day15},
+          //     {day16: users.user2.day16},
+          //     {day17: users.user2.day17},
+          //     {day18: users.user2.day18},
+          //     {day19: users.user2.day19},
+          //     {day20: users.user2.day20},
+          //     {day21: users.user2.day21},
+          //     {day22: users.user2.day22}, 
+          //     {day23: users.user2.day23},
+          //     {day24: users.user2.day24},
+          //     {day25: users.user2.day25},
+          //     {day26: users.user2.day26},
+          //     {day27: users.user2.day27},
+          //     {day28: users.user2.day28},
+          //     {day29: users.user2.day29},
+          //     {day30: users.user2.day30},
+          //     {day31: users.user2.day31}, 
+          //   ], 
+          //   user3:[ 
+          //     {day1: users.user3.day1},
+          //     {day2: users.user3.day2}, 
+          //     {day3: users.user3.day3}, 
+          //     {day4: users.user3.day4},
+          //     {day5: users.user3.day5},
+          //     {day6: users.user3.day6},
+          //     {day7: users.user3.day7},
+          //     {day8: users.user3.day8},
+          //     {day9: users.user3.day9},
+          //     {day10: users.user3.day10}, 
+          //     {day11: users.user3.day11},
+          //     {day12: users.user3.day12}, 
+          //     {day13: users.user3.day13},
+          //     {day14: users.user3.day14},
+          //     {day15: users.user3.day15},
+          //     {day16: users.user3.day16},
+          //     {day17: users.user3.day17},
+          //     {day18: users.user3.day18},
+          //     {day19: users.user3.day19},
+          //     {day20: users.user3.day20},
+          //     {day21: users.user3.day21},
+          //     {day22: users.user3.day22}, 
+          //     {day23: users.user3.day23},
+          //     {day24: users.user3.day24},
+          //     {day25: users.user3.day25},
+          //     {day26: users.user3.day26},
+          //     {day27: users.user3.day27},
+          //     {day28: users.user3.day28},
+          //     {day29: users.user3.day29},
+          //     {day30: users.user3.day30},
+          //     {day31: users.user3.day31},        
+          //   ], 
+          //     user4:[ 
+          //       {day1: users.user4.day1},
+          //       {day2: users.user4.day2}, 
+          //       {day3: users.user4.day3}, 
+          //       {day4: users.user4.day4},
+          //       {day5: users.user4.day5},
+          //       {day6: users.user4.day6},
+          //       {day7: users.user4.day7},
+          //       {day8: users.user4.day8},
+          //       {day9: users.user4.day9},
+          //       {day10: users.user4.day10}, 
+          //       {day11: users.user4.day11},
+          //       {day12: users.user4.day12}, 
+          //       {day13: users.user4.day13},
+          //       {day14: users.user4.day14},
+          //       {day15: users.user4.day15},
+          //       {day16: users.user4.day16},
+          //       {day17: users.user4.day17},
+          //       {day18: users.user4.day18},
+          //       {day19: users.user4.day19},
+          //       {day20: users.user4.day20},
+          //       {day21: users.user4.day21},
+          //       {day22: users.user4.day22}, 
+          //       {day23: users.user4.day23},
+          //       {day24: users.user4.day24},
+          //       {day25: users.user4.day25},
+          //       {day26: users.user4.day26},
+          //       {day27: users.user4.day27},
+          //       {day28: users.user4.day28},
+          //       {day29: users.user4.day29},
+          //       {day30: users.user4.day30},
+          //       {day31: users.user4.day31},        
+          //     ], 
+          //     user5:[ 
+          //       {day1: users.user5.day1},
+          //       {day2: users.user5.day2}, 
+          //       {day3: users.user5.day3}, 
+          //       {day4: users.user5.day4},
+          //       {day5: users.user5.day5},
+          //       {day6: users.user5.day6},
+          //       {day7: users.user5.day7},
+          //       {day8: users.user5.day8},
+          //       {day9: users.user5.day9},
+          //       {day10: users.user5.day10}, 
+          //       {day11: users.user5.day11},
+          //       {day12: users.user5.day12}, 
+          //       {day13: users.user5.day13},
+          //       {day14: users.user5.day14},
+          //       {day15: users.user5.day15},
+          //       {day16: users.user5.day16},
+          //       {day17: users.user5.day17},
+          //       {day18: users.user5.day18},
+          //       {day19: users.user5.day19},
+          //       {day20: users.user5.day20},
+          //       {day21: users.user5.day21},
+          //       {day22: users.user5.day22}, 
+          //       {day23: users.user5.day23},
+          //       {day24: users.user5.day24},
+          //       {day25: users.user5.day25},
+          //       {day26: users.user5.day26},
+          //       {day27: users.user5.day27},
+          //       {day28: users.user5.day28},
+          //       {day29: users.user5.day29},
+          //       {day30: users.user5.day30},
+          //       {day31: users.user5.day31},        
+          //     ],
+          //     user6:[ 
+          //       {day1: users.user6.day1},
+          //       {day2: users.user6.day2}, 
+          //       {day3: users.user6.day3}, 
+          //       {day4: users.user6.day4},
+          //       {day5: users.user6.day5},
+          //       {day6: users.user6.day6},
+          //       {day7: users.user6.day7},
+          //       {day8: users.user6.day8},
+          //       {day9: users.user6.day9},
+          //       {day10: users.user6.day10}, 
+          //       {day11: users.user6.day11},
+          //       {day12: users.user6.day12}, 
+          //       {day13: users.user6.day13},
+          //       {day14: users.user6.day14},
+          //       {day15: users.user6.day15},
+          //       {day16: users.user6.day16},
+          //       {day17: users.user6.day17},
+          //       {day18: users.user6.day18},
+          //       {day19: users.user6.day19},
+          //       {day20: users.user6.day20},
+          //       {day21: users.user6.day21},
+          //       {day22: users.user6.day22}, 
+          //       {day23: users.user6.day23},
+          //       {day24: users.user6.day24},
+          //       {day25: users.user6.day25},
+          //       {day26: users.user6.day26},
+          //       {day27: users.user6.day27},
+          //       {day28: users.user6.day28},
+          //       {day29: users.user6.day29},
+          //       {day30: users.user6.day30},
+          //       {day31: users.user6.day31},        
+          //     ],  
+          //     user7:[ 
+          //       {day1: users.user7.day1},
+          //       {day2: users.user7.day2}, 
+          //       {day3: users.user7.day3}, 
+          //       {day4: users.user7.day4},
+          //       {day5: users.user7.day5},
+          //       {day6: users.user7.day6},
+          //       {day7: users.user7.day7},
+          //       {day8: users.user7.day8},
+          //       {day9: users.user7.day9},
+          //       {day10: users.user7.day10}, 
+          //       {day11: users.user7.day11},
+          //       {day12: users.user7.day12}, 
+          //       {day13: users.user7.day13},
+          //       {day14: users.user7.day14},
+          //       {day15: users.user7.day15},
+          //       {day16: users.user7.day16},
+          //       {day17: users.user7.day17},
+          //       {day18: users.user7.day18},
+          //       {day19: users.user7.day19},
+          //       {day20: users.user7.day20},
+          //       {day21: users.user7.day21},
+          //       {day22: users.user7.day22}, 
+          //       {day23: users.user7.day23},
+          //       {day24: users.user7.day24},
+          //       {day25: users.user7.day25},
+          //       {day26: users.user7.day26},
+          //       {day27: users.user7.day27},
+          //       {day28: users.user7.day28},
+          //       {day29: users.user7.day29},
+          //       {day30: users.user7.day30},
+          //       {day31: users.user7.day31},        
+          //     ],  
+          //     user8:[ 
+          //       {day1: users.user8.day1},
+          //       {day2: users.user8.day2}, 
+          //       {day3: users.user8.day3}, 
+          //       {day4: users.user8.day4},
+          //       {day5: users.user8.day5},
+          //       {day6: users.user8.day6},
+          //       {day7: users.user8.day7},
+          //       {day8: users.user8.day8},
+          //       {day9: users.user8.day9},
+          //       {day10: users.user8.day10}, 
+          //       {day11: users.user8.day11},
+          //       {day12: users.user8.day12}, 
+          //       {day13: users.user8.day13},
+          //       {day14: users.user8.day14},
+          //       {day15: users.user8.day15},
+          //       {day16: users.user8.day16},
+          //       {day17: users.user8.day17},
+          //       {day18: users.user8.day18},
+          //       {day19: users.user8.day19},
+          //       {day20: users.user8.day20},
+          //       {day21: users.user8.day21},
+          //       {day22: users.user8.day22}, 
+          //       {day23: users.user8.day23},
+          //       {day24: users.user8.day24},
+          //       {day25: users.user8.day25},
+          //       {day26: users.user8.day26},
+          //       {day27: users.user8.day27},
+          //       {day28: users.user8.day28},
+          //       {day29: users.user8.day29},
+          //       {day30: users.user8.day30},
+          //       {day31: users.user8.day31},        
+          //     ], 
+          //     user9:[ 
+          //       {day1: users.user9.day1},
+          //       {day2: users.user9.day2}, 
+          //       {day3: users.user9.day3}, 
+          //       {day4: users.user9.day4},
+          //       {day5: users.user9.day5},
+          //       {day6: users.user9.day6},
+          //       {day7: users.user9.day7},
+          //       {day8: users.user9.day8},
+          //       {day9: users.user9.day9},
+          //       {day10: users.user9.day10}, 
+          //       {day11: users.user9.day11},
+          //       {day12: users.user9.day12}, 
+          //       {day13: users.user9.day13},
+          //       {day14: users.user9.day14},
+          //       {day15: users.user9.day15},
+          //       {day16: users.user9.day16},
+          //       {day17: users.user9.day17},
+          //       {day18: users.user9.day18},
+          //       {day19: users.user9.day19},
+          //       {day20: users.user9.day20},
+          //       {day21: users.user9.day21},
+          //       {day22: users.user9.day22}, 
+          //       {day23: users.user9.day23},
+          //       {day24: users.user9.day24},
+          //       {day25: users.user9.day25},
+          //       {day26: users.user9.day26},
+          //       {day27: users.user9.day27},
+          //       {day28: users.user9.day28},
+          //       {day29: users.user9.day29},
+          //       {day30: users.user9.day30},
+          //       {day31: users.user9.day31},        
+          //     ], 
+          //     user10:[ 
+          //       {day1: users.user10.day1},
+          //       {day2: users.user10.day2}, 
+          //       {day3: users.user10.day3}, 
+          //       {day4: users.user10.day4},
+          //       {day5: users.user10.day5},
+          //       {day6: users.user10.day6},
+          //       {day7: users.user10.day7},
+          //       {day8: users.user10.day8},
+          //       {day9: users.user10.day9},
+          //       {day10: users.user10.day10}, 
+          //       {day11: users.user10.day11},
+          //       {day12: users.user10.day12}, 
+          //       {day13: users.user10.day13},
+          //       {day14: users.user10.day14},
+          //       {day15: users.user10.day15},
+          //       {day16: users.user10.day16},
+          //       {day17: users.user10.day17},
+          //       {day18: users.user10.day18},
+          //       {day19: users.user10.day19},
+          //       {day20: users.user10.day20},
+          //       {day21: users.user10.day21},
+          //       {day22: users.user10.day22}, 
+          //       {day23: users.user10.day23},
+          //       {day24: users.user10.day24},
+          //       {day25: users.user10.day25},
+          //       {day26: users.user10.day26},
+          //       {day27: users.user10.day27},
+          //       {day28: users.user10.day28},
+          //       {day29: users.user10.day29},
+          //       {day30: users.user10.day30},
+          //       {day31: users.user10.day31},        
+          //     ] 
+          // });
+        // }
+
+      } catch(error) {
+        console.log('catch in loadDoc ran');
           setDoc(setDocRef, {
             user1:[ 
               {day1: users.user1.day1},
@@ -1299,9 +1642,7 @@ useEffect(()=> {
                 {day31: users.user10.day31},        
               ] 
           });
-        }
 
-      } catch(error) {
         console.log(error)
       }
     };
@@ -1354,41 +1695,41 @@ console.log('update doc u1 true run');
 
     } catch {
       console.log('setDoc runs after this');
-      setDoc(setDocRef, {
-        user1:[ 
-          {day1: users.user1.day1},
-          {day2: users.user1.day2}, 
-          {day3: users.user1.day3},
-          {day4: users.user1.day4},
-          {day5: users.user1.day5},
-          {day6: users.user1.day6},
-          {day7: users.user1.day7},
-          {day8: users.user1.day8},
-          {day9: users.user1.day9},
-          {day10: users.user1.day10},
-          {day11: users.user1.day11},
-          {day12: users.user1.day12}, 
-          {day13: users.user1.day13},
-          {day14: users.user1.day14},
-          {day15: users.user1.day15},
-          {day16: users.user1.day16},
-          {day17: users.user1.day17},
-          {day18: users.user1.day18},
-          {day19: users.user1.day19},
-          {day20: users.user1.day20},
-          {day21: users.user1.day21},
-          {day22: users.user1.day22}, 
-          {day23: users.user1.day23},
-          {day24: users.user1.day24},
-          {day25: users.user1.day25},
-          {day26: users.user1.day26},
-          {day27: users.user1.day27},
-          {day28: users.user1.day28},
-          {day29: users.user1.day29},
-          {day30: users.user1.day30},
-          {day31: users.user1.day31}, 
-        ],  
-      });    
+      // setDoc(setDocRef, {
+      //   user1:[ 
+      //     {day1: users.user1.day1},
+      //     {day2: users.user1.day2}, 
+      //     {day3: users.user1.day3},
+      //     {day4: users.user1.day4},
+      //     {day5: users.user1.day5},
+      //     {day6: users.user1.day6},
+      //     {day7: users.user1.day7},
+      //     {day8: users.user1.day8},
+      //     {day9: users.user1.day9},
+      //     {day10: users.user1.day10},
+      //     {day11: users.user1.day11},
+      //     {day12: users.user1.day12}, 
+      //     {day13: users.user1.day13},
+      //     {day14: users.user1.day14},
+      //     {day15: users.user1.day15},
+      //     {day16: users.user1.day16},
+      //     {day17: users.user1.day17},
+      //     {day18: users.user1.day18},
+      //     {day19: users.user1.day19},
+      //     {day20: users.user1.day20},
+      //     {day21: users.user1.day21},
+      //     {day22: users.user1.day22}, 
+      //     {day23: users.user1.day23},
+      //     {day24: users.user1.day24},
+      //     {day25: users.user1.day25},
+      //     {day26: users.user1.day26},
+      //     {day27: users.user1.day27},
+      //     {day28: users.user1.day28},
+      //     {day29: users.user1.day29},
+      //     {day30: users.user1.day30},
+      //     {day31: users.user1.day31}, 
+      //   ],  
+      // });    
       console.log('no user1 update firestore on click true');
       console.log('setDoc run for u1 true')
 
@@ -2985,7 +3326,7 @@ const handleClick10 = (i) => {
 
 //////   SET ALL AVAIL   //////
 const setAllAvailUser1 =()=>{
-  if (confirm((`${user1Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
+  
     setUsers(prev=> { return {
     ...users,
       user1: {
@@ -3023,12 +3364,10 @@ const setAllAvailUser1 =()=>{
       }}   
   });
   setTrig(prev=>!prev);
-  }
-  else {}
+  
 }
 
 const setAllAvailUser2 =()=>{
-  if (confirm((`${user2Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user2: {
@@ -3066,12 +3405,10 @@ const setAllAvailUser2 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
   
 const setAllAvailUser3 =()=>{
-  if (confirm((`${user3Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user3: {
@@ -3109,12 +3446,10 @@ const setAllAvailUser3 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
   
 const setAllAvailUser4 =()=>{
-  if (confirm((`${user4Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user4: {
@@ -3152,12 +3487,10 @@ const setAllAvailUser4 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser5 =()=>{
-  if (confirm((`${user5Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user5: {
@@ -3195,12 +3528,10 @@ const setAllAvailUser5 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser6 =()=>{
-  if (confirm((`${user6Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user6: {
@@ -3238,12 +3569,10 @@ const setAllAvailUser6 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser7 =()=>{
-  if (confirm((`${user7Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user7: {
@@ -3281,12 +3610,10 @@ const setAllAvailUser7 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser8 =()=>{
-  if (confirm((`${user8Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user8: {
@@ -3324,12 +3651,10 @@ const setAllAvailUser8 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser9 =()=>{
-  if (confirm((`${user9Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user9: {
@@ -3367,12 +3692,10 @@ const setAllAvailUser9 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 const setAllAvailUser10 =()=>{
-  if (confirm((`${user10Name}, are you SURE that you want to set all dates as AVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user10: {
@@ -3410,13 +3733,11 @@ const setAllAvailUser10 =()=>{
         }}   
     });
     setTrig(prev=>!prev);
-  }
-  else {}
+
 }
 
 //////   SET ALL UNAVAIL   //////
 const setAllUnAvailUser1 =()=>{
-  if (confirm((`${user1Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user1: {
@@ -3454,12 +3775,10 @@ const setAllUnAvailUser1 =()=>{
         }}   
     });
     setTrig(prev=>!prev);    
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser2 =()=>{
-  if (confirm((`${user2Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user2: {
@@ -3497,12 +3816,10 @@ const setAllUnAvailUser2 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
   
 const setAllUnAvailUser3 =()=>{
-  if (confirm((`${user3Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user3: {
@@ -3540,12 +3857,10 @@ const setAllUnAvailUser3 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
   
 const setAllUnAvailUser4 =()=>{
-  if (confirm((`${user4Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user4: {
@@ -3583,12 +3898,10 @@ const setAllUnAvailUser4 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser5 =()=>{
-  if (confirm((`${user5Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user5: {
@@ -3626,12 +3939,10 @@ const setAllUnAvailUser5 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser6 =()=>{
-  if (confirm((`${user6Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user6: {
@@ -3669,12 +3980,10 @@ const setAllUnAvailUser6 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser7 =()=>{
-  if (confirm((`${user7Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user7: {
@@ -3712,12 +4021,10 @@ const setAllUnAvailUser7 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser8 =()=>{
-  if (confirm((`${user8Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user8: {
@@ -3755,12 +4062,10 @@ const setAllUnAvailUser8 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser9 =()=>{
-  if (confirm((`${user9Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user9: {
@@ -3798,12 +4103,10 @@ const setAllUnAvailUser9 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 const setAllUnAvailUser10 =()=>{
-  if (confirm((`${user10Name}, are you SURE that you want to set all dates as UNAVAILABLE?`)) == true) {
     setUsers(prev=> { return {
       ...users,
         user10: {
@@ -3841,8 +4144,7 @@ const setAllUnAvailUser10 =()=>{
         }}   
     });
     setTrig(prev=>!prev);     
-  }
-  else {}
+
 }
 
 //////   HIDE EXTRA DAYS OF MONTHS   //////
@@ -4221,6 +4523,7 @@ return (
   Band Information
   <br></br>
   <BandNumberInput/>
+  <br/>
   <BandNameInput/>
 </div>
 
