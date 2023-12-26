@@ -9,6 +9,8 @@ import personAvailableSolid from '../public/person-available-solid.svg';
 import personUnavailableSolid from '../public/person-unavailable-solid.svg';
 import lockIcon from '../public/lock.svg';
 import unlockIcon from '../public/unlock.svg';
+import Select from "react-select";
+
 
 
 
@@ -66,11 +68,39 @@ const auth = getAuth();
 
 
 
+
 export default function Home() {
+
+
+  /// USER ID ///
+  const [uid, setUid] = useState('users');
+
+
+useEffect(() => {
+  const setUID = async () => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+         setUid(user.uid);
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  };
+  setUID();
+}, []);
+
+  
+  console.log('uid', uid);
 
   ///// BAND INFORMATION /////
 
-const [bandInfoToggle, setBandInfoToggle] = useState(true);
+
+
+const [bandInfoToggle, setBandInfoToggle] = useState(false);
 
 const BandInfoToggleButton = () => {
   const changeToggleState = () => {
@@ -82,17 +112,43 @@ const BandInfoToggleButton = () => {
   )
 };
 
-const BandNumberInput = () => {
-  const [numberOfMembers, setNumberOfMembers] = useState(4);
+// const BandNumberInput = () => {
+//   const [numberOfMembers, setNumberOfMembers] = useState(4);
 
-  console.log('numberOfMembers', numberOfMembers);
+//   console.log('numberOfMembers', numberOfMembers);
+//   return (
+//     <label>
+//       Number of members: 
+//       <input value={numberOfMembers} onChange={e => setNumberOfMembers(e.target.value)} />
+//     </label>
+//   )
+// };
+
+function FruitPicker() {
+  const [selectedFruit, setSelectedFruit] = useState('orange'); // Declare a state variable...
+  // ...
   return (
     <label>
-      Number of members: 
-      <input value={numberOfMembers} onChange={e => setNumberOfMembers(e.target.value)} />
+      Select Number of Band Members: 
+      <select
+      value={selectedFruit} // ...force the select's value to match the state variable...
+      onChange={e => setSelectedFruit(e.target.value)} // ... and update the state variable on any change!
+      >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
     </label>
-  )
+  );
 };
+
 
 // const [savedName, setSavedName] = useState(bandName);
 
@@ -103,14 +159,15 @@ function BandNameInput() {
   return (
     <>
       <label>
-        Enter Band Name: 
+        Band Name: 
         <input value={bandName} onChange={e => setBandName(e.target.value)}/>
       </label>
     </>
   )
 };
 
-// console.log('numb', bandName);
+
+
 
 //////   LOGIN AND AUTH   //////
 const [loading, setLoading] = useState(false);
@@ -208,10 +265,33 @@ const [ trig, setTrig ] = useState( false );
 const [ hide29, setHide29 ] = useState( false );
 const [ hide30, setHide30 ] = useState( false );
 const [ hide31, setHide31 ] = useState( false );
+const [ activeYearPlusOne, setActiveYearPlusOne ] = useState ( currentDate.getFullYear() + 1);
+const [ activeYearPlusTwo, setActiveYearPlusTwo ] = useState ( currentDate.getFullYear() + 2)
+const [ activeYearPlusThree, setActiveYearPlusThree ] = useState ( currentDate.getFullYear() + 3)
+const [ activeYearPlusFour, setActiveYearPlusFour ] = useState ( currentDate.getFullYear() + 4)
+const [ activeYearPlusFive, setActiveYearPlusFive ] = useState ( currentDate.getFullYear() + 5)
+const [ loadTrig, setLoadTrig ] = useState ( false );
+const [ showMain, setShowMain ] = useState ( false );
+
+
+function ShowMainTable() {
+  const run = () => {
+    setLoadTrig(prev => !prev);
+    setShowMain(prev => !prev);
+    console.log('run ran');
+  }
+  return (
+    <button onClick={run}> Show Availabilities Table </button>
+  )
+};
+
+console.log('showMain', showMain);
 
 //////   FIRESTORE DOCREF   //////
-const docRef = doc ( db, 'users', activeYear.toString(), 'Availability', activeMonth.toString() )
-const setDocRef = doc ( db, 'users', activeYear.toString(), 'Availability', activeMonth.toString() )
+
+  const docRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() )
+  const setDocRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() )
+
 
 //////   INITIAL SET USERS DAY AVAILS TO NULL   //////
 const [users, setUsers] = useState({
@@ -624,6 +704,7 @@ useEffect(()=> {
       let initList = []
       try {
         const docSnap = await getDoc(docRef);
+        console.log('load doc set initial avails from firestore ran');
 
         // if (docSnap.exists()) {
         const cloudState = docSnap.data();
@@ -972,342 +1053,6 @@ useEffect(()=> {
 
         })         
                      
-        // } else {
-          console.log('loadDoc shat the bed')
-          // setDoc(setDocRef, {
-          //   user1:[ 
-          //     {day1: users.user1.day1},
-          //     {day2: users.user1.day2}, 
-          //     {day3: users.user1.day3},
-          //     {day4: users.user1.day4},
-          //     {day5: users.user1.day5},
-          //     {day6: users.user1.day6},
-          //     {day7: users.user1.day7},
-          //     {day8: users.user1.day8},
-          //     {day9: users.user1.day9},
-          //     {day10: users.user1.day10}, 
-          //     {day11: users.user1.day11},
-          //     {day12: users.user1.day12}, 
-          //     {day13: users.user1.day13},
-          //     {day14: users.user1.day14},
-          //     {day15: users.user1.day15},
-          //     {day16: users.user1.day16},
-          //     {day17: users.user1.day17},
-          //     {day18: users.user1.day18},
-          //     {day19: users.user1.day19},
-          //     {day20: users.user1.day20},
-          //     {day21: users.user1.day21},
-          //     {day22: users.user1.day22}, 
-          //     {day23: users.user1.day23},
-          //     {day24: users.user1.day24},
-          //     {day25: users.user1.day25},
-          //     {day26: users.user1.day26},
-          //     {day27: users.user1.day27},
-          //     {day28: users.user1.day28},
-          //     {day29: users.user1.day29},
-          //     {day30: users.user1.day30},
-          //     {day31: users.user1.day31},    
-          //   ],   
-          //   user2:[ 
-          //     {day1: users.user2.day1},
-          //     {day2: users.user2.day2}, 
-          //     {day3: users.user2.day3},
-          //     {day4: users.user2.day4},
-          //     {day5: users.user2.day5},
-          //     {day6: users.user2.day6},
-          //     {day7: users.user2.day7},
-          //     {day8: users.user2.day8},
-          //     {day9: users.user2.day9},
-          //     {day10: users.user2.day10}, 
-          //     {day11: users.user2.day11},
-          //     {day12: users.user2.day12}, 
-          //     {day13: users.user2.day13},
-          //     {day14: users.user2.day14},
-          //     {day15: users.user2.day15},
-          //     {day16: users.user2.day16},
-          //     {day17: users.user2.day17},
-          //     {day18: users.user2.day18},
-          //     {day19: users.user2.day19},
-          //     {day20: users.user2.day20},
-          //     {day21: users.user2.day21},
-          //     {day22: users.user2.day22}, 
-          //     {day23: users.user2.day23},
-          //     {day24: users.user2.day24},
-          //     {day25: users.user2.day25},
-          //     {day26: users.user2.day26},
-          //     {day27: users.user2.day27},
-          //     {day28: users.user2.day28},
-          //     {day29: users.user2.day29},
-          //     {day30: users.user2.day30},
-          //     {day31: users.user2.day31}, 
-          //   ], 
-          //   user3:[ 
-          //     {day1: users.user3.day1},
-          //     {day2: users.user3.day2}, 
-          //     {day3: users.user3.day3}, 
-          //     {day4: users.user3.day4},
-          //     {day5: users.user3.day5},
-          //     {day6: users.user3.day6},
-          //     {day7: users.user3.day7},
-          //     {day8: users.user3.day8},
-          //     {day9: users.user3.day9},
-          //     {day10: users.user3.day10}, 
-          //     {day11: users.user3.day11},
-          //     {day12: users.user3.day12}, 
-          //     {day13: users.user3.day13},
-          //     {day14: users.user3.day14},
-          //     {day15: users.user3.day15},
-          //     {day16: users.user3.day16},
-          //     {day17: users.user3.day17},
-          //     {day18: users.user3.day18},
-          //     {day19: users.user3.day19},
-          //     {day20: users.user3.day20},
-          //     {day21: users.user3.day21},
-          //     {day22: users.user3.day22}, 
-          //     {day23: users.user3.day23},
-          //     {day24: users.user3.day24},
-          //     {day25: users.user3.day25},
-          //     {day26: users.user3.day26},
-          //     {day27: users.user3.day27},
-          //     {day28: users.user3.day28},
-          //     {day29: users.user3.day29},
-          //     {day30: users.user3.day30},
-          //     {day31: users.user3.day31},        
-          //   ], 
-          //     user4:[ 
-          //       {day1: users.user4.day1},
-          //       {day2: users.user4.day2}, 
-          //       {day3: users.user4.day3}, 
-          //       {day4: users.user4.day4},
-          //       {day5: users.user4.day5},
-          //       {day6: users.user4.day6},
-          //       {day7: users.user4.day7},
-          //       {day8: users.user4.day8},
-          //       {day9: users.user4.day9},
-          //       {day10: users.user4.day10}, 
-          //       {day11: users.user4.day11},
-          //       {day12: users.user4.day12}, 
-          //       {day13: users.user4.day13},
-          //       {day14: users.user4.day14},
-          //       {day15: users.user4.day15},
-          //       {day16: users.user4.day16},
-          //       {day17: users.user4.day17},
-          //       {day18: users.user4.day18},
-          //       {day19: users.user4.day19},
-          //       {day20: users.user4.day20},
-          //       {day21: users.user4.day21},
-          //       {day22: users.user4.day22}, 
-          //       {day23: users.user4.day23},
-          //       {day24: users.user4.day24},
-          //       {day25: users.user4.day25},
-          //       {day26: users.user4.day26},
-          //       {day27: users.user4.day27},
-          //       {day28: users.user4.day28},
-          //       {day29: users.user4.day29},
-          //       {day30: users.user4.day30},
-          //       {day31: users.user4.day31},        
-          //     ], 
-          //     user5:[ 
-          //       {day1: users.user5.day1},
-          //       {day2: users.user5.day2}, 
-          //       {day3: users.user5.day3}, 
-          //       {day4: users.user5.day4},
-          //       {day5: users.user5.day5},
-          //       {day6: users.user5.day6},
-          //       {day7: users.user5.day7},
-          //       {day8: users.user5.day8},
-          //       {day9: users.user5.day9},
-          //       {day10: users.user5.day10}, 
-          //       {day11: users.user5.day11},
-          //       {day12: users.user5.day12}, 
-          //       {day13: users.user5.day13},
-          //       {day14: users.user5.day14},
-          //       {day15: users.user5.day15},
-          //       {day16: users.user5.day16},
-          //       {day17: users.user5.day17},
-          //       {day18: users.user5.day18},
-          //       {day19: users.user5.day19},
-          //       {day20: users.user5.day20},
-          //       {day21: users.user5.day21},
-          //       {day22: users.user5.day22}, 
-          //       {day23: users.user5.day23},
-          //       {day24: users.user5.day24},
-          //       {day25: users.user5.day25},
-          //       {day26: users.user5.day26},
-          //       {day27: users.user5.day27},
-          //       {day28: users.user5.day28},
-          //       {day29: users.user5.day29},
-          //       {day30: users.user5.day30},
-          //       {day31: users.user5.day31},        
-          //     ],
-          //     user6:[ 
-          //       {day1: users.user6.day1},
-          //       {day2: users.user6.day2}, 
-          //       {day3: users.user6.day3}, 
-          //       {day4: users.user6.day4},
-          //       {day5: users.user6.day5},
-          //       {day6: users.user6.day6},
-          //       {day7: users.user6.day7},
-          //       {day8: users.user6.day8},
-          //       {day9: users.user6.day9},
-          //       {day10: users.user6.day10}, 
-          //       {day11: users.user6.day11},
-          //       {day12: users.user6.day12}, 
-          //       {day13: users.user6.day13},
-          //       {day14: users.user6.day14},
-          //       {day15: users.user6.day15},
-          //       {day16: users.user6.day16},
-          //       {day17: users.user6.day17},
-          //       {day18: users.user6.day18},
-          //       {day19: users.user6.day19},
-          //       {day20: users.user6.day20},
-          //       {day21: users.user6.day21},
-          //       {day22: users.user6.day22}, 
-          //       {day23: users.user6.day23},
-          //       {day24: users.user6.day24},
-          //       {day25: users.user6.day25},
-          //       {day26: users.user6.day26},
-          //       {day27: users.user6.day27},
-          //       {day28: users.user6.day28},
-          //       {day29: users.user6.day29},
-          //       {day30: users.user6.day30},
-          //       {day31: users.user6.day31},        
-          //     ],  
-          //     user7:[ 
-          //       {day1: users.user7.day1},
-          //       {day2: users.user7.day2}, 
-          //       {day3: users.user7.day3}, 
-          //       {day4: users.user7.day4},
-          //       {day5: users.user7.day5},
-          //       {day6: users.user7.day6},
-          //       {day7: users.user7.day7},
-          //       {day8: users.user7.day8},
-          //       {day9: users.user7.day9},
-          //       {day10: users.user7.day10}, 
-          //       {day11: users.user7.day11},
-          //       {day12: users.user7.day12}, 
-          //       {day13: users.user7.day13},
-          //       {day14: users.user7.day14},
-          //       {day15: users.user7.day15},
-          //       {day16: users.user7.day16},
-          //       {day17: users.user7.day17},
-          //       {day18: users.user7.day18},
-          //       {day19: users.user7.day19},
-          //       {day20: users.user7.day20},
-          //       {day21: users.user7.day21},
-          //       {day22: users.user7.day22}, 
-          //       {day23: users.user7.day23},
-          //       {day24: users.user7.day24},
-          //       {day25: users.user7.day25},
-          //       {day26: users.user7.day26},
-          //       {day27: users.user7.day27},
-          //       {day28: users.user7.day28},
-          //       {day29: users.user7.day29},
-          //       {day30: users.user7.day30},
-          //       {day31: users.user7.day31},        
-          //     ],  
-          //     user8:[ 
-          //       {day1: users.user8.day1},
-          //       {day2: users.user8.day2}, 
-          //       {day3: users.user8.day3}, 
-          //       {day4: users.user8.day4},
-          //       {day5: users.user8.day5},
-          //       {day6: users.user8.day6},
-          //       {day7: users.user8.day7},
-          //       {day8: users.user8.day8},
-          //       {day9: users.user8.day9},
-          //       {day10: users.user8.day10}, 
-          //       {day11: users.user8.day11},
-          //       {day12: users.user8.day12}, 
-          //       {day13: users.user8.day13},
-          //       {day14: users.user8.day14},
-          //       {day15: users.user8.day15},
-          //       {day16: users.user8.day16},
-          //       {day17: users.user8.day17},
-          //       {day18: users.user8.day18},
-          //       {day19: users.user8.day19},
-          //       {day20: users.user8.day20},
-          //       {day21: users.user8.day21},
-          //       {day22: users.user8.day22}, 
-          //       {day23: users.user8.day23},
-          //       {day24: users.user8.day24},
-          //       {day25: users.user8.day25},
-          //       {day26: users.user8.day26},
-          //       {day27: users.user8.day27},
-          //       {day28: users.user8.day28},
-          //       {day29: users.user8.day29},
-          //       {day30: users.user8.day30},
-          //       {day31: users.user8.day31},        
-          //     ], 
-          //     user9:[ 
-          //       {day1: users.user9.day1},
-          //       {day2: users.user9.day2}, 
-          //       {day3: users.user9.day3}, 
-          //       {day4: users.user9.day4},
-          //       {day5: users.user9.day5},
-          //       {day6: users.user9.day6},
-          //       {day7: users.user9.day7},
-          //       {day8: users.user9.day8},
-          //       {day9: users.user9.day9},
-          //       {day10: users.user9.day10}, 
-          //       {day11: users.user9.day11},
-          //       {day12: users.user9.day12}, 
-          //       {day13: users.user9.day13},
-          //       {day14: users.user9.day14},
-          //       {day15: users.user9.day15},
-          //       {day16: users.user9.day16},
-          //       {day17: users.user9.day17},
-          //       {day18: users.user9.day18},
-          //       {day19: users.user9.day19},
-          //       {day20: users.user9.day20},
-          //       {day21: users.user9.day21},
-          //       {day22: users.user9.day22}, 
-          //       {day23: users.user9.day23},
-          //       {day24: users.user9.day24},
-          //       {day25: users.user9.day25},
-          //       {day26: users.user9.day26},
-          //       {day27: users.user9.day27},
-          //       {day28: users.user9.day28},
-          //       {day29: users.user9.day29},
-          //       {day30: users.user9.day30},
-          //       {day31: users.user9.day31},        
-          //     ], 
-          //     user10:[ 
-          //       {day1: users.user10.day1},
-          //       {day2: users.user10.day2}, 
-          //       {day3: users.user10.day3}, 
-          //       {day4: users.user10.day4},
-          //       {day5: users.user10.day5},
-          //       {day6: users.user10.day6},
-          //       {day7: users.user10.day7},
-          //       {day8: users.user10.day8},
-          //       {day9: users.user10.day9},
-          //       {day10: users.user10.day10}, 
-          //       {day11: users.user10.day11},
-          //       {day12: users.user10.day12}, 
-          //       {day13: users.user10.day13},
-          //       {day14: users.user10.day14},
-          //       {day15: users.user10.day15},
-          //       {day16: users.user10.day16},
-          //       {day17: users.user10.day17},
-          //       {day18: users.user10.day18},
-          //       {day19: users.user10.day19},
-          //       {day20: users.user10.day20},
-          //       {day21: users.user10.day21},
-          //       {day22: users.user10.day22}, 
-          //       {day23: users.user10.day23},
-          //       {day24: users.user10.day24},
-          //       {day25: users.user10.day25},
-          //       {day26: users.user10.day26},
-          //       {day27: users.user10.day27},
-          //       {day28: users.user10.day28},
-          //       {day29: users.user10.day29},
-          //       {day30: users.user10.day30},
-          //       {day31: users.user10.day31},        
-          //     ] 
-          // });
-        // }
-
       } catch(error) {
         console.log('catch in loadDoc ran');
           setDoc(setDocRef, {
@@ -1647,7 +1392,7 @@ useEffect(()=> {
       }
     };
     loadDoc();
-}, [activeYear, activeMonth]);
+}, [activeYear, activeMonth, loadTrig]);
 
 
 //////   UPDATING FIRESTORE ON CLICK   //////
@@ -1656,6 +1401,7 @@ useEffect(() => {
   let x = activeDay.toString();
   if (users.user1[`day${x}`] === true) {
     try {
+      console.log('update doc updating firestore based on user states on click try ran');
     updateDoc(docRef, {
       user1:[ 
         {day1: users.user1.day1},
@@ -1694,7 +1440,7 @@ useEffect(() => {
 console.log('update doc u1 true run');
 
     } catch {
-      console.log('setDoc runs after this');
+      console.log('updateDoc firestore on click catch ran');
       // setDoc(setDocRef, {
       //   user1:[ 
       //     {day1: users.user1.day1},
@@ -1737,6 +1483,7 @@ console.log('update doc u1 true run');
   
   if (users.user1[`day${x}`] === false) {
     try {
+      console.log('update doc on click for u1 when false ran, the try ran')
     updateDoc(docRef, {
       user1:[ 
         {day1: users.user1.day1},
@@ -4163,8 +3910,15 @@ useEffect(() => {
         setHide30( false );
         setHide31( false );
       }
-      if ( activeMonth == 1 ) {
+
+      if ( (0 != activeYear % 4) && (0 == activeYear % 100) || (0 != activeYear % 400) ) {
         setHide29( true );
+        setHide30( true );
+        setHide31( true );
+      }
+
+      if ((0 == activeYear % 4) && (0 != activeYear % 100) || (0 == activeYear % 400)) {
+        setHide29( false );
         setHide30( true );
         setHide31( true );
       }
@@ -4497,14 +4251,21 @@ return (
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     
+
+
+<div className='infoDiv'>
 <article className = 'tagLineArticle'>
-  <h1 className = 'h1TagLine'> Powered by Jam Booker... </h1>
+  <h1 className = 'h1TagLine'> Powered by Useful Idiot Events... </h1>
 </article>
+</div>
 
 
 
-  <nav>
+
+  <BandInfoToggleButton/>
+
+<div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
+<nav className='infoDiv'>
     <div> Currently Logged In As: { currentUser?.email } </div>
     <div id='fields'>
       <input ref={emailRef} placeholder='Email'/>
@@ -4515,26 +4276,34 @@ return (
     <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
     <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
 
-  </nav>
 
-  <BandInfoToggleButton/>
-
-<div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
   Band Information
   <br></br>
-  <BandNumberInput/>
+  {/* <BandNumberInput/> */}
   <br/>
   <BandNameInput/>
+  <br/>
+  <FruitPicker />
+
+  </nav>
+
 </div>
+<br/>
+<ShowMainTable/>
 
 
-<div className= {currentUser ? 'mainDiv' : 'mainDivCollapse' }>
+<div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
 {/* <article className = 'bandLogoArticle'>
     <img className = 'headerImg'
       src= 'https://i.imgur.com/MJ7Wtvy.jpg' //black bg image
       // src= 'https://i.imgur.com/ALUVQWE.gif' //transparent bg allegedly
     />
 </article> */}
+
+
+
+
+
 
 <article className = 'availSumTitleArticle'>
   <h2 className = 'h2AvailSum'>
@@ -4602,7 +4371,14 @@ return (
 <article className = 'yearArticle' >
   <h2 className = 'h2Year'>Select Year</h2>
     {/* <button className = 'buttonYear' onClick={()=> setActiveYear(2022)}> 2022 </button> */}
-    <button className = 'buttonYear' onClick={()=> setActiveYear(2023)}> 2023 </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(currentDate.getFullYear())}> {currentDate.getFullYear().toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusOne)}> {activeYearPlusOne.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusTwo)}> {activeYearPlusTwo.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusThree)}> {activeYearPlusThree.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFour)}> {activeYearPlusFour.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFive)}> {activeYearPlusFive.toString()} </button>
+
+
 </article>
 
 <br></br>

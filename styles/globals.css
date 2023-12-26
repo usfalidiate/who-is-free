@@ -21,8 +21,13 @@
   background: black;
   padding: 0;
   margin: auto;
-  visibility: collapse;
+  /* visibility: collapse; */
+  display: none;
   width: 100%;
+}
+
+.infoDiv {
+  background: chocolate;
 }
 
 .fields {
@@ -331,7 +336,7 @@ a {
   align-self: center;
   align-items: center;
   border-radius: 5px;
-  width: 100%;
+  width: 16.66666%;
   height: 50px;
   background: linear-gradient(0deg, rgb(216, 203, 203) 0%, rgb(144, 136, 136) 100%); 
   border: 1px solid black;
