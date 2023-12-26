@@ -12,8 +12,6 @@ import unlockIcon from '../public/unlock.svg';
 import Select from "react-select";
 
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 // Import the functions you need from the SDKs you need
@@ -67,8 +65,6 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 
-
-
 export default function Home() {
 
 
@@ -93,14 +89,12 @@ useEffect(() => {
   setUID();
 }, []);
 
-  
-  console.log('uid', uid);
 
   ///// BAND INFORMATION /////
 
 
-
 const [bandInfoToggle, setBandInfoToggle] = useState(false);
+const [bandInfoTrig, setBandInfoTrig] = useState(false);
 
 const BandInfoToggleButton = () => {
   const changeToggleState = () => {
@@ -112,28 +106,100 @@ const BandInfoToggleButton = () => {
   )
 };
 
-// const BandNumberInput = () => {
-//   const [numberOfMembers, setNumberOfMembers] = useState(4);
+const [numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
+const [ bandNameOnLoad, setBandNameOnLoad ] = useState('...loading');
+const [updateTrig, setUpdateTrig] = useState(false);
 
-//   console.log('numberOfMembers', numberOfMembers);
-//   return (
-//     <label>
-//       Number of members: 
-//       <input value={numberOfMembers} onChange={e => setNumberOfMembers(e.target.value)} />
-//     </label>
-//   )
-// };
+function UpdateButton() {
+  const handleClick = () => {
+    setUpdateTrig(prev=>!prev);
+  };
 
-function FruitPicker() {
-  const [selectedFruit, setSelectedFruit] = useState('orange'); // Declare a state variable...
-  // ...
   return (
-    <label>
+    <button onClick={handleClick}> Update Band Information </button>
+  )
+};
+
+
+function BandInfoInput() {
+  const [bandName, setBandName] = useState(bandNameOnLoad);
+  const [numberOfMembers, setNumberOfMembers] = useState(numberOfMembersOnLoad); 
+
+
+  
+
+  console.log('bandName', bandName);
+
+  const bandNameSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      console.log('bandname docSnap ran');
+      
+      if (docSnap.exists()) {
+        console.log('updateDoc bandInfo ran pre');
+        updateDoc(docRefBandInfo, { bandName: bandName});
+        console.log('updateDoc bandInfo if ran post');
+      } else {
+        setDoc(docRefBandInfo, { bandName: bandName});
+        console.log('else name ran');
+
+      }
+
+    } catch {
+
+      console.log('update band info error catch ran');
+    }
+    
+  };
+
+    const bandNumberSubmit = async () => {
+      setBandInfoTrig(prev => !prev);
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      console.log('bandnumb docSnap ran');
+      
+      if (docSnap.exists()) {
+        console.log('updateDoc bandInfo number ran pre');
+        updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+        console.log('updateDoc bandInfo nymber if ran post');
+      } else {
+        setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+        console.log('else numberran');
+
+      }
+    } catch {
+
+      console.log('update band info num error catch ran');
+    };
+
+
+
+    
+  }
+  return (
+    <>
+      <>Current Band Name: {bandNameOnLoad}</>
+      <br/>
+      Number of Members: {numberOfMembersOnLoad}
+      <br/>
+      <br/>
+      <label>
+        Update Band Name: 
+        <input onChange={e => setBandName(e.target.value)}/>
+      </label>
+      <br/>
+      <button onClick={bandNameSubmit}> Submit </button>
+      <br/>
+      <br/>
+      <label>
       Select Number of Band Members: 
       <select
-      value={selectedFruit} // ...force the select's value to match the state variable...
-      onChange={e => setSelectedFruit(e.target.value)} // ... and update the state variable on any change!
+      onChange={e => setNumberOfMembers(e.target.value)}
+      defaultValue={'placeholder'}
       >
+      <option disabled value={'placeholder'}>#</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -146,22 +212,12 @@ function FruitPicker() {
       <option value="10">10</option>
     </select>
     </label>
-  );
-};
+    <br/>
+    <button onClick={bandNumberSubmit}> Submit </button>
+    <br/>
+    <br/>
+    <UpdateButton/>
 
-
-// const [savedName, setSavedName] = useState(bandName);
-
-function BandNameInput() {
-  const [bandName, setBandName] = useState('');
-
-  console.log('bandName', bandName);
-  return (
-    <>
-      <label>
-        Band Name: 
-        <input value={bandName} onChange={e => setBandName(e.target.value)}/>
-      </label>
     </>
   )
 };
@@ -274,6 +330,8 @@ const [ loadTrig, setLoadTrig ] = useState ( false );
 const [ showMain, setShowMain ] = useState ( false );
 
 
+//////   SHOW OR HIDE MAIN TABLE   //////
+
 function ShowMainTable() {
   const run = () => {
     setLoadTrig(prev => !prev);
@@ -287,10 +345,16 @@ function ShowMainTable() {
 
 console.log('showMain', showMain);
 
+
+//////   CHANGE NUMBER OF USERS   //////
+
+
+
+
 //////   FIRESTORE DOCREF   //////
 
-  const docRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() )
-  const setDocRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() )
+  const docRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
+  const setDocRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
 
 
 //////   INITIAL SET USERS DAY AVAILS TO NULL   //////
@@ -697,6 +761,37 @@ function tableDayNameLong (i) {
       if (activeDate.getDay() == 5) { return 'Friday' }
       if (activeDate.getDay() == 6) { return 'Saturday' }
 }
+
+
+
+
+//////   FIRESTORE BAND INFO LOAD ON START   //////
+const docRefBandInfo = doc ( db, uid.toString(), 'info' );
+const colRefBandInfo = collection ( db, uid.toString() );
+
+useEffect(()=> {
+  const loadDoc = async () => {
+    let initList = []
+    console.log('loadDoc for loading band info ran');
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      const cloudState = docSnap.data();
+      cloudState.id = docSnap.id;
+      initList.push(cloudState);
+      setNumberOfMembersOnLoad(cloudState.numberOfMembers);
+      setBandNameOnLoad(cloudState.bandName);
+      console.log('cloudState.numberOfMembers', cloudState.numberOfMembers);
+      console.log('cloudState.bandName', cloudState.bandName);
+    } catch {
+      console.log('error in load band info on start')
+    }
+  };
+  loadDoc();
+}, [ bandInfoToggle, updateTrig]);
+
+
+
+
 
 //////   SET INIT DATA FROM FIRESTORE ON LOAD   //////
 useEffect(()=> {
@@ -2970,7 +3065,6 @@ const handleClick1 = (i) => {
     }
   }})
 };
-
 const handleClick2 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -2981,7 +3075,6 @@ const handleClick2 = (i) => {
     }
   }})
 };
-
 const handleClick3 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -2992,7 +3085,6 @@ const handleClick3 = (i) => {
     }
   }})
 };
-
 const handleClick4 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3003,7 +3095,6 @@ const handleClick4 = (i) => {
     }
   }})
 };
-
 const handleClick5 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3014,7 +3105,6 @@ const handleClick5 = (i) => {
     }
   }})
 };
-
 const handleClick6 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3025,7 +3115,6 @@ const handleClick6 = (i) => {
     }
   }})
 };
-
 const handleClick7 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3036,7 +3125,6 @@ const handleClick7 = (i) => {
     }
   }})
 };
-
 const handleClick8 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3047,7 +3135,6 @@ const handleClick8 = (i) => {
     }
   }})
 };
-
 const handleClick9 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3058,7 +3145,6 @@ const handleClick9 = (i) => {
     }
   }})
 };
-
 const handleClick10 = (i) => {
   setActiveDay(i);
   setTrig(prev=> !prev);
@@ -3113,7 +3199,6 @@ const setAllAvailUser1 =()=>{
   setTrig(prev=>!prev);
   
 }
-
 const setAllAvailUser2 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3154,7 +3239,6 @@ const setAllAvailUser2 =()=>{
     setTrig(prev=>!prev);
 
 }
-  
 const setAllAvailUser3 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3195,7 +3279,6 @@ const setAllAvailUser3 =()=>{
     setTrig(prev=>!prev);
 
 }
-  
 const setAllAvailUser4 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3236,7 +3319,6 @@ const setAllAvailUser4 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser5 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3277,7 +3359,6 @@ const setAllAvailUser5 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser6 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3318,7 +3399,6 @@ const setAllAvailUser6 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser7 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3359,7 +3439,6 @@ const setAllAvailUser7 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser8 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3400,7 +3479,6 @@ const setAllAvailUser8 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser9 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3441,7 +3519,6 @@ const setAllAvailUser9 =()=>{
     setTrig(prev=>!prev);
 
 }
-
 const setAllAvailUser10 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3524,7 +3601,6 @@ const setAllUnAvailUser1 =()=>{
     setTrig(prev=>!prev);    
 
 }
-
 const setAllUnAvailUser2 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3565,7 +3641,6 @@ const setAllUnAvailUser2 =()=>{
     setTrig(prev=>!prev);     
 
 }
-  
 const setAllUnAvailUser3 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3606,7 +3681,6 @@ const setAllUnAvailUser3 =()=>{
     setTrig(prev=>!prev);     
 
 }
-  
 const setAllUnAvailUser4 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3647,7 +3721,6 @@ const setAllUnAvailUser4 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser5 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3688,7 +3761,6 @@ const setAllUnAvailUser5 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser6 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3729,7 +3801,6 @@ const setAllUnAvailUser6 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser7 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3770,7 +3841,6 @@ const setAllUnAvailUser7 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser8 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3811,7 +3881,6 @@ const setAllUnAvailUser8 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser9 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3852,7 +3921,6 @@ const setAllUnAvailUser9 =()=>{
     setTrig(prev=>!prev);     
 
 }
-
 const setAllUnAvailUser10 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3995,7 +4063,6 @@ const allFree1 = () => {
     
   }   
 };
-
 const allFree2 = () => {  
   if ((users.user1.day2 && users.user2.day2 && users.user3.day2 && users.user4.day2 && users.user5.day2 && users.user6.day2 && users.user7.day2 && users.user8.day2 && users.user9.day2 && users.user10.day2) == true ) {
     return [ tableDayNameLong(1), ' ',  tableDayNameArray[1], ' ', monthToNameLong(), br ]
@@ -4003,7 +4070,6 @@ const allFree2 = () => {
 
   }
 };
-
 const allFree3 = () => {  
   if ((users.user1.day3 && users.user2.day3 && users.user3.day3 && users.user4.day3 && users.user5.day3 && users.user6.day3 && users.user7.day3 && users.user8.day3 && users.user9.day3 && users.user10.day3) == true ) {
     return [ tableDayNameLong(2) , ' ', tableDayNameArray[2], ' ', monthToNameLong(), br ]
@@ -4011,7 +4077,6 @@ const allFree3 = () => {
 
   }
 };
-
 const allFree4 = () => {  
   if ((users.user1.day4 && users.user2.day4 && users.user3.day4 && users.user4.day4 && users.user5.day4 && users.user6.day4 && users.user7.day4 && users.user8.day4 && users.user9.day4 && users.user10.day4) == true ) {
     return [ tableDayNameLong(3) , ' ', tableDayNameArray[3], ' ', monthToNameLong(), br ]
@@ -4019,7 +4084,6 @@ const allFree4 = () => {
 
   }
 };
-
 const allFree5 = () => {  
   if ((users.user1.day5 && users.user2.day5 && users.user3.day5 && users.user4.day5 && users.user5.day5 && users.user6.day5 && users.user7.day5 && users.user8.day5 && users.user9.day5 && users.user10.day5) == true ) {
     return [ tableDayNameLong(4) , ' ', tableDayNameArray[4], ' ', monthToNameLong(), br ]
@@ -4027,7 +4091,6 @@ const allFree5 = () => {
 
   }
 };
-
 const allFree6 = () => {  
   if ((users.user1.day6 && users.user2.day6 && users.user3.day6 && users.user4.day6 && users.user5.day6 && users.user6.day6 && users.user7.day6 && users.user8.day6 && users.user9.day6 && users.user10.day6) == true ) {
     return [ tableDayNameLong(5) , ' ', tableDayNameArray[5], ' ', monthToNameLong(), br ]
@@ -4035,7 +4098,6 @@ const allFree6 = () => {
 
   }
 };
-
 const allFree7 = () => {  
   if ((users.user1.day7 && users.user2.day7 && users.user3.day7 && users.user4.day7 && users.user5.day7 && users.user6.day7 && users.user7.day7 && users.user8.day7 && users.user9.day7 && users.user10.day7) == true ) {
     return [ tableDayNameLong(6) , ' ', tableDayNameArray[6], ' ', monthToNameLong(), br ]
@@ -4043,7 +4105,6 @@ const allFree7 = () => {
 
   }
 };
-
 const allFree8 = () => {  
   if ((users.user1.day8 && users.user2.day8 && users.user3.day8 && users.user4.day8 && users.user5.day8 && users.user6.day8 && users.user7.day8 && users.user8.day8 && users.user9.day8 && users.user10.day8) == true ) {
     return [ tableDayNameLong(7) , ' ', tableDayNameArray[7], ' ', monthToNameLong(), br ]
@@ -4051,7 +4112,6 @@ const allFree8 = () => {
 
   }
 };
-
 const allFree9 = () => {  
   if ((users.user1.day9 && users.user2.day9 && users.user3.day9 && users.user4.day9 && users.user5.day9 && users.user6.day9 && users.user7.day9 && users.user8.day9 && users.user9.day9 && users.user10.day9) == true ) {
     return [ tableDayNameLong(8) , ' ', tableDayNameArray[8], ' ', monthToNameLong(), br ]
@@ -4059,7 +4119,6 @@ const allFree9 = () => {
 
   }
 };
-
 const allFree10 = () => {  
   if ((users.user1.day10 && users.user2.day10 && users.user3.day10 && users.user4.day10 && users.user5.day10 && users.user6.day10 && users.user7.day10 && users.user8.day10 && users.user9.day10 && users.user10.day10) == true ) {
     return [ tableDayNameLong(9) , ' ', tableDayNameArray[9], ' ', monthToNameLong(), br ]
@@ -4067,7 +4126,6 @@ const allFree10 = () => {
 
   }
 };
-
 const allFree11 = () => {  
   if ((users.user1.day11 && users.user2.day11 && users.user3.day11 && users.user4.day11 && users.user5.day11 && users.user6.day11 && users.user7.day11 && users.user8.day11 && users.user9.day11 && users.user10.day11) == true ) {
     return [ tableDayNameLong(10), ' ', tableDayNameArray[10], ' ',  monthToNameLong(), br ]
@@ -4075,7 +4133,6 @@ const allFree11 = () => {
 
   }
 };
-
 const allFree12 = () => {  
   if ((users.user1.day12 && users.user2.day12 && users.user3.day12 && users.user4.day12 && users.user5.day12 && users.user6.day12 && users.user7.day12 && users.user8.day12 && users.user9.day12 && users.user10.day12) == true ) {
     return [ tableDayNameLong(11), ' ', tableDayNameArray[11], ' ',  monthToNameLong(), br ]
@@ -4083,7 +4140,6 @@ const allFree12 = () => {
 
   }
 };
-
 const allFree13 = () => {  
   if ((users.user1.day13 && users.user2.day13 && users.user3.day13 && users.user4.day13 && users.user5.day13 && users.user6.day13 && users.user7.day13 && users.user8.day13 && users.user9.day13 && users.user10.day13) == true ) {
     return [ tableDayNameLong(12), ' ', tableDayNameArray[12], ' ',  monthToNameLong(), br ]
@@ -4091,7 +4147,6 @@ const allFree13 = () => {
 
   }
 };
-
 const allFree14 = () => {  
   if ((users.user1.day14 && users.user2.day14 && users.user3.day14 && users.user4.day14 && users.user5.day14 && users.user6.day14 && users.user7.day14 && users.user8.day14 && users.user9.day14 && users.user10.day14) == true ) {
     return [ tableDayNameLong(13), ' ', tableDayNameArray[13], ' ',  monthToNameLong(), br ]
@@ -4099,7 +4154,6 @@ const allFree14 = () => {
 
   }
 };
-
 const allFree15 = () => {  
   if ((users.user1.day15 && users.user2.day15 && users.user3.day15 && users.user4.day15 && users.user5.day15 && users.user6.day15 && users.user7.day15 && users.user8.day15 && users.user9.day15 && users.user10.day15) == true ) {
     return [ tableDayNameLong(14), ' ', tableDayNameArray[14], ' ',  monthToNameLong(), br ]
@@ -4107,7 +4161,6 @@ const allFree15 = () => {
 
   }
 };
-
 const allFree16 = () => {  
   if ((users.user1.day16 && users.user2.day16 && users.user3.day16 && users.user4.day16 && users.user5.day16 && users.user6.day16 && users.user7.day16 && users.user8.day16 && users.user9.day16 && users.user10.day16) == true ) {
     return [ tableDayNameLong(15), ' ', tableDayNameArray[15], ' ',  monthToNameLong(), br ]
@@ -4115,7 +4168,6 @@ const allFree16 = () => {
 
   }
 };
-
 const allFree17 = () => {  
   if ((users.user1.day17 && users.user2.day17 && users.user3.day17 && users.user4.day17 && users.user5.day17 && users.user6.day17 && users.user7.day17 && users.user8.day17 && users.user9.day17 && users.user10.day17) == true ) {
     return [ tableDayNameLong(16), ' ', tableDayNameArray[16], ' ',  monthToNameLong(), br ]
@@ -4123,7 +4175,6 @@ const allFree17 = () => {
 
   }
 };
-
 const allFree18 = () => {  
   if ((users.user1.day18 && users.user2.day18 && users.user3.day18 && users.user4.day18 && users.user5.day18 && users.user6.day18 && users.user7.day18 && users.user8.day18 && users.user9.day18 && users.user10.day18) == true ) {
     return [ tableDayNameLong(17), ' ', tableDayNameArray[17], ' ',  monthToNameLong(), br ]
@@ -4131,7 +4182,6 @@ const allFree18 = () => {
 
   }
 };
-
 const allFree19 = () => {  
   if ((users.user1.day19 && users.user2.day19 && users.user3.day19 && users.user4.day19 && users.user5.day19 && users.user6.day19 && users.user7.day19 && users.user8.day19 && users.user9.day19 && users.user10.day19) == true ) {
     return [ tableDayNameLong(18), ' ', tableDayNameArray[18], ' ',  monthToNameLong(), br ]
@@ -4139,7 +4189,6 @@ const allFree19 = () => {
 
   }
 };
-
 const allFree20 = () => {  
   if ((users.user1.day20 && users.user2.day20 && users.user3.day20 && users.user4.day20 && users.user5.day20 && users.user6.day20 && users.user7.day20 && users.user8.day20 && users.user9.day20 && users.user10.day20) == true ) {
     return [ tableDayNameLong(19), ' ', tableDayNameArray[19], ' ',  monthToNameLong(), br ]
@@ -4147,7 +4196,6 @@ const allFree20 = () => {
 
   }
 };
-
 const allFree21 = () => {  
   if ((users.user1.day21 && users.user2.day21 && users.user3.day21 && users.user4.day21 && users.user5.day21 && users.user6.day21 && users.user7.day21 && users.user8.day21 && users.user9.day21 && users.user10.day21) == true ) {
     return [ tableDayNameLong(20), ' ', tableDayNameArray[20], ' ',  monthToNameLong(), br ]
@@ -4155,7 +4203,6 @@ const allFree21 = () => {
 
   }
 };
-
 const allFree22 = () => {  
   if ((users.user1.day22 && users.user2.day22 && users.user3.day22 && users.user4.day22 && users.user5.day22 && users.user6.day22 && users.user7.day22 && users.user8.day22 && users.user9.day22 && users.user10.day22) == true ) {
     return [ tableDayNameLong(21), ' ', tableDayNameArray[21], ' ',  monthToNameLong(), br ]
@@ -4163,7 +4210,6 @@ const allFree22 = () => {
 
   }
 };
-
 const allFree23 = () => {  
   if ((users.user1.day23 && users.user2.day23 && users.user3.day23 && users.user4.day23 && users.user5.day23 && users.user6.day23 && users.user7.day23 && users.user8.day23 && users.user9.day23 && users.user10.day23) == true ) {
     return [ tableDayNameLong(22), ' ', tableDayNameArray[22], ' ',  monthToNameLong(), br ]
@@ -4171,7 +4217,6 @@ const allFree23 = () => {
 
   }
 };
-
 const allFree24 = () => {  
   if ((users.user1.day24 && users.user2.day24 && users.user3.day24 && users.user4.day24 && users.user5.day24 && users.user6.day24 && users.user7.day24 && users.user8.day24 && users.user9.day24 && users.user10.day24) == true ) {
     return [ tableDayNameLong(23), ' ', tableDayNameArray[23], ' ',  monthToNameLong(), br ]
@@ -4179,7 +4224,6 @@ const allFree24 = () => {
 
   }
 };
-
 const allFree25 = () => {  
   if ((users.user1.day25 && users.user2.day25 && users.user3.day25 && users.user4.day25 && users.user5.day25 && users.user6.day25 && users.user7.day25 && users.user8.day25 && users.user9.day25 && users.user10.day25) == true ) {
     return [ tableDayNameLong(24), ' ', tableDayNameArray[24], ' ',  monthToNameLong(), br ]
@@ -4187,7 +4231,6 @@ const allFree25 = () => {
 
   }
 };
-
 const allFree26 = () => {  
   if ((users.user1.day26 && users.user2.day26 && users.user3.day26 && users.user4.day26 && users.user5.day26 && users.user6.day26 && users.user7.day26 && users.user8.day26 && users.user9.day26 && users.user10.day26) == true ) {
     return [ tableDayNameLong(25), ' ', tableDayNameArray[25], ' ',  monthToNameLong(), br ]
@@ -4195,7 +4238,6 @@ const allFree26 = () => {
 
   }
 };
-
 const allFree27 = () => {  
   if ((users.user1.day27 && users.user2.day27 && users.user3.day27 && users.user4.day27 && users.user5.day27 && users.user6.day27 && users.user7.day27 && users.user8.day27 && users.user9.day27 && users.user10.day27) == true ) {
     return [ tableDayNameLong(26), ' ', tableDayNameArray[26], ' ',  monthToNameLong(), br ]
@@ -4203,7 +4245,6 @@ const allFree27 = () => {
 
   }
 };
-
 const allFree28 = () => {  
   if ((users.user1.day28 && users.user2.day28 && users.user3.day28 && users.user4.day28 && users.user5.day28 && users.user6.day28 && users.user7.day28 && users.user8.day28 && users.user9.day28 && users.user10.day28) == true ) {
     return [ tableDayNameLong(27), ' ', tableDayNameArray[27], ' ',  monthToNameLong(), br ]
@@ -4211,7 +4252,6 @@ const allFree28 = () => {
 
   }
 };
-
 const allFree29 = () => {  
   if (hide29 == true) {
   } else {  
@@ -4221,7 +4261,6 @@ const allFree29 = () => {
     }
   }
 };
-
 const allFree30 = () => {  
   if (hide30 == true) {
   } else {
@@ -4231,7 +4270,6 @@ const allFree30 = () => {
     }
   }
 };
-
 const allFree31 = () => {  
   if (hide31 == true) {
   } else {    
@@ -4249,9 +4287,7 @@ const allFree31 = () => {
 return (
 <div className = 'myDiv'>
 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <div className='infoDiv'>
 <article className = 'tagLineArticle'>
@@ -4259,10 +4295,7 @@ return (
 </article>
 </div>
 
-
-
-
-  <BandInfoToggleButton/>
+<BandInfoToggleButton/>
 
 <div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
 <nav className='infoDiv'>
@@ -4276,14 +4309,10 @@ return (
     <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
     <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
 
-
-  Band Information
   <br></br>
-  {/* <BandNumberInput/> */}
   <br/>
-  <BandNameInput/>
+  <BandInfoInput/>
   <br/>
-  <FruitPicker />
 
   </nav>
 
@@ -4293,16 +4322,6 @@ return (
 
 
 <div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
-{/* <article className = 'bandLogoArticle'>
-    <img className = 'headerImg'
-      src= 'https://i.imgur.com/MJ7Wtvy.jpg' //black bg image
-      // src= 'https://i.imgur.com/ALUVQWE.gif' //transparent bg allegedly
-    />
-</article> */}
-
-
-
-
 
 
 <article className = 'availSumTitleArticle'>
@@ -4409,8 +4428,7 @@ return (
 
 <br></br>
 
-
-    {/* {NUDE TABLE FOR UNLOCKS} */}
+  {/* {NUDE TABLE FOR UNLOCKS} */}
 <article>
 <table className='tableNude'>
   <tbody>
@@ -4673,7 +4691,7 @@ return (
 </article>
 
 
-            {/* { MAIN TABLE FOR TOGGLE AVAILS } */}
+  {/* { MAIN TABLE FOR TOGGLE AVAILS } */}
 
 {/*NEW AVAIL TABLE */
 }<article>
@@ -7955,6 +7973,18 @@ return (
 
 <br></br>
 
+<article className = 'disclaimerArticle'>
+  <h3 className = 'h3Disclaimer'>
+    <br></br>
+    If you experience any problems using this website, please put them in your bum.   
+    <br></br>
+  </h3>
+</article>
+</div>
+</div> 
+);
+}
+
 
 {/*OLD TABLE*/}
 {/* <article>
@@ -9251,14 +9281,4 @@ return (
   </tbody>
 </table>
 </article> */}
-<article className = 'disclaimerArticle'>
-  <h3 className = 'h3Disclaimer'>
-    <br></br>
-    If you experience any problems using this website, please put them in your bum.   
-    <br></br>
-  </h3>
-</article>
-</div>
-</div> 
-);
-}
+
