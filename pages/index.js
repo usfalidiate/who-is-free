@@ -316,7 +316,7 @@ const svenMobile = '0414911859';
 const [ activeMonth, setActiveMonth ] = useState( currentDate.getMonth() );
 const [ activeYear, setActiveYear ] = useState( currentDate.getFullYear() );
 const [ activeDay, setActiveDay ] = useState( currentDate.getDate() );
-const [ unlock, setUnlock ] = useState({ user1Unlock: true, user2Unlock: true, user3Unlock:true, user4Unlock:true, user5Unlock:true, user6Unlock:true, user7Unlock:true, user8Unlock:true, user9Unlock:true, user10Unlock:true });
+const [ unlock, setUnlock ] = useState({ user1: true, user2: true, user3:true, user4:true, user5:true, user6:true, user7:true, user8:true, user9:true, user10:true });
 const [ trig, setTrig ] = useState( false );
 const [ hide29, setHide29 ] = useState( false );
 const [ hide30, setHide30 ] = useState( false );
@@ -793,7 +793,7 @@ useEffect(()=> {
 
 
 
-//////   SET INIT DATA FROM FIRESTORE ON LOAD   //////
+//////   SET INIT AVAIL DATA FROM FIRESTORE ON LOAD   //////
 useEffect(()=> {
     const loadDoc = async () => {
       let initList = []
@@ -943,207 +943,207 @@ useEffect(()=> {
             },            
             
             user5: {
-              day1: cloudState.user4[0].day1,
-              day2: cloudState.user4[1].day2,
-              day3: cloudState.user4[2].day3,
-              day4: cloudState.user4[3].day4,
-              day5: cloudState.user4[4].day5,
-              day6: cloudState.user4[5].day6,
-              day7: cloudState.user4[6].day7,
-              day8: cloudState.user4[7].day8,
-              day9: cloudState.user4[8].day9,
-              day10: cloudState.user4[9].day10, 
-              day11: cloudState.user4[10].day11,
-              day12: cloudState.user4[11].day12,
-              day13: cloudState.user4[12].day13,
-              day14: cloudState.user4[13].day14,
-              day15: cloudState.user4[14].day15,
-              day16: cloudState.user4[15].day16,
-              day17: cloudState.user4[16].day17,
-              day18: cloudState.user4[17].day18,
-              day19: cloudState.user4[18].day19,
-              day20: cloudState.user4[19].day20,
-              day21: cloudState.user4[20].day21,
-              day22: cloudState.user4[21].day22,
-              day23: cloudState.user4[22].day23,
-              day24: cloudState.user4[23].day24,
-              day25: cloudState.user4[24].day25,
-              day26: cloudState.user4[25].day26,
-              day27: cloudState.user4[26].day27,
-              day28: cloudState.user4[27].day28,
-              day29: cloudState.user4[28].day29,
-              day30: cloudState.user4[29].day30,
-              day31: cloudState.user4[30].day31,              
+              day1: cloudState.user5[0].day1,
+              day2: cloudState.user5[1].day2,
+              day3: cloudState.user5[2].day3,
+              day4: cloudState.user5[3].day4,
+              day5: cloudState.user5[4].day5,
+              day6: cloudState.user5[5].day6,
+              day7: cloudState.user5[6].day7,
+              day8: cloudState.user5[7].day8,
+              day9: cloudState.user5[8].day9,
+              day10: cloudState.user5[9].day10, 
+              day11: cloudState.user5[10].day11,
+              day12: cloudState.user5[11].day12,
+              day13: cloudState.user5[12].day13,
+              day14: cloudState.user5[13].day14,
+              day15: cloudState.user5[14].day15,
+              day16: cloudState.user5[15].day16,
+              day17: cloudState.user5[16].day17,
+              day18: cloudState.user5[17].day18,
+              day19: cloudState.user5[18].day19,
+              day20: cloudState.user5[19].day20,
+              day21: cloudState.user5[20].day21,
+              day22: cloudState.user5[21].day22,
+              day23: cloudState.user5[22].day23,
+              day24: cloudState.user5[23].day24,
+              day25: cloudState.user5[24].day25,
+              day26: cloudState.user5[25].day26,
+              day27: cloudState.user5[26].day27,
+              day28: cloudState.user5[27].day28,
+              day29: cloudState.user5[28].day29,
+              day30: cloudState.user5[29].day30,
+              day31: cloudState.user5[30].day31,              
           },
             
           user6: {
-            day1: cloudState.user4[0].day1,
-            day2: cloudState.user4[1].day2,
-            day3: cloudState.user4[2].day3,
-            day4: cloudState.user4[3].day4,
-            day5: cloudState.user4[4].day5,
-            day6: cloudState.user4[5].day6,
-            day7: cloudState.user4[6].day7,
-            day8: cloudState.user4[7].day8,
-            day9: cloudState.user4[8].day9,
-            day10: cloudState.user4[9].day10, 
-            day11: cloudState.user4[10].day11,
-            day12: cloudState.user4[11].day12,
-            day13: cloudState.user4[12].day13,
-            day14: cloudState.user4[13].day14,
-            day15: cloudState.user4[14].day15,
-            day16: cloudState.user4[15].day16,
-            day17: cloudState.user4[16].day17,
-            day18: cloudState.user4[17].day18,
-            day19: cloudState.user4[18].day19,
-            day20: cloudState.user4[19].day20,
-            day21: cloudState.user4[20].day21,
-            day22: cloudState.user4[21].day22,
-            day23: cloudState.user4[22].day23,
-            day24: cloudState.user4[23].day24,
-            day25: cloudState.user4[24].day25,
-            day26: cloudState.user4[25].day26,
-            day27: cloudState.user4[26].day27,
-            day28: cloudState.user4[27].day28,
-            day29: cloudState.user4[28].day29,
-            day30: cloudState.user4[29].day30,
-            day31: cloudState.user4[30].day31,              
+            day1: cloudState.user6[0].day1,
+            day2: cloudState.user6[1].day2,
+            day3: cloudState.user6[2].day3,
+            day4: cloudState.user6[3].day4,
+            day5: cloudState.user6[4].day5,
+            day6: cloudState.user6[5].day6,
+            day7: cloudState.user6[6].day7,
+            day8: cloudState.user6[7].day8,
+            day9: cloudState.user6[8].day9,
+            day10: cloudState.user6[9].day10, 
+            day11: cloudState.user6[10].day11,
+            day12: cloudState.user6[11].day12,
+            day13: cloudState.user6[12].day13,
+            day14: cloudState.user6[13].day14,
+            day15: cloudState.user6[14].day15,
+            day16: cloudState.user6[15].day16,
+            day17: cloudState.user6[16].day17,
+            day18: cloudState.user6[17].day18,
+            day19: cloudState.user6[18].day19,
+            day20: cloudState.user6[19].day20,
+            day21: cloudState.user6[20].day21,
+            day22: cloudState.user6[21].day22,
+            day23: cloudState.user6[22].day23,
+            day24: cloudState.user6[23].day24,
+            day25: cloudState.user6[24].day25,
+            day26: cloudState.user6[25].day26,
+            day27: cloudState.user6[26].day27,
+            day28: cloudState.user6[27].day28,
+            day29: cloudState.user6[28].day29,
+            day30: cloudState.user6[29].day30,
+            day31: cloudState.user6[30].day31,              
         },
                     
         user7: {
-          day1: cloudState.user4[0].day1,
-          day2: cloudState.user4[1].day2,
-          day3: cloudState.user4[2].day3,
-          day4: cloudState.user4[3].day4,
-          day5: cloudState.user4[4].day5,
-          day6: cloudState.user4[5].day6,
-          day7: cloudState.user4[6].day7,
-          day8: cloudState.user4[7].day8,
-          day9: cloudState.user4[8].day9,
-          day10: cloudState.user4[9].day10, 
-          day11: cloudState.user4[10].day11,
-          day12: cloudState.user4[11].day12,
-          day13: cloudState.user4[12].day13,
-          day14: cloudState.user4[13].day14,
-          day15: cloudState.user4[14].day15,
-          day16: cloudState.user4[15].day16,
-          day17: cloudState.user4[16].day17,
-          day18: cloudState.user4[17].day18,
-          day19: cloudState.user4[18].day19,
-          day20: cloudState.user4[19].day20,
-          day21: cloudState.user4[20].day21,
-          day22: cloudState.user4[21].day22,
-          day23: cloudState.user4[22].day23,
-          day24: cloudState.user4[23].day24,
-          day25: cloudState.user4[24].day25,
-          day26: cloudState.user4[25].day26,
-          day27: cloudState.user4[26].day27,
-          day28: cloudState.user4[27].day28,
-          day29: cloudState.user4[28].day29,
-          day30: cloudState.user4[29].day30,
-          day31: cloudState.user4[30].day31,              
+          day1: cloudState.user7[0].day1,
+          day2: cloudState.user7[1].day2,
+          day3: cloudState.user7[2].day3,
+          day4: cloudState.user7[3].day4,
+          day5: cloudState.user7[4].day5,
+          day6: cloudState.user7[5].day6,
+          day7: cloudState.user7[6].day7,
+          day8: cloudState.user7[7].day8,
+          day9: cloudState.user7[8].day9,
+          day10: cloudState.user7[9].day10, 
+          day11: cloudState.user7[10].day11,
+          day12: cloudState.user7[11].day12,
+          day13: cloudState.user7[12].day13,
+          day14: cloudState.user7[13].day14,
+          day15: cloudState.user7[14].day15,
+          day16: cloudState.user7[15].day16,
+          day17: cloudState.user7[16].day17,
+          day18: cloudState.user7[17].day18,
+          day19: cloudState.user7[18].day19,
+          day20: cloudState.user7[19].day20,
+          day21: cloudState.user7[20].day21,
+          day22: cloudState.user7[21].day22,
+          day23: cloudState.user7[22].day23,
+          day24: cloudState.user7[23].day24,
+          day25: cloudState.user7[24].day25,
+          day26: cloudState.user7[25].day26,
+          day27: cloudState.user7[26].day27,
+          day28: cloudState.user7[27].day28,
+          day29: cloudState.user7[28].day29,
+          day30: cloudState.user7[29].day30,
+          day31: cloudState.user7[30].day31,              
       },
                   
       user8: {
-        day1: cloudState.user4[0].day1,
-        day2: cloudState.user4[1].day2,
-        day3: cloudState.user4[2].day3,
-        day4: cloudState.user4[3].day4,
-        day5: cloudState.user4[4].day5,
-        day6: cloudState.user4[5].day6,
-        day7: cloudState.user4[6].day7,
-        day8: cloudState.user4[7].day8,
-        day9: cloudState.user4[8].day9,
-        day10: cloudState.user4[9].day10, 
-        day11: cloudState.user4[10].day11,
-        day12: cloudState.user4[11].day12,
-        day13: cloudState.user4[12].day13,
-        day14: cloudState.user4[13].day14,
-        day15: cloudState.user4[14].day15,
-        day16: cloudState.user4[15].day16,
-        day17: cloudState.user4[16].day17,
-        day18: cloudState.user4[17].day18,
-        day19: cloudState.user4[18].day19,
-        day20: cloudState.user4[19].day20,
-        day21: cloudState.user4[20].day21,
-        day22: cloudState.user4[21].day22,
-        day23: cloudState.user4[22].day23,
-        day24: cloudState.user4[23].day24,
-        day25: cloudState.user4[24].day25,
-        day26: cloudState.user4[25].day26,
-        day27: cloudState.user4[26].day27,
-        day28: cloudState.user4[27].day28,
-        day29: cloudState.user4[28].day29,
-        day30: cloudState.user4[29].day30,
-        day31: cloudState.user4[30].day31,              
+        day1: cloudState.user8[0].day1,
+        day2: cloudState.user8[1].day2,
+        day3: cloudState.user8[2].day3,
+        day4: cloudState.user8[3].day4,
+        day5: cloudState.user8[4].day5,
+        day6: cloudState.user8[5].day6,
+        day7: cloudState.user8[6].day7,
+        day8: cloudState.user8[7].day8,
+        day9: cloudState.user8[8].day9,
+        day10: cloudState.user8[9].day10, 
+        day11: cloudState.user8[10].day11,
+        day12: cloudState.user8[11].day12,
+        day13: cloudState.user8[12].day13,
+        day14: cloudState.user8[13].day14,
+        day15: cloudState.user8[14].day15,
+        day16: cloudState.user8[15].day16,
+        day17: cloudState.user8[16].day17,
+        day18: cloudState.user8[17].day18,
+        day19: cloudState.user8[18].day19,
+        day20: cloudState.user8[19].day20,
+        day21: cloudState.user8[20].day21,
+        day22: cloudState.user8[21].day22,
+        day23: cloudState.user8[22].day23,
+        day24: cloudState.user8[23].day24,
+        day25: cloudState.user8[24].day25,
+        day26: cloudState.user8[25].day26,
+        day27: cloudState.user8[26].day27,
+        day28: cloudState.user8[27].day28,
+        day29: cloudState.user8[28].day29,
+        day30: cloudState.user8[29].day30,
+        day31: cloudState.user8[30].day31,              
     },
                 
     user9: {
-      day1: cloudState.user4[0].day1,
-      day2: cloudState.user4[1].day2,
-      day3: cloudState.user4[2].day3,
-      day4: cloudState.user4[3].day4,
-      day5: cloudState.user4[4].day5,
-      day6: cloudState.user4[5].day6,
-      day7: cloudState.user4[6].day7,
-      day8: cloudState.user4[7].day8,
-      day9: cloudState.user4[8].day9,
-      day10: cloudState.user4[9].day10, 
-      day11: cloudState.user4[10].day11,
-      day12: cloudState.user4[11].day12,
-      day13: cloudState.user4[12].day13,
-      day14: cloudState.user4[13].day14,
-      day15: cloudState.user4[14].day15,
-      day16: cloudState.user4[15].day16,
-      day17: cloudState.user4[16].day17,
-      day18: cloudState.user4[17].day18,
-      day19: cloudState.user4[18].day19,
-      day20: cloudState.user4[19].day20,
-      day21: cloudState.user4[20].day21,
-      day22: cloudState.user4[21].day22,
-      day23: cloudState.user4[22].day23,
-      day24: cloudState.user4[23].day24,
-      day25: cloudState.user4[24].day25,
-      day26: cloudState.user4[25].day26,
-      day27: cloudState.user4[26].day27,
-      day28: cloudState.user4[27].day28,
-      day29: cloudState.user4[28].day29,
-      day30: cloudState.user4[29].day30,
-      day31: cloudState.user4[30].day31,              
+      day1: cloudState.user9[0].day1,
+      day2: cloudState.user9[1].day2,
+      day3: cloudState.user9[2].day3,
+      day4: cloudState.user9[3].day4,
+      day5: cloudState.user9[4].day5,
+      day6: cloudState.user9[5].day6,
+      day7: cloudState.user9[6].day7,
+      day8: cloudState.user9[7].day8,
+      day9: cloudState.user9[8].day9,
+      day10: cloudState.user9[9].day10, 
+      day11: cloudState.user9[10].day11,
+      day12: cloudState.user9[11].day12,
+      day13: cloudState.user9[12].day13,
+      day14: cloudState.user9[13].day14,
+      day15: cloudState.user9[14].day15,
+      day16: cloudState.user9[15].day16,
+      day17: cloudState.user9[16].day17,
+      day18: cloudState.user9[17].day18,
+      day19: cloudState.user9[18].day19,
+      day20: cloudState.user9[19].day20,
+      day21: cloudState.user9[20].day21,
+      day22: cloudState.user9[21].day22,
+      day23: cloudState.user9[22].day23,
+      day24: cloudState.user9[23].day24,
+      day25: cloudState.user9[24].day25,
+      day26: cloudState.user9[25].day26,
+      day27: cloudState.user9[26].day27,
+      day28: cloudState.user9[27].day28,
+      day29: cloudState.user9[28].day29,
+      day30: cloudState.user9[29].day30,
+      day31: cloudState.user9[30].day31,              
   },
               
   user10: {
-    day1: cloudState.user4[0].day1,
-    day2: cloudState.user4[1].day2,
-    day3: cloudState.user4[2].day3,
-    day4: cloudState.user4[3].day4,
-    day5: cloudState.user4[4].day5,
-    day6: cloudState.user4[5].day6,
-    day7: cloudState.user4[6].day7,
-    day8: cloudState.user4[7].day8,
-    day9: cloudState.user4[8].day9,
-    day10: cloudState.user4[9].day10, 
-    day11: cloudState.user4[10].day11,
-    day12: cloudState.user4[11].day12,
-    day13: cloudState.user4[12].day13,
-    day14: cloudState.user4[13].day14,
-    day15: cloudState.user4[14].day15,
-    day16: cloudState.user4[15].day16,
-    day17: cloudState.user4[16].day17,
-    day18: cloudState.user4[17].day18,
-    day19: cloudState.user4[18].day19,
-    day20: cloudState.user4[19].day20,
-    day21: cloudState.user4[20].day21,
-    day22: cloudState.user4[21].day22,
-    day23: cloudState.user4[22].day23,
-    day24: cloudState.user4[23].day24,
-    day25: cloudState.user4[24].day25,
-    day26: cloudState.user4[25].day26,
-    day27: cloudState.user4[26].day27,
-    day28: cloudState.user4[27].day28,
-    day29: cloudState.user4[28].day29,
-    day30: cloudState.user4[29].day30,
-    day31: cloudState.user4[30].day31,              
+    day1: cloudState.user10[0].day1,
+    day2: cloudState.user10[1].day2,
+    day3: cloudState.user10[2].day3,
+    day4: cloudState.user10[3].day4,
+    day5: cloudState.user10[4].day5,
+    day6: cloudState.user10[5].day6,
+    day7: cloudState.user10[6].day7,
+    day8: cloudState.user10[7].day8,
+    day9: cloudState.user10[8].day9,
+    day10: cloudState.user10[9].day10, 
+    day11: cloudState.user10[10].day11,
+    day12: cloudState.user10[11].day12,
+    day13: cloudState.user10[12].day13,
+    day14: cloudState.user10[13].day14,
+    day15: cloudState.user10[14].day15,
+    day16: cloudState.user10[15].day16,
+    day17: cloudState.user10[16].day17,
+    day18: cloudState.user10[17].day18,
+    day19: cloudState.user10[18].day19,
+    day20: cloudState.user10[19].day20,
+    day21: cloudState.user10[20].day21,
+    day22: cloudState.user10[21].day22,
+    day23: cloudState.user10[22].day23,
+    day24: cloudState.user10[23].day24,
+    day25: cloudState.user10[24].day25,
+    day26: cloudState.user10[25].day26,
+    day27: cloudState.user10[26].day27,
+    day28: cloudState.user10[27].day28,
+    day29: cloudState.user10[28].day29,
+    day30: cloudState.user10[29].day30,
+    day31: cloudState.user10[30].day31,              
 }
 
         })         
@@ -4281,6 +4281,117 @@ const allFree31 = () => {
 };
 
 
+//////   FUNCTION FOR MAKING HEADING ROW OF AVAIL TABLE   //////
+function AvailTableHeaders () {
+  return (
+    <>
+    <tr>
+      <th className="thHeadDate"> Day <br/> Date </th>
+      <th className="thHeadUser"> { user1Name } </th>
+      <th className="thHeadUser"> { user2Name } </th>  
+      <th className="thHeadUser"> { user3Name } </th>
+      <th className="thHeadUser"> { user4Name } </th>
+      <th className="thHeadUser"> { user5Name } </th>
+      <th className="thHeadUser"> { user6Name } </th>
+      <th className="thHeadUser"> { user7Name } </th>
+      <th className="thHeadUser"> { user8Name } </th>
+      <th className="thHeadUser"> { user9Name } </th>
+      <th className="thHeadUser"> { user10Name } </th>
+    </tr>
+    </>
+  )
+};
+
+
+//////   FUNCTION FOR AVAIL TABLE ROW DAY ONE   //////
+function MapEachDayAndUserAvailTable({day, user}) {
+  const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
+  const usersArray = [1,2,3,4,5,6,7,8,9,10]
+  
+
+  const table = daysArray.map((day) => {
+    return (
+      <tr key={day}>
+      <th className="thDate"> { tableDayName(day - 1) } <br/> { monthToName() } { tableDayNameArray[day - 1] } <br/>  </th>
+      {  usersArray.map((user) => {
+        const handle = () => {
+          if (user == 1) {
+            return (
+              handleClick1(day)
+            )
+          };
+          if (user == 2) {
+            return (
+              handleClick2(day)
+            )
+          }; 
+          if (user == 3) {
+            return (
+              handleClick3(day)
+            )
+          }; 
+          if (user == 4) {
+            return (
+              handleClick4(day)
+            )
+          }; 
+          if (user == 5) {
+            return (
+              handleClick5(day)
+            )
+          }; 
+          if (user == 6) {
+            return (
+              handleClick6(day)
+            )
+          }; 
+          if (user == 7) {
+            return (
+              handleClick7(day)
+            )
+          }; 
+          if (user == 8) {
+            return (
+              handleClick8(day)
+            )
+          }; 
+          if (user == 9) {
+            return (
+              handleClick9(day)
+            )
+          }; 
+          if (user == 10) {
+            return (
+              handleClick10(day)
+            )
+          }         
+          else {
+            console.log('map if else error- else ran')
+          }
+
+        }
+
+        return (
+          <td className = "tdUser" key={user}>       
+          <button 
+          disabled={ unlock[`user${user}`] }
+          onClick={ () => {
+            handle()    
+          }} className={ users[`user${user}`][`day${day}`]? 'buttonAvail' : 'buttonUnavail' } 
+          > { users[`user${user}`][`day${day}`]  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
+          </button>     
+        </td>
+        )})}
+      </tr>
+    )
+  })
+
+  return (
+    <>
+    {table}
+    </>
+  )
+};
 
 
 //////   RETURN ELEMENTS   //////
@@ -4288,6 +4399,7 @@ return (
 <div className = 'myDiv'>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 
 <div className='infoDiv'>
 <article className = 'tagLineArticle'>
@@ -4370,20 +4482,6 @@ return (
 </article>
 <br></br>
 
-{/* <article className = 'telArticle' >
-  <a href="tel:{0414911859}"> 
-    <button className = 'buttonTel'>
-      Call to Book: <br></br> Top End, <br></br> Unanderra <br></br> 0414 911 859
-    </button>
-  </a>
-
-  <a href="tel:{0242569990}"> 
-    <button className = 'buttonTel'>
-      Call to Book: <br></br> Park Sound, <br></br> Albion Park <br></br> (02) 4256 9990
-    </button>
-  </a>
-</article> */}
-
 <br></br>
 
 
@@ -4437,81 +4535,81 @@ return (
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user1Unlock: !unlock.user1Unlock};})} 
-          className={ unlock.user1Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user1Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
+          setUnlock(prev=>{return {...prev, user1: !unlock.user1};})} 
+          className={ unlock.user1 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user1 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user2Unlock: !unlock.user2Unlock}})} 
-          className={ unlock.user2Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user2Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user2: !unlock.user2}})} 
+          className={ unlock.user2 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user2 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
       
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user3Unlock: !unlock.user3Unlock}})} 
-          className={ unlock.user3Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user3Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user3: !unlock.user3}})} 
+          className={ unlock.user3 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user3 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
       
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user4Unlock: !unlock.user4Unlock}})} 
-          className={ unlock.user4Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user4Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user4: !unlock.user4}})} 
+          className={ unlock.user4 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user4 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user5Unlock: !unlock.user5Unlock}})} 
-          className={ unlock.user5Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user5Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user5: !unlock.user5}})} 
+          className={ unlock.user5 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user5 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user6Unlock: !unlock.user6Unlock}})} 
-          className={ unlock.user6Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user6Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user6: !unlock.user6}})} 
+          className={ unlock.user6 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user6 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user7Unlock: !unlock.user7Unlock}})} 
-          className={ unlock.user7Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user7Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user7: !unlock.user7}})} 
+          className={ unlock.user7 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user7 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user8Unlock: !unlock.user8Unlock}})} 
-          className={ unlock.user8Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user8Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user8: !unlock.user8}})} 
+          className={ unlock.user8 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user8 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user9Unlock: !unlock.user9Unlock}})} 
-          className={ unlock.user9Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user9Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user9: !unlock.user9}})} 
+          className={ unlock.user9 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user9 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
 
       <td className='tdUserNude'>
         <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user10Unlock: !unlock.user10Unlock}})} 
-          className={ unlock.user10Unlock ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user10Unlock ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+          setUnlock(prev=>{return {...prev, user10: !unlock.user10}})} 
+          className={ unlock.user10 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user10 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
         </button>
       </td>
     </tr> 
@@ -4522,7 +4620,7 @@ return (
     <th className='thDateNude'> Set All Avail</th>
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user1Unlock } 
+        <button disabled={ unlock.user1 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser1 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br> 
@@ -4530,7 +4628,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user2Unlock } 
+        <button disabled={ unlock.user2 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser2 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4538,7 +4636,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user3Unlock } 
+        <button disabled={ unlock.user3 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser3 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4546,7 +4644,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user4Unlock } 
+        <button disabled={ unlock.user4 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser4 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4554,7 +4652,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user5Unlock } 
+        <button disabled={ unlock.user5 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser5 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4562,7 +4660,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user6Unlock } 
+        <button disabled={ unlock.user6 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser6 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4570,7 +4668,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user7Unlock } 
+        <button disabled={ unlock.user7 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser7 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4578,7 +4676,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user8Unlock } 
+        <button disabled={ unlock.user8 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser8 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4586,7 +4684,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user9Unlock } 
+        <button disabled={ unlock.user9 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser9 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4594,7 +4692,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user10Unlock } 
+        <button disabled={ unlock.user10 } 
           className='myButtonSetAllAvail' 
           onClick={ setAllAvailUser10 }>
           <Image src={personAvailableSolid} alt="available" /> <br></br>
@@ -4607,7 +4705,7 @@ return (
       <th className='thDateNude'> Set All N/A </th>
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user1Unlock } 
+        <button disabled={ unlock.user1 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser1 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
@@ -4615,7 +4713,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user2Unlock } 
+        <button disabled={ unlock.user2 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser2 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
@@ -4623,7 +4721,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user3Unlock } 
+        <button disabled={ unlock.user3 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser3 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
@@ -4631,7 +4729,7 @@ return (
       </td>
       
       <td className='tdUserNude'>
-        <button disabled={ unlock.user4Unlock } 
+        <button disabled={ unlock.user4 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser4 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4639,7 +4737,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user5Unlock } 
+        <button disabled={ unlock.user5 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser5 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4647,7 +4745,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user6Unlock } 
+        <button disabled={ unlock.user6 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser6 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4655,7 +4753,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user7Unlock } 
+        <button disabled={ unlock.user7 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser7 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4663,7 +4761,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user8Unlock } 
+        <button disabled={ unlock.user8 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser8 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4671,7 +4769,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user9Unlock } 
+        <button disabled={ unlock.user9 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser9 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4679,7 +4777,7 @@ return (
       </td> 
 
       <td className='tdUserNude'>
-        <button disabled={ unlock.user10Unlock } 
+        <button disabled={ unlock.user10 } 
           className='myButtonSetAllUnavail' 
           onClick={ setAllUnAvailUser10 }>
           <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
@@ -4692,2992 +4790,15 @@ return (
 
 
   {/* { MAIN TABLE FOR TOGGLE AVAILS } */}
-
 {/*NEW AVAIL TABLE */
 }<article>
   <table className='tableAvails'>
     <tbody>
-    <tr>
-      <th className="thHeadDate"> Day <br/> Date </th>
-      <th className="thHeadUser"> { user1Name } </th>
-      <th className="thHeadUser"> { user2Name } </th>  
-      <th className="thHeadUser"> { user3Name } </th>
-      <th className="thHeadUser"> { user4Name } </th>
-      <th className="thHeadUser"> { user5Name } </th>
-      <th className="thHeadUser"> { user6Name } </th>
-      <th className="thHeadUser"> { user7Name } </th>
-      <th className="thHeadUser"> { user8Name } </th>
-      <th className="thHeadUser"> { user9Name } </th>
-      <th className="thHeadUser"> { user10Name } </th>
 
-    </tr>
-    <tr>
-      <th className="thDate"> { tableDayName(0) } <br/> { monthToName() } { tableDayNameArray[0] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(1);    
-          }} className={ users.user1.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
+    <AvailTableHeaders/>
+    <MapEachDayAndUserAvailTable/>
 
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(1);    
-          }} className={ users.user2.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(1);    
-          }} className={ users.user3.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(1);    
-          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(1);    
-          }} className={ users.user5.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(1);    
-          }} className={ users.user6.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(1);    
-          }} className={ users.user7.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(1);    
-          }} className={ users.user8.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(1);    
-          }} className={ users.user9.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(1);    
-          }} className={ users.user10.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day1  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-{/* 2nd Day */}
-    <tr>
-      <th className="thDate"> { tableDayName(1) } <br/> { monthToName() } { tableDayNameArray[1] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(2);    
-          }} className={ users.user1.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(2);    
-          }} className={ users.user2.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(2);    
-          }} className={ users.user3.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(2);    
-          }} className={ users.user4.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(2);    
-          }} className={ users.user5.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(2);    
-          }} className={ users.user6.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(2);    
-          }} className={ users.user7.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(2);    
-          }} className={ users.user8.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(2);    
-          }} className={ users.user9.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(2);    
-          }} className={ users.user10.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day2  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 3rd Day */}
-<tr>
-      <th className="thDate"> { tableDayName(2) } <br/> { monthToName() } { tableDayNameArray[2] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(3);    
-          }} className={ users.user1.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(3);    
-          }} className={ users.user2.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(3);    
-          }} className={ users.user3.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(3);    
-          }} className={ users.user4.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(3);    
-          }} className={ users.user5.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(3);    
-          }} className={ users.user6.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(3);    
-          }} className={ users.user7.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(3);    
-          }} className={ users.user8.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(3);    
-          }} className={ users.user9.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(3);    
-          }} className={ users.user10.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day3  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 4th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(3) } <br/> { monthToName() } { tableDayNameArray[3] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(4);    
-          }} className={ users.user1.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(4);    
-          }} className={ users.user2.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(4);    
-          }} className={ users.user3.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(4);    
-          }} className={ users.user4.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(4);    
-          }} className={ users.user5.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(4);    
-          }} className={ users.user6.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(4);    
-          }} className={ users.user7.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(4);    
-          }} className={ users.user8.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(4);    
-          }} className={ users.user9.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(4);    
-          }} className={ users.user10.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day4  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-    {/* 5th Day */}
-    <tr>
-      <th className="thDate"> { tableDayName(4) } <br/> { monthToName() } { tableDayNameArray[4] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(5);    
-          }} className={ users.user1.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(5);    
-          }} className={ users.user2.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(5);    
-          }} className={ users.user3.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(5);    
-          }} className={ users.user4.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(5);    
-          }} className={ users.user5.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(5);    
-          }} className={ users.user6.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(5);    
-          }} className={ users.user7.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(5);    
-          }} className={ users.user8.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(5);    
-          }} className={ users.user9.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(5);    
-          }} className={ users.user10.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day5  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 6th Day */}
-
-<tr>
-      <th className="thDate"> { tableDayName(5) } <br/> { monthToName() } { tableDayNameArray[5] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(6);    
-          }} className={ users.user1.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(6);    
-          }} className={ users.user2.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(6);    
-          }} className={ users.user3.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(6);    
-          }} className={ users.user4.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(6);    
-          }} className={ users.user5.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(6);    
-          }} className={ users.user6.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(6);    
-          }} className={ users.user7.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(6);    
-          }} className={ users.user8.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(6);    
-          }} className={ users.user9.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(6);    
-          }} className={ users.user10.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day6  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 7th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(6) } <br/> { monthToName() } { tableDayNameArray[6] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(7);    
-          }} className={ users.user1.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(7);    
-          }} className={ users.user2.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(7);    
-          }} className={ users.user3.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(7);    
-          }} className={ users.user4.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(7);    
-          }} className={ users.user5.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(7);    
-          }} className={ users.user6.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(7);    
-          }} className={ users.user7.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(7);    
-          }} className={ users.user8.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(7);    
-          }} className={ users.user9.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(7);    
-          }} className={ users.user10.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day7  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 8th Day */}
-
-
-
-<tr>
-      <th className="thDate"> { tableDayName(7) } <br/> { monthToName() } { tableDayNameArray[7] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(8);    
-          }} className={ users.user1.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(8);    
-          }} className={ users.user2.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(8);    
-          }} className={ users.user3.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(8);    
-          }} className={ users.user4.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(8);    
-          }} className={ users.user5.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(8);    
-          }} className={ users.user6.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(8);    
-          }} className={ users.user7.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(8);    
-          }} className={ users.user8.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(8);    
-          }} className={ users.user9.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(8);    
-          }} className={ users.user10.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day8  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 9th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(8) } <br/> { monthToName() } { tableDayNameArray[8] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(9);    
-          }} className={ users.user1.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(9);    
-          }} className={ users.user2.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(9);    
-          }} className={ users.user3.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(9);    
-          }} className={ users.user4.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(9);    
-          }} className={ users.user5.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(9);    
-          }} className={ users.user6.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(9);    
-          }} className={ users.user7.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(9);    
-          }} className={ users.user8.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(9);    
-          }} className={ users.user9.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(9);    
-          }} className={ users.user10.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day9  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 10th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(9) } <br/> { monthToName() } { tableDayNameArray[9] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(10);    
-          }} className={ users.user1.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(10);    
-          }} className={ users.user2.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(10);    
-          }} className={ users.user3.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(10);    
-          }} className={ users.user4.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(10);    
-          }} className={ users.user5.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(10);    
-          }} className={ users.user6.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(10);    
-          }} className={ users.user7.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(10);    
-          }} className={ users.user8.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(10);    
-          }} className={ users.user9.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(10);    
-          }} className={ users.user10.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day10  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 11th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(10) } <br/> { monthToName() } { tableDayNameArray[10] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(11);    
-          }} className={ users.user1.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(11);    
-          }} className={ users.user2.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(11);    
-          }} className={ users.user3.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(11);    
-          }} className={ users.user4.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(11);    
-          }} className={ users.user5.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(11);    
-          }} className={ users.user6.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(11);    
-          }} className={ users.user7.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(11);    
-          }} className={ users.user8.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(11);    
-          }} className={ users.user9.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(11);    
-          }} className={ users.user10.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day11  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 12th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(11) } <br/> { monthToName() } { tableDayNameArray[11] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(12);    
-          }} className={ users.user1.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(12);    
-          }} className={ users.user2.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(12);    
-          }} className={ users.user3.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(12);    
-          }} className={ users.user4.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(12);    
-          }} className={ users.user5.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(12);    
-          }} className={ users.user6.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(12);    
-          }} className={ users.user7.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(12);    
-          }} className={ users.user8.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(12);    
-          }} className={ users.user9.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(12);    
-          }} className={ users.user10.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day12  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 13th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(12) } <br/> { monthToName() } { tableDayNameArray[12] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(13);    
-          }} className={ users.user1.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(13);    
-          }} className={ users.user2.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(13);    
-          }} className={ users.user3.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(13);    
-          }} className={ users.user4.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(13);    
-          }} className={ users.user5.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(13);    
-          }} className={ users.user6.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(13);    
-          }} className={ users.user7.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(13);    
-          }} className={ users.user8.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(13);    
-          }} className={ users.user9.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(13);    
-          }} className={ users.user10.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day13  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 14th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(13) } <br/> { monthToName() } { tableDayNameArray[13] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(14);    
-          }} className={ users.user1.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(14);    
-          }} className={ users.user2.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(14);    
-          }} className={ users.user3.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(14);    
-          }} className={ users.user4.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(14);    
-          }} className={ users.user5.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(14);    
-          }} className={ users.user6.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(14);    
-          }} className={ users.user7.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(14);    
-          }} className={ users.user8.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(14);    
-          }} className={ users.user9.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(14);    
-          }} className={ users.user10.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day14  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 15th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(14) } <br/> { monthToName() } { tableDayNameArray[14] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(15);    
-          }} className={ users.user1.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(15);    
-          }} className={ users.user2.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(15);    
-          }} className={ users.user3.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(15);    
-          }} className={ users.user4.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(15);    
-          }} className={ users.user5.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(15);    
-          }} className={ users.user6.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(15);    
-          }} className={ users.user7.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(15);    
-          }} className={ users.user8.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(15);    
-          }} className={ users.user9.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(15);    
-          }} className={ users.user10.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day15  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 16th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(15) } <br/> { monthToName() } { tableDayNameArray[15] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(16);    
-          }} className={ users.user1.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(16);    
-          }} className={ users.user2.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(16);    
-          }} className={ users.user3.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(16);    
-          }} className={ users.user4.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(16);    
-          }} className={ users.user5.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(16);    
-          }} className={ users.user6.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(16);    
-          }} className={ users.user7.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(16);    
-          }} className={ users.user8.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(16);    
-          }} className={ users.user9.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(16);    
-          }} className={ users.user10.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day16  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 17th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(16) } <br/> { monthToName() } { tableDayNameArray[16] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(17);    
-          }} className={ users.user1.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(17);    
-          }} className={ users.user2.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(17);    
-          }} className={ users.user3.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(17);    
-          }} className={ users.user4.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(17);    
-          }} className={ users.user5.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(17);    
-          }} className={ users.user6.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(17);    
-          }} className={ users.user7.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(17);    
-          }} className={ users.user8.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(17);    
-          }} className={ users.user9.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(17);    
-          }} className={ users.user10.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day17  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 18th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(17) } <br/> { monthToName() } { tableDayNameArray[17] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(18);    
-          }} className={ users.user1.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(18);    
-          }} className={ users.user2.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(18);    
-          }} className={ users.user3.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(18);    
-          }} className={ users.user4.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(18);    
-          }} className={ users.user5.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(18);    
-          }} className={ users.user6.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(18);    
-          }} className={ users.user7.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(18);    
-          }} className={ users.user8.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(18);    
-          }} className={ users.user9.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(18);    
-          }} className={ users.user10.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day18  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 19th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(18) } <br/> { monthToName() } { tableDayNameArray[18] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(19);    
-          }} className={ users.user1.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(19);    
-          }} className={ users.user2.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(19);    
-          }} className={ users.user3.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(19);    
-          }} className={ users.user4.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(19);    
-          }} className={ users.user5.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(19);    
-          }} className={ users.user6.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(19);    
-          }} className={ users.user7.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(19);    
-          }} className={ users.user8.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(19);    
-          }} className={ users.user9.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(19);    
-          }} className={ users.user10.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day19  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 20th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(19) } <br/> { monthToName() } { tableDayNameArray[19] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(20);    
-          }} className={ users.user1.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(20);    
-          }} className={ users.user2.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(20);    
-          }} className={ users.user3.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(20);    
-          }} className={ users.user4.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(20);    
-          }} className={ users.user5.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(20);    
-          }} className={ users.user6.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(20);    
-          }} className={ users.user7.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(20);    
-          }} className={ users.user8.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(20);    
-          }} className={ users.user9.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(20);    
-          }} className={ users.user10.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day20  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 21st Day */}
-<tr>
-      <th className="thDate"> { tableDayName(20) } <br/> { monthToName() } { tableDayNameArray[20] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(21);    
-          }} className={ users.user1.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(21);    
-          }} className={ users.user2.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(21);    
-          }} className={ users.user3.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(21);    
-          }} className={ users.user4.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(21);    
-          }} className={ users.user5.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(21);    
-          }} className={ users.user6.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(21);    
-          }} className={ users.user7.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(21);    
-          }} className={ users.user8.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(21);    
-          }} className={ users.user9.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(21);    
-          }} className={ users.user10.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day21  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 22nd Day */}
-<tr>
-      <th className="thDate"> { tableDayName(21) } <br/> { monthToName() } { tableDayNameArray[21] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(22);    
-          }} className={ users.user1.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(22);    
-          }} className={ users.user2.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(22);    
-          }} className={ users.user3.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(22);    
-          }} className={ users.user4.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(22);    
-          }} className={ users.user5.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(22);    
-          }} className={ users.user6.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(22);    
-          }} className={ users.user7.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(22);    
-          }} className={ users.user8.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(22);    
-          }} className={ users.user9.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(22);    
-          }} className={ users.user10.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day22  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 23rd Day */}
-<tr>
-      <th className="thDate"> { tableDayName(22) } <br/> { monthToName() } { tableDayNameArray[22] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(23);    
-          }} className={ users.user1.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(23);    
-          }} className={ users.user2.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(23);    
-          }} className={ users.user3.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(23);    
-          }} className={ users.user4.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(23);    
-          }} className={ users.user5.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(23);    
-          }} className={ users.user6.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(23);    
-          }} className={ users.user7.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(23);    
-          }} className={ users.user8.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(23);    
-          }} className={ users.user9.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(23);    
-          }} className={ users.user10.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day23  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 24th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(23) } <br/> { monthToName() } { tableDayNameArray[23] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(24);    
-          }} className={ users.user1.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(24);    
-          }} className={ users.user2.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(24);    
-          }} className={ users.user3.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(24);    
-          }} className={ users.user4.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(24);    
-          }} className={ users.user5.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(24);    
-          }} className={ users.user6.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(24);    
-          }} className={ users.user7.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(24);    
-          }} className={ users.user8.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(24);    
-          }} className={ users.user9.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(24);    
-          }} className={ users.user10.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day24  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 25th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(24) } <br/> { monthToName() } { tableDayNameArray[24] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(25);    
-          }} className={ users.user1.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(25);    
-          }} className={ users.user2.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(25);    
-          }} className={ users.user3.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(25);    
-          }} className={ users.user4.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(25);    
-          }} className={ users.user5.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(25);    
-          }} className={ users.user6.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(25);    
-          }} className={ users.user7.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(25);    
-          }} className={ users.user8.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(25);    
-          }} className={ users.user9.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(25);    
-          }} className={ users.user10.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day25  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 26th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(25) } <br/> { monthToName() } { tableDayNameArray[25] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(26);    
-          }} className={ users.user1.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(26);    
-          }} className={ users.user2.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(26);    
-          }} className={ users.user3.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(26);    
-          }} className={ users.user4.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(26);    
-          }} className={ users.user5.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(26);    
-          }} className={ users.user6.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(26);    
-          }} className={ users.user7.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(26);    
-          }} className={ users.user8.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(26);    
-          }} className={ users.user9.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(26);    
-          }} className={ users.user10.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day26  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 27th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(26) } <br/> { monthToName() } { tableDayNameArray[26] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(27);    
-          }} className={ users.user1.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(27);    
-          }} className={ users.user2.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(27);    
-          }} className={ users.user3.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(27);    
-          }} className={ users.user4.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(27);    
-          }} className={ users.user5.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(27);    
-          }} className={ users.user6.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(27);    
-          }} className={ users.user7.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(27);    
-          }} className={ users.user8.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(27);    
-          }} className={ users.user9.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(27);    
-          }} className={ users.user10.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day27  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
-
-{/* 28th Day */}
-<tr>
-      <th className="thDate"> { tableDayName(27) } <br/> { monthToName() } { tableDayNameArray[27] } <br/>  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(28);    
-          }} className={ users.user1.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(28);    
-          }} className={ users.user2.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(28);    
-          }} className={ users.user3.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(28);    
-          }} className={ users.user4.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user5Unlock}
-          onClick={ () => {
-            handleClick5(28);    
-          }} className={ users.user5.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user5.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user6Unlock}
-          onClick={ () => {
-            handleClick6(28);    
-          }} className={ users.user6.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user6.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user7Unlock}
-          onClick={ () => {
-            handleClick7(28);    
-          }} className={ users.user7.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user7.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user8Unlock}
-          onClick={ () => {
-            handleClick8(28);    
-          }} className={ users.user8.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user8.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user9Unlock}
-          onClick={ () => {
-            handleClick9(28);    
-          }} className={ users.user9.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user9.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-        
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user10Unlock}
-          onClick={ () => {
-            handleClick10(28);    
-          }} className={ users.user10.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user10.day28  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-          </button>     
-        </td>
-    </tr>
-
-
+    
 
 {/* 29th Day */}
 
@@ -7688,7 +4809,7 @@ return (
       <th className={ hide29 ? "thDateHidden" : "thDate"}> { tableDayName(28) } { monthToName() } { tableDayNameArray[28] }</th>
       <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user1Unlock || hide29 }
+          disabled={unlock.user1 || hide29 }
           onClick={ () => {
               handleClick1(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user1.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7697,7 +4818,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user2Unlock || hide29 }
+          disabled={unlock.user2 || hide29 }
           onClick={ () => {
               handleClick2(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user2.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7706,7 +4827,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user3Unlock || hide29 }
+          disabled={unlock.user3 || hide29 }
           onClick={ () => {
               handleClick3(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user3.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7715,7 +4836,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user4Unlock || hide29 }
+          disabled={unlock.user4 || hide29 }
           onClick={ () => {
               handleClick4(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user4.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7724,7 +4845,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user5Unlock || hide29 }
+          disabled={unlock.user5 || hide29 }
           onClick={ () => {
               handleClick5(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user5.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7733,7 +4854,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user6Unlock || hide29 }
+          disabled={unlock.user6 || hide29 }
           onClick={ () => {
               handleClick6(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user6.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7742,7 +4863,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user7Unlock || hide29 }
+          disabled={unlock.user7 || hide29 }
           onClick={ () => {
               handleClick7(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user7.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7751,7 +4872,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user8Unlock || hide29 }
+          disabled={unlock.user8 || hide29 }
           onClick={ () => {
               handleClick8(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user8.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7760,7 +4881,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user9Unlock || hide29 }
+          disabled={unlock.user9 || hide29 }
           onClick={ () => {
               handleClick9(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user9.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7769,7 +4890,7 @@ return (
         </td>
         <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user10Unlock || hide29 }
+          disabled={unlock.user10 || hide29 }
           onClick={ () => {
               handleClick10(29); 
             }} className={ hide29 ? 'buttonUndefined' : users.user10.day29 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7782,7 +4903,7 @@ return (
       <th className={ hide30 ? "thDateHidden" : "thDate"}> { tableDayName(29) } { monthToName() } { tableDayNameArray[29] }</th>
       <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user1Unlock || hide30 }
+          disabled={unlock.user1 || hide30 }
           onClick={ () => {
               handleClick1(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user1.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7791,7 +4912,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user2Unlock || hide30}
+          disabled={unlock.user2 || hide30}
           onClick={ () => {
               handleClick2(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user2.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7800,7 +4921,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user3Unlock || hide30}
+          disabled={unlock.user3 || hide30}
           onClick={ () => {
               handleClick3(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user3.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7809,7 +4930,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user4Unlock || hide30}
+          disabled={unlock.user4 || hide30}
           onClick={ () => {
               handleClick4(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user4.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7818,7 +4939,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user5Unlock || hide30}
+          disabled={unlock.user5 || hide30}
           onClick={ () => {
               handleClick5(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user5.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7827,7 +4948,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user6Unlock || hide30}
+          disabled={unlock.user6 || hide30}
           onClick={ () => {
               handleClick6(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user6.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7836,7 +4957,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user7Unlock || hide30}
+          disabled={unlock.user7 || hide30}
           onClick={ () => {
               handleClick7(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user7.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7845,7 +4966,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user8Unlock || hide30}
+          disabled={unlock.user8 || hide30}
           onClick={ () => {
               handleClick8(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user8.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7854,7 +4975,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user9Unlock || hide30}
+          disabled={unlock.user9 || hide30}
           onClick={ () => {
               handleClick9(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user9.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7863,7 +4984,7 @@ return (
         </td>
         <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user10Unlock || hide30}
+          disabled={unlock.user10 || hide30}
           onClick={ () => {
               handleClick10(30); 
             }} className={ hide30 ? 'buttonUndefined' : users.user10.day30 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7876,7 +4997,7 @@ return (
       <th className={ hide31 ? "thDateHidden" : "thDate"}> { tableDayName(30) } { monthToName() } { tableDayNameArray[30] }</th>
       <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user1Unlock || hide31 }
+          disabled={unlock.user1 || hide31 }
           onClick={ () => {
               handleClick1(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user1.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7885,7 +5006,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user2Unlock || hide31 }
+          disabled={unlock.user2 || hide31 }
           onClick={ () => {
               handleClick2(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user2.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7894,7 +5015,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user3Unlock || hide31 }
+          disabled={unlock.user3 || hide31 }
           onClick={ () => {
               handleClick3(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user3.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7903,7 +5024,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user4Unlock || hide31 }
+          disabled={unlock.user4 || hide31 }
           onClick={ () => {
               handleClick4(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user4.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7912,7 +5033,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user5Unlock || hide31 }
+          disabled={unlock.user5 || hide31 }
           onClick={ () => {
               handleClick5(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user5.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7921,7 +5042,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user6Unlock || hide31 }
+          disabled={unlock.user6 || hide31 }
           onClick={ () => {
               handleClick6(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user6.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7930,7 +5051,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user7Unlock || hide31 }
+          disabled={unlock.user7 || hide31 }
           onClick={ () => {
               handleClick7(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user7.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7939,7 +5060,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user8Unlock || hide31 }
+          disabled={unlock.user8 || hide31 }
           onClick={ () => {
               handleClick8(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user8.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7948,7 +5069,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user9Unlock || hide31 }
+          disabled={unlock.user9 || hide31 }
           onClick={ () => {
               handleClick9(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user9.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7957,7 +5078,7 @@ return (
         </td>
         <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
           <button 
-          disabled={unlock.user10Unlock || hide31 }
+          disabled={unlock.user10 || hide31 }
           onClick={ () => {
               handleClick10(31); 
             }} className={ hide31 ? 'buttonUndefined' : users.user10.day31 ? 'buttonAvail' : 'buttonUnavail' } 
@@ -7984,1301 +5105,3 @@ return (
 </div> 
 );
 }
-
-
-{/*OLD TABLE*/}
-{/* <article>
-<table className='tableAvails'>
-  <tbody>
-    <tr>
-      <th className="thHeadDate"> Date </th>
-      <th className="thHeadDay"> Day </th>
-      <th className="thHeadUser"> { user1Name } </th>
-      <th className="thHeadUser"> { user2Name } </th>  
-      <th className="thHeadUser"> { user3Name } </th>
-      <th className="thHeadUser"> { user4Name } </th>
-    </tr>
- 
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[0] }  </th>
-      <th className="thDay"> { tableDayName(0) }  </th>
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-            handleClick1(1);    
-          }} className={ users.user1.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          > { users.user1.day1  ? 'Available' : 'N/A' }
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-            handleClick2(1);    
-          }} className={ users.user2.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user2.day1  ? 'Available' : 'N/A' } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(1);    
-          }} className={ users.user3.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user3.day1  ? 'Available' : 'N/A' } 
-          </button>     
-        </td>
-
-        <td className = "tdUser">       
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-            handleClick4(1);    
-          }} className={ users.user4.day1 ? 'buttonAvail' : 'buttonUnavail' } 
-          >{ users.user4.day1  ? 'Available' : 'N/A' } 
-          </button>     
-        </td>
-
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[1] }</th>
-      <th className="thDay"> { tableDayName(1) } </th>
-        <td className = "tdUser">    
-          <button
-          disabled={unlock.user1Unlock} 
-          onClick={ () => {
-              handleClick1(2); 
-            }} className={ users.user1.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day2  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(2); 
-            }} className={ users.user2.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day2  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-        <td className = "tdUser">    
-        <button 
-        disabled={unlock.user3Unlock}
-        onClick={ () => {
-          handleClick3(2); 
-            }} className={ users.user3.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day2  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-        <td className = "tdUser">    
-        <button 
-        disabled={unlock.user4Unlock}
-        onClick={ () => {
-          handleClick4(2); 
-            }} className={ users.user4.day2 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day2  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-    </tr>
- 
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[2] }</th>
-      <th className="thDay"> { tableDayName(2) } </th>      
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(3); 
-            }} className={ users.user1.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day3  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(3); 
-            }} className={ users.user2.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day3  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(3); 
-            }} className={ users.user3.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day3  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(3); 
-            }} className={ users.user4.day3 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day3  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-
-    </tr>
-    
-    <tr>
-      <th className="thDate">  { monthToName() } { tableDayNameArray[3] } </th>
-      <th className="thDay"> { tableDayName(3) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(4); 
-            }} className={ users.user1.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day4  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(4); 
-            }} className={ users.user2.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day4  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(4); 
-            }} className={ users.user3.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day4  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>        
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(4); 
-            }} className={ users.user4.day4 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day4  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[4] } </th>
-      <th className="thDay"> { tableDayName(4) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(5); 
-            }} className={ users.user1.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day5  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(5); 
-            }} className={ users.user2.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day5  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(5); 
-            }} className={ users.user3.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day5  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>      
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(5); 
-            }} className={ users.user4.day5 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day5  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[5] } </th>
-      <th className="thDay"> { tableDayName(5) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(6); 
-            }} className={ users.user1.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day6  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(6); 
-            }} className={ users.user2.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day6  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(6); 
-            }} className={ users.user3.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day6  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(6); 
-            }} className={ users.user4.day6 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day6  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[6] }</th>
-      <th className="thDay"> { tableDayName(6) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(7); 
-            }} className={ users.user1.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day7  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(7); 
-            }} className={ users.user2.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day7  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(7); 
-            }} className={ users.user3.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day7  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(7); 
-            }} className={ users.user4.day7 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day7  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[7] }</th>
-      <th className="thDay"> { tableDayName(7) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(8); 
-            }} className={ users.user1.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day8  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(8); 
-            }} className={ users.user2.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day8  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(8); 
-            }} className={ users.user3.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day8  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(8); 
-            }} className={ users.user4.day8 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day8  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[8] }</th>
-      <th className="thDay"> { tableDayName(8) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(9); 
-            }} className={ users.user1.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user1.day9  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(9); 
-            }} className={ users.user2.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user2.day9  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(9); 
-            }} className={ users.user3.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user3.day9  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(9); 
-            }} className={ users.user4.day9 ? 'buttonAvail' : 'buttonUnavail' } 
-            >{ users.user4.day9  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[9] }</th>
-      <th className="thDay"> { tableDayName(9) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(10); 
-            }} className={ users.user1.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day10  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(10); 
-            }} className={ users.user2.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day10  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(10); 
-            }} className={ users.user3.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day10  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(10); 
-            }} className={ users.user4.day10 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day10  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[10] }</th>
-      <th className="thDay"> { tableDayName(10) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(11); 
-            }} className={ users.user1.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day11  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(11); 
-            }} className={ users.user2.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day11  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(11); 
-            }} className={ users.user3.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day11  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(11); 
-            }} className={ users.user4.day11 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day11  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[11] }</th>
-      <th className="thDay"> { tableDayName(11) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(12); 
-            }} className={ users.user1.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day12  ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(12); 
-            }} className={ users.user2.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day12 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(12); 
-            }} className={ users.user3.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day12 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(12); 
-            }} className={ users.user4.day12 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day12 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[12] }</th>
-      <th className="thDay"> { tableDayName(12) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(13); 
-            }} className={ users.user1.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day13 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(13); 
-            }} className={ users.user2.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day13 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(13); 
-            }} className={ users.user3.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day13 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(13); 
-            }} className={ users.user4.day13 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day13 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[13] }</th>
-      <th className="thDay"> { tableDayName(13) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(14); 
-            }} className={ users.user1.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day14 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(14); 
-            }} className={ users.user2.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day14 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(14); 
-            }} className={ users.user3.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day14 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(14); 
-            }} className={ users.user4.day14 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day14 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[14] }</th>
-      <th className="thDay"> { tableDayName(14) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(15); 
-            }} className={ users.user1.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day15 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(15); 
-            }} className={ users.user2.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day15 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(15); 
-            }} className={ users.user3.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day15 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(15); 
-            }} className={ users.user4.day15 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day15 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[15] }</th>
-      <th className="thDay"> { tableDayName(15) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(16); 
-            }} className={ users.user1.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day16 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(16); 
-            }} className={ users.user2.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day16 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(16); 
-            }} className={ users.user3.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day16 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(16); 
-            }} className={ users.user4.day16 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day16 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[16] }</th>
-      <th className="thDay"> { tableDayName(16) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(17); 
-            }} className={ users.user1.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day17 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(17); 
-            }} className={ users.user2.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day17 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(17); 
-            }} className={ users.user3.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day17 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(17); 
-            }} className={ users.user4.day17 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day17 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[17] }</th>
-      <th className="thDay"> { tableDayName(17) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(18); 
-            }} className={ users.user1.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day18 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(18); 
-            }} className={ users.user2.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day18 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(18); 
-            }} className={ users.user3.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day18 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(18); 
-            }} className={ users.user4.day18 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day18 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[18] }</th>
-      <th className="thDay"> { tableDayName(18) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(19); 
-            }} className={ users.user1.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day19 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(19); 
-            }} className={ users.user2.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day19 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(19); 
-            }} className={ users.user3.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day19 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(19); 
-            }} className={ users.user4.day19 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day19 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[19] }</th>
-      <th className="thDay"> { tableDayName(19) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(20); 
-            }} className={ users.user1.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day20 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(20); 
-            }} className={ users.user2.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day20 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(20); 
-            }} className={ users.user3.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day20 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(20); 
-            }} className={ users.user4.day20 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day20 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[20] }</th>
-      <th className="thDay"> { tableDayName(20) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(21); 
-            }} className={ users.user1.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day21 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(21); 
-            }} className={ users.user2.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day21 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(21); 
-            }} className={ users.user3.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day21 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(21); 
-            }} className={ users.user4.day21 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day21 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[21] }</th>
-      <th className="thDay"> { tableDayName(21) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(22); 
-            }} className={ users.user1.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day22 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(22); 
-            }} className={ users.user2.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day22 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(22); 
-            }} className={ users.user3.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day22 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(22); 
-            }} className={ users.user4.day22 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day22 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[22] }</th>
-      <th className="thDay"> { tableDayName(22) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(23); 
-            }} className={ users.user1.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day23 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(23); 
-            }} className={ users.user2.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day23 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(23); 
-            }} className={ users.user3.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day23 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(23); 
-            }} className={ users.user4.day23 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day23 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[23] }</th>
-      <th className="thDay"> { tableDayName(23) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(24); 
-            }} className={ users.user1.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day24 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(24); 
-            }} className={ users.user2.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day24 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(24); 
-            }} className={ users.user3.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day24 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(24); 
-            }} className={ users.user4.day24 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day24 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[24] }</th>
-      <th className="thDay"> { tableDayName(24) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(25); 
-            }} className={ users.user1.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day25 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(25); 
-            }} className={ users.user2.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day25 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(25); 
-            }} className={ users.user3.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day25 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(25); 
-            }} className={ users.user4.day25 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day25 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[25] }</th>
-      <th className="thDay"> { tableDayName(25) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(26); 
-            }} className={ users.user1.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day26 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(26); 
-            }} className={ users.user2.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day26 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(26); 
-            }} className={ users.user3.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day26 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(26); 
-            }} className={ users.user4.day26 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day26 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[26] }</th>
-      <th className="thDay"> { tableDayName(26) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(27); 
-            }} className={ users.user1.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day27 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(27); 
-            }} className={ users.user2.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day27 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(27); 
-            }} className={ users.user3.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day27 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(27); 
-            }} className={ users.user4.day27 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day27 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className="thDate"> { monthToName() } { tableDayNameArray[27] }</th>
-      <th className="thDay"> { tableDayName(27) } </th>
-      <td className = "tdUser">    
-          <button 
-          disabled={unlock.user1Unlock}
-          onClick={ () => {
-              handleClick1(28); 
-            }} className={ users.user1.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user1.day28 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user2Unlock}
-          onClick={ () => {
-              handleClick2(28); 
-            }} className={ users.user2.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user2.day28 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user3Unlock}
-          onClick={ () => {
-              handleClick3(28); 
-            }} className={ users.user3.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user3.day28 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className = "tdUser">    
-          <button 
-          disabled={unlock.user4Unlock}
-          onClick={ () => {
-              handleClick4(28); 
-            }} className={ users.user4.day28 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { users.user4.day28 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className={ hide29 ? "thDateHidden" : "thDate"}> { monthToName() } { tableDayNameArray[28] }</th>
-      <th className={ hide29 ? "thDayHidden" : "thDay"}> { tableDayName(28) } </th>
-      <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1Unlock || hide29 }
-          onClick={ () => {
-              handleClick1(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user1.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user1.day29 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2Unlock || hide29 }
-          onClick={ () => {
-              handleClick2(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user2.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user2.day29 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3Unlock || hide29 }
-          onClick={ () => {
-              handleClick3(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user3.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user3.day29 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4Unlock || hide29 }
-          onClick={ () => {
-              handleClick4(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user4.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user4.day29 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className={ hide30 ? "thDateHidden" : "thDate"}> { monthToName() } { tableDayNameArray[29] }</th>
-      <th className={ hide30 ? "thDayHidden" : "thDay"}> { tableDayName(29) } </th>
-      <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1Unlock || hide30 }
-          onClick={ () => {
-              handleClick1(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user1.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user1.day30 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2Unlock || hide30}
-          onClick={ () => {
-              handleClick2(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user2.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user2.day30 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3Unlock || hide30}
-          onClick={ () => {
-              handleClick3(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user3.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user3.day30 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4Unlock || hide30}
-          onClick={ () => {
-              handleClick4(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user4.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user4.day30 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className={ hide31 ? "thDateHidden" : "thDate"}> { monthToName() } { tableDayNameArray[30] }</th>
-      <th className={ hide31 ? "thDayHidden" : "thDay"}> { tableDayName(30) } </th>
-      <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1Unlock || hide31 }
-          onClick={ () => {
-              handleClick1(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user1.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user1.day31 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2Unlock || hide31 }
-          onClick={ () => {
-              handleClick2(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user2.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user2.day31 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3Unlock || hide31 }
-          onClick={ () => {
-              handleClick3(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user3.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user3.day31 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4Unlock || hide31 }
-          onClick={ () => {
-              handleClick4(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user4.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user4.day31 ? 'Available' : 'N/A' } 
-            </button>      
-        </td>
-    </tr>    
-  </tbody>
-</table>
-</article> */}
-
