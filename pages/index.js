@@ -71,7 +71,7 @@ export default function Home() {
   /// USER ID ///
   const [uid, setUid] = useState('users');
 
-
+//////   SETS THE USER ID STATE (setUID)   //////
 useEffect(() => {
   const setUID = async () => {
     onAuthStateChanged(auth, (user) => {
@@ -91,11 +91,65 @@ useEffect(() => {
 
 
   ///// BAND INFORMATION /////
-
-
 const [bandInfoToggle, setBandInfoToggle] = useState(false);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
 
+const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
+const [ bandNameOnLoad, setBandNameOnLoad ] = useState('...loading');
+const [ updateTrig, setUpdateTrig] = useState(false);
+
+const [ userNamesOnLoad, setUserNames ] = useState ({
+  user1: 'Alan',
+  user2: 'Betty',
+  user3: 'Carmen Sandiago',
+  user4: 'Deez Testicles',
+  user5: 'Elephant Penis',
+  user6: 'Fred',
+  user7: 'Gosher',
+  user8: 'Tex',
+  user9: 'Old Fuck',
+  user10: 'Smitty'
+});
+
+const usersArray = () => {
+  if (numberOfMembersOnLoad == 1) {
+    return ( [1] )
+  }
+  if (numberOfMembersOnLoad == 2) {
+    return ( [1,2] )
+  } 
+  if (numberOfMembersOnLoad == 3) {
+    return ( [1,2,3] )
+  } 
+  if (numberOfMembersOnLoad == 4) {
+    return ( [1,2,3,4] )
+  } 
+  if (numberOfMembersOnLoad == 5) {
+    return ( [1,2,3,4,5] )
+  } 
+  if (numberOfMembersOnLoad == 6) {
+    return ( [1,2,3,4,5,6] )
+  } 
+  if (numberOfMembersOnLoad == 7) {
+    return ( [1,2,3,4,5,6,7] )
+  } 
+  if (numberOfMembersOnLoad == 8) {
+    return ( [1,2,3,4,5,6,7,8] )
+  } 
+  if (numberOfMembersOnLoad == 9) {
+    return ( [1,2,3,4,5,6,7,8,9] )
+  }
+  if (numberOfMembersOnLoad == 10) {
+    return ( [1,2,3,4,5,6,7,8,9,10] )
+  } 
+  else {
+    return ( [1,2,3,4] )
+  }
+};
+
+const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31];
+
+//////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
 const BandInfoToggleButton = () => {
   const changeToggleState = () => {
     setBandInfoToggle(prev=>!prev)
@@ -106,10 +160,8 @@ const BandInfoToggleButton = () => {
   )
 };
 
-const [numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
-const [ bandNameOnLoad, setBandNameOnLoad ] = useState('...loading');
-const [updateTrig, setUpdateTrig] = useState(false);
 
+//////   CAUSES UPDATE TRIGGER TO FIRE WHICH UPDATES FIRESTORE BAND INFO LOAD ON START USEEFFECT   //////
 function UpdateButton() {
   const handleClick = () => {
     setUpdateTrig(prev=>!prev);
@@ -121,14 +173,11 @@ function UpdateButton() {
 };
 
 
+//////   ENTERS NUMBER OF BAND MEMBERS AND BAND NAME AND NAMES OF BAND MEMBERS  //////
 function BandInfoInput() {
   const [bandName, setBandName] = useState(bandNameOnLoad);
   const [numberOfMembers, setNumberOfMembers] = useState(numberOfMembersOnLoad); 
-
-
-  
-
-  console.log('bandName', bandName);
+  const [userNames, setUserNames] = useState(userNamesOnLoad);
 
   const bandNameSubmit = async () => {
     setBandInfoTrig(prev => !prev);
@@ -144,76 +193,103 @@ function BandInfoInput() {
       } else {
         setDoc(docRefBandInfo, { bandName: bandName});
         console.log('else name ran');
-
       }
 
     } catch {
-
       console.log('update band info error catch ran');
     }
     
   };
 
-    const bandNumberSubmit = async () => {
-      setBandInfoTrig(prev => !prev);
-    try {
-      const docSnap = await getDoc(docRefBandInfo);
-      console.log('bandnumb docSnap ran');
-      
-      if (docSnap.exists()) {
-        console.log('updateDoc bandInfo number ran pre');
-        updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-        console.log('updateDoc bandInfo nymber if ran post');
-      } else {
-        setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-        console.log('else numberran');
+  const bandNumberSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        console.log('bandnumb docSnap ran');
+        
+        if (docSnap.exists()) {
+          console.log('updateDoc bandInfo number ran pre');
+          updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+          console.log('updateDoc bandInfo nymber if ran post');
+        } else {
+          setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+          console.log('else numberran');
 
-      }
-    } catch {
+        }
+      } catch {
 
-      console.log('update band info num error catch ran');
-    };
+        console.log('update band info num error catch ran');
+      };
+  };
+
+  const bandMemberNamesSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        console.log('band member names docSnap ran');
+        
+        if (docSnap.exists()) {
+          console.log('updateDoc bandInfo names of members ran pre');
+          updateDoc(docRefBandInfo, { userNames: userNames});
+          console.log('updateDoc bandInfo names of members ran post');
+        } else {
+          setDoc(docRefBandInfo, { userNames: userNames});
+          console.log('else names of members ran');
+
+        }
+      } catch {
+
+        console.log('update band info num error catch ran');
+      };
+  };
 
 
-
-    
-  }
   return (
     <>
-      <>Current Band Name: {bandNameOnLoad}</>
+      Current Band Name: {bandNameOnLoad} 
+      
       <br/>
+
       Number of Members: {numberOfMembersOnLoad}
       <br/>
       <br/>
+
       <label>
         Update Band Name: 
         <input onChange={e => setBandName(e.target.value)}/>
       </label>
+
       <br/>
+
       <button onClick={bandNameSubmit}> Submit </button>
+
       <br/>
       <br/>
+
       <label>
-      Select Number of Band Members: 
+        Select Number of Band Members: 
       <select
-      onChange={e => setNumberOfMembers(e.target.value)}
-      defaultValue={'placeholder'}
+        onChange={e => setNumberOfMembers(e.target.value)}
+        defaultValue={'placeholder'}
       >
-      <option disabled value={'placeholder'}>#</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-    </label>
+          <option disabled value={'placeholder'}>#</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+      </select>
+      </label>
+
     <br/>
+
     <button onClick={bandNumberSubmit}> Submit </button>
+
     <br/>
     <br/>
     <UpdateButton/>
@@ -222,14 +298,12 @@ function BandInfoInput() {
   )
 };
 
-
-
-
 //////   LOGIN AND AUTH   //////
 const [loading, setLoading] = useState(false);
 const emailRef = useRef();
 const passwordRef = useRef();
 const currentUser = useAuth();
+const [passwordVisible, setPasswordVisible] = useState(false);
 
 
 function useAuth() {
@@ -284,30 +358,13 @@ async function handleLogout() {
   setLoading(false);
 }
 
-const [passwordVisible, setPasswordVisible] = useState(false);
-
 function togglePasswordVisible() {
   setPasswordVisible(!passwordVisible);
 }
 
 
-
-
 //////   CURRENT DATE   //////
 let currentDate = new Date();
-
-//////   USERS' NAMES   /////////
-const user1Name = 'Meeks';
-const user2Name = 'Theuns';
-const user3Name = 'Nathan';
-const user4Name = 'Troy';
-const user5Name = 'Shane';
-const user6Name = 'Seb';
-const user7Name = 'Rachel';
-const user8Name = 'Michalengelo';
-const user9Name = 'Ruby';
-const user10Name = 'SoHJo';
-
 
 //////   TOP SOUND MOBILE NUMBER   //////
 const svenMobile = '0414911859';
@@ -342,13 +399,6 @@ function ShowMainTable() {
     <button onClick={run}> Show Availabilities Table </button>
   )
 };
-
-console.log('showMain', showMain);
-
-
-//////   CHANGE NUMBER OF USERS   //////
-
-
 
 
 //////   FIRESTORE DOCREF   //////
@@ -3973,83 +4023,154 @@ const setAllUnAvailUser10 =()=>{
   // 28 Days: 1 when activeYear != 2024, 2028, 2032...
   // 29 Days: 1 when activeYear = 2024, 2028, 2032...;
 useEffect(() => {
-      if ( activeMonth == 0 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
 
-      if ( (0 != activeYear % 4) && (0 == activeYear % 100) || (0 != activeYear % 400) ) {
-        setHide29( true );
-        setHide30( true );
-        setHide31( true );
-      }
+  if ((0 == activeYear % 4) && (0 != activeYear % 100) || (0 == activeYear % 400)) {
+    if ( activeMonth == 0 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ((0 == activeYear % 4) && (0 != activeYear % 100) || (0 == activeYear % 400)) {
-        setHide29( false );
-        setHide30( true );
-        setHide31( true );
-      }
+    if ( activeMonth == 1 ) {
+      setHide29( false );
+      setHide30( true );
+      setHide31( true );
+    }
 
-      if ( activeMonth == 2 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 2 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ( activeMonth == 3 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( true );
-      }
+    if ( activeMonth == 3 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
 
-      if ( activeMonth == 4 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 4 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ( activeMonth == 5 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( true );
-      }
+    if ( activeMonth == 5 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
 
-      if ( activeMonth == 6 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 6 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ( activeMonth == 7 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 7 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ( activeMonth == 8 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( true );
-      }
+    if ( activeMonth == 8 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
 
-      if ( activeMonth == 9 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 9 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
 
-      if ( activeMonth == 10 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( true );
-      }
+    if ( activeMonth == 10 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
 
-      if ( activeMonth == 11 ) {
-        setHide29( false );
-        setHide30( false );
-        setHide31( false );
-      }
+    if ( activeMonth == 11 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+  } else {
+    if ( activeMonth == 0 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 1 ) {
+      setHide29( true );
+      setHide30( true );
+      setHide31( true );
+    }
+
+    if ( activeMonth == 2 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 3 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
+
+    if ( activeMonth == 4 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 5 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
+
+    if ( activeMonth == 6 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 7 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 8 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
+
+    if ( activeMonth == 9 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+
+    if ( activeMonth == 10 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( true );
+    }
+
+    if ( activeMonth == 11 ) {
+      setHide29( false );
+      setHide30( false );
+      setHide31( false );
+    }
+  }
+
+      
       
 },[ trig, activeMonth, activeYear ]);
 
@@ -4280,110 +4401,574 @@ const allFree31 = () => {
   }
 };
 
-
-//////   FUNCTION FOR MAKING HEADING ROW OF AVAIL TABLE   //////
-function AvailTableHeaders () {
+//////   FUNCTION FOR NUDE TABLES FOR UNLOCK AND SET ALLS   //////
+function NudeTableUnlock() {
   return (
     <>
     <tr>
-      <th className="thHeadDate"> Day <br/> Date </th>
-      <th className="thHeadUser"> { user1Name } </th>
-      <th className="thHeadUser"> { user2Name } </th>  
-      <th className="thHeadUser"> { user3Name } </th>
-      <th className="thHeadUser"> { user4Name } </th>
-      <th className="thHeadUser"> { user5Name } </th>
-      <th className="thHeadUser"> { user6Name } </th>
-      <th className="thHeadUser"> { user7Name } </th>
-      <th className="thHeadUser"> { user8Name } </th>
-      <th className="thHeadUser"> { user9Name } </th>
-      <th className="thHeadUser"> { user10Name } </th>
+      <th className='thDateNude'></th>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user1: !unlock.user1};})} 
+          className={ unlock.user1 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user1 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user2: !unlock.user2}})} 
+          className={ unlock.user2 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user2 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+      
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user3: !unlock.user3}})} 
+          className={ unlock.user3 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user3 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+      
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user4: !unlock.user4}})} 
+          className={ unlock.user4 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user4 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user5: !unlock.user5}})} 
+          className={ unlock.user5 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user5 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user6: !unlock.user6}})} 
+          className={ unlock.user6 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user6 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user7: !unlock.user7}})} 
+          className={ unlock.user7 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user7 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user8: !unlock.user8}})} 
+          className={ unlock.user8 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user8 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user9: !unlock.user9}})} 
+          className={ unlock.user9 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user9 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+
+      <td className='tdUserNude'>
+        <button onClick={()=>
+          setUnlock(prev=>{return {...prev, user10: !unlock.user10}})} 
+          className={ unlock.user10 ? 'myButtonLocked' : 'myButtonUnlocked' }
+          > { unlock.user10 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
+        </button>
+      </td>
+    </tr> 
+    </>
+  )
+};
+
+function NudeTableSetAllAvailable() {
+  return (
+    <>
+    <tr>
+    <th className='thDateNude'> Set All Avail</th>
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user1 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser1 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br> 
+        </button>
+      </td>
+      
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user2 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser2 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td>
+      
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user3 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser3 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td>
+      
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user4 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser4 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user5 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser5 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user6 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser6 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user7 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser7 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user8 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser8 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user9 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser9 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
+
+      <td className='tdUserNude'>
+        <button disabled={ unlock.user10 } 
+          className='myButtonSetAllAvail' 
+          onClick={ setAllAvailUser10 }>
+          <Image src={personAvailableSolid} alt="available" /> <br></br>
+        </button>
+      </td> 
     </tr>
     </>
   )
 };
 
+function NudeTableSetAllUnavailable() {
+  return (
+    <>
+    <tr>
+    <th className='thDateNude'> Set All N/A </th>
 
-//////   FUNCTION FOR AVAIL TABLE ROW DAY ONE   //////
-function MapEachDayAndUserAvailTable({day, user}) {
-  const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
-  const usersArray = [1,2,3,4,5,6,7,8,9,10]
-  
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user1 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser1 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
+      </button>
+    </td>
+    
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user2 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser2 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
+      </button>
+    </td>
+    
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user3 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser3 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
+      </button>
+    </td>
+    
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user4 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser4 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
 
-  const table = daysArray.map((day) => {
-    return (
-      <tr key={day}>
-      <th className="thDate"> { tableDayName(day - 1) } <br/> { monthToName() } { tableDayNameArray[day - 1] } <br/>  </th>
-      {  usersArray.map((user) => {
-        const handle = () => {
-          if (user == 1) {
-            return (
-              handleClick1(day)
-            )
-          };
-          if (user == 2) {
-            return (
-              handleClick2(day)
-            )
-          }; 
-          if (user == 3) {
-            return (
-              handleClick3(day)
-            )
-          }; 
-          if (user == 4) {
-            return (
-              handleClick4(day)
-            )
-          }; 
-          if (user == 5) {
-            return (
-              handleClick5(day)
-            )
-          }; 
-          if (user == 6) {
-            return (
-              handleClick6(day)
-            )
-          }; 
-          if (user == 7) {
-            return (
-              handleClick7(day)
-            )
-          }; 
-          if (user == 8) {
-            return (
-              handleClick8(day)
-            )
-          }; 
-          if (user == 9) {
-            return (
-              handleClick9(day)
-            )
-          }; 
-          if (user == 10) {
-            return (
-              handleClick10(day)
-            )
-          }         
-          else {
-            console.log('map if else error- else ran')
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user5 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser5 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user6 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser6 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user7 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser7 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user8 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser8 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user9 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser9 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+
+    <td className='tdUserNude'>
+      <button disabled={ unlock.user10 } 
+        className='myButtonSetAllUnavail' 
+        onClick={ setAllUnAvailUser10 }>
+        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
+      </button>
+    </td> 
+  </tr>
+  </>
+  )
+};
+
+function MapNudeTableUnlock() {
+  return (
+    <>
+    <tr>
+      <th className='thDateNude'></th>
+
+      {
+        usersArray().map((user) => {
+          return (
+            <td key={user} className='tdUserNude'>
+            <button onClick={()=>
+              setUnlock(prev=>{return {...prev, [`user${user}`]: !unlock[`user${user}`]};})} 
+              className={ unlock[`user${user}`] ? 'myButtonLocked' : 'myButtonUnlocked' }
+              > { unlock[`user${user}`] ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
+            </button>
+          </td>
+          )
+        })
+      }
+
+    </tr> 
+    </>
+  )
+};
+
+function MapNudeTableSetAllAvailable() {
+  return (
+    <>
+    <tr>
+    <th className='thDateNude'> Set All Avail</th>
+
+      {
+        usersArray().map((user)=> {
+          const setAll = () => {
+            if (user == 1) {
+              return (
+                setAllAvailUser1
+              )
+            };
+            if (user == 2) {
+              return (
+                setAllAvailUser2
+              )
+            }; 
+            if (user == 3) {
+              return (
+                setAllAvailUser3
+              )
+            }; 
+            if (user == 4) {
+              return (
+                setAllAvailUser4
+              )
+            }; 
+            if (user == 5) {
+              return (
+                setAllAvailUser5
+              )
+            }; 
+            if (user == 6) {
+              return (
+                setAllAvailUser6
+              )
+            }; 
+            if (user == 7) {
+              return (
+                setAllAvailUser7
+              )
+            }; 
+            if (user == 8) {
+              return (
+                setAllAvailUser8
+              )
+            }; 
+            if (user == 9) {
+              return (
+                setAllAvailUser9
+              )
+            }; 
+            if (user == 10) {
+              return (
+                setAllAvailUser10
+              )
+            }         
+            else {
+              console.log('map if else error- else ran')
+            }
           }
+          return (
+            <td key={user} className='tdUserNude'>
+              <button disabled={ unlock[`user${user}`] } 
+                className='myButtonSetAllAvail' 
+                onClick={ setAll() }>
+                <Image src={personAvailableSolid} alt="available" /> <br></br> 
+              </button>
+            </td>
+          )
+        })
+      }
+         
+    </tr>
+    </>
+  )
+};
 
-        }
+function MapNudeTableSetAllUnavailable() {
+  return (
+    <>
+    <tr>
+    <th className='thDateNude'> Set All N/A </th>
 
-        return (
-          <td className = "tdUser" key={user}>       
-          <button 
-          disabled={ unlock[`user${user}`] }
-          onClick={ () => {
-            handle()    
-          }} className={ users[`user${user}`][`day${day}`]? 'buttonAvail' : 'buttonUnavail' } 
-          > { users[`user${user}`][`day${day}`]  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
-          </button>     
-        </td>
-        )})}
+      {
+        usersArray().map((user)=> {
+          const setAll = () => {
+            if (user == 1) {
+              return (
+                setAllUnAvailUser1
+              )
+            };
+            if (user == 2) {
+              return (
+                setAllUnAvailUser2
+              )
+            }; 
+            if (user == 3) {
+              return (
+                setAllUnAvailUser3
+              )
+            }; 
+            if (user == 4) {
+              return (
+                setAllUnAvailUser4
+              )
+            }; 
+            if (user == 5) {
+              return (
+                setAllUnAvailUser5
+              )
+            }; 
+            if (user == 6) {
+              return (
+                setAllUnAvailUser6
+              )
+            }; 
+            if (user == 7) {
+              return (
+                setAllUnAvailUser7
+              )
+            }; 
+            if (user == 8) {
+              return (
+                setAllUnAvailUser8
+              )
+            }; 
+            if (user == 9) {
+              return (
+                setAllUnAvailUser9
+              )
+            }; 
+            if (user == 10) {
+              return (
+                setAllUnAvailUser10
+              )
+            }         
+            else {
+              console.log('map if else error- else ran')
+            }
+          }
+          return (
+            <td key={user} className='tdUserNude'>
+              <button disabled={ unlock[`user${user}`] } 
+                className='myButtonSetAllUnavail' 
+                onClick={ setAll() }>
+                <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
+              </button>
+            </td>
+          )
+        })
+      }
+         
+    </tr>
+    </>
+  )
+};
+
+//////   FUNCTION FOR MAKING HEADING ROW OF AVAIL TABLE   //////
+
+function MapAvailTableHeaders () {
+  
+  return (
+    <>
+      <tr>
+        <th className="thHeadDate"> Day <br/> Date </th>
+          {
+            usersArray().map((user) => {
+              return (
+                <th key={user} className="thHeadUser"> { userNamesOnLoad[`user${user}`] } </th>
+              )
+            })
+          }
       </tr>
-    )
+    </>
+  )
+};
+
+
+//////   FUNCTION FOR AVAIL TABLE    //////
+function MapEachDayAndUserAvailTable({day, user}) {
+  
+  const table = daysArray.map((day) => {
+    if (hide29 == true && day == 29) {
+      return (<></>)
+    };
+    if (hide30 == true && day == 30 ) {
+      return (<></>)
+
+    };
+    if (hide31 == true && day == 31)
+    {
+      return (<></>)
+
+    } else {
+      return (
+        <tr key={day}>
+        <th className="thDate"> { tableDayName(day - 1) } <br/> { monthToName() } { tableDayNameArray[day - 1] } <br/>  </th>
+        {  usersArray().map((user) => {
+          const handle = () => {
+            if (user == 1) {
+              return (
+                handleClick1(day)
+              )
+            };
+            if (user == 2) {
+              return (
+                handleClick2(day)
+              )
+            }; 
+            if (user == 3) {
+              return (
+                handleClick3(day)
+              )
+            }; 
+            if (user == 4) {
+              return (
+                handleClick4(day)
+              )
+            }; 
+            if (user == 5) {
+              return (
+                handleClick5(day)
+              )
+            }; 
+            if (user == 6) {
+              return (
+                handleClick6(day)
+              )
+            }; 
+            if (user == 7) {
+              return (
+                handleClick7(day)
+              )
+            }; 
+            if (user == 8) {
+              return (
+                handleClick8(day)
+              )
+            }; 
+            if (user == 9) {
+              return (
+                handleClick9(day)
+              )
+            }; 
+            if (user == 10) {
+              return (
+                handleClick10(day)
+              )
+            }         
+            else {
+              console.log('map if else error- else ran')
+            }
+  
+          }
+  
+          return (
+            <td className = "tdUser" key={user}>       
+            <button 
+            disabled={ unlock[`user${user}`] }
+            onClick={ () => {
+              handle()    
+            }} className={ users[`user${user}`][`day${day}`]? 'buttonAvail' : 'buttonUnavail' } 
+            > { users[`user${user}`][`day${day}`]  ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> }
+            </button>     
+          </td>
+          )})}
+        </tr>
+      )
+    }
   })
 
   return (
@@ -4526,567 +5111,23 @@ return (
 
 <br></br>
 
-  {/* {NUDE TABLE FOR UNLOCKS} */}
-<article>
-<table className='tableNude'>
+  <article>
+  <table className='tableNude'>
   <tbody>
-    <tr>
-      <th className='thDateNude'></th>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user1: !unlock.user1};})} 
-          className={ unlock.user1 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user1 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user2: !unlock.user2}})} 
-          className={ unlock.user2 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user2 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user3: !unlock.user3}})} 
-          className={ unlock.user3 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user3 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user4: !unlock.user4}})} 
-          className={ unlock.user4 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user4 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user5: !unlock.user5}})} 
-          className={ unlock.user5 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user5 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user6: !unlock.user6}})} 
-          className={ unlock.user6 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user6 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user7: !unlock.user7}})} 
-          className={ unlock.user7 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user7 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user8: !unlock.user8}})} 
-          className={ unlock.user8 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user8 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user9: !unlock.user9}})} 
-          className={ unlock.user9 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user9 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user10: !unlock.user10}})} 
-          className={ unlock.user10 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user10 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-    </tr> 
-
-                {/* {NUDE TABLE FOR SET ALL AVAILABLE} */}
-
-    <tr>
-    <th className='thDateNude'> Set All Avail</th>
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user1 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser1 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br> 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user2 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser2 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user3 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser3 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user4 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser4 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user5 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser5 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user6 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser6 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user7 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser7 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user8 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser8 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user9 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser9 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user10 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser10 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-    </tr>
-            {/* {NUDE TABLE FOR SET ALL UNAVAILABLE} */}
-
-    <tr>
-      <th className='thDateNude'> Set All N/A </th>
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user1 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser1 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user2 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser2 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user3 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser3 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user4 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser4 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user5 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser5 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user6 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser6 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user7 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser7 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user8 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser8 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user9 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser9 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user10 } 
-          className='myButtonSetAllUnavail' 
-          onClick={ setAllUnAvailUser10 }>
-          <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-        </button>
-      </td> 
-    </tr>
+  <MapNudeTableUnlock/>
+  <MapNudeTableSetAllAvailable/>
+  <MapNudeTableSetAllUnavailable/>
   </tbody>
-</table>
-</article>
+  </table>
+  </article>
 
 
-  {/* { MAIN TABLE FOR TOGGLE AVAILS } */}
-{/*NEW AVAIL TABLE */
-}<article>
+<article>
   <table className='tableAvails'>
     <tbody>
 
-    <AvailTableHeaders/>
+    <MapAvailTableHeaders/>
     <MapEachDayAndUserAvailTable/>
-
-    
-
-{/* 29th Day */}
-
-
-
-
-    <tr>
-      <th className={ hide29 ? "thDateHidden" : "thDate"}> { tableDayName(28) } { monthToName() } { tableDayNameArray[28] }</th>
-      <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1 || hide29 }
-          onClick={ () => {
-              handleClick1(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user1.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user1.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2 || hide29 }
-          onClick={ () => {
-              handleClick2(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user2.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user2.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3 || hide29 }
-          onClick={ () => {
-              handleClick3(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user3.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user3.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4 || hide29 }
-          onClick={ () => {
-              handleClick4(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user4.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user4.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user5 || hide29 }
-          onClick={ () => {
-              handleClick5(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user5.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user5.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user6 || hide29 }
-          onClick={ () => {
-              handleClick6(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user6.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user6.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user7 || hide29 }
-          onClick={ () => {
-              handleClick7(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user7.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user7.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user8 || hide29 }
-          onClick={ () => {
-              handleClick8(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user8.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user8.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user9 || hide29 }
-          onClick={ () => {
-              handleClick9(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user9.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user9.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide29 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user10 || hide29 }
-          onClick={ () => {
-              handleClick10(29); 
-            }} className={ hide29 ? 'buttonUndefined' : users.user10.day29 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide29 ? ' ' : users.user10.day29 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className={ hide30 ? "thDateHidden" : "thDate"}> { tableDayName(29) } { monthToName() } { tableDayNameArray[29] }</th>
-      <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1 || hide30 }
-          onClick={ () => {
-              handleClick1(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user1.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user1.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2 || hide30}
-          onClick={ () => {
-              handleClick2(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user2.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user2.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3 || hide30}
-          onClick={ () => {
-              handleClick3(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user3.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user3.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4 || hide30}
-          onClick={ () => {
-              handleClick4(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user4.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user4.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user5 || hide30}
-          onClick={ () => {
-              handleClick5(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user5.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user5.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user6 || hide30}
-          onClick={ () => {
-              handleClick6(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user6.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user6.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user7 || hide30}
-          onClick={ () => {
-              handleClick7(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user7.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user7.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user8 || hide30}
-          onClick={ () => {
-              handleClick8(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user8.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user8.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user9 || hide30}
-          onClick={ () => {
-              handleClick9(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user9.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user9.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide30 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user10 || hide30}
-          onClick={ () => {
-              handleClick10(30); 
-            }} className={ hide30 ? 'buttonUndefined' : users.user10.day30 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide30 ? ' ' : users.user10.day30 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-    </tr>
-    
-    <tr>
-      <th className={ hide31 ? "thDateHidden" : "thDate"}> { tableDayName(30) } { monthToName() } { tableDayNameArray[30] }</th>
-      <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user1 || hide31 }
-          onClick={ () => {
-              handleClick1(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user1.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user1.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user2 || hide31 }
-          onClick={ () => {
-              handleClick2(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user2.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user2.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user3 || hide31 }
-          onClick={ () => {
-              handleClick3(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user3.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user3.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user4 || hide31 }
-          onClick={ () => {
-              handleClick4(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user4.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user4.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user5 || hide31 }
-          onClick={ () => {
-              handleClick5(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user5.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user5.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user6 || hide31 }
-          onClick={ () => {
-              handleClick6(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user6.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user6.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user7 || hide31 }
-          onClick={ () => {
-              handleClick7(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user7.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user7.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user8 || hide31 }
-          onClick={ () => {
-              handleClick8(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user8.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user8.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user9 || hide31 }
-          onClick={ () => {
-              handleClick9(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user9.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user9.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-        <td className= {hide31 ? "thUserHidden" : "tdUser"}>    
-          <button 
-          disabled={unlock.user10 || hide31 }
-          onClick={ () => {
-              handleClick10(31); 
-            }} className={ hide31 ? 'buttonUndefined' : users.user10.day31 ? 'buttonAvail' : 'buttonUnavail' } 
-            > { hide31 ? ' ' : users.user10.day31 ? < Image src={personAvailable} alt="Available"/> : < Image src={personUnavailable} alt="Unavailable"/> } 
-            </button>      
-        </td>
-    </tr>  
-
 
     </tbody>
   </table>
