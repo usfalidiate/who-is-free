@@ -98,16 +98,16 @@ const [ bandNameOnLoad, setBandNameOnLoad ] = useState('...loading');
 const [ updateTrig, setUpdateTrig] = useState(false);
 
 const [ userNamesOnLoad, setUserNamesOnLoad ] = useState ({
-  nameUser1: 'Alan',
-  nameUser2: 'Betty',
-  nameUser3: 'Carmen Sandiago',
-  nameUser4: 'Deez Testicles',
-  nameUser5: 'Elephant Penis',
-  nameUser6: 'Fred',
-  nameUser7: 'Gosher',
-  nameUser8: 'Tex',
-  nameUser9: 'Old Fuck',
-  nameUser10: 'Smitty'
+  nameUser1: '',
+  nameUser2: '',
+  nameUser3: '',
+  nameUser4: '',
+  nameUser5: '',
+  nameUser6: '',
+  nameUser7: '',
+  nameUser8: '',
+  nameUser9: '',
+  nameUser10: ''
 });
 
 const numberOfMembersArray = () => {
@@ -4216,7 +4216,7 @@ console.log('userNames', userNames);
       <br/>
       <br/>
 
-      Band Members' Names: <br/>
+      Band Member Names: <br/>
       { numberOfMembersArray().map((user) => {
         return (
           <div key={user}>
