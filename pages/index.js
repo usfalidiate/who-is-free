@@ -4624,7 +4624,7 @@ function MapAvailTableHeaders () {
           {
             numberOfMembersArray().map((user) => {
               return (
-                <th key={user} className="thHeadUser"> { userNamesOnLoad[`user${user}`] } </th>
+                <th key={user} className="thHeadUser"> { userNamesOnLoad[`nameUser${user}`] } </th>
               )
             })
           }
