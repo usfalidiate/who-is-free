@@ -4264,9 +4264,7 @@ console.log('userNames', userNames);
       </select>
       </label>
 
-    <br/>
-
-    <button onClick={bandNumberSubmit}> Submit </button>
+   <button onClick={bandNumberSubmit}> Submit </button>
 
     <br/>
     <br/>
@@ -4274,31 +4272,27 @@ console.log('userNames', userNames);
     <label>
         Update Band Members Names: 
         <br/>
-        Name 1:
-        <br/>
-        <input 
-          onChange={e => setUserNames (
-            prev=>{return{
-              ...userNames, nameUser1: e.target.value
-            }}
-            
-          )}/>
-          <br/>
-          <button onClick={bandMemberNamesSubmit}> Submit </button>
+        { numberOfMembersArray().map((user) => {
+          return (
+            <div key={user}>
+            Name {user}:
             <br/>
+            <input 
+              onChange={e => setUserNames (
+                prev=>{return{
+                  ...userNames, [`nameUser${user}`]: e.target.value
+                }}
+                
+              )}/>
+              <button onClick={bandMemberNamesSubmit}> Submit </button>
+              <br/>
+            </div>
+          )
+        })
+        }
 
-          Name 2:
-          <br/>
-          <input 
-          onChange={e => setUserNames (
-            prev=>{return{
-              ...userNames, nameUser2: e.target.value
-            }}
-            
-          )}/>
     </label>
     <br/>
-    <button onClick={bandMemberNamesSubmit}> Submit </button>
     <br/>
 
 
