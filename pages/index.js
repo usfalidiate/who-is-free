@@ -12,7 +12,6 @@ import unlockIcon from '../public/unlock.svg';
 import Select from "react-select";
 
 
-const inter = Inter({ subsets: ['latin'] })
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -46,8 +45,8 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+const inter = Inter({ subsets: ['latin'] })
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -65,7 +64,7 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 
-export default function Home() {
+export default function Home(day, user) {
 
 
   /// USER ID ///
@@ -98,20 +97,20 @@ const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4);
 const [ bandNameOnLoad, setBandNameOnLoad ] = useState('...loading');
 const [ updateTrig, setUpdateTrig] = useState(false);
 
-const [ userNamesOnLoad, setUserNames ] = useState ({
-  user1: 'Alan',
-  user2: 'Betty',
-  user3: 'Carmen Sandiago',
-  user4: 'Deez Testicles',
-  user5: 'Elephant Penis',
-  user6: 'Fred',
-  user7: 'Gosher',
-  user8: 'Tex',
-  user9: 'Old Fuck',
-  user10: 'Smitty'
+const [ userNamesOnLoad, setUserNamesOnLoad ] = useState ({
+  nameUser1: 'Alan',
+  nameUser2: 'Betty',
+  nameUser3: 'Carmen Sandiago',
+  nameUser4: 'Deez Testicles',
+  nameUser5: 'Elephant Penis',
+  nameUser6: 'Fred',
+  nameUser7: 'Gosher',
+  nameUser8: 'Tex',
+  nameUser9: 'Old Fuck',
+  nameUser10: 'Smitty'
 });
 
-const usersArray = () => {
+const numberOfMembersArray = () => {
   if (numberOfMembersOnLoad == 1) {
     return ( [1] )
   }
@@ -147,10 +146,12 @@ const usersArray = () => {
   }
 };
 
+
+
 const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31];
 
 //////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
-const BandInfoToggleButton = () => {
+const NavToggleButton = () => {
   const changeToggleState = () => {
     setBandInfoToggle(prev=>!prev)
   }
@@ -173,130 +174,7 @@ function UpdateButton() {
 };
 
 
-//////   ENTERS NUMBER OF BAND MEMBERS AND BAND NAME AND NAMES OF BAND MEMBERS  //////
-function BandInfoInput() {
-  const [bandName, setBandName] = useState(bandNameOnLoad);
-  const [numberOfMembers, setNumberOfMembers] = useState(numberOfMembersOnLoad); 
-  const [userNames, setUserNames] = useState(userNamesOnLoad);
 
-  const bandNameSubmit = async () => {
-    setBandInfoTrig(prev => !prev);
-
-    try {
-      const docSnap = await getDoc(docRefBandInfo);
-      console.log('bandname docSnap ran');
-      
-      if (docSnap.exists()) {
-        console.log('updateDoc bandInfo ran pre');
-        updateDoc(docRefBandInfo, { bandName: bandName});
-        console.log('updateDoc bandInfo if ran post');
-      } else {
-        setDoc(docRefBandInfo, { bandName: bandName});
-        console.log('else name ran');
-      }
-
-    } catch {
-      console.log('update band info error catch ran');
-    }
-    
-  };
-
-  const bandNumberSubmit = async () => {
-    setBandInfoTrig(prev => !prev);
-      try {
-        const docSnap = await getDoc(docRefBandInfo);
-        console.log('bandnumb docSnap ran');
-        
-        if (docSnap.exists()) {
-          console.log('updateDoc bandInfo number ran pre');
-          updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          console.log('updateDoc bandInfo nymber if ran post');
-        } else {
-          setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          console.log('else numberran');
-
-        }
-      } catch {
-
-        console.log('update band info num error catch ran');
-      };
-  };
-
-  const bandMemberNamesSubmit = async () => {
-    setBandInfoTrig(prev => !prev);
-      try {
-        const docSnap = await getDoc(docRefBandInfo);
-        console.log('band member names docSnap ran');
-        
-        if (docSnap.exists()) {
-          console.log('updateDoc bandInfo names of members ran pre');
-          updateDoc(docRefBandInfo, { userNames: userNames});
-          console.log('updateDoc bandInfo names of members ran post');
-        } else {
-          setDoc(docRefBandInfo, { userNames: userNames});
-          console.log('else names of members ran');
-
-        }
-      } catch {
-
-        console.log('update band info num error catch ran');
-      };
-  };
-
-
-  return (
-    <>
-      Current Band Name: {bandNameOnLoad} 
-      
-      <br/>
-
-      Number of Members: {numberOfMembersOnLoad}
-      <br/>
-      <br/>
-
-      <label>
-        Update Band Name: 
-        <input onChange={e => setBandName(e.target.value)}/>
-      </label>
-
-      <br/>
-
-      <button onClick={bandNameSubmit}> Submit </button>
-
-      <br/>
-      <br/>
-
-      <label>
-        Select Number of Band Members: 
-      <select
-        onChange={e => setNumberOfMembers(e.target.value)}
-        defaultValue={'placeholder'}
-      >
-          <option disabled value={'placeholder'}>#</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-      </select>
-      </label>
-
-    <br/>
-
-    <button onClick={bandNumberSubmit}> Submit </button>
-
-    <br/>
-    <br/>
-    <UpdateButton/>
-
-    </>
-  )
-};
 
 //////   LOGIN AND AUTH   //////
 const [loading, setLoading] = useState(false);
@@ -363,6 +241,8 @@ function togglePasswordVisible() {
 }
 
 
+
+
 //////   CURRENT DATE   //////
 let currentDate = new Date();
 
@@ -389,7 +269,7 @@ const [ showMain, setShowMain ] = useState ( false );
 
 //////   SHOW OR HIDE MAIN TABLE   //////
 
-function ShowMainTable() {
+function MainTableToggleButton() {
   const run = () => {
     setLoadTrig(prev => !prev);
     setShowMain(prev => !prev);
@@ -813,8 +693,6 @@ function tableDayNameLong (i) {
 }
 
 
-
-
 //////   FIRESTORE BAND INFO LOAD ON START   //////
 const docRefBandInfo = doc ( db, uid.toString(), 'info' );
 const colRefBandInfo = collection ( db, uid.toString() );
@@ -830,6 +708,7 @@ useEffect(()=> {
       initList.push(cloudState);
       setNumberOfMembersOnLoad(cloudState.numberOfMembers);
       setBandNameOnLoad(cloudState.bandName);
+      setUserNamesOnLoad(cloudState.userNames);
       console.log('cloudState.numberOfMembers', cloudState.numberOfMembers);
       console.log('cloudState.bandName', cloudState.bandName);
     } catch {
@@ -837,9 +716,7 @@ useEffect(()=> {
     }
   };
   loadDoc();
-}, [ bandInfoToggle, updateTrig]);
-
-
+}, [ bandInfoToggle, updateTrig, showMain]);
 
 
 
@@ -1586,41 +1463,41 @@ console.log('update doc u1 true run');
 
     } catch {
       console.log('updateDoc firestore on click catch ran');
-      // setDoc(setDocRef, {
-      //   user1:[ 
-      //     {day1: users.user1.day1},
-      //     {day2: users.user1.day2}, 
-      //     {day3: users.user1.day3},
-      //     {day4: users.user1.day4},
-      //     {day5: users.user1.day5},
-      //     {day6: users.user1.day6},
-      //     {day7: users.user1.day7},
-      //     {day8: users.user1.day8},
-      //     {day9: users.user1.day9},
-      //     {day10: users.user1.day10},
-      //     {day11: users.user1.day11},
-      //     {day12: users.user1.day12}, 
-      //     {day13: users.user1.day13},
-      //     {day14: users.user1.day14},
-      //     {day15: users.user1.day15},
-      //     {day16: users.user1.day16},
-      //     {day17: users.user1.day17},
-      //     {day18: users.user1.day18},
-      //     {day19: users.user1.day19},
-      //     {day20: users.user1.day20},
-      //     {day21: users.user1.day21},
-      //     {day22: users.user1.day22}, 
-      //     {day23: users.user1.day23},
-      //     {day24: users.user1.day24},
-      //     {day25: users.user1.day25},
-      //     {day26: users.user1.day26},
-      //     {day27: users.user1.day27},
-      //     {day28: users.user1.day28},
-      //     {day29: users.user1.day29},
-      //     {day30: users.user1.day30},
-      //     {day31: users.user1.day31}, 
-      //   ],  
-      // });    
+      setDoc(setDocRef, {
+        user1:[ 
+          {day1: users.user1.day1},
+          {day2: users.user1.day2}, 
+          {day3: users.user1.day3},
+          {day4: users.user1.day4},
+          {day5: users.user1.day5},
+          {day6: users.user1.day6},
+          {day7: users.user1.day7},
+          {day8: users.user1.day8},
+          {day9: users.user1.day9},
+          {day10: users.user1.day10},
+          {day11: users.user1.day11},
+          {day12: users.user1.day12}, 
+          {day13: users.user1.day13},
+          {day14: users.user1.day14},
+          {day15: users.user1.day15},
+          {day16: users.user1.day16},
+          {day17: users.user1.day17},
+          {day18: users.user1.day18},
+          {day19: users.user1.day19},
+          {day20: users.user1.day20},
+          {day21: users.user1.day21},
+          {day22: users.user1.day22}, 
+          {day23: users.user1.day23},
+          {day24: users.user1.day24},
+          {day25: users.user1.day25},
+          {day26: users.user1.day26},
+          {day27: users.user1.day27},
+          {day28: users.user1.day28},
+          {day29: users.user1.day29},
+          {day30: users.user1.day30},
+          {day31: users.user1.day31}, 
+        ],  
+      });    
       console.log('no user1 update firestore on click true');
       console.log('setDoc run for u1 true')
 
@@ -4177,501 +4054,372 @@ useEffect(() => {
 //////   DATES WHERE ALL ARE FREE   //////
 const br = <br></br>;
 
-const allFree1 = () => {  
-  if ((users.user1.day1 && users.user2.day1 && users.user3.day1 && users.user4.day1 && users.user5.day1 && users.user6.day1 && users.user7.day1 && users.user8.day1 && users.user9.day1 && users.user10.day1) == true ) {
-    return [ tableDayNameLong(0) , ' ', tableDayNameArray[0], ' ', monthToNameLong(), br ]
-  } else {
+function MapAllFree() {
+  return (
+    daysArray.map((day) => {
+      const numberOfMembersForAllFree = () => {
+        if (numberOfMembersOnLoad == 1) {
+          return ( users.user1[`day${day}`] )
+        };
+        if (numberOfMembersOnLoad == 2) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] )
+        }; 
+        if (numberOfMembersOnLoad == 3) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`]  )
+        }; 
+        if (numberOfMembersOnLoad == 4) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] )
+        } 
+        if (numberOfMembersOnLoad == 5) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] )
+        } 
+        if (numberOfMembersOnLoad == 6) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] )
+        } 
+        if (numberOfMembersOnLoad == 7) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] )
+        } 
+        if (numberOfMembersOnLoad == 8) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] )
+        } 
+        if (numberOfMembersOnLoad == 9) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] )
+        }
+        if (numberOfMembersOnLoad == 10) {
+          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] && users.user10[`day${day}`]  )
+        } 
+        else {
+          return ( true )
+        }
+      };
+      if ( numberOfMembersForAllFree() == true ) {
+        console.log('if ran')
+        return [ tableDayNameLong(day-1) , ' ', tableDayNameArray[day-1], ' ', monthToNameLong(), br ]
+      } else {
+        console.log('else ran')
+
+      } 
+    })
+  )
+};
+
+//////   FUNCTIONS FOR RETURN ELEMENTS   //////
+
+function TaglineDiv() {
+  return (
+    <div className='infoDiv'>
+<article className = 'tagLineArticle'>
+  <h1 className = 'h1TagLine'> Powered by Useful Idiot Events... </h1>
+</article>
+</div>
+  )
+}
+
+function LoginInfoNav() {
+  return (
+    <nav className='infoDiv'>
+    <div> Currently Logged In As: { currentUser?.email } </div>
+    <div id='fields'>
+      <input ref={emailRef} placeholder='Email'/>
+      <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
+    </div>
+    <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button>
+    <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button>
+    <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
+    <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
+
+  <br></br>
+
+
+  </nav>
+  )
+}
+
+//////   ENTERS NUMBER OF BAND MEMBERS AND BAND NAME AND NAMES OF BAND MEMBERS  //////
+function BandInfoInputNav() {
+  const [bandName, setBandName] = useState(bandNameOnLoad);
+  const [numberOfMembers, setNumberOfMembers] = useState(numberOfMembersOnLoad); 
+  const [userNames, setUserNames] = useState(userNamesOnLoad);
+
+  const bandNameSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      console.log('bandname docSnap ran');
+      
+      if (docSnap.exists()) {
+        console.log('updateDoc bandInfo ran pre');
+        updateDoc(docRefBandInfo, { bandName: bandName});
+        console.log('updateDoc bandInfo if ran post');
+      } else {
+        setDoc(docRefBandInfo, { bandName: bandName});
+        console.log('else name ran');
+      }
+
+    } catch {
+      console.log('update band info error catch ran');
+    }
     
-  }   
-};
-const allFree2 = () => {  
-  if ((users.user1.day2 && users.user2.day2 && users.user3.day2 && users.user4.day2 && users.user5.day2 && users.user6.day2 && users.user7.day2 && users.user8.day2 && users.user9.day2 && users.user10.day2) == true ) {
-    return [ tableDayNameLong(1), ' ',  tableDayNameArray[1], ' ', monthToNameLong(), br ]
-  } else {
+  };
 
-  }
-};
-const allFree3 = () => {  
-  if ((users.user1.day3 && users.user2.day3 && users.user3.day3 && users.user4.day3 && users.user5.day3 && users.user6.day3 && users.user7.day3 && users.user8.day3 && users.user9.day3 && users.user10.day3) == true ) {
-    return [ tableDayNameLong(2) , ' ', tableDayNameArray[2], ' ', monthToNameLong(), br ]
-  } else {
+  const bandNumberSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        console.log('bandnumb docSnap ran');
+        
+        if (docSnap.exists()) {
+          console.log('updateDoc bandInfo number ran pre');
+          updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+          console.log('updateDoc bandInfo nymber if ran post');
+        } else {
+          setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
+          console.log('else numberran');
 
-  }
-};
-const allFree4 = () => {  
-  if ((users.user1.day4 && users.user2.day4 && users.user3.day4 && users.user4.day4 && users.user5.day4 && users.user6.day4 && users.user7.day4 && users.user8.day4 && users.user9.day4 && users.user10.day4) == true ) {
-    return [ tableDayNameLong(3) , ' ', tableDayNameArray[3], ' ', monthToNameLong(), br ]
-  } else {
+        }
+      } catch {
 
-  }
-};
-const allFree5 = () => {  
-  if ((users.user1.day5 && users.user2.day5 && users.user3.day5 && users.user4.day5 && users.user5.day5 && users.user6.day5 && users.user7.day5 && users.user8.day5 && users.user9.day5 && users.user10.day5) == true ) {
-    return [ tableDayNameLong(4) , ' ', tableDayNameArray[4], ' ', monthToNameLong(), br ]
-  } else {
+        console.log('update band info num error catch ran');
+      };
+  };
 
-  }
-};
-const allFree6 = () => {  
-  if ((users.user1.day6 && users.user2.day6 && users.user3.day6 && users.user4.day6 && users.user5.day6 && users.user6.day6 && users.user7.day6 && users.user8.day6 && users.user9.day6 && users.user10.day6) == true ) {
-    return [ tableDayNameLong(5) , ' ', tableDayNameArray[5], ' ', monthToNameLong(), br ]
-  } else {
+  const bandMemberNamesSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        console.log('band member names docSnap ran');
+        
+        if (docSnap.exists()) {
+          console.log('updateDoc bandInfo names of members ran pre');
+          updateDoc(docRefBandInfo, { userNames: userNames});
+          console.log('updateDoc bandInfo names of members ran post');
+        } else {
+          setDoc(docRefBandInfo, { userNames: userNames});
+          console.log('else names of members ran');
 
-  }
-};
-const allFree7 = () => {  
-  if ((users.user1.day7 && users.user2.day7 && users.user3.day7 && users.user4.day7 && users.user5.day7 && users.user6.day7 && users.user7.day7 && users.user8.day7 && users.user9.day7 && users.user10.day7) == true ) {
-    return [ tableDayNameLong(6) , ' ', tableDayNameArray[6], ' ', monthToNameLong(), br ]
-  } else {
+        }
+      } catch {
 
-  }
-};
-const allFree8 = () => {  
-  if ((users.user1.day8 && users.user2.day8 && users.user3.day8 && users.user4.day8 && users.user5.day8 && users.user6.day8 && users.user7.day8 && users.user8.day8 && users.user9.day8 && users.user10.day8) == true ) {
-    return [ tableDayNameLong(7) , ' ', tableDayNameArray[7], ' ', monthToNameLong(), br ]
-  } else {
+        console.log('update band info num error catch ran');
+      };
+  };
 
-  }
-};
-const allFree9 = () => {  
-  if ((users.user1.day9 && users.user2.day9 && users.user3.day9 && users.user4.day9 && users.user5.day9 && users.user6.day9 && users.user7.day9 && users.user8.day9 && users.user9.day9 && users.user10.day9) == true ) {
-    return [ tableDayNameLong(8) , ' ', tableDayNameArray[8], ' ', monthToNameLong(), br ]
-  } else {
+console.log('userNames', userNames);
 
-  }
-};
-const allFree10 = () => {  
-  if ((users.user1.day10 && users.user2.day10 && users.user3.day10 && users.user4.day10 && users.user5.day10 && users.user6.day10 && users.user7.day10 && users.user8.day10 && users.user9.day10 && users.user10.day10) == true ) {
-    return [ tableDayNameLong(9) , ' ', tableDayNameArray[9], ' ', monthToNameLong(), br ]
-  } else {
+  return (
+    <>
+      Current Band Name: {bandNameOnLoad} 
+      <br/>
 
-  }
-};
-const allFree11 = () => {  
-  if ((users.user1.day11 && users.user2.day11 && users.user3.day11 && users.user4.day11 && users.user5.day11 && users.user6.day11 && users.user7.day11 && users.user8.day11 && users.user9.day11 && users.user10.day11) == true ) {
-    return [ tableDayNameLong(10), ' ', tableDayNameArray[10], ' ',  monthToNameLong(), br ]
-  } else {
+      Number of Members: {numberOfMembersOnLoad}
+      <br/>
+      <br/>
 
-  }
-};
-const allFree12 = () => {  
-  if ((users.user1.day12 && users.user2.day12 && users.user3.day12 && users.user4.day12 && users.user5.day12 && users.user6.day12 && users.user7.day12 && users.user8.day12 && users.user9.day12 && users.user10.day12) == true ) {
-    return [ tableDayNameLong(11), ' ', tableDayNameArray[11], ' ',  monthToNameLong(), br ]
-  } else {
+      Band Members' Names: <br/>
+      { numberOfMembersArray().map((user) => {
+        return (
+          <div key={user}>
+            Member Name {user}: {userNames[`nameUser${user}`]} <br/>
+          </div>
+        )
+      })}
 
-  }
-};
-const allFree13 = () => {  
-  if ((users.user1.day13 && users.user2.day13 && users.user3.day13 && users.user4.day13 && users.user5.day13 && users.user6.day13 && users.user7.day13 && users.user8.day13 && users.user9.day13 && users.user10.day13) == true ) {
-    return [ tableDayNameLong(12), ' ', tableDayNameArray[12], ' ',  monthToNameLong(), br ]
-  } else {
+      <br/>
+      <br/>
+      
+      {/* probs need to use numberOfMembersArray()     */}
 
-  }
-};
-const allFree14 = () => {  
-  if ((users.user1.day14 && users.user2.day14 && users.user3.day14 && users.user4.day14 && users.user5.day14 && users.user6.day14 && users.user7.day14 && users.user8.day14 && users.user9.day14 && users.user10.day14) == true ) {
-    return [ tableDayNameLong(13), ' ', tableDayNameArray[13], ' ',  monthToNameLong(), br ]
-  } else {
 
-  }
-};
-const allFree15 = () => {  
-  if ((users.user1.day15 && users.user2.day15 && users.user3.day15 && users.user4.day15 && users.user5.day15 && users.user6.day15 && users.user7.day15 && users.user8.day15 && users.user9.day15 && users.user10.day15) == true ) {
-    return [ tableDayNameLong(14), ' ', tableDayNameArray[14], ' ',  monthToNameLong(), br ]
-  } else {
 
-  }
-};
-const allFree16 = () => {  
-  if ((users.user1.day16 && users.user2.day16 && users.user3.day16 && users.user4.day16 && users.user5.day16 && users.user6.day16 && users.user7.day16 && users.user8.day16 && users.user9.day16 && users.user10.day16) == true ) {
-    return [ tableDayNameLong(15), ' ', tableDayNameArray[15], ' ',  monthToNameLong(), br ]
-  } else {
+      <label>
+        Update Band Name: 
+        <input onChange={e => setBandName(e.target.value)}/>
+      </label>
 
-  }
-};
-const allFree17 = () => {  
-  if ((users.user1.day17 && users.user2.day17 && users.user3.day17 && users.user4.day17 && users.user5.day17 && users.user6.day17 && users.user7.day17 && users.user8.day17 && users.user9.day17 && users.user10.day17) == true ) {
-    return [ tableDayNameLong(16), ' ', tableDayNameArray[16], ' ',  monthToNameLong(), br ]
-  } else {
+      <br/>
 
-  }
-};
-const allFree18 = () => {  
-  if ((users.user1.day18 && users.user2.day18 && users.user3.day18 && users.user4.day18 && users.user5.day18 && users.user6.day18 && users.user7.day18 && users.user8.day18 && users.user9.day18 && users.user10.day18) == true ) {
-    return [ tableDayNameLong(17), ' ', tableDayNameArray[17], ' ',  monthToNameLong(), br ]
-  } else {
+      <button onClick={bandNameSubmit}> Submit </button>
 
-  }
-};
-const allFree19 = () => {  
-  if ((users.user1.day19 && users.user2.day19 && users.user3.day19 && users.user4.day19 && users.user5.day19 && users.user6.day19 && users.user7.day19 && users.user8.day19 && users.user9.day19 && users.user10.day19) == true ) {
-    return [ tableDayNameLong(18), ' ', tableDayNameArray[18], ' ',  monthToNameLong(), br ]
-  } else {
+      <br/>
+      <br/>
 
-  }
-};
-const allFree20 = () => {  
-  if ((users.user1.day20 && users.user2.day20 && users.user3.day20 && users.user4.day20 && users.user5.day20 && users.user6.day20 && users.user7.day20 && users.user8.day20 && users.user9.day20 && users.user10.day20) == true ) {
-    return [ tableDayNameLong(19), ' ', tableDayNameArray[19], ' ',  monthToNameLong(), br ]
-  } else {
+      <label>
+        Select Number of Band Members: 
+      <select
+        onChange={e => setNumberOfMembers(e.target.value)}
+        defaultValue={'placeholder'}
+      >
+          <option disabled value={'placeholder'}>#</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+      </select>
+      </label>
 
-  }
-};
-const allFree21 = () => {  
-  if ((users.user1.day21 && users.user2.day21 && users.user3.day21 && users.user4.day21 && users.user5.day21 && users.user6.day21 && users.user7.day21 && users.user8.day21 && users.user9.day21 && users.user10.day21) == true ) {
-    return [ tableDayNameLong(20), ' ', tableDayNameArray[20], ' ',  monthToNameLong(), br ]
-  } else {
+    <br/>
 
-  }
-};
-const allFree22 = () => {  
-  if ((users.user1.day22 && users.user2.day22 && users.user3.day22 && users.user4.day22 && users.user5.day22 && users.user6.day22 && users.user7.day22 && users.user8.day22 && users.user9.day22 && users.user10.day22) == true ) {
-    return [ tableDayNameLong(21), ' ', tableDayNameArray[21], ' ',  monthToNameLong(), br ]
-  } else {
+    <button onClick={bandNumberSubmit}> Submit </button>
 
-  }
-};
-const allFree23 = () => {  
-  if ((users.user1.day23 && users.user2.day23 && users.user3.day23 && users.user4.day23 && users.user5.day23 && users.user6.day23 && users.user7.day23 && users.user8.day23 && users.user9.day23 && users.user10.day23) == true ) {
-    return [ tableDayNameLong(22), ' ', tableDayNameArray[22], ' ',  monthToNameLong(), br ]
-  } else {
+    <br/>
+    <br/>
 
-  }
-};
-const allFree24 = () => {  
-  if ((users.user1.day24 && users.user2.day24 && users.user3.day24 && users.user4.day24 && users.user5.day24 && users.user6.day24 && users.user7.day24 && users.user8.day24 && users.user9.day24 && users.user10.day24) == true ) {
-    return [ tableDayNameLong(23), ' ', tableDayNameArray[23], ' ',  monthToNameLong(), br ]
-  } else {
+    <label>
+        Update Band Members Names: 
+        <br/>
+        Name 1:
+        <br/>
+        <input 
+          onChange={e => setUserNames (
+            prev=>{return{
+              ...userNames, nameUser1: e.target.value
+            }}
+            
+          )}/>
+          <br/>
+          <button onClick={bandMemberNamesSubmit}> Submit </button>
+            <br/>
 
-  }
-};
-const allFree25 = () => {  
-  if ((users.user1.day25 && users.user2.day25 && users.user3.day25 && users.user4.day25 && users.user5.day25 && users.user6.day25 && users.user7.day25 && users.user8.day25 && users.user9.day25 && users.user10.day25) == true ) {
-    return [ tableDayNameLong(24), ' ', tableDayNameArray[24], ' ',  monthToNameLong(), br ]
-  } else {
+          Name 2:
+          <br/>
+          <input 
+          onChange={e => setUserNames (
+            prev=>{return{
+              ...userNames, nameUser2: e.target.value
+            }}
+            
+          )}/>
+    </label>
+    <br/>
+    <button onClick={bandMemberNamesSubmit}> Submit </button>
+    <br/>
 
-  }
-};
-const allFree26 = () => {  
-  if ((users.user1.day26 && users.user2.day26 && users.user3.day26 && users.user4.day26 && users.user5.day26 && users.user6.day26 && users.user7.day26 && users.user8.day26 && users.user9.day26 && users.user10.day26) == true ) {
-    return [ tableDayNameLong(25), ' ', tableDayNameArray[25], ' ',  monthToNameLong(), br ]
-  } else {
 
-  }
-};
-const allFree27 = () => {  
-  if ((users.user1.day27 && users.user2.day27 && users.user3.day27 && users.user4.day27 && users.user5.day27 && users.user6.day27 && users.user7.day27 && users.user8.day27 && users.user9.day27 && users.user10.day27) == true ) {
-    return [ tableDayNameLong(26), ' ', tableDayNameArray[26], ' ',  monthToNameLong(), br ]
-  } else {
 
-  }
-};
-const allFree28 = () => {  
-  if ((users.user1.day28 && users.user2.day28 && users.user3.day28 && users.user4.day28 && users.user5.day28 && users.user6.day28 && users.user7.day28 && users.user8.day28 && users.user9.day28 && users.user10.day28) == true ) {
-    return [ tableDayNameLong(27), ' ', tableDayNameArray[27], ' ',  monthToNameLong(), br ]
-  } else {
+    <UpdateButton/>
 
-  }
+    </>
+  )
 };
-const allFree29 = () => {  
-  if (hide29 == true) {
-  } else {  
-    if ((users.user1.day29 && users.user2.day29 && users.user3.day29 && users.user4.day29 && users.user5.day29 && users.user6.day29 && users.user7.day29 && users.user8.day29 && users.user9.day29 && users.user10.day29) == true ) {
-      return [ tableDayNameLong(28), ' ', tableDayNameArray[28], ' ',  monthToNameLong(), br ]
-    } else {
-    }
-  }
+
+function AllNavs() {
+  return (
+    <div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
+  <LoginInfoNav/>
+  <br/>
+  <BandInfoInputNav/>
+  <br/>
+</div>
+  )
+}
+
+function ShowAllAvailDates () {
+  return (
+    <>
+    <article className = 'availSumTitleArticle'>
+  <h2 className = 'h2AvailSum'>
+    For the month of <span className = 'h2AvailSumMonth'> {monthToNameLong()} {activeYear}</span>, everyone is free to jam on:
+  </h2>
+</article>
+
+    <article className = 'availSumDatesArticle'>
+  <h2 className = 'h2AllAvailDates'>
+  
+    <br></br>
+    {/* {allFree1()} 
+    {allFree2()} 
+    {allFree3()} 
+    {allFree4()} 
+    {allFree5()} 
+    {allFree6()} 
+    {allFree7()} 
+    {allFree8()} 
+    {allFree9()} 
+    {allFree10()} 
+    {allFree11()} 
+    {allFree12()} 
+    {allFree13()} 
+    {allFree14()} 
+    {allFree15()} 
+    {allFree16()} 
+    {allFree17()} 
+    {allFree18()} 
+    {allFree19()} 
+    {allFree20()} 
+    {allFree21()} 
+    {allFree22()} 
+    {allFree23()} 
+    {allFree24()} 
+    {allFree25()} 
+    {allFree26()} 
+    {allFree27()} 
+    {allFree28()} 
+    {allFree29()} 
+    {allFree30()} 
+    {allFree31()}  */}
+    <MapAllFree/>
+    &nbsp;
+  </h2>
+</article>
+</>
+  )
+}
+
+function SelectYearArticle() {
+  return (
+    <article className = 'yearArticle' >
+  <h2 className = 'h2Year'>Select Year</h2>
+    {/* <button className = 'buttonYear' onClick={()=> setActiveYear(2022)}> 2022 </button> */}
+    <button className = 'buttonYear' onClick={()=> setActiveYear(currentDate.getFullYear())}> {currentDate.getFullYear().toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusOne)}> {activeYearPlusOne.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusTwo)}> {activeYearPlusTwo.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusThree)}> {activeYearPlusThree.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFour)}> {activeYearPlusFour.toString()} </button>
+    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFive)}> {activeYearPlusFive.toString()} </button>
+
+
+</article>
+  )
 };
-const allFree30 = () => {  
-  if (hide30 == true) {
-  } else {
-    if ((users.user1.day30 && users.user2.day30 && users.user3.day30 && users.user4.day30 && users.user5.day30 && users.user6.day30 && users.user7.day30 && users.user8.day30 && users.user9.day30 && users.user10.day30) == true ) {
-      return [ tableDayNameLong(29), ' ', tableDayNameArray[29], ' ',  monthToNameLong(), br ]
-    } else {
-    }
-  }
-};
-const allFree31 = () => {  
-  if (hide31 == true) {
-  } else {    
-    if ((users.user1.day31 && users.user2.day31 && users.user3.day31 && users.user4.day31 && users.user5.day31 && users.user6.day31 && users.user7.day31 && users.user8.day31 && users.user9.day31 && users.user10.day31) == true ) {
-      return [ tableDayNameLong(30), ' ',  tableDayNameArray[30], ' ',  monthToNameLong(), br  ]
-    } else {
-    }
-  }
-};
+
+function SelectMonthArticle() {
+  return (
+    <article className = 'monthArticle' >
+  <h2>Select Month</h2>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(0)}> Jan </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(1)}> Feb </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(2)}> Mar </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(3)}> Apr </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(4)}> May </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(5)}> Jun </button>
+    <br></br>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(6)}> Jul </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(7)}> Aug </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(8)}> Sep </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(9)}> Oct </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(10)}> Nov </button>
+    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(11)}> Dec </button>
+</article>
+  )
+}
+
+function ActiveDateArticle() {
+  return (
+    <article className = 'activeDateArticle'>
+  <h2> You are currently looking at: </h2>
+  <h1> { monthToNameLong() } { activeYear } </h1>
+</article>
+  )
+}
 
 //////   FUNCTION FOR NUDE TABLES FOR UNLOCK AND SET ALLS   //////
-function NudeTableUnlock() {
-  return (
-    <>
-    <tr>
-      <th className='thDateNude'></th>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user1: !unlock.user1};})} 
-          className={ unlock.user1 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user1 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}} /> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}} />} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user2: !unlock.user2}})} 
-          className={ unlock.user2 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user2 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user3: !unlock.user3}})} 
-          className={ unlock.user3 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user3 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user4: !unlock.user4}})} 
-          className={ unlock.user4 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user4 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user5: !unlock.user5}})} 
-          className={ unlock.user5 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user5 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user6: !unlock.user6}})} 
-          className={ unlock.user6 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user6 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user7: !unlock.user7}})} 
-          className={ unlock.user7 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user7 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user8: !unlock.user8}})} 
-          className={ unlock.user8 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user8 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user9: !unlock.user9}})} 
-          className={ unlock.user9 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user9 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-
-      <td className='tdUserNude'>
-        <button onClick={()=>
-          setUnlock(prev=>{return {...prev, user10: !unlock.user10}})} 
-          className={ unlock.user10 ? 'myButtonLocked' : 'myButtonUnlocked' }
-          > { unlock.user10 ? <Image src={lockIcon} alt="lock" style={{height: '95%', width: '95%'}}/> : <Image src={unlockIcon} alt="unlock" style={{height: '95%', width: '95%'}}/>} 
-        </button>
-      </td>
-    </tr> 
-    </>
-  )
-};
-
-function NudeTableSetAllAvailable() {
-  return (
-    <>
-    <tr>
-    <th className='thDateNude'> Set All Avail</th>
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user1 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser1 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br> 
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user2 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser2 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user3 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser3 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td>
-      
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user4 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser4 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user5 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser5 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user6 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser6 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user7 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser7 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user8 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser8 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user9 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser9 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-
-      <td className='tdUserNude'>
-        <button disabled={ unlock.user10 } 
-          className='myButtonSetAllAvail' 
-          onClick={ setAllAvailUser10 }>
-          <Image src={personAvailableSolid} alt="available" /> <br></br>
-        </button>
-      </td> 
-    </tr>
-    </>
-  )
-};
-
-function NudeTableSetAllUnavailable() {
-  return (
-    <>
-    <tr>
-    <th className='thDateNude'> Set All N/A </th>
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user1 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser1 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-      </button>
-    </td>
-    
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user2 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser2 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-      </button>
-    </td>
-    
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user3 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser3 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br> 
-      </button>
-    </td>
-    
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user4 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser4 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user5 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser5 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user6 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser6 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user7 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser7 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user8 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser8 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user9 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser9 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-
-    <td className='tdUserNude'>
-      <button disabled={ unlock.user10 } 
-        className='myButtonSetAllUnavail' 
-        onClick={ setAllUnAvailUser10 }>
-        <Image src={personUnavailableSolid} alt="Unavailable" /> <br></br>
-      </button>
-    </td> 
-  </tr>
-  </>
-  )
-};
-
 function MapNudeTableUnlock() {
   return (
     <>
@@ -4679,7 +4427,7 @@ function MapNudeTableUnlock() {
       <th className='thDateNude'></th>
 
       {
-        usersArray().map((user) => {
+        numberOfMembersArray().map((user) => {
           return (
             <td key={user} className='tdUserNude'>
             <button onClick={()=>
@@ -4704,7 +4452,7 @@ function MapNudeTableSetAllAvailable() {
     <th className='thDateNude'> Set All Avail</th>
 
       {
-        usersArray().map((user)=> {
+        numberOfMembersArray().map((user)=> {
           const setAll = () => {
             if (user == 1) {
               return (
@@ -4784,7 +4532,7 @@ function MapNudeTableSetAllUnavailable() {
     <th className='thDateNude'> Set All N/A </th>
 
       {
-        usersArray().map((user)=> {
+        numberOfMembersArray().map((user)=> {
           const setAll = () => {
             if (user == 1) {
               return (
@@ -4857,6 +4605,20 @@ function MapNudeTableSetAllUnavailable() {
   )
 };
 
+function AllNudeTables() {
+  return (
+    <article>
+    <table className='tableNude'>
+    <tbody>
+    <MapNudeTableUnlock/>
+    <MapNudeTableSetAllAvailable/>
+    <MapNudeTableSetAllUnavailable/>
+    </tbody>
+    </table>
+    </article>
+  )
+}
+
 //////   FUNCTION FOR MAKING HEADING ROW OF AVAIL TABLE   //////
 
 function MapAvailTableHeaders () {
@@ -4866,7 +4628,7 @@ function MapAvailTableHeaders () {
       <tr>
         <th className="thHeadDate"> Day <br/> Date </th>
           {
-            usersArray().map((user) => {
+            numberOfMembersArray().map((user) => {
               return (
                 <th key={user} className="thHeadUser"> { userNamesOnLoad[`user${user}`] } </th>
               )
@@ -4897,7 +4659,7 @@ function MapEachDayAndUserAvailTable({day, user}) {
       return (
         <tr key={day}>
         <th className="thDate"> { tableDayName(day - 1) } <br/> { monthToName() } { tableDayNameArray[day - 1] } <br/>  </th>
-        {  usersArray().map((user) => {
+        {  numberOfMembersArray().map((user) => {
           const handle = () => {
             if (user == 1) {
               return (
@@ -4978,151 +4740,9 @@ function MapEachDayAndUserAvailTable({day, user}) {
   )
 };
 
-
-//////   RETURN ELEMENTS   //////
-return (
-<div className = 'myDiv'>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
-<div className='infoDiv'>
-<article className = 'tagLineArticle'>
-  <h1 className = 'h1TagLine'> Powered by Useful Idiot Events... </h1>
-</article>
-</div>
-
-<BandInfoToggleButton/>
-
-<div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
-<nav className='infoDiv'>
-    <div> Currently Logged In As: { currentUser?.email } </div>
-    <div id='fields'>
-      <input ref={emailRef} placeholder='Email'/>
-      <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
-    </div>
-    <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button>
-    <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button>
-    <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
-    <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
-
-  <br></br>
-  <br/>
-  <BandInfoInput/>
-  <br/>
-
-  </nav>
-
-</div>
-<br/>
-<ShowMainTable/>
-
-
-<div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
-
-
-<article className = 'availSumTitleArticle'>
-  <h2 className = 'h2AvailSum'>
-    For the month of <span className = 'h2AvailSumMonth'> {monthToNameLong()} {activeYear}</span>, everyone is free to jam on:
-  </h2>
-</article>
-
-<article className = 'availSumDatesArticle'>
-  <h2 className = 'h2AllAvailDates'>
-  
-    <br></br>
-    {allFree1()} 
-    {allFree2()} 
-    {allFree3()} 
-    {allFree4()} 
-    {allFree5()} 
-    {allFree6()} 
-    {allFree7()} 
-    {allFree8()} 
-    {allFree9()} 
-    {allFree10()} 
-    {allFree11()} 
-    {allFree12()} 
-    {allFree13()} 
-    {allFree14()} 
-    {allFree15()} 
-    {allFree16()} 
-    {allFree17()} 
-    {allFree18()} 
-    {allFree19()} 
-    {allFree20()} 
-    {allFree21()} 
-    {allFree22()} 
-    {allFree23()} 
-    {allFree24()} 
-    {allFree25()} 
-    {allFree26()} 
-    {allFree27()} 
-    {allFree28()} 
-    {allFree29()} 
-    {allFree30()} 
-    {allFree31()} 
-    &nbsp;
-  </h2>
-</article>
-<br></br>
-
-<br></br>
-
-
-<article className = 'yearArticle' >
-  <h2 className = 'h2Year'>Select Year</h2>
-    {/* <button className = 'buttonYear' onClick={()=> setActiveYear(2022)}> 2022 </button> */}
-    <button className = 'buttonYear' onClick={()=> setActiveYear(currentDate.getFullYear())}> {currentDate.getFullYear().toString()} </button>
-    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusOne)}> {activeYearPlusOne.toString()} </button>
-    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusTwo)}> {activeYearPlusTwo.toString()} </button>
-    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusThree)}> {activeYearPlusThree.toString()} </button>
-    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFour)}> {activeYearPlusFour.toString()} </button>
-    <button className = 'buttonYear' onClick={()=> setActiveYear(activeYearPlusFive)}> {activeYearPlusFive.toString()} </button>
-
-
-</article>
-
-<br></br>
-
-<article className = 'monthArticle' >
-  <h2>Select Month</h2>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(0)}> Jan </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(1)}> Feb </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(2)}> Mar </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(3)}> Apr </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(4)}> May </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(5)}> Jun </button>
-    <br></br>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(6)}> Jul </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(7)}> Aug </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(8)}> Sep </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(9)}> Oct </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(10)}> Nov </button>
-    <button className = 'buttonMonth' onClick ={()=> setActiveMonth(11)}> Dec </button>
-</article>
-
-<br></br>
-
-<article className = 'activeDateArticle'>
-  <h2> You are currently looking at: </h2>
-  <h1> { monthToNameLong() } { activeYear } </h1>
-</article>
-
-<br></br>
-
-  <article>
-  <table className='tableNude'>
-  <tbody>
-  <MapNudeTableUnlock/>
-  <MapNudeTableSetAllAvailable/>
-  <MapNudeTableSetAllUnavailable/>
-  </tbody>
-  </table>
-  </article>
-
-
-<article>
+function AllAvailTables () {
+  return (
+    <article>
   <table className='tableAvails'>
     <tbody>
 
@@ -5132,17 +4752,70 @@ return (
     </tbody>
   </table>
 </article>
+  )
+}
 
-<br></br>
-
-<article className = 'disclaimerArticle'>
+function DisclaimerArticle() {
+  return (
+    <article className = 'disclaimerArticle'>
   <h3 className = 'h3Disclaimer'>
     <br></br>
     If you experience any problems using this website, please put them in your bum.   
     <br></br>
   </h3>
 </article>
-</div>
+  )
+}
+
+function MainTable() {
+  return (
+    <div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
+      <ShowAllAvailDates/>
+
+      <br></br>
+      <br></br>
+
+      <SelectYearArticle/>
+
+      <br></br>
+
+      <SelectMonthArticle/>
+
+      <br></br>
+
+      <ActiveDateArticle/>
+
+      <br></br>
+
+      <AllNudeTables/>
+
+
+      <AllAvailTables/>
+
+      <br></br>
+
+      <DisclaimerArticle/>
+    </div>
+  )
+}
+
+
+//////   RETURN ELEMENTS   //////
+return (
+<div className = 'myDiv'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <TaglineDiv/>
+
+  <NavToggleButton/>
+
+  <AllNavs/>
+
+  <br/>
+
+  <MainTableToggleButton/>
+
+  <MainTable/>  
 </div> 
 );
 }
