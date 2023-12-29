@@ -65,7 +65,7 @@ export default function Home(day, user) {
 
 
   /// USER ID ///
-  const [uid, setUid] = useState('uid');
+  const [uid, setUid] = useState('userID');
 
 //////   SETS THE USER ID STATE (setUID)   //////
 useEffect(() => {
