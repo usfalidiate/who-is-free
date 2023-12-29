@@ -1056,7 +1056,7 @@ useEffect(()=> {
       console.log('cloudState', cloudState);
       // BELOW IS ISSUE - IF LOOP SHOULDN'T RUN IF FIRESTORE DATABASE IS EMPTY OF RELEVANT DATA -
       // IT CAUSES BAND INFO TO BE UPDATED WITH  UNDEFINED DUE TO MISSING DATA FROM FIRESTORE
-      if ( cloudState.exists() ) {
+      if ( docSnap.exists() ) {
         console.log('docSnap exists is true in load band info on start');
         console.log(bandNameOnLoad, 'bandNameOnLoad')
         setNumberOfMembersOnLoad(cloudState.numberOfMembers);
