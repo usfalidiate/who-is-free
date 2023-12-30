@@ -64,12 +64,14 @@ const auth = getAuth();
 export default function Home(day, user) {
 
 
-  /// USER ID ///
-  const [uid, setUid] = useState('userID');
 
+  /// USER ID ///
+  const [uid, setUid] = useState('uid');
+
+  console.log('uid', uid);
 //////   SETS THE USER ID STATE (setUID)   //////
 useEffect(() => {
-  const setUID = async () => {
+  const setUID = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
@@ -91,7 +93,7 @@ const [bandInfoToggle, setBandInfoToggle] = useState(false);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
 
 const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
-const [ bandNameOnLoad, setBandNameOnLoad ] = useState('BAND');
+const [ bandNameOnLoad, setBandNameOnLoad ] = useState('bandnameonload');
 const [ updateTrig, setUpdateTrig] = useState(false);
 
 const [ userNamesOnLoad, setUserNamesOnLoad ] = useState ({
@@ -106,6 +108,18 @@ const [ userNamesOnLoad, setUserNamesOnLoad ] = useState ({
   nameUser9: '9',
   nameUser10: '10'
 });
+
+const [ userNameOnLoad1, setUserNameOnLoad1 ] = useState('1');
+const [ userNameOnLoad2, setUserNameOnLoad2 ] = useState('2');
+const [ userNameOnLoad3, setUserNameOnLoad3 ] = useState('3');
+const [ userNameOnLoad4, setUserNameOnLoad4 ] = useState('4');
+const [ userNameOnLoad5, setUserNameOnLoad5 ] = useState('5');
+const [ userNameOnLoad6, setUserNameOnLoad6 ] = useState('6');
+const [ userNameOnLoad7, setUserNameOnLoad7 ] = useState('7');
+const [ userNameOnLoad8, setUserNameOnLoad8 ] = useState('8');
+const [ userNameOnLoad9, setUserNameOnLoad9 ] = useState('9');
+const [ userNameOnLoad10, setUserNameOnLoad10 ] = useState('10');
+
 
 const numberOfMembersArray = () => {
   if (numberOfMembersOnLoad == 1) {
@@ -564,17 +578,18 @@ function useAuth() {
   }, [])
 
   return currentUser;
-}
+};
 
 function signup(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-const signupFillCloud = () => {
+//////   FILLS CLOUD WITH DATA   //////
+async function signupFillCloud () {
   console.log('signup 1 2 3', bandNameOnLoad, numberOfMembersOnLoad, userNamesOnLoad);
   console.log('bandNameonLoad in fill', bandNameOnLoad);
-  setDoc(docRefBandInfo, { numberOfMembers: numberOfMembersOnLoad, bandName: bandNameOnLoad,  userNames: userNamesOnLoad});
-  setDoc(setDocRef, {
+  await setDoc(docRefBandInfo, { numberOfMembers: numberOfMembersOnLoad}, {bandName: bandNameOnLoad},  {userNames: userNamesOnLoad});
+  await setDoc(setDocRef, {
     user1:[ 
       {day1: users.user1.day1},
       {day2: users.user1.day2}, 
@@ -947,9 +962,14 @@ function logout() {
 async function handleLogout() {
   setLoading(true);
   try {
+    console.log('logout try ran');
   await logout();
+  console.log('logout try ran after logout');
+
+
 } catch {
   alert('error');
+  console.log('logout error');
 }
   setLoading(false);
 }
@@ -1042,7 +1062,7 @@ function tableDayNameLong (i) {
 }
 
 
-//////   LOADDOC 
+//////   LOADDOC TO SET BAND INFO BASED ON CLOUDSTATE   //////
 useEffect(()=> {
   const loadDoc = async () => {
     let initList = []
@@ -1061,7 +1081,17 @@ useEffect(()=> {
         console.log(bandNameOnLoad, 'bandNameOnLoad')
         setNumberOfMembersOnLoad(cloudState.numberOfMembers);
         setBandNameOnLoad(cloudState.bandName);
-        setUserNamesOnLoad([cloudState.userNames]);
+        setUserNameOnLoad1(cloudState.userName1);
+        setUserNameOnLoad2(cloudState.userName2);
+        setUserNameOnLoad3(cloudState.userName3);
+        setUserNameOnLoad4(cloudState.userName4);
+        setUserNameOnLoad5(cloudState.userName5);
+        setUserNameOnLoad6(cloudState.userName6);
+        setUserNameOnLoad7(cloudState.userName7);
+        setUserNameOnLoad8(cloudState.userName8);
+        setUserNameOnLoad9(cloudState.userName9);
+        setUserNameOnLoad10(cloudState.userName10);
+
       } else {
         console.log('docSnap does not exist, band info not updated');
         console.log(bandNameOnLoad, 'bandNameOnLoad in else')
@@ -4505,69 +4535,162 @@ function BandInfoInputNav() {
   const [bandName, setBandName] = useState(bandNameOnLoad);
   const [numberOfMembers, setNumberOfMembers] = useState(numberOfMembersOnLoad); 
   const [userNames, setUserNames] = useState(userNamesOnLoad);
+  const [userName1, setUserName1] = useState(userNameOnLoad1);
+  const [userName2, setUserName2] = useState(userNameOnLoad2);
+  const [userName3, setUserName3] = useState(userNameOnLoad3);
+  const [userName4, setUserName4] = useState(userNameOnLoad4);
+  const [userName5, setUserName5] = useState(userNameOnLoad5);
+  const [userName6, setUserName6] = useState(userNameOnLoad6);
+  const [userName7, setUserName7] = useState(userNameOnLoad7);
+  const [userName8, setUserName8] = useState(userNameOnLoad8);
+  const [userName9, setUserName9] = useState(userNameOnLoad9);
+  const [userName10, setUserName10] = useState(userNameOnLoad10);
 
-  console.log('userNames in BandInfoInoputNav', userNames);
+
   const bandNameSubmit = async () => {
     setBandInfoTrig(prev => !prev);
-
     try {
       const docSnap = await getDoc(docRefBandInfo);
-      console.log('bandname docSnap ran');
-      
       if (docSnap.exists()) {
-        console.log('updateDoc bandInfo ran pre');
         updateDoc(docRefBandInfo, { bandName: bandName});
-        console.log('updateDoc bandInfo if ran post');
       } else {
         setDoc(docRefBandInfo, { bandName: bandName});
-        console.log('else name ran');
       }
-
     } catch {
-      console.log('update band info error catch ran');
     }
-    
   };
 
   const bandNumberSubmit = async () => {
     setBandInfoTrig(prev => !prev);
       try {
         const docSnap = await getDoc(docRefBandInfo);
-        console.log('bandnumb docSnap ran');
-        
         if (docSnap.exists()) {
-          console.log('updateDoc bandInfo number ran pre');
           updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          console.log('updateDoc bandInfo nymber if ran post');
         } else {
           setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          console.log('else numberran');
-
         }
       } catch {
-
-        console.log('update band info num error catch ran');
       };
   };
 
-  const bandMemberNamesSubmit = async () => {
+  const bandMemberNamesSubmit1 = async () => {
     setBandInfoTrig(prev => !prev);
       try {
         const docSnap = await getDoc(docRefBandInfo);
-        console.log('band member names docSnap ran');
-        
         if (docSnap.exists()) {
-          console.log('updateDoc bandInfo names of members ran pre');
-          updateDoc(docRefBandInfo, { userNames: userNames});
-          console.log('updateDoc bandInfo names of members ran post');
+          updateDoc(docRefBandInfo, { userName1: userName1});
         } else {
-          setDoc(docRefBandInfo, { userNames: userNames});
-          console.log('else names of members ran');
-
+          setDoc(docRefBandInfo, { userName1: userName1});
         }
       } catch {
-
-        console.log('update band info num error catch ran');
+      };
+  };
+  const bandMemberNamesSubmit2 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName2: userName2});
+        } else {
+          setDoc(docRefBandInfo, { userName2: userName2});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit3 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName3: userName3});
+        } else {
+          setDoc(docRefBandInfo, { userName3: userName3});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit4 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName4: userName4});
+        } else {
+          setDoc(docRefBandInfo, { userName4: userName4});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit5 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName5: userName5});
+        } else {
+          setDoc(docRefBandInfo, { userName5: userName5});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit6 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName6: userName6});
+        } else {
+          setDoc(docRefBandInfo, { userName6: userName6});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit7 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName7: userName7});
+        } else {
+          setDoc(docRefBandInfo, { userName7: userName7});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit8 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName8: userName8});
+        } else {
+          setDoc(docRefBandInfo, { userName8: userName8});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit9 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName9: userName9});
+        } else {
+          setDoc(docRefBandInfo, { userName9: userName9});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit10 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName10: userName10});
+        } else {
+          setDoc(docRefBandInfo, { userName10: userName10});
+        }
+      } catch {
       };
   };
 
@@ -4575,42 +4698,59 @@ function BandInfoInputNav() {
     <>
       Current Band Name: {bandNameOnLoad} 
       <br/>
-
       Number of Members: {numberOfMembersOnLoad}
       <br/>
       <br/>
-
       Band Member Names: <br/>
       { numberOfMembersArray().map((user) => {
-        // console.log('userNames[`nameUser${user}`]', userNames[`nameUser${user}`]);
-        console.log('1 user', user);
-        console.log('2 userNames', userNames);
-        console.log('3 userNames.nameUser1', userNames.nameUser1)
+                  const run = () => {
+                    if (user == 1) {
+                      return (userNameOnLoad1)
+                    };
+                    if (user == 2) {
+                      return (userNameOnLoad2)
+                    };
+                    if (user == 3) {
+                      return (userNameOnLoad3)
+                    };
+                    if (user == 4) {
+                      return (userNameOnLoad4)
+                    };
+                    if (user == 5) {
+                      return (userNameOnLoad5)
+                    };
+                    if (user == 6) {
+                      return (userNameOnLoad6)
+                    };
+                    if (user == 7) {
+                      return (userNameOnLoad7)
+                    };
+                    if (user == 8) {
+                      return (userNameOnLoad8)
+                    };
+                    if (user == 9) {
+                      return (userNameOnLoad9)
+                    };
+                    if (user == 10) {
+                      return (userNameOnLoad10)
+                    };
+                  }
         return (
           <div key={user}>
-            Member Name {user}: {userNames[`nameUser${user}`]} <br/>
+            Member Name {user}: {run()} <br/>
           </div>
         )
       })}
-
       <br/>
       <br/>
-      
-
-
-
       <label>
         Update Band Name: 
         <input onChange={e => setBandName(e.target.value)}/>
       </label>
-
       <br/>
-
       <button onClick={bandNameSubmit}> Submit </button>
-
       <br/>
       <br/>
-
       <label>
         Select Number of Band Members: 
       <select
@@ -4640,18 +4780,80 @@ function BandInfoInputNav() {
         Update Band Members Names: 
         <br/>
         { numberOfMembersArray().map((user) => {
+          const onClickRun = () => {
+            if (user == 1) {
+              return (bandMemberNamesSubmit1)
+            };
+            if (user == 2) {
+              return (bandMemberNamesSubmit2)
+            };
+            if (user == 3) {
+              return (bandMemberNamesSubmit3)
+            };
+            if (user == 4) {
+              return (bandMemberNamesSubmit4)
+            };
+            if (user == 5) {
+              return (bandMemberNamesSubmit5)
+            };
+            if (user == 6) {
+              return (bandMemberNamesSubmit6)
+            };
+            if (user == 7) {
+              return (bandMemberNamesSubmit7)
+            };
+            if (user == 8) {
+              return (bandMemberNamesSubmit8)
+            };
+            if (user == 9) {
+              return (bandMemberNamesSubmit9)
+            };
+            if (user == 10) {
+              return (bandMemberNamesSubmit10)
+            };
+          };
+
+          const onChangeRun = (e) => {
+            if (user == 1) {
+              return (setUserName1( e.target.value ))
+            };
+            if (user == 2) {
+              return (setUserName2( e.target.value ))
+            };
+            if (user == 3) {
+              return (setUserName3( e.target.value ))
+            };
+            if (user == 4) {
+              return (setUserName4( e.target.value ))
+            };
+            if (user == 5) {
+              return (setUserName5( e.target.value ))
+            };
+            if (user == 6) {
+              return (setUserName6( e.target.value ))
+            };
+            if (user == 7) {
+              return (setUserName7( e.target.value ))
+            };
+            if (user == 8) {
+              return (setUserName8( e.target.value ))
+            };
+            if (user == 9) {
+              return (setUserName9( e.target.value ))
+            };
+            if (user == 10) {
+              return (setUserName10( e.target.value ))
+            };
+          };
+
+
           return (
             <div key={user}>
             Name {user}:
             <br/>
             <input 
-              onChange={e => setUserNames (
-                prev=>{return{
-                  ...userNames, [`nameUser${user}`]: e.target.value
-                }}
-                
-              )}/>
-              <button onClick={bandMemberNamesSubmit}> Submit </button>
+              onChange={e => onChangeRun(e) }/>
+              <button onClick={ onClickRun() }> Submit </button>
               <br/>
             </div>
           )
@@ -4991,7 +5193,7 @@ function MapAvailTableHeaders () {
           {
             numberOfMembersArray().map((user) => {
               return (
-                <th key={user} className="thHeadUser"> { userNamesOnLoad[`nameUser${user}`] } </th>
+                <th key={user} className="thHeadUser"> { `userNamesOnLoad${user}` } </th>
               )
             })
           }
