@@ -4534,7 +4534,7 @@ function TaglineDiv() {
 
 function LoginInfoNav() {
   return (
-    <nav className={ currentUser ? 'infoDiv' : 'infoDivNone'}>
+    <nav className={'infoDiv'}>
       <div> Currently Logged In As: { currentUser ? currentLogName : "" } </div>
       <div> Current UserID: {currentUser ? uid : ""} </div>
       {/* <div> Currently Logged In As:  {emailRef?.current.value}  </div> */}
