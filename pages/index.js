@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from "next/font/google";
-import styles from '@/styles/Home.module.css';
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from "next/font/google"
+import styles from '@/styles/Home.module.css'
 import {useState, useEffect, useRef} from 'react';
 import personAvailable from '../public/person-available.svg';
 import personUnavailable from '../public/person-unavailable.svg';
@@ -30,6 +30,7 @@ import {
   documentId,
   querySnapshot,
 } from 'firebase/firestore';
+ 
 import { 
   getAuth, 
   createUserWithEmailAndPassword,
@@ -41,7 +42,7 @@ import {
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] })
 
 
 // Your web app's Firebase configuration
@@ -60,11 +61,14 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 
-export default function Home() {
+export default function Home(day, user) {
+
+
 
   /// USER ID ///
   const [uid, setUid] = useState('uid');
 
+  console.log('uid', uid);
 //////   SETS THE USER ID STATE (setUID)   //////
 useEffect(() => {
   const setUID = () => {
@@ -85,7 +89,7 @@ useEffect(() => {
 
 
   ///// BAND INFORMATION /////
-const [bandInfoToggle, setBandInfoToggle] = useState(true);
+const [bandInfoToggle, setBandInfoToggle] = useState(false);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
 
 const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
@@ -116,7 +120,6 @@ const [ userNameOnLoad8, setUserNameOnLoad8 ] = useState('8');
 const [ userNameOnLoad9, setUserNameOnLoad9 ] = useState('9');
 const [ userNameOnLoad10, setUserNameOnLoad10 ] = useState('10');
 
-const [ emailName, setEmailName ] = useState('user')
 
 const numberOfMembersArray = () => {
   if (numberOfMembersOnLoad == 1) {
@@ -154,9 +157,7 @@ const numberOfMembersArray = () => {
   }
 };
 
-const [currentLogName, setCurrentLogName] = useState('');
-
-const [toggleWelcomeScreen, setToggleWelcomeScreen] = useState(true);
+const [currentLogName, setCurrentLogName] = useState('MJK');
 
 //////   CURRENT DATE   //////
 let currentDate = new Date();
@@ -174,10 +175,10 @@ const [ hide29, setHide29 ] = useState( false );
 const [ hide30, setHide30 ] = useState( false );
 const [ hide31, setHide31 ] = useState( false );
 const [ activeYearPlusOne, setActiveYearPlusOne ] = useState ( currentDate.getFullYear() + 1);
-const [ activeYearPlusTwo, setActiveYearPlusTwo ] = useState ( currentDate.getFullYear() + 2);
-const [ activeYearPlusThree, setActiveYearPlusThree ] = useState ( currentDate.getFullYear() + 3);
-const [ activeYearPlusFour, setActiveYearPlusFour ] = useState ( currentDate.getFullYear() + 4);
-const [ activeYearPlusFive, setActiveYearPlusFive ] = useState ( currentDate.getFullYear() + 5);
+const [ activeYearPlusTwo, setActiveYearPlusTwo ] = useState ( currentDate.getFullYear() + 2)
+const [ activeYearPlusThree, setActiveYearPlusThree ] = useState ( currentDate.getFullYear() + 3)
+const [ activeYearPlusFour, setActiveYearPlusFour ] = useState ( currentDate.getFullYear() + 4)
+const [ activeYearPlusFive, setActiveYearPlusFive ] = useState ( currentDate.getFullYear() + 5)
 const [ loadTrig, setLoadTrig ] = useState ( false );
 const [ showMain, setShowMain ] = useState ( false );
 
@@ -185,29 +186,12 @@ const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,2
 
 //////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
 const NavToggleButton = () => {
-  const showMainTable = () => {
-    setBandInfoToggle(false);
-    setShowMain(true);
-  };
-
-  const showBandInfo = () => {
-    setBandInfoToggle(true);
-    setShowMain(false);
-  };
-
-  function ShowMainTableButton() {
-    return (
-      <button onClick={showMainTable}> Show Availabilities Table </button>
-    )
-  };
-
-  function ShowBandInfoButton() {
-    return(
-      <button onClick={showBandInfo}> Show Band Information</button>
-    )
-  };
+  const changeToggleState = () => {
+    setBandInfoToggle(prev=>!prev)
+  }
+  // console.log('bandinfo', bandInfoToggle)
   return (
-    <> {showMain ? <ShowBandInfoButton/> : <ShowMainTableButton/>} </>
+    <button onClick={changeToggleState}> Toggle Band Info </button>
   )
 };
 
@@ -575,7 +559,7 @@ const [users, setUsers] = useState({
     day31: null 
   }
 
-});
+})
 
 
 //////   LOGIN AND AUTH   //////
@@ -587,13 +571,11 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 
 
 function useAuth() {
-  console.log('useAuth ran');
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user =>  setCurrentUser(user));
     return unsub;
   }, [])
-
 
   return currentUser;
 };
@@ -604,7 +586,8 @@ function signup(email, password) {
 
 //////   FILLS CLOUD WITH DATA   //////
 async function signupFillCloud () {
-  consooe.log('signupFillCloud ran')
+  console.log('signup 1 2 3', bandNameOnLoad, numberOfMembersOnLoad, userNamesOnLoad);
+  console.log('bandNameonLoad in fill', bandNameOnLoad);
   await setDoc(docRefBandInfo, { numberOfMembers: numberOfMembersOnLoad}, {bandName: bandNameOnLoad},  {userNames: userNamesOnLoad});
   await setDoc(setDocRef, {
     user1:[ 
@@ -938,6 +921,7 @@ async function signupFillCloud () {
       {day31: users.user10.day31}, 
     ],          
   }); 
+  console.log('signupFillCloud ran');
 };
 
 async function handleSignup() {
@@ -957,25 +941,23 @@ async function handleSignup() {
 
 function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
-};
+}
 
 async function handleLogin() {
   setLoading(true);
   try {
     await login([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
     setCurrentLogName(emailRef.current.value);
-    // setCurrentLogName(email);
-
     console.log('here emailRef.current.value', emailRef.current.value);
   } catch {
     alert('The email and/or password was incorrect.')
   }
   setLoading(false);
-};
+}
 
 function logout() {
   return signOut(auth);
-};
+}
 
 async function handleLogout() {
   setLoading(true);
@@ -990,11 +972,11 @@ async function handleLogout() {
   console.log('logout error');
 }
   setLoading(false);
-};
+}
 
 function togglePasswordVisible() {
   setPasswordVisible(!passwordVisible);
-};
+}
 
 
 
@@ -1004,15 +986,16 @@ function togglePasswordVisible() {
 
 //////   SHOW OR HIDE MAIN TABLE   //////
 
-// function MainTableToggleButton() {
-//   const run = () => {
-//     setLoadTrig(prev => !prev);
-//     setShowMain(prev => !prev);
-//   }
-//   return (
-//     <button onClick={run}> Load Availabilities Table </button>
-//   )
-// };
+function MainTableToggleButton() {
+  const run = () => {
+    setLoadTrig(prev => !prev);
+    setShowMain(prev => !prev);
+    console.log('run ran');
+  }
+  return (
+    <button onClick={run}> Show Availabilities Table </button>
+  )
+};
 
 
 
@@ -1032,7 +1015,7 @@ const monthToName = () => {
   if (activeMonth == 10) { return 'Nov' }
   if (activeMonth == 11) { return 'Dec' }
   if (activeMonth == undefined) { return currentDate.getMonth }  
-};
+}
 
 //////   CHANGE MONTH NUMBERS TO NAMES - FULL NAME   //////
 const monthToNameLong = () => {
@@ -1049,7 +1032,7 @@ const monthToNameLong = () => {
   if (activeMonth == 10) { return 'November' }
   if (activeMonth == 11) { return 'December' }
   if (activeMonth == undefined) { return currentDate.getMonth }  
-};
+}
 
 //////   CHANGE WEEK DAY NUMBERS TO NAMES   //////
 const tableDayNameArray = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ];
@@ -1064,7 +1047,7 @@ function tableDayName (i) {
       if (activeDate.getDay() == 4) { return 'Thu' }
       if (activeDate.getDay() == 5) { return 'Fri' }
       if (activeDate.getDay() == 6) { return 'Sat' }
-};
+}
 
 function tableDayNameLong (i) {
   let activeDate = new Date(activeYear, activeMonth, tableDayNameArray[i]);
@@ -1076,7 +1059,7 @@ function tableDayNameLong (i) {
       if (activeDate.getDay() == 4) { return 'Thursday' }
       if (activeDate.getDay() == 5) { return 'Friday' }
       if (activeDate.getDay() == 6) { return 'Saturday' }
-};
+}
 
 
 //////   LOADDOC TO SET BAND INFO BASED ON CLOUDSTATE   //////
@@ -3536,7 +3519,7 @@ const setAllAvailUser1 =()=>{
   });
   setTrig(prev=>!prev);
   
-};
+}
 const setAllAvailUser2 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3576,7 +3559,7 @@ const setAllAvailUser2 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser3 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3616,7 +3599,7 @@ const setAllAvailUser3 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser4 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3656,7 +3639,7 @@ const setAllAvailUser4 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser5 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3696,7 +3679,7 @@ const setAllAvailUser5 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser6 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3736,7 +3719,7 @@ const setAllAvailUser6 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser7 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3776,7 +3759,7 @@ const setAllAvailUser7 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser8 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3816,7 +3799,7 @@ const setAllAvailUser8 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser9 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3856,7 +3839,7 @@ const setAllAvailUser9 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 const setAllAvailUser10 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3896,7 +3879,7 @@ const setAllAvailUser10 =()=>{
     });
     setTrig(prev=>!prev);
 
-};
+}
 
 //////   SET ALL UNAVAIL   //////
 const setAllUnAvailUser1 =()=>{
@@ -3938,7 +3921,7 @@ const setAllUnAvailUser1 =()=>{
     });
     setTrig(prev=>!prev);    
 
-};
+}
 const setAllUnAvailUser2 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -3978,7 +3961,7 @@ const setAllUnAvailUser2 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser3 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4018,7 +4001,7 @@ const setAllUnAvailUser3 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser4 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4058,7 +4041,7 @@ const setAllUnAvailUser4 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser5 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4098,7 +4081,7 @@ const setAllUnAvailUser5 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser6 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4138,7 +4121,7 @@ const setAllUnAvailUser6 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser7 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4178,7 +4161,7 @@ const setAllUnAvailUser7 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser8 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4218,7 +4201,7 @@ const setAllUnAvailUser8 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser9 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4258,7 +4241,7 @@ const setAllUnAvailUser9 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 const setAllUnAvailUser10 =()=>{
     setUsers(prev=> { return {
       ...users,
@@ -4298,7 +4281,7 @@ const setAllUnAvailUser10 =()=>{
     });
     setTrig(prev=>!prev);     
 
-};
+}
 
 //////   HIDE EXTRA DAYS OF MONTHS AND LEAP YEARS  //////
 
@@ -4496,8 +4479,10 @@ function MapAllFree() {
         }
       };
       if ( numberOfMembersForAllFree() == true ) {
+        console.log('if ran')
         return [ tableDayNameLong(day-1) , ' ', tableDayNameArray[day-1], ' ', monthToNameLong(), br ]
       } else {
+        console.log('else ran in MapAllFree function')
 
       } 
     })
@@ -4506,42 +4491,30 @@ function MapAllFree() {
 
 //////   FUNCTIONS FOR RETURN ELEMENTS   //////
 
-function WelcomeScreen() {
-  const handleToggleClick = () => {
-    setToggleWelcomeScreen(prev=>!prev);
-    setUpdateTrig(prev=>!prev);
-    setLoadTrig(prev=>!prev);
-  };
-
-  return (
-    <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
-      Welcome
-      <button onClick={handleToggleClick}> Lets Go </button>
-    </div>
-  )
-};
-
 function TaglineDiv() {
   return (
-    <div className='loginDiv'>
+    <div className='infoDiv'>
 <article className = 'tagLineArticle'>
   <h1 className = 'h1TagLine'> Powered by Useful Idiot Events... </h1>
 </article>
 </div>
   )
-};
+}
 
+console.log('emailRef', emailRef);
+console.log('currentUser?.email', currentUser?.email);
+console.log('currentLogName', currentLogName);
 
 function LoginInfoNav() {
   return (
-    <nav className={'infoDiv'}>
-      <div> Currently Logged In As: { currentUser ? currentLogName : "" } </div>
-      <div> Current UserID: {currentUser ? uid : ""} </div>
+    <nav className='infoDiv'>
+      <div> Currently Logged In As: { bandNameOnLoad } </div>
+      <div> Current UserID: {uid} </div>
       {/* <div> Currently Logged In As:  {emailRef?.current.value}  </div> */}
       { currentUser ? null :
         <div id='fields'>
           <input ref={emailRef} placeholder='User Name'/>
-          <input ref={passwordRef} type={passwordVisible ? 'text' : 'password'} placeholder='Password'/>
+          <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
           <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
 
         </div>
@@ -4554,22 +4527,7 @@ function LoginInfoNav() {
   )
 };
 
-
-useEffect(() => {
-
-  function name() {
-    const remove = currentUser.email.replace('@gmail.com', '');
-    return (remove)
-  };
-
-  if (currentUser) {
-    setCurrentLogName(name);
-  } else {
-    setCurrentLogName('error')
-  }
-}, [useAuth, login, handleLogin, signup, handleSignup]);
-
-
+console.log('userNamesOnLoad before BandInfoInoputNav', userNamesOnLoad);
 
 
 //////   UPDATES FIRESTORE WITH NUMBER OF BAND MEMBERS AND BAND NAME AND NAMES OF BAND MEMBERS  //////
@@ -4589,204 +4547,159 @@ function BandInfoInputNav() {
   const [userName10, setUserName10] = useState(userNameOnLoad10);
 
 
-  function BandName() {
-    const bandNameSubmit = async () => {
-      setBandInfoTrig(prev => !prev);
+  const bandNameSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      if (docSnap.exists()) {
+        updateDoc(docRefBandInfo, { bandName: bandName});
+      } else {
+        setDoc(docRefBandInfo, { bandName: bandName});
+      }
+    } catch {
+    }
+  };
+
+  const bandNumberSubmit = async () => {
+    setBandInfoTrig(prev => !prev);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
-          updateDoc(docRefBandInfo, { bandName: bandName});
+          updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
         } else {
-          setDoc(docRefBandInfo, { bandName: bandName});
+          setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
         }
       } catch {
-      }
-    };
-    return (
-      <>
-        Current Band Name: {bandNameOnLoad} 
-      <br/>
-            <label>
-            Update Band Name: 
-            <input onChange={e => setBandName(e.target.value)}/>
-          </label>
-    
-    
-          <br/>
-          <button onClick={bandNameSubmit}> Submit </button>
-          <br/>
-          <br/>
-          </>
-    )
+      };
   };
 
-  function BandNumber() {
-    const bandNumberSubmit = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          } else {
-            setDoc(docRefBandInfo, { numberOfMembers: numberOfMembers});
-          }
-        } catch {
-        };
-    };
-    return <>
-          Number of Members: {numberOfMembersOnLoad}
-      <br/>
-      <label>
-        Select Number of Band Members: 
-      <select
-        onChange={e => setNumberOfMembers(e.target.value)}
-        defaultValue={'placeholder'}
-      >
-          <option disabled value={'placeholder'}>#</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-      </select>
-      </label>
-
-   <button onClick={bandNumberSubmit}> Submit </button>
-
-    <br/>
-    <br/>
-    </>
+  const bandMemberNamesSubmit1 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName1: userName1});
+        } else {
+          setDoc(docRefBandInfo, { userName1: userName1});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit2 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName2: userName2});
+        } else {
+          setDoc(docRefBandInfo, { userName2: userName2});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit3 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName3: userName3});
+        } else {
+          setDoc(docRefBandInfo, { userName3: userName3});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit4 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName4: userName4});
+        } else {
+          setDoc(docRefBandInfo, { userName4: userName4});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit5 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName5: userName5});
+        } else {
+          setDoc(docRefBandInfo, { userName5: userName5});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit6 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName6: userName6});
+        } else {
+          setDoc(docRefBandInfo, { userName6: userName6});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit7 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName7: userName7});
+        } else {
+          setDoc(docRefBandInfo, { userName7: userName7});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit8 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName8: userName8});
+        } else {
+          setDoc(docRefBandInfo, { userName8: userName8});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit9 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName9: userName9});
+        } else {
+          setDoc(docRefBandInfo, { userName9: userName9});
+        }
+      } catch {
+      };
+  };
+  const bandMemberNamesSubmit10 = async () => {
+    setBandInfoTrig(prev => !prev);
+      try {
+        const docSnap = await getDoc(docRefBandInfo);
+        if (docSnap.exists()) {
+          updateDoc(docRefBandInfo, { userName10: userName10});
+        } else {
+          setDoc(docRefBandInfo, { userName10: userName10});
+        }
+      } catch {
+      };
   };
 
-  function BandMemberNames() {
-    const bandMemberNamesSubmit1 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName1: userName1});
-          } else {
-            setDoc(docRefBandInfo, { userName1: userName1});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit2 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName2: userName2});
-          } else {
-            setDoc(docRefBandInfo, { userName2: userName2});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit3 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName3: userName3});
-          } else {
-            setDoc(docRefBandInfo, { userName3: userName3});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit4 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName4: userName4});
-          } else {
-            setDoc(docRefBandInfo, { userName4: userName4});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit5 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName5: userName5});
-          } else {
-            setDoc(docRefBandInfo, { userName5: userName5});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit6 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName6: userName6});
-          } else {
-            setDoc(docRefBandInfo, { userName6: userName6});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit7 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName7: userName7});
-          } else {
-            setDoc(docRefBandInfo, { userName7: userName7});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit8 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName8: userName8});
-          } else {
-            setDoc(docRefBandInfo, { userName8: userName8});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit9 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName9: userName9});
-          } else {
-            setDoc(docRefBandInfo, { userName9: userName9});
-          }
-        } catch {
-        };
-    };
-    const bandMemberNamesSubmit10 = async () => {
-      setBandInfoTrig(prev => !prev);
-        try {
-          const docSnap = await getDoc(docRefBandInfo);
-          if (docSnap.exists()) {
-            updateDoc(docRefBandInfo, { userName10: userName10});
-          } else {
-            setDoc(docRefBandInfo, { userName10: userName10});
-          }
-        } catch {
-        };
-    };
-    return (
-      <>
-      
+  return (
+    <>
+      Current Band Name: {bandNameOnLoad} 
+      <br/>
+      Number of Members: {numberOfMembersOnLoad}
+      <br/>
       <br/>
       Band Member Names: <br/>
       { numberOfMembersArray().map((user) => {
@@ -4830,13 +4743,38 @@ function BandInfoInputNav() {
       })}
       <br/>
       <br/>
+      <label>
+        Update Band Name: 
+        <input onChange={e => setBandName(e.target.value)}/>
+      </label>
+      <br/>
+      <button onClick={bandNameSubmit}> Submit </button>
+      <br/>
+      <br/>
+      <label>
+        Select Number of Band Members: 
+      <select
+        onChange={e => setNumberOfMembers(e.target.value)}
+        defaultValue={'placeholder'}
+      >
+          <option disabled value={'placeholder'}>#</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+      </select>
+      </label>
 
+   <button onClick={bandNumberSubmit}> Submit </button>
 
-
-
-
-
-
+    <br/>
+    <br/>
 
     <label>
         Update Band Members Names: 
@@ -4925,34 +4863,25 @@ function BandInfoInputNav() {
     </label>
     <br/>
     <br/>
-      </>
-    )
-  };
 
 
 
-  return (
-    <div className={ currentUser && bandInfoToggle ? 'infoDiv' : 'infoDivNone'}>
-      <BandName/>
-      <UpdateButton/>
+    <UpdateButton/>
 
-      <BandNumber/>
-      <UpdateButton/>
-
-      <BandMemberNames/>
-      <UpdateButton/>
-    </div>
+    </>
   )
 };
 
 function AllNavs() {
   return (
     <div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
-
+  <LoginInfoNav/>
+  <br/>
+  <BandInfoInputNav/>
   <br/>
 </div>
   )
-};
+}
 
 function ShowAllAvailDates () {
   return (
@@ -5004,7 +4933,7 @@ function ShowAllAvailDates () {
 </article>
 </>
   )
-};
+}
 
 function SelectYearArticle() {
   return (
@@ -5051,7 +4980,7 @@ function ActiveDateArticle() {
   <h1> { monthToNameLong() } { activeYear } </h1>
 </article>
   )
-};
+}
 
 //////   FUNCTION FOR NUDE TABLES FOR UNLOCK AND SET ALLS   //////
 function MapNudeTableUnlock() {
@@ -5251,7 +5180,7 @@ function AllNudeTables() {
     </table>
     </article>
   )
-};
+}
 
 //////   FUNCTION FOR MAKING HEADING ROW OF AVAIL TABLE   //////
 
@@ -5263,53 +5192,8 @@ function MapAvailTableHeaders () {
         <th className="thHeadDate"> Day <br/> Date </th>
           {
             numberOfMembersArray().map((user) => {
-              const choose = () => {
-                if (user == 1) {
-                  return (userNameOnLoad1)
-                }
-
-                if (user == 2) {
-                  return (userNameOnLoad2)
-                }
-
-                if (user == 3) {
-                  return (userNameOnLoad3)
-                }
-                
-                if (user == 4) {
-                  return (userNameOnLoad4)
-                }
-                
-                if (user == 5) {
-                  return (userNameOnLoad5)
-                }
-                
-                if (user == 6) {
-                  return (userNameOnLoad6)
-                }
-                
-                if (user == 7) {
-                  return (userNameOnLoad7)
-                }
-                
-                if (user == 8) {
-                  return (userNameOnLoad8)
-                }
-                
-                if (user == 9) {
-                  return (userNameOnLoad9)
-                }
-                
-                if (user == 10) {
-                  return (userNameOnLoad10)
-                }
-                else {
-                  return ('User Name')
-                }
-
-              }
               return (
-                <th key={user} className="thHeadUser"> { choose() } </th>
+                <th key={user} className="thHeadUser"> { `userNamesOnLoad${user}` } </th>
               )
             })
           }
@@ -5432,7 +5316,7 @@ function AllAvailTables () {
   </table>
 </article>
   )
-};
+}
 
 function DisclaimerArticle() {
   return (
@@ -5444,7 +5328,7 @@ function DisclaimerArticle() {
   </h3>
 </article>
   )
-};
+}
 
 function MainTable() {
   return (
@@ -5476,7 +5360,7 @@ function MainTable() {
       <DisclaimerArticle/>
     </div>
   )
-};
+}
 
 
 //////   RETURN ELEMENTS   //////
@@ -5484,15 +5368,15 @@ return (
 <div className = 'myDiv'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <WelcomeScreen/>
-
   <TaglineDiv/>
 
   <NavToggleButton/>
 
-  <LoginInfoNav/>
-  
-  <BandInfoInputNav/>
+  <AllNavs/>
+
+  <br/>
+
+  <MainTableToggleButton/>
 
   <MainTable/>  
 </div> 
