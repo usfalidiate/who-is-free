@@ -159,6 +159,8 @@ const numberOfMembersArray = () => {
 
 const [currentLogName, setCurrentLogName] = useState('MJK');
 
+const [toggleWelcomeScreen, setToggleWelcomeScreen] = useState(true);
+
 //////   CURRENT DATE   //////
 let currentDate = new Date();
 
@@ -4491,6 +4493,21 @@ function MapAllFree() {
 
 //////   FUNCTIONS FOR RETURN ELEMENTS   //////
 
+function WelcomeScreen() {
+  const handleToggleClick = () => {
+    setToggleWelcomeScreen(prev=>!prev);
+    setUpdateTrig(prev=>!prev);
+    setLoadTrig(prev=>!prev);
+  };
+
+  return (
+    <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
+      Welcome
+      <button onClick={handleToggleClick}> Lets Go </button>
+    </div>
+  )
+};
+
 function TaglineDiv() {
   return (
     <div className='infoDiv'>
@@ -4508,8 +4525,8 @@ console.log('currentLogName', currentLogName);
 function LoginInfoNav() {
   return (
     <nav className='infoDiv'>
-      <div> Currently Logged In As: { bandNameOnLoad } </div>
-      <div> Current UserID: {uid} </div>
+      <div> Currently Logged In As: { currentUser ? currentLogName : '' } </div>
+      <div> Current UserID: { currentUser ? uid : ''} </div>
       {/* <div> Currently Logged In As:  {emailRef?.current.value}  </div> */}
       { currentUser ? null :
         <div id='fields'>
@@ -4528,6 +4545,22 @@ function LoginInfoNav() {
 };
 
 console.log('userNamesOnLoad before BandInfoInoputNav', userNamesOnLoad);
+
+//////   SHOW CURRENT LOG IN DETAILS   //////
+useEffect(() => {
+
+  function name() {
+    const remove = currentUser.email.replace('@gmail.com', '');
+    return (remove)
+  };
+
+  if (currentUser) {
+    setCurrentLogName(name);
+  } else {
+    setCurrentLogName('')
+  }
+}, [useAuth, login, handleLogin, signup, handleSignup]);
+
 
 
 //////   UPDATES FIRESTORE WITH NUMBER OF BAND MEMBERS AND BAND NAME AND NAMES OF BAND MEMBERS  //////
@@ -5368,6 +5401,8 @@ function MainTable() {
 return (
 <div className = 'myDiv'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <WelcomeScreen/>
 
   <TaglineDiv/>
 
