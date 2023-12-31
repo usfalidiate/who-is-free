@@ -9,6 +9,7 @@
 }
 
 .welcomeDiv {
+  display: flex;
   background-color: purple;
   width: 100%;
   height: 100%;
@@ -16,6 +17,13 @@
   top: 0px;
   left: 0px;
   z-index: 3;
+	/* Make a horizontal flexbox (the default) */
+	flex-direction: column;
+	
+	/* The important part: vertically center the items */
+	align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .welcomeDivHidden {
@@ -55,6 +63,12 @@
 
 .fields {
   background-color: black;
+}
+
+.UIELogo1 {
+  align-self: flex-end;
+  width: 20%;
+  height: 20%;
 }
 
 html,

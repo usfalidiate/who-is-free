@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from "next/font/google"
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import React from 'react';
+import { Inter } from "next/font/google";
+import styles from '@/styles/Home.module.css';
 import {useState, useEffect, useRef} from 'react';
 import personAvailable from '../public/person-available.svg';
 import personUnavailable from '../public/person-unavailable.svg';
@@ -41,6 +42,7 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
+import logo1 from '../public/UIE-COL.png';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -4502,8 +4504,15 @@ function WelcomeScreen() {
 
   return (
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
-      Welcome
+      <p> Welcome </p>
+      <br/>
       <button onClick={handleToggleClick}> Lets Go </button>
+      <Image src={logo1} alt="Logo" style={{
+        height: '15%', 
+        width: '25%',
+        display: 'flex',
+        alignItems: 'center'
+        }} />
     </div>
   )
 };
@@ -4518,9 +4527,7 @@ function TaglineDiv() {
   )
 }
 
-console.log('emailRef', emailRef);
-console.log('currentUser?.email', currentUser?.email);
-console.log('currentLogName', currentLogName);
+
 
 function LoginInfoNav() {
   return (
@@ -4544,7 +4551,6 @@ function LoginInfoNav() {
   )
 };
 
-console.log('userNamesOnLoad before BandInfoInoputNav', userNamesOnLoad);
 
 //////   SHOW CURRENT LOG IN DETAILS   //////
 useEffect(() => {
