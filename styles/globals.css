@@ -33,7 +33,7 @@
 .welcomeDivText {
   color: goldenrod;
   font-family: arial;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 900;
   letter-spacing: -0.10em;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
 .welcomeButton {
   background-color: purple;
   color: goldenrod;
-  font-size: 40px;
+  font-size: 30px;
   border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
@@ -81,6 +81,7 @@
   padding: 0;
   margin: auto;
   width: 100%;
+  height: 100%;
 }
 
 .mainDivCollapse {
@@ -92,19 +93,97 @@
   display: none;
   width: 100%;
 }
+.PWButton {
+  display: inline-flex;
+  background-color: transparent;
+  align-items: center;
+  justify-items: center;
+  border: none;
+}
 
 .loginDiv {
   background: chocolate;
 }
 
-.infoDiv {
-  background: purple;
+.loginInfoDiv {
+  background: goldenrod;
+  color: black;
+  padding: 5px;
+  height: 10vh;
 }
 
-.infoDivNone {
+.loginInfoDivNone {
   background: purple;
   display: none;
 }
+
+.bandInfoDiv {
+  background: rgb(52,1,52);
+  color: goldenrod;
+}
+
+.showBandInfoDiv {
+  background: rgb(52,1,52);
+  padding: 5px;
+  height: 70vh;
+}
+
+.showAvailabilitiesTableDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+}
+
+.updateBandInfoButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentBandNameDiv {
+  display: flex;
+  font-family: 'arial';
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: -0.065em;
+  justify-content: center;
+
+}
+
+.bandInfoHeading {
+  font-family: 'arial';
+  font-weight: 600;
+  /* text-decoration: underline; */
+  text-transform: uppercase;
+  margin: 0px;
+
+}
+
+.bandMemberNameDiv {
+  margin: 0 0 0 40px;
+  display: flex;
+  font-family: arial;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.065em;
+  justify-content: left;
+
+}
+
+.updateBandInfoDiv {
+  background: rgb(52,1,52);
+}
+
+.updateBandInfoDivNone {
+  display: none;
+  background: rgb(52,1,52);
+}
+
+
 
 .fields {
   background-color: black;

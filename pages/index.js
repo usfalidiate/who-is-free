@@ -43,6 +43,8 @@ import {
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
 import logoCol from '../public/UIELogoWPowName.png';
+import eye from '../public/eye.svg';
+import eyeSlash from '../public/eye-slash.svg';
 
 
 
@@ -203,6 +205,22 @@ const NavToggleButton = () => {
   )
 };
 
+const [toggleUpdateBandInfoDiv, setToggleUpdateBandInfoDiv] = useState(false);
+
+function ToggleUpdateBandInfoDivFunc() {
+  const changeToggleState = () => {
+    setToggleUpdateBandInfoDiv(prev=>!prev);
+  };
+
+  return (
+    <div className='updateBandInfoButtonDiv'>
+      <button
+        onClick={changeToggleState}
+      > {toggleUpdateBandInfoDiv ? 'Hide' : 'Update Band Information'} </button>
+    </div>
+  )
+}
+
 
 //////   CAUSES UPDATE TRIGGER TO FIRE WHICH UPDATES FIRESTORE BAND INFO LOAD ON START USEEFFECT   //////
 function UpdateButton() {
@@ -211,7 +229,7 @@ function UpdateButton() {
   };
 
   return (
-    <button onClick={handleClick}> Update Band Information </button>
+    <button onClick={handleClick}> Save Changes </button>
   )
 };
 
@@ -1001,7 +1019,9 @@ function MainTableToggleButton() {
     console.log('run ran');
   }
   return (
-    <button onClick={run}> Show Availabilities Table </button>
+    <div className='showAvailabilitiesTableDiv'>
+      <button onClick={run}> Show Availabilities Table </button>
+    </div>
   )
 };
 
@@ -4525,7 +4545,7 @@ function WelcomeScreen() {
 
 function TaglineDiv() {
   return (
-    <div className='infoDiv'>
+    <div className='loginInfoDiv'>
 <article className = 'tagLineArticle'>
   <h1 className = 'h1TagLine'> Powered by Useful Idiot Events... </h1>
 </article>
@@ -4537,21 +4557,24 @@ function TaglineDiv() {
 
 function LoginInfoNav() {
   return (
-    <nav className='infoDiv'>
+    <nav className='loginInfoDiv'>
       <div> Currently Logged In As: { currentUser ? currentLogName : '' } </div>
       <div> Current UserID: { currentUser ? uid : ''} </div>
-      {/* <div> Currently Logged In As:  {emailRef?.current.value}  </div> */}
-      { currentUser ? null :
+      { currentUser ? <br/> :
         <div id='fields'>
           <input ref={emailRef} placeholder='User Name'/>
           <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
-          <button onClick={ togglePasswordVisible }> Show or Hide PW </button>
+          <button 
+            className='PWButton'
+            onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
 
         </div>
       }
-      <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button>
+      
       <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button>
       <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
+      <br/>
+      {currentUser ? '' : <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button>}
       <br></br>
     </nav>
   )
@@ -4740,193 +4763,204 @@ function BandInfoInputNav() {
   };
 
   return (
-    <>
-      Current Band Name: {bandNameOnLoad} 
-      <br/>
-      Number of Members: {numberOfMembersOnLoad}
-      <br/>
-      <br/>
-      Band Member Names: <br/>
-      { numberOfMembersArray().map((user) => {
-                  const run = () => {
-                    if (user == 1) {
-                      return (userNameOnLoad1)
-                    };
-                    if (user == 2) {
-                      return (userNameOnLoad2)
-                    };
-                    if (user == 3) {
-                      return (userNameOnLoad3)
-                    };
-                    if (user == 4) {
-                      return (userNameOnLoad4)
-                    };
-                    if (user == 5) {
-                      return (userNameOnLoad5)
-                    };
-                    if (user == 6) {
-                      return (userNameOnLoad6)
-                    };
-                    if (user == 7) {
-                      return (userNameOnLoad7)
-                    };
-                    if (user == 8) {
-                      return (userNameOnLoad8)
-                    };
-                    if (user == 9) {
-                      return (userNameOnLoad9)
-                    };
-                    if (user == 10) {
-                      return (userNameOnLoad10)
-                    };
-                  }
-        return (
-          <div key={user}>
-            Member Name {user}: {run()} <br/>
-          </div>
-        )
-      })}
-      <br/>
-      <br/>
-      <label>
-        Update Band Name: 
-        <input onChange={e => setBandName(e.target.value)}/>
-      </label>
-      <br/>
-      <button onClick={bandNameSubmit}> Submit </button>
-      <br/>
-      <br/>
-      <label>
-        Select Number of Band Members: 
-      <select
-        onChange={e => setNumberOfMembers(e.target.value)}
-        defaultValue={'placeholder'}
-      >
-          <option disabled value={'placeholder'}>#</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-      </select>
-      </label>
-
-   <button onClick={bandNumberSubmit}> Submit </button>
-
-    <br/>
-    <br/>
-
-    <label>
-        Update Band Members Names: 
-        <br/>
-        { numberOfMembersArray().map((user) => {
-          const onClickRun = () => {
-            if (user == 1) {
-              return (bandMemberNamesSubmit1)
-            };
-            if (user == 2) {
-              return (bandMemberNamesSubmit2)
-            };
-            if (user == 3) {
-              return (bandMemberNamesSubmit3)
-            };
-            if (user == 4) {
-              return (bandMemberNamesSubmit4)
-            };
-            if (user == 5) {
-              return (bandMemberNamesSubmit5)
-            };
-            if (user == 6) {
-              return (bandMemberNamesSubmit6)
-            };
-            if (user == 7) {
-              return (bandMemberNamesSubmit7)
-            };
-            if (user == 8) {
-              return (bandMemberNamesSubmit8)
-            };
-            if (user == 9) {
-              return (bandMemberNamesSubmit9)
-            };
-            if (user == 10) {
-              return (bandMemberNamesSubmit10)
-            };
-          };
-
-          const onChangeRun = (e) => {
-            if (user == 1) {
-              return (setUserName1( e.target.value ))
-            };
-            if (user == 2) {
-              return (setUserName2( e.target.value ))
-            };
-            if (user == 3) {
-              return (setUserName3( e.target.value ))
-            };
-            if (user == 4) {
-              return (setUserName4( e.target.value ))
-            };
-            if (user == 5) {
-              return (setUserName5( e.target.value ))
-            };
-            if (user == 6) {
-              return (setUserName6( e.target.value ))
-            };
-            if (user == 7) {
-              return (setUserName7( e.target.value ))
-            };
-            if (user == 8) {
-              return (setUserName8( e.target.value ))
-            };
-            if (user == 9) {
-              return (setUserName9( e.target.value ))
-            };
-            if (user == 10) {
-              return (setUserName10( e.target.value ))
-            };
-          };
-
-
-          return (
-            <div key={user}>
-            Name {user}:
+    <div className='bandInfoDiv'>
+      <div className='showBandInfoDiv'>
+        <p className='bandInfoHeading'> Current Band Name: </p> 
+          <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
             <br/>
-            <input 
-              onChange={e => onChangeRun(e) }/>
-              <button onClick={ onClickRun() }> Submit </button>
-              <br/>
-            </div>
-          )
-        })
-        }
+              <p className='bandInfoHeading'> Number of Members: </p> 
+                <div className='currentBandNameDiv'> {numberOfMembersOnLoad} </div>
+                  <br/>
+                    <p className='bandInfoHeading'> Band Member Names: </p> 
+                      
+                        { numberOfMembersArray().map((user) => {
+                          const run = () => {
+                            if (user == 1) {
+                              return (userNameOnLoad1)
+                            };
+                            if (user == 2) {
+                              return (userNameOnLoad2)
+                            };
+                            if (user == 3) {
+                              return (userNameOnLoad3)
+                            };
+                            if (user == 4) {
+                              return (userNameOnLoad4)
+                            };
+                            if (user == 5) {
+                              return (userNameOnLoad5)
+                            };
+                            if (user == 6) {
+                              return (userNameOnLoad6)
+                            };
+                            if (user == 7) {
+                              return (userNameOnLoad7)
+                            };
+                            if (user == 8) {
+                              return (userNameOnLoad8)
+                            };
+                            if (user == 9) {
+                              return (userNameOnLoad9)
+                            };
+                            if (user == 10) {
+                              return (userNameOnLoad10)
+                            };
+                          }
+                          return (
+                            <div 
+                              key={user}
+                              className='bandMemberNameDiv'
+                            >
+                              {user}: {run()} <br/>
+                            </div>
+                          )
+                        })}
+                          <br/>
+                          <ToggleUpdateBandInfoDivFunc/>
+      </div>
 
-    </label>
-    <br/>
-    <br/>
+      <div className={toggleUpdateBandInfoDiv ? 'updateBandInfoDiv' : 'updateBandInfoDivNone'}>
+        
+        <label>
+            Update Band Name: 
+            <input onChange={e => setBandName(e.target.value)}/>
+          </label>
+
+          <br/>
+
+          <button onClick={bandNameSubmit}> Submit </button>
+
+          <br/>
+          <br/>
+
+          <label>
+          Select Number of Band Members: 
+            <select
+              onChange={e => setNumberOfMembers(e.target.value)}
+              defaultValue={'placeholder'}
+            >
+              <option disabled value={'placeholder'}>#</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+
+          <button onClick={bandNumberSubmit}> Submit </button>
+
+          <br/>
+          <br/>
+
+          <label>
+            Update Band Members Names: 
+            <br/>
+            { numberOfMembersArray().map((user) => {
+              const onClickRun = () => {
+                if (user == 1) {
+                  return (bandMemberNamesSubmit1)
+                };
+                if (user == 2) {
+                  return (bandMemberNamesSubmit2)
+                };
+                if (user == 3) {
+                  return (bandMemberNamesSubmit3)
+                };
+                if (user == 4) {
+                  return (bandMemberNamesSubmit4)
+                };
+                if (user == 5) {
+                  return (bandMemberNamesSubmit5)
+                };
+                if (user == 6) {
+                  return (bandMemberNamesSubmit6)
+                };
+                if (user == 7) {
+                  return (bandMemberNamesSubmit7)
+                };
+                if (user == 8) {
+                  return (bandMemberNamesSubmit8)
+                };
+                if (user == 9) {
+                  return (bandMemberNamesSubmit9)
+                };
+                if (user == 10) {
+                  return (bandMemberNamesSubmit10)
+                };
+              };
+
+              const onChangeRun = (e) => {
+                if (user == 1) {
+                  return (setUserName1( e.target.value ))
+                };
+                if (user == 2) {
+                  return (setUserName2( e.target.value ))
+                };
+                if (user == 3) {
+                  return (setUserName3( e.target.value ))
+                };
+                if (user == 4) {
+                  return (setUserName4( e.target.value ))
+                };
+                if (user == 5) {
+                  return (setUserName5( e.target.value ))
+                };
+                if (user == 6) {
+                  return (setUserName6( e.target.value ))
+                };
+                if (user == 7) {
+                  return (setUserName7( e.target.value ))
+                };
+                if (user == 8) {
+                  return (setUserName8( e.target.value ))
+                };
+                if (user == 9) {
+                  return (setUserName9( e.target.value ))
+                };
+                if (user == 10) {
+                  return (setUserName10( e.target.value ))
+                };
+              };
 
 
+              return (
+                <div key={user}>
+                Name {user}:
+                <br/>
+                <input 
+                  onChange={e => onChangeRun(e) }/>
+                  <button onClick={ onClickRun() }> Submit </button>
+                  <br/>
+                </div>
+                )
+              })
+              }
+          </label>
 
-    <UpdateButton/>
+        <br/>
+        <br/>
+          <UpdateButton/>
+          <br/>
+        </div>
 
-    </>
+    </div>
   )
 };
 
 function AllNavs() {
   return (
     <div className= {bandInfoToggle ? 'mainDiv' : 'mainDivCollapse'}>
-  <LoginInfoNav/>
-  <br/>
-  <BandInfoInputNav/>
-  <br/>
-</div>
+      <LoginInfoNav/>
+      <BandInfoInputNav/>
+    </div>
   )
-}
+};
 
 function ShowAllAvailDates () {
   return (
@@ -4978,7 +5012,7 @@ function ShowAllAvailDates () {
 </article>
 </>
   )
-}
+};
 
 function SelectYearArticle() {
   return (
@@ -5418,7 +5452,7 @@ return (
 
   {/* <TaglineDiv/> */}
 
-  <NavToggleButton/>
+  {/* <NavToggleButton/> */}
 
   <AllNavs/>
 
