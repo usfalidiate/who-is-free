@@ -105,16 +105,85 @@
   background: chocolate;
 }
 
+
+
 .loginInfoDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 15px 30px 30px 30px 30px;
   background: goldenrod;
   color: black;
   padding: 5px;
-  height: 10vh;
+}
+
+.currentLogDiv {
+  display: grid;
+  font-size: 16px;
+  color: rgb(52,1,52);
+  font-family: arial;
+  text-transform: uppercase;
+  font-weight: 940;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  align-content: center;
+}
+
+.currentUIDDiv {
+  font-size: 11px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
 }
 
 .loginInfoDivNone {
   background: purple;
   display: none;
+}
+
+.hideLoginNav{
+  display: grid;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  align-self: end ;
+}
+
+.showLoginNav {
+  display: grid;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  align-self: end ;
+}
+
+.divFields{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+
+}
+
+.divLoginButton {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+
+}
+
+.divLogoutButton {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+}
+
+.divSignupButton {
+  display: grid;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 5;
 }
 
 .bandInfoDiv {

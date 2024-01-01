@@ -165,9 +165,10 @@ const numberOfMembersArray = () => {
   }
 };
 
-const [currentLogName, setCurrentLogName] = useState('MJK');
+const [ currentLogName, setCurrentLogName ] = useState('MJK');
 
-const [toggleWelcomeScreen, setToggleWelcomeScreen] = useState(true);
+const [ toggleWelcomeScreen, setToggleWelcomeScreen ] = useState(true);
+const [ toggleLoginInfoNav, setToggleLoginInfoNav ] = useState(false);
 
 //////   CURRENT DATE   //////
 let currentDate = new Date();
@@ -4556,12 +4557,22 @@ function TaglineDiv() {
 
 
 function LoginInfoNav() {
+  const handleToggle = () => {
+    setToggleLoginInfoNav(prev=>!prev)
+  };
   return (
-    <nav className='loginInfoDiv'>
-      <div> Currently Logged In As: { currentUser ? currentLogName : '' } </div>
-      <div> Current UserID: { currentUser ? uid : ''} </div>
+     toggleLoginInfoNav ? 
+      <nav className= 'loginInfoDiv' >
+        <div className='hideLoginNav'> 
+          <button
+          onClick={handleToggle}> Hide </button>
+        </div>
+      <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
+      <div className='currentLogDiv'> Logged In As: { currentUser ? currentLogName : '' } </div>
       { currentUser ? <br/> :
-        <div id='fields'>
+        <div 
+          className='divFields'
+        id='fields'>
           <input ref={emailRef} placeholder='User Name'/>
           <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
           <button 
@@ -4571,12 +4582,16 @@ function LoginInfoNav() {
         </div>
       }
       
-      <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button>
-      <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button>
-      <br/>
-      {currentUser ? '' : <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button>}
+      <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
+      <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
+      
+      {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button> </div>}
       <br></br>
-    </nav>
+    </nav> :
+    <div className='showLoginNav'> 
+      <button onClick={handleToggle}> Show </button>
+    </div>
+    
   )
 };
 
