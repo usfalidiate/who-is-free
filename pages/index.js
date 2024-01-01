@@ -971,6 +971,8 @@ function login(email, password) {
 
 async function handleLogin() {
   setLoading(true);
+  setUpdateTrig(prev=>!prev);
+
   try {
     await login([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
     setCurrentLogName(emailRef.current.value);
