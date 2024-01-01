@@ -42,8 +42,8 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
-import logoCol from '../public/UIE-COL.png';
-import logoBW from '../public/UIE-BW-PIC.png';
+import logoCol from '../public/UIELogoWPowName.png';
+
 
 
 
@@ -95,7 +95,7 @@ useEffect(() => {
 
 
   ///// BAND INFORMATION /////
-const [bandInfoToggle, setBandInfoToggle] = useState(false);
+const [bandInfoToggle, setBandInfoToggle] = useState(true);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
 
 const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
@@ -4514,7 +4514,9 @@ function WelcomeScreen() {
       <div className='welcomeDivLogo'> 
       <Image src={logoCol} alt="Logo" style={{
         height: '100%',
-        width: '100%'
+        width: '100%',
+        opacity: '0.85'
+
         }} />
       </div>
     </div>
@@ -5414,7 +5416,7 @@ return (
 
   <WelcomeScreen/>
 
-  <TaglineDiv/>
+  {/* <TaglineDiv/> */}
 
   <NavToggleButton/>
 
