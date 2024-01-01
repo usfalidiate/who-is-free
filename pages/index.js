@@ -42,9 +42,13 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
-import logo1 from '../public/UIE-COL.png';
+import logoCol from '../public/UIE-COL.png';
+import logoBW from '../public/UIE-BW-PIC.png';
 
-const inter = Inter({ subsets: ['latin'] })
+
+
+
+// const inter = Inter({ subsets: ['latin'] })
 
 
 // Your web app's Firebase configuration
@@ -4504,15 +4508,15 @@ function WelcomeScreen() {
 
   return (
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
-      <p> Welcome </p>
+      <div className='welcomeDivText'>  Welcome  </div> 
       <br/>
-      <button onClick={handleToggleClick}> Lets Go </button>
-      <Image src={logo1} alt="Logo" style={{
-        height: '15%', 
-        width: '25%',
-        display: 'flex',
-        alignItems: 'center'
+      <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
+      <div className='welcomeDivLogo'> 
+      <Image src={logoCol} alt="Logo" style={{
+        height: '100%',
+        width: '100%'
         }} />
+      </div>
     </div>
   )
 };
