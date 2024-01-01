@@ -966,8 +966,9 @@ async function handleSignup() {
 
 
 function login(email, password) {
+  setUpdateTrig(prev=>!prev);
   return signInWithEmailAndPassword(auth, email, password);
-}
+};
 
 async function handleLogin() {
   setLoading(true);
@@ -981,11 +982,11 @@ async function handleLogin() {
     alert('The email and/or password was incorrect.')
   }
   setLoading(false);
-}
+};
 
 function logout() {
   return signOut(auth);
-}
+};
 
 async function handleLogout() {
   setLoading(true);
@@ -1000,11 +1001,11 @@ async function handleLogout() {
   console.log('logout error');
 }
   setLoading(false);
-}
+};
 
 function togglePasswordVisible() {
   setPasswordVisible(!passwordVisible);
-}
+};
 
 
 
