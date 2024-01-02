@@ -168,7 +168,7 @@ const numberOfMembersArray = () => {
 const [ currentLogName, setCurrentLogName ] = useState('MJK');
 
 const [ toggleWelcomeScreen, setToggleWelcomeScreen ] = useState(true);
-const [ toggleLoginInfoNav, setToggleLoginInfoNav ] = useState(false);
+const [ showLoginInfoNav, setShowLoginInfoNav ] = useState(false);
 
 //////   CURRENT DATE   //////
 let currentDate = new Date();
@@ -972,13 +972,14 @@ async function handleSignup() {
 
 function login(email, password) {
   setUpdateTrig(prev=>!prev);
+  setShowLoginInfoNav(false);
   return signInWithEmailAndPassword(auth, email, password);
 };
 
 async function handleLogin() {
   setLoading(true);
   setUpdateTrig(prev=>!prev);
-
+  setShowLoginInfoNav(false);
   try {
     await login([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
     setCurrentLogName(emailRef.current.value);
@@ -4571,10 +4572,10 @@ function TaglineDiv() {
 
 function LoginInfoNav() {
   const handleToggle = () => {
-    setToggleLoginInfoNav(prev=>!prev)
+    setShowLoginInfoNav(prev=>!prev)
   };
   return (
-     toggleLoginInfoNav ? 
+     showLoginInfoNav ? 
       <nav className= 'loginInfoDiv' >
         <div className='hideLoginButtonDiv'> 
           <button
@@ -4609,7 +4610,7 @@ function LoginInfoNav() {
       className='purpleButton'
       onClick={handleToggle}
 
-      > {toggleLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
+      > {showLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
     </div>
     
   )
