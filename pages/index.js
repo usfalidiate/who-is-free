@@ -201,7 +201,11 @@ function BandInfoToggleButton() {
     setBandInfoToggle(prev=>!prev)
   }
   return (
-    <button onClick={changeToggleState}> Toggle Band Info </button>
+    <div className='toggleBandInfoButtonDiv'>
+      <button 
+      className='purpleButton'
+      onClick={changeToggleState}> {bandInfoToggle ? 'Hide Band Info' : 'Show Band Info'} </button>
+    </div>
   )
 };
 
@@ -213,10 +217,11 @@ function ToggleUpdateBandInfoDivFunc() {
   };
 
   return (
-    <div className='updateBandInfoButtonDiv'>
+    <div className='editBandInfoButtonDiv'>
       <button
         onClick={changeToggleState}
-      > {toggleUpdateBandInfoDiv ? 'Hide' : 'Update Band Information'} </button>
+        className='editBandInfoButton'
+      > {toggleUpdateBandInfoDiv ? 'Hide' : 'Edit Band Information'} </button>
     </div>
   )
 }
@@ -1022,8 +1027,11 @@ function MainTableToggleButton() {
     setBandInfoToggle(false);
   }
   return (
-    <div className='showAvailabilitiesTableDiv'>
-      <button onClick={run}> Show Availabilities Table </button>
+    <div className='showAvailabilitiesTableButtonDiv'>
+      <button 
+      onClick={run}
+      className='purpleButton'
+      > {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} </button>
     </div>
   )
 };
@@ -4565,33 +4573,40 @@ function LoginInfoNav() {
   return (
      toggleLoginInfoNav ? 
       <nav className= 'loginInfoDiv' >
-        <div className='hideLoginNav'> 
+        <div className='hideLoginButtonDiv'> 
           <button
-          onClick={handleToggle}> Hide </button>
+          className='purpleButton'
+          onClick={handleToggle}> Hide Login </button>
         </div>
-      <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
-      <div className='currentLogDiv'> Logged In As: { currentUser ? currentLogName : '' } </div>
-      { currentUser ? <br/> :
-        <div 
-          className='divFields'
-        id='fields'>
-          <input ref={emailRef} placeholder='User Name'/>
-          <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
-          <button 
-            className='PWButton'
-            onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
+        <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
+        <div className='currentLogDiv'> Logged In As: { currentUser ? currentLogName : '' } </div>
+        { currentUser ? '' :
+          <div 
+            className='divFields'
+          id='fields'>
+            <input ref={emailRef} placeholder='User Name'/>
+            <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
+            <button 
+              className='PWButton'
+              onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
 
-        </div>
-      }
-      
-      <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
-      <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
-      
-      {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button> </div>}
-      <br></br>
-    </nav> :
-    <div className='showLoginNav'> 
-      <button onClick={handleToggle}> Show </button>
+          </div>
+        }
+        
+        <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
+        <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
+        
+        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button> </div>}
+        <br></br>
+      </nav> 
+    :
+    <div className='showLoginNavDiv'> 
+      <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
+      <button 
+      className='purpleButton'
+      onClick={handleToggle}
+
+      > {toggleLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
     </div>
     
   )
@@ -4784,7 +4799,7 @@ function BandInfoInputNav() {
     <div className='bandInfoDiv'>
     <div className='showBandInfoDiv'>
     <BandInfoToggleButton/>
-      <p className='bandInfoHeading'> Current Band Name: </p> 
+      <p className='bandInfoHeading'> Band Name: </p> 
         <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
           <br/>
             <p className='bandInfoHeading'> Number of Members: </p> 
@@ -4841,12 +4856,10 @@ function BandInfoInputNav() {
     <div className={toggleUpdateBandInfoDiv ? 'updateBandInfoDiv' : 'updateBandInfoDivNone'}>
       
       <label>
-          Update Band Name: 
-          <input onChange={e => setBandName(e.target.value)}/>
-        </label>
-
+        Update Band Name: 
         <br/>
-
+        <input onChange={e => setBandName(e.target.value)}/>
+      </label>
         <button onClick={bandNameSubmit}> Submit </button>
 
         <br/>
@@ -4854,6 +4867,7 @@ function BandInfoInputNav() {
 
         <label>
         Select Number of Band Members: 
+        <br/>
           <select
             onChange={e => setNumberOfMembers(e.target.value)}
             defaultValue={'placeholder'}
@@ -4970,7 +4984,9 @@ function BandInfoInputNav() {
 
   </div>
     : 
-    <BandInfoToggleButton/>
+    <div className='hideBandInfoDiv'>
+      <BandInfoToggleButton/>
+    </div>
   )
 };
 

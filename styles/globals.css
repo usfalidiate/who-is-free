@@ -110,7 +110,7 @@
 .loginInfoDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 15px 30px 30px 30px 30px;
+  grid-template-rows: 30px 30px 30px 30px 30px;
   background: goldenrod;
   color: black;
   padding: 5px;
@@ -130,10 +130,12 @@
 }
 
 .currentUIDDiv {
+  display: grid;
   font-size: 11px;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
+  align-items: center;
 }
 
 .loginInfoDivNone {
@@ -141,26 +143,35 @@
   display: none;
 }
 
-.hideLoginNav{
+.hideLoginButtonDiv{
   display: grid;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
-  align-self: end ;
+  align-self: center ;
 }
 
-.showLoginNav {
+.showLoginNavDiv {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 30px;
+  padding: 5px;
+  align-items: center;
+  align-content: center;
+
+
+}
+
+.showHideLoginNavButton {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
-  align-self: end ;
 }
 
 .divFields{
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-row-start: 3;
+  grid-row-start: 4;
 
 }
 
@@ -168,7 +179,7 @@
   display: grid;
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 5;
+  grid-row-start: 3;
 
 }
 
@@ -176,14 +187,14 @@
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 5;
+  grid-row-start: 3;
 }
 
 .divSignupButton {
   display: grid;
   grid-column-start: 3;
   grid-column-end: 4;
-  grid-row-start: 5;
+  grid-row-start: 3;
 }
 
 .bandInfoDiv {
@@ -194,19 +205,56 @@
 .showBandInfoDiv {
   background: rgb(52,1,52);
   padding: 5px;
+  display: grid;
 }
 
-.showAvailabilitiesTableDiv {
+.hideBandInfoDiv {
+  background: rgb(52,1,52);
+  padding: 5px;
+  display: grid;
+}
+
+.toggleBandInfoButtonDiv {
+  align-self: end;
+  justify-self: end;
+}
+
+.showAvailabilitiesTableButtonDiv {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   width: 100%;
 }
 
-.updateBandInfoButtonDiv {
+.purpleButton {
+  font-family: arial;
+  background-color: purple;
+  color: goldenrod;
+  text-transform: uppercase;
+  font-weight: 740;
+  font-size: 12px;
+  letter-spacing: -0.065em;
+  justify-content: center;
+  border-radius: 8px;
+
+}
+
+.editBandInfoButtonDiv {
   display: flex;
   align-items: center;
+  justify-content: end;
+}
+
+.editBandInfoButton {
+  font-family: arial;
+  background-color: purple;
+  color: goldenrod;
+  text-transform: uppercase;
+  font-weight: 740;
+  font-size: 12px;
+  letter-spacing: -0.065em;
   justify-content: center;
+  border-radius: 8px;
 }
 
 .currentBandNameDiv {
@@ -235,14 +283,14 @@
   font-family: arial;
   text-transform: uppercase;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 22px;
   letter-spacing: -0.065em;
   justify-content: left;
 
 }
 
 .updateBandInfoDiv {
-  background: rgb(52,1,52);
+  background: rgb(96, 2, 96);
 }
 
 .updateBandInfoDivNone {
