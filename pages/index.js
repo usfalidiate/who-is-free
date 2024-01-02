@@ -1027,12 +1027,15 @@ function MainTableToggleButton() {
     setBandInfoToggle(false);
   }
   return (
-    <div className='showAvailabilitiesTableButtonDiv'>
-      <button 
-      onClick={run}
-      className='purpleButton'
-      > {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} </button>
-    </div>
+    currentUser ? 
+      <div className='showAvailabilitiesTableButtonDiv'>
+        <button 
+        onClick={run}
+        className='purpleButton'
+        > {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} </button>
+      </div>
+    :
+    ''
   )
 };
 
@@ -4797,61 +4800,65 @@ function BandInfoInputNav() {
   return (
     bandInfoToggle ? 
     <div className='bandInfoDiv'>
-    <div className='showBandInfoDiv'>
-    <BandInfoToggleButton/>
-      <p className='bandInfoHeading'> Band Name: </p> 
-        <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
-          <br/>
-            <p className='bandInfoHeading'> Number of Members: </p> 
-              <div className='currentBandNameDiv'> {numberOfMembersOnLoad} </div>
+      {currentUser ? 
+        <div className='showBandInfoDiv'>
+          <BandInfoToggleButton/>
+            <p className='bandInfoHeading'> Band Name: </p> 
+              <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
                 <br/>
-                  <p className='bandInfoHeading'> Band Member Names: </p> 
-                    
-                      { numberOfMembersArray().map((user) => {
-                        const run = () => {
-                          if (user == 1) {
-                            return (userNameOnLoad1)
-                          };
-                          if (user == 2) {
-                            return (userNameOnLoad2)
-                          };
-                          if (user == 3) {
-                            return (userNameOnLoad3)
-                          };
-                          if (user == 4) {
-                            return (userNameOnLoad4)
-                          };
-                          if (user == 5) {
-                            return (userNameOnLoad5)
-                          };
-                          if (user == 6) {
-                            return (userNameOnLoad6)
-                          };
-                          if (user == 7) {
-                            return (userNameOnLoad7)
-                          };
-                          if (user == 8) {
-                            return (userNameOnLoad8)
-                          };
-                          if (user == 9) {
-                            return (userNameOnLoad9)
-                          };
-                          if (user == 10) {
-                            return (userNameOnLoad10)
-                          };
-                        }
-                        return (
-                          <div 
-                            key={user}
-                            className='bandMemberNameDiv'
-                          >
-                            {user}: {run()} <br/>
-                          </div>
-                        )
-                      })}
-                        <br/>
-                        <ToggleUpdateBandInfoDivFunc/>
-    </div>
+                  <p className='bandInfoHeading'> Number of Members: </p> 
+                    <div className='currentBandNameDiv'> {numberOfMembersOnLoad} </div>
+                      <br/>
+                        <p className='bandInfoHeading'> Band Member Names: </p> 
+                          
+                            { numberOfMembersArray().map((user) => {
+                              const run = () => {
+                                if (user == 1) {
+                                  return (userNameOnLoad1)
+                                };
+                                if (user == 2) {
+                                  return (userNameOnLoad2)
+                                };
+                                if (user == 3) {
+                                  return (userNameOnLoad3)
+                                };
+                                if (user == 4) {
+                                  return (userNameOnLoad4)
+                                };
+                                if (user == 5) {
+                                  return (userNameOnLoad5)
+                                };
+                                if (user == 6) {
+                                  return (userNameOnLoad6)
+                                };
+                                if (user == 7) {
+                                  return (userNameOnLoad7)
+                                };
+                                if (user == 8) {
+                                  return (userNameOnLoad8)
+                                };
+                                if (user == 9) {
+                                  return (userNameOnLoad9)
+                                };
+                                if (user == 10) {
+                                  return (userNameOnLoad10)
+                                };
+                              }
+                              return (
+                                <div 
+                                  key={user}
+                                  className='bandMemberNameDiv'
+                                >
+                                  {user}: {run()} <br/>
+                                </div>
+                              )
+                            })}
+                              <br/>
+                              <ToggleUpdateBandInfoDivFunc/>
+        </div>
+        :
+        ''
+        }
 
     <div className={toggleUpdateBandInfoDiv ? 'updateBandInfoDiv' : 'updateBandInfoDivNone'}>
       
@@ -5534,13 +5541,7 @@ return (
 
   <WelcomeScreen/>
 
-  {/* <TaglineDiv/> */}
-
-  {/* <NavToggleButton/> */}
-
   <AllNavs/>
-
-  <br/>
 
   <MainTableToggleButton/>
 

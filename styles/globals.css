@@ -2,12 +2,11 @@
 
 .myDiv {
   /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
-  background: black;
+  background: rgb(52,1,52);
   padding: 0;
   margin: auto;
   width: 100%;
   font-family: 'Inter', 'sans-serif', 'Verdana', 'serif';
-
 }
 
 .welcomeDiv {
@@ -41,7 +40,7 @@
   grid-column-start: 1;
   grid-column-end: 4;
   justify-self: center;
-  align-self: end;
+  align-self: flex-end;
 }
 
 .welcomeDivButton {
@@ -63,8 +62,8 @@
 }
 
 .welcomeDivLogo {
-  align-self: end;
-  justify-self: end;
+  align-self: flex-end;
+  justify-self: flex-end;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 3;
@@ -77,7 +76,7 @@
 
 .mainDiv {
   /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
-  background: black;
+  background: rgb(52,1,52);
   padding: 0;
   margin: auto;
   width: 100%;
@@ -86,7 +85,7 @@
 
 .mainDivCollapse {
   /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
-  background: black;
+  background: rgb(52,1,52);
   padding: 0;
   margin: auto;
   /* visibility: collapse; */
@@ -215,15 +214,16 @@
 }
 
 .toggleBandInfoButtonDiv {
-  align-self: end;
-  justify-self: end;
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .showAvailabilitiesTableButtonDiv {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
+  padding: 5px;
 }
 
 .purpleButton {
@@ -242,7 +242,7 @@
 .editBandInfoButtonDiv {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .editBandInfoButton {
@@ -314,7 +314,7 @@ html,
 body {
   padding: 0;
   margin: auto;
-  color: white;
+  color: rgb(52,1,52);
   width: 100%;
 }
     
@@ -323,13 +323,13 @@ body {
 }
 
 .tagLineArticle {
-  background: black;
+  background: rgb(52,1,52);
   margin: 0;
   padding: 0;
 }
 
 .bandLogoArticle {
-  background: black;
+  background: rgb(52,1,52);
   padding: 0;
   margin: 0;
 
@@ -337,7 +337,7 @@ body {
 
 .availSumTitleArticle {
   padding: 0;
-  background: black;
+  background: rgb(52,1,52);
   margin: auto;
   width: 90%; 
 }
@@ -353,14 +353,14 @@ body {
   
 .monthArticle {
   padding: 0;
-  background: black;
+  background: rgb(52,1,52);
   margin: auto;
   width: 95%;
 }
 
 .yearArticle {
   padding: 0;
-  background: black;
+  background: rgb(52,1,52);
   width: 95%;
   margin: auto;
   text-align: center;
@@ -374,11 +374,11 @@ body {
   }
 
 .activeDateArticle {
-  background: black;
+  background: rgb(52,1,52);
 }
 
 .disclaimerArticle {
-  background: black;
+  background: rgb(52,1,52);
 }
 
 .headerImg {
@@ -419,14 +419,14 @@ body {
 .thDateNude {
   font-size: 12px;
   border: solid black 1px;
-  background: black;
+  background: rgb(52,1,52);
   width: 16.6666%;
   /* height: 70px; */
 }
 
 .thDayNude {
   border: solid black 1px;
-  background: black;
+  background: rgb(52,1,52);
   width: 16.6666%;
   /* height: 70px; */
 }
@@ -436,7 +436,7 @@ body {
   text-orientation: mixed; */
   border: solid black 1px;
   padding: 0%;
-  background: black;
+  background: rgb(52,1,52);
   width: 8.3%;
   height: 50px;
   text-align: center;
@@ -530,7 +530,7 @@ h1 {
 .h1TagLine {
   font-size: 15px;
   text-align: left;
-  background: black;
+  background: rgb(52,1,52);
   width: 100%;
   font-weight: normal;
   padding: 0;
@@ -798,7 +798,7 @@ html {
 }
 body {
   color: white;
-  background: black;
+  background: rgb(52,1,52);
 }
 } */
 
@@ -815,7 +815,7 @@ body {
   
   .mainDiv {
     /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
-    background: black;
+    background: rgb(52,1,52);
     padding: 0;
     margin: auto;
     width: 100%;
