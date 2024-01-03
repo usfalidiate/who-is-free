@@ -1028,15 +1028,14 @@ function MainTableToggleButton() {
     setBandInfoToggle(false);
   }
   return (
-    currentUser ? 
-      <div className='showAvailabilitiesTableButtonDiv'>
-        <button 
+    <div className='showAvailabilitiesTableButtonDiv'>
+      <button 
         onClick={run}
         className='purpleButton'
-        > {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} </button>
+        > 
+        {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} 
+        </button>
       </div>
-    :
-    ''
   )
 };
 
@@ -5493,7 +5492,7 @@ function DisclaimerArticle() {
     <article className = 'disclaimerArticle'>
   <h3 className = 'h3Disclaimer'>
     <br></br>
-    If you experience any problems using this website, please put them in your bum.   
+    If you experience any problems using this website, um...   
     <br></br>
   </h3>
 </article>
@@ -5502,8 +5501,11 @@ function DisclaimerArticle() {
 
 function MainTable() {
   return (
+currentUser && showMain ? 
+<div className= {'mainDiv'}>
 
-    <div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
+      <MainTableToggleButton/>
+
       <ShowAllAvailDates/>
 
       <br></br>
@@ -5526,10 +5528,15 @@ function MainTable() {
 
       <AllAvailTables/>
 
-      <br></br>
+      {/* <br></br>
 
-      <DisclaimerArticle/>
+      <DisclaimerArticle/> */}
     </div>
+    :
+    <div className='mainDiv'>
+      <MainTableToggleButton/>
+    </div>
+
   )
 }
 
@@ -5544,8 +5551,6 @@ return (
   <LoginInfoNav/>
 
   <BandInfoInputNav/>
-
-  <MainTableToggleButton/>
 
   <MainTable/>  
 </div> 

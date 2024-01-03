@@ -158,7 +158,7 @@
   padding: 5px;
   align-items: center;
   align-content: center;
-  border: 2px solid goldenrod;
+  border: 1px solid goldenrod;
   border-radius: 5px;
 
 
@@ -202,7 +202,7 @@
 .bandInfoDiv {
   background: rgb(52,1,52);
   color: goldenrod;
-  border: 2px solid goldenrod;
+  border: 1px solid goldenrod;
   border-radius: 5px;
 }
 
@@ -398,6 +398,7 @@ body {
 
 .tableAvails {
   table-layout: auto;
+  color: goldenrod;
   margin: auto;
   border-collapse: collapse;
   border: none;
@@ -414,7 +415,8 @@ body {
   margin: auto;
   border-collapse: collapse;
   border: none;
-  background-color: black;
+  background-color: rgb(52,1,52);
+  border-color: rgb(52,1,52);
   letter-spacing: 1px;
   font-family: sans-serif;
   width: 95%;
@@ -423,14 +425,14 @@ body {
 
 .thDateNude {
   font-size: 12px;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   background: rgb(52,1,52);
   width: 16.6666%;
   /* height: 70px; */
 }
 
 .thDayNude {
-  border: solid black 1px;
+  /* border: solid black 1px; */
   background: rgb(52,1,52);
   width: 16.6666%;
   /* height: 70px; */
@@ -439,7 +441,7 @@ body {
 .tdUserNude {
   /* writing-mode: vertical-lr;
   text-orientation: mixed; */
-  border: solid black 1px;
+  /* border: solid black 1px; */
   padding: 0%;
   background: rgb(52,1,52);
   width: 8.3%;
@@ -449,7 +451,7 @@ body {
 
 .thHeadDate {
   font-size: 0.7em;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   /* background: rgb(25, 25, 25); */
   background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20)); 
   width: 16.6666%;
@@ -458,7 +460,7 @@ body {
 
 .thHeadDay {
   font-size: 0.7em; 
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   
   min-height: 80px;
 }
