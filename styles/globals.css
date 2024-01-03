@@ -7,6 +7,7 @@
   margin: auto;
   width: 100%;
   font-family: 'Inter', 'sans-serif', 'Verdana', 'serif';
+  height: 100vh;
 }
 
 .welcomeDiv {
@@ -80,7 +81,7 @@
   padding: 0;
   margin: auto;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .mainDivCollapse {
@@ -157,6 +158,8 @@
   padding: 5px;
   align-items: center;
   align-content: center;
+  border: 2px solid goldenrod;
+  border-radius: 5px;
 
 
 }
@@ -199,6 +202,8 @@
 .bandInfoDiv {
   background: rgb(52,1,52);
   color: goldenrod;
+  border: 2px solid goldenrod;
+  border-radius: 5px;
 }
 
 .showBandInfoDiv {

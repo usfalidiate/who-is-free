@@ -5001,8 +5001,7 @@ function BandInfoInputNav() {
 function AllNavs() {
   return (
     <div className= 'mainDiv'>
-      <LoginInfoNav/>
-      <BandInfoInputNav/>
+
     </div>
   )
 };
@@ -5503,6 +5502,7 @@ function DisclaimerArticle() {
 
 function MainTable() {
   return (
+
     <div className= {currentUser && showMain ? 'mainDiv' : 'mainDivCollapse' }>
       <ShowAllAvailDates/>
 
@@ -5524,7 +5524,6 @@ function MainTable() {
       <AllNudeTables/>
 
 
-
       <AllAvailTables/>
 
       <br></br>
@@ -5542,7 +5541,9 @@ return (
 
   <WelcomeScreen/>
 
-  <AllNavs/>
+  <LoginInfoNav/>
+
+  <BandInfoInputNav/>
 
   <MainTableToggleButton/>
 
