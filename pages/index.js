@@ -239,10 +239,14 @@ function SaveBandInfoButton() {
     saveBandInfoChangesTrigState ? 
     <div className='blurBG'>
       <div className='saveChangesButtonDiv'>
+        <div>         
+          Changes Saved
+        </div>
+        <br/>
       <button 
         onClick={handleClick}
         className='saveChangesButton'
-      > Save Changes </button>
+      > OK </button>
       </div>
     </div>
   :
@@ -4821,6 +4825,19 @@ function BandInfoInputNav() {
       };
   };
 
+  const bandMemberNamesSubmitAll = () => {
+    bandMemberNamesSubmit1();
+    bandMemberNamesSubmit2();
+    bandMemberNamesSubmit3();
+    bandMemberNamesSubmit4();
+    bandMemberNamesSubmit5();
+    bandMemberNamesSubmit6();
+    bandMemberNamesSubmit7();
+    bandMemberNamesSubmit8();
+    bandMemberNamesSubmit9();
+    bandMemberNamesSubmit10();
+  };
+
   return (
     bandInfoToggle ? 
     <div className='bandInfoDiv'>
@@ -4935,7 +4952,7 @@ function BandInfoInputNav() {
           <br/>
           { numberOfMembersArray().map((user) => {
             const onClickRun = () => {
-              
+              // bandMemberNamesSubmitAll();
               if (user == 1) {
                 return (bandMemberNamesSubmit1)
               };
@@ -5007,8 +5024,11 @@ function BandInfoInputNav() {
               Name {user}:
               <br/>
               <input 
-                onChange={e => onChangeRun(e) }/>
+                onChange={e => onChangeRun(e) }
+                // disabled={true}
+                />
                 <button 
+                  // disabled={true}
                   onClick={ onClickRun() }
                   className='purpleButton'
                   > Submit </button>
