@@ -298,6 +298,7 @@
 .bandMemberNameDiv {
   margin: 0 0 0 40px;
   display: flex;
+  flex-direction: column;
   font-family: arial;
   text-transform: uppercase;
   font-weight: 800;

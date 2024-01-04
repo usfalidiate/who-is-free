@@ -45,6 +45,9 @@ import {
 import logoCol from '../public/UIELogoWPowName.png';
 import eye from '../public/eye.svg';
 import eyeSlash from '../public/eye-slash.svg';
+import lockIcon2 from '../public/lock-fill.svg';
+import unlockIcon2 from '../public/unlock-fill.svg';
+
 
 
 
@@ -128,6 +131,19 @@ const [ userNameOnLoad7, setUserNameOnLoad7 ] = useState('7');
 const [ userNameOnLoad8, setUserNameOnLoad8 ] = useState('8');
 const [ userNameOnLoad9, setUserNameOnLoad9 ] = useState('9');
 const [ userNameOnLoad10, setUserNameOnLoad10 ] = useState('10');
+
+
+const [unlocked1, setUnlocked1] = useState(true);
+const [unlocked2, setUnlocked2] = useState(true);
+const [unlocked3, setUnlocked3] = useState(true);
+const [unlocked4, setUnlocked4] = useState(true);
+const [unlocked5, setUnlocked5] = useState(true);
+const [unlocked6, setUnlocked6] = useState(true);
+const [unlocked7, setUnlocked7] = useState(true);
+const [unlocked8, setUnlocked8] = useState(true);
+const [unlocked9, setUnlocked9] = useState(true);
+const [unlocked10, setUnlocked10] = useState(true);
+
 
 
 const numberOfMembersArray = () => {
@@ -233,6 +249,16 @@ function SaveBandInfoButton() {
   const handleClick = () => {
     setUpdateTrig(prev=>!prev);
     setSaveBandInfoChangesTrigState(false);
+    setUnlocked1(true);
+    setUnlocked2(true);
+    setUnlocked3(true);
+    setUnlocked4(true);
+    setUnlocked5(true);
+    setUnlocked6(true);
+    setUnlocked7(true);
+    setUnlocked8(true);
+    setUnlocked9(true);
+    setUnlocked10(true);
   };
 
   return (
@@ -4825,18 +4851,265 @@ function BandInfoInputNav() {
       };
   };
 
-  const bandMemberNamesSubmitAll = () => {
-    bandMemberNamesSubmit1();
-    bandMemberNamesSubmit2();
-    bandMemberNamesSubmit3();
-    bandMemberNamesSubmit4();
-    bandMemberNamesSubmit5();
-    bandMemberNamesSubmit6();
-    bandMemberNamesSubmit7();
-    bandMemberNamesSubmit8();
-    bandMemberNamesSubmit9();
-    bandMemberNamesSubmit10();
-  };
+  // const bandMemberNamesSubmitAll = () => {
+  //   bandMemberNamesSubmit1();
+  //   bandMemberNamesSubmit2();
+  //   bandMemberNamesSubmit3();
+  //   bandMemberNamesSubmit4();
+  //   bandMemberNamesSubmit5();
+  //   bandMemberNamesSubmit6();
+  //   bandMemberNamesSubmit7();
+  //   bandMemberNamesSubmit8();
+  //   bandMemberNamesSubmit9();
+  //   bandMemberNamesSubmit10();
+  // };
+
+  // const [nameToUpdate, setNameToUpdate] = useState(1);
+
+  // function ReturnNameToUpdate () {
+  //   return (
+  //     <div>
+  //       <label>
+  //         Select Member to Update:
+  //         <br/>
+  //           <select
+  //             onChange={e => setNameToUpdate(e.target.value)}
+  //             defaultValue={'placeholder'}
+  //             >
+  //             <option disabled value={'placeholder'}>#</option>
+  //             { numberOfMembersArray().map((user) => {
+  //               return (
+  //                 <option value={user}>{user}</option>
+  //               )
+  //             })}
+  //           </select>
+  //       </label>
+  //     </div>  
+      
+  //   )
+  // };
+
+  // function UpdateBandMemberName () {
+  //   const [editName1, setEditName1] = useState(true);
+  //   const [editName2, setEditName2] = useState(true);
+  //   const [editName3, setEditName3] = useState(true);
+  //   const [editName4, setEditName4] = useState(true);
+  //   const [editName5, setEditName5] = useState(true);
+  //   const [editName6, setEditName6] = useState(true);
+  //   const [editName7, setEditName7] = useState(true);
+  //   const [editName8, setEditName8] = useState(true);
+  //   const [editName9, setEditName9] = useState(true);
+  //   const [editName10, setEditName10] = useState(true);
+
+  //   console.log('editName1', editName1);
+
+  //   return (
+  //     <div>
+  //       { numberOfMembersArray().map((user) => {
+
+  //         const editNameOnClick = () => {
+  //           if (user == 1) {
+  //             setEditName1(true);
+  //           };
+  //           if (user == 2) {
+  //             setEditName2(true);
+  //           };
+  //           if (user == 3) {
+  //             setEditName3(true);
+  //           };
+  //           if (user == 4) {
+  //             setEditName4(true);
+  //           };
+  //           if (user == 5) {
+  //             setEditName5(true);
+  //           };
+  //           if (user == 6) {
+  //             setEditName6(true);
+  //           };
+  //           if (user == 7) {
+  //             setEditName7(true);
+  //           };
+  //           if (user == 8) {
+  //             setEditName8(true);
+  //           };
+  //           if (user == 9) {
+  //             setEditName9(true);
+  //           };
+  //           if (user == 10) {
+  //             setEditName10(true);
+  //           }
+  //         };
+
+  //         const returnUserName = () => {
+  //           if (user == 1) {
+  //             return (userNameOnLoad1)
+  //           };
+  //           if (user == 2) {
+  //             return (userNameOnLoad2)
+  //           };
+  //           if (user == 3) {
+  //             return (userNameOnLoad3)
+  //           };
+  //           if (user == 4) {
+  //             return (userNameOnLoad4)
+  //           };
+  //           if (user == 5) {
+  //             return (userNameOnLoad5)
+  //           };
+  //           if (user == 6) {
+  //             return (userNameOnLoad6)
+  //           };
+  //           if (user == 7) {
+  //             return (userNameOnLoad7)
+  //           };
+  //           if (user == 8) {
+  //             return (userNameOnLoad8)
+  //           };
+  //           if (user == 9) {
+  //             return (userNameOnLoad9)
+  //           };
+  //           if (user == 10) {
+  //             return (userNameOnLoad10)
+  //           };
+  //         };
+
+  //         const returnEditName = () => {
+  //           if (user == 1) {
+  //             return (editName1)
+  //           };
+  //           if (user == 2) {
+  //             return (editName2)
+  //           };
+  //           if (user == 3) {
+  //             return (editName3)
+  //           };
+  //           if (user == 4) {
+  //             return (editName4)
+  //           };
+  //           if (user == 5) {
+  //             return (editName5)
+  //           };
+  //           if (user == 6) {
+  //             return (editName6)
+  //           };
+  //           if (user == 7) {
+  //             return (editName7)
+  //           };
+  //           if (user == 8) {
+  //             return (editName8)
+  //           };
+  //           if (user == 9) {
+  //             return (editName9)
+  //           };
+  //           if (user == 10) {
+  //             return (editName10)
+  //           };
+  //         };
+
+  //         const onClickRun = () => {
+  //           // bandMemberNamesSubmitAll();
+  //           if (user == 1) {
+  //             return (bandMemberNamesSubmit1)
+  //           };
+  //           if (user == 2) {
+  //             return (bandMemberNamesSubmit2)
+  //           };
+  //           if (user == 3) {
+  //             return (bandMemberNamesSubmit3)
+  //           };
+  //           if (user == 4) {
+  //             return (bandMemberNamesSubmit4)
+  //           };
+  //           if (user == 5) {
+  //             return (bandMemberNamesSubmit5)
+  //           };
+  //           if (user == 6) {
+  //             return (bandMemberNamesSubmit6)
+  //           };
+  //           if (user == 7) {
+  //             return (bandMemberNamesSubmit7)
+  //           };
+  //           if (user == 8) {
+  //             return (bandMemberNamesSubmit8)
+  //           };
+  //           if (user == 9) {
+  //             return (bandMemberNamesSubmit9)
+  //           };
+  //           if (user == 10) {
+  //             return (bandMemberNamesSubmit10)
+  //           };
+  //         };
+
+  //         const onChangeRun = (e) => {
+  //           if (user == 1) {
+  //             return (setUserName1( e.target.value ))
+  //           };
+  //           if (user == 2) {
+  //             return (setUserName2( e.target.value ))
+  //           };
+  //           if (user == 3) {
+  //             return (setUserName3( e.target.value ))
+  //           };
+  //           if (user == 4) {
+  //             return (setUserName4( e.target.value ))
+  //           };
+  //           if (user == 5) {
+  //             return (setUserName5( e.target.value ))
+  //           };
+  //           if (user == 6) {
+  //             return (setUserName6( e.target.value ))
+  //           };
+  //           if (user == 7) {
+  //             return (setUserName7( e.target.value ))
+  //           };
+  //           if (user == 8) {
+  //             return (setUserName8( e.target.value ))
+  //           };
+  //           if (user == 9) {
+  //             return (setUserName9( e.target.value ))
+  //           };
+  //           if (user == 10) {
+  //             return (setUserName10( e.target.value ))
+  //           };
+  //         };
+
+
+  //           return (
+  //             <div 
+  //               key={user}
+  //               className='bandMemberNameDiv'
+  //             >
+  //               {user}: {returnUserName()} <button 
+  //                 className='purpleButton'
+  //                 onClick={editNameOnClick}
+                  
+  //                 >Update</button> 
+  //                 {
+  //                   returnEditName() ? 
+  //                   <div key={user}>
+  //                   Name {user}:
+  //                   <br/>
+  //                   <input 
+  //                     onChange={e => onChangeRun(e) }
+  //                     // disabled={true}
+  //                     />
+  //                     <button 
+  //                       // disabled={true}
+  //                       onClick={ onClickRun() }
+  //                       className='purpleButton'
+  //                       > Submit </button>
+  //                     <br/>
+                      
+  //                   </div> : ''
+  //                 }
+  //                 <br/>
+  //             </div>
+  //           )
+  //         })}
+  //     </div>
+  //   )
+  // };
+
 
   return (
     bandInfoToggle ? 
@@ -4947,6 +5220,8 @@ function BandInfoInputNav() {
         <br/>
         <br/>
 
+        {/* <UpdateBandMemberName/> */}
+
         <label>
           Update Band Members Names: 
           <br/>
@@ -4954,6 +5229,7 @@ function BandInfoInputNav() {
             const onClickRun = () => {
               // bandMemberNamesSubmitAll();
               if (user == 1) {
+
                 return (bandMemberNamesSubmit1)
               };
               if (user == 2) {
@@ -5019,16 +5295,200 @@ function BandInfoInputNav() {
             };
 
 
+            const handleEditUserNameClick = () => {
+              if (user == 1) {
+                setUnlocked1(prev=>!prev);
+
+                // setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+
+              };
+              if (user == 2) {
+                setUnlocked2(prev=>!prev)
+                                
+                setUnlocked1(true);
+                // setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 3) {
+                setUnlocked3(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                // setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 4) {
+                setUnlocked4(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                // setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 5) {
+                setUnlocked5(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                // setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 6) {
+                setUnlocked6(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                // setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 7) {
+                setUnlocked7(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                // setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 8) {
+                setUnlocked8(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                // setUnlocked8(true);
+                setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 9) {
+                setUnlocked9(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                // setUnlocked9(true);
+                setUnlocked10(true);
+              };
+              if (user == 10) {
+                setUnlocked10(prev=>!prev)
+                                
+                setUnlocked1(true);
+                setUnlocked2(true);
+                setUnlocked3(true);
+                setUnlocked4(true);
+                setUnlocked5(true);
+                setUnlocked6(true);
+                setUnlocked7(true);
+                setUnlocked8(true);
+                setUnlocked9(true);
+                // setUnlocked10(true);
+              };
+
+            };
+
+            const unLockedRun = () => {
+              if (user == 1) {
+                return (unlocked1)
+              };
+              if (user == 2) {
+                return (unlocked2)
+              };
+              if (user == 3) {
+                return (unlocked3)
+              };
+              if (user == 4) {
+                return (unlocked4)
+              };
+              if (user == 5) {
+                return (unlocked5)
+              };
+              if (user == 6) {
+                return (unlocked6)
+              };
+              if (user == 7) {
+                return (unlocked7)
+              };
+              if (user == 8) {
+                return (unlocked8)
+              };
+              if (user == 9) {
+                return (unlocked9)
+              };
+              if (user == 10) {
+                return (unlocked10)
+              };
+
+            };
+
             return (
               <div key={user}>
+                <button
+                onClick={handleEditUserNameClick}
+                > 
+                {unLockedRun() ? <Image src={unlockIcon2} alt="unlock" /> : <Image src={lockIcon2} alt="Lock"/>}
+                </button>
               Name {user}:
               <br/>
               <input 
                 onChange={e => onChangeRun(e) }
-                // disabled={true}
+                disabled={unLockedRun()}
                 />
                 <button 
-                  // disabled={true}
+                  // disabled={unLockedRun}
                   onClick={ onClickRun() }
                   className='purpleButton'
                   > Submit </button>
