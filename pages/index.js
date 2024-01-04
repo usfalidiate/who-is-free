@@ -99,6 +99,7 @@ useEffect(() => {
   ///// BAND INFORMATION /////
 const [bandInfoToggle, setBandInfoToggle] = useState(true);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
+const [saveBandInfoChangesTrigState, setSaveBandInfoChangesTrigState] = useState(false);
 
 const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
 const [ bandNameOnLoad, setBandNameOnLoad ] = useState('bandnameonload');
@@ -203,7 +204,7 @@ function BandInfoToggleButton() {
   return (
     <div className='toggleBandInfoButtonDiv'>
       <button 
-      className='purpleButton'
+      className='greenButton'
       onClick={changeToggleState}> {bandInfoToggle ? 'Hide Band Info' : 'Show Band Info'} </button>
     </div>
   )
@@ -220,21 +221,32 @@ function ToggleUpdateBandInfoDivFunc() {
     <div className='editBandInfoButtonDiv'>
       <button
         onClick={changeToggleState}
-        className='editBandInfoButton'
+        className='greenButton'
       > {toggleUpdateBandInfoDiv ? 'Hide' : 'Edit Band Information'} </button>
     </div>
   )
 }
 
-
+console.log('saveBandInfoChangesTrigState', saveBandInfoChangesTrigState);
 //////   CAUSES UPDATE TRIGGER TO FIRE WHICH UPDATES FIRESTORE BAND INFO LOAD ON START USEEFFECT   //////
-function UpdateButton() {
+function SaveBandInfoButton() {
   const handleClick = () => {
     setUpdateTrig(prev=>!prev);
+    setSaveBandInfoChangesTrigState(false);
   };
 
   return (
-    <button onClick={handleClick}> Save Changes </button>
+    saveBandInfoChangesTrigState ? 
+    <div className='blurBG'>
+      <div className='saveChangesButtonDiv'>
+      <button 
+        onClick={handleClick}
+        className='saveChangesButton'
+      > Save Changes </button>
+      </div>
+    </div>
+  :
+  ''
   )
 };
 
@@ -1031,7 +1043,7 @@ function MainTableToggleButton() {
     <div className='showAvailabilitiesTableButtonDiv'>
       <button 
         onClick={run}
-        className='purpleButton'
+        className='greenButton'
         > 
         {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} 
         </button>
@@ -4578,7 +4590,7 @@ function LoginInfoNav() {
       <nav className= 'loginInfoDiv' >
         <div className='hideLoginButtonDiv'> 
           <button
-          className='purpleButton'
+          className='greenButton'
           onClick={handleToggle}> Hide Login </button>
         </div>
         <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
@@ -4606,7 +4618,7 @@ function LoginInfoNav() {
     <div className='showLoginNavDiv'> 
       <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
       <button 
-      className='purpleButton'
+      className='greenButton'
       onClick={handleToggle}
 
       > {showLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
@@ -4651,6 +4663,7 @@ function BandInfoInputNav() {
 
 
   const bandNameSubmit = async () => {
+    setSaveBandInfoChangesTrigState(true);
     setBandInfoTrig(prev => !prev);
     try {
       const docSnap = await getDoc(docRefBandInfo);
@@ -4664,6 +4677,7 @@ function BandInfoInputNav() {
   };
 
   const bandNumberSubmit = async () => {
+    setSaveBandInfoChangesTrigState(true);
     setBandInfoTrig(prev => !prev);
       try {
         const docSnap = await getDoc(docRefBandInfo);
@@ -4678,6 +4692,7 @@ function BandInfoInputNav() {
 
   const bandMemberNamesSubmit1 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4690,6 +4705,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit2 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4702,6 +4718,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit3 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4714,6 +4731,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit4 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4726,6 +4744,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit5 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4738,6 +4757,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit6 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4750,6 +4770,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit7 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4762,6 +4783,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit8 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4774,6 +4796,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit9 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4786,6 +4809,7 @@ function BandInfoInputNav() {
   };
   const bandMemberNamesSubmit10 = async () => {
     setBandInfoTrig(prev => !prev);
+    setSaveBandInfoChangesTrigState(true);
       try {
         const docSnap = await getDoc(docRefBandInfo);
         if (docSnap.exists()) {
@@ -4866,8 +4890,12 @@ function BandInfoInputNav() {
         Update Band Name: 
         <br/>
         <input onChange={e => setBandName(e.target.value)}/>
+        <button 
+          onClick={bandNameSubmit}
+          className='purpleButton'
+          > Submit </button>
+
       </label>
-        <button onClick={bandNameSubmit}> Submit </button>
 
         <br/>
         <br/>
@@ -4891,9 +4919,13 @@ function BandInfoInputNav() {
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <button 
+            onClick={bandNumberSubmit}
+            className='purpleButton'
+          > Submit </button>
+
         </label>
 
-        <button onClick={bandNumberSubmit}> Submit </button>
 
         <br/>
         <br/>
@@ -4903,6 +4935,7 @@ function BandInfoInputNav() {
           <br/>
           { numberOfMembersArray().map((user) => {
             const onClickRun = () => {
+              
               if (user == 1) {
                 return (bandMemberNamesSubmit1)
               };
@@ -4975,7 +5008,11 @@ function BandInfoInputNav() {
               <br/>
               <input 
                 onChange={e => onChangeRun(e) }/>
-                <button onClick={ onClickRun() }> Submit </button>
+                <button 
+                  onClick={ onClickRun() }
+                  className='purpleButton'
+                  > Submit </button>
+                <br/>
                 <br/>
               </div>
               )
@@ -4985,7 +5022,7 @@ function BandInfoInputNav() {
 
       <br/>
       <br/>
-        <UpdateButton/>
+        <SaveBandInfoButton/>
         <br/>
       </div>
 

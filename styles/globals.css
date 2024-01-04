@@ -231,6 +231,19 @@
   padding: 5px;
 }
 
+.greenButton {
+  font-family: arial;
+  background-color: rgb(26,51,10);
+  color: goldenrod;
+  text-transform: uppercase;
+  font-weight: 740;
+  font-size: 12px;
+  letter-spacing: -0.065em;
+  justify-content: center;
+  border-radius: 8px;
+
+}
+
 .purpleButton {
   font-family: arial;
   background-color: purple;
@@ -241,7 +254,6 @@
   letter-spacing: -0.065em;
   justify-content: center;
   border-radius: 8px;
-
 }
 
 .editBandInfoButtonDiv {
@@ -295,7 +307,13 @@
 }
 
 .updateBandInfoDiv {
-  background: rgb(96, 2, 96);
+  display: flex;
+  flex-direction: column;
+  background: goldenrod;
+  color: rgb(96, 2, 96);
+  font-family: arial;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .updateBandInfoDivNone {
@@ -303,6 +321,40 @@
   background: rgb(52,1,52);
 }
 
+.saveChangesButton {
+  background: goldenrod;
+  width: 50%;
+  height: 50%;
+  font-family: arial;
+  font-weight: 740;
+  text-transform: uppercase;
+}
+
+.saveChangesButtonDiv {
+  position: fixed;
+  display: flex;
+  background: purple;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 20%;
+  align-self: center;
+  z-index: 5;
+  top: 40%;
+  left: 20%;
+  border-radius: 10px;
+}
+
+.blurBG {
+
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
 
 
 .fields {
