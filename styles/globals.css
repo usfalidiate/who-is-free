@@ -8,6 +8,10 @@
   width: 100%;
   font-family: 'Inter', 'sans-serif', 'Verdana', 'serif';
   height: 100vh;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  overflow: hidden;
 }
 
 .welcomeDiv {
@@ -280,10 +284,21 @@
   font-family: 'arial';
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: -0.065em;
   justify-content: center;
 
+}
+
+.currentNumberOfMembersDiv {
+  display: flex;
+  font-family: 'arial';
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.065em;
+  justify-content: left;
+  width: 100%;
 }
 
 .bandInfoHeading {

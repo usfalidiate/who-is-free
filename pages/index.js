@@ -5121,7 +5121,7 @@ function BandInfoInputNav() {
               <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
                 <br/>
                   <p className='bandInfoHeading'> Number of Members: </p> 
-                    <div className='currentBandNameDiv'> {numberOfMembersOnLoad} </div>
+                    <div className='currentNumberOfMembersDiv'> {numberOfMembersOnLoad} </div>
                       <br/>
                         <p className='bandInfoHeading'> Band Member Names: </p> 
                           
