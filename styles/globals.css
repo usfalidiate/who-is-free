@@ -38,7 +38,6 @@
   font-family: arial;
   font-size: 60px;
   font-weight: 900;
-  -webkit-text-stroke: 0.5px rgb(22,1,22);
   letter-spacing: -0.10em;
   text-transform: uppercase;
   font-style: normal ;
@@ -64,8 +63,6 @@
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 900;
-  -webkit-text-stroke: 0.5px rgb(22,1,22);
-
 }
 
 .welcomeDivLogo {
@@ -444,6 +441,13 @@ body {
 
 }
 
+.showAllAvailDatesDiv {
+  border: 3px solid goldenrod;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
 .availSumTitleArticle {
   padding: 0;
   background: none;
@@ -454,7 +458,7 @@ body {
 .availSumDatesArticle {
   padding: 0;
   /* background: rgb(40, 40, 40); */
-  background: linear-gradient(0deg, goldenrod, rgb(188, 143, 28) 50%, goldenrod );
+  background: none;
   border-radius: 5px;
   margin: auto;
   width: 95%; 
@@ -509,8 +513,7 @@ body {
   color: goldenrod;
   margin: auto;
   border-collapse: collapse;
-  border: none;
-  background-color: none;
+  background: none;
   letter-spacing: 1px;
   font-family: sans-serif;
   width: 95%;
@@ -621,6 +624,11 @@ body {
   text-align: center;
 }
 
+.trAvailTable {
+  border-bottom: 1px solid purple ;
+
+}
+
 h1 {
   text-align: center;
   background: none;
@@ -662,7 +670,10 @@ h2 {
 .h2AllAvailDates {
   font-size: 1em;
   text-align: center;
-  color: rgb(52,1,52);
+  color: goldenrod;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 940;
 
 }
 

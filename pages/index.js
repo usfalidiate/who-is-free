@@ -5558,7 +5558,7 @@ function BandInfoInputNav() {
 
 function ShowAllAvailDates () {
   return (
-    <>
+    <div className='showAllAvailDatesDiv'>
     <article className = 'availSumTitleArticle'>
   <h2 className = 'h2AvailSum'>
     For the month of <span className = 'h2AvailSumMonth'> {monthToNameLong()} {activeYear}</span>, everyone is free to jam on:
@@ -5604,7 +5604,7 @@ function ShowAllAvailDates () {
     &nbsp;
   </h2>
 </article>
-</>
+</div>
   )
 };
 
@@ -5861,7 +5861,7 @@ function MapAvailTableHeaders () {
   
   return (
     <>
-      <tr>
+      <tr className='trAvailTable'>
         <th className="thHeadDate"> Day <br/> Date </th>
           {
             numberOfMembersArray().map((user) => {
@@ -5940,7 +5940,7 @@ function MapEachDayAndUserAvailTable({day, user}) {
 
     } else {
       return (
-        <tr key={day}>
+        <tr key={day} className='trAvailTable'>
         <th className="thDate"> { tableDayName(day - 1) } <br/> { monthToName() } { tableDayNameArray[day - 1] } <br/>  </th>
         {  numberOfMembersArray().map((user) => {
           const handle = () => {
