@@ -21,8 +21,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: rgb(52, 1, 52);
-  width: 100%;
+  background: linear-gradient(0deg, rgb(32,1,52) , rgb(62, 1, 62) 50%, rgb(32,1,52) );  width: 100%;
   height: 100%;
   position: absolute;
   top: 0px;
@@ -39,6 +38,7 @@
   font-family: arial;
   font-size: 60px;
   font-weight: 900;
+  -webkit-text-stroke: 0.5px rgb(22,1,22);
   letter-spacing: -0.10em;
   text-transform: uppercase;
   font-style: normal ;
@@ -64,6 +64,8 @@
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 900;
+  -webkit-text-stroke: 0.5px rgb(22,1,22);
+
 }
 
 .welcomeDivLogo {
@@ -81,7 +83,7 @@
 
 .mainDiv {
   /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
-  background: rgb(52,1,52);
+  background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
   padding: 5px 0px;
   margin: auto;
   width: 100%;
@@ -124,6 +126,7 @@
   align-items: flex-end;
   justify-content: flex-end;
   padding: 5px;
+  background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
 
 }
 
@@ -174,14 +177,17 @@
 }
 
 .showLoginNavDiv {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30px;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-rows: 30px; */
   padding: 5px;
-  align-items: center;
-  align-content: center;
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+  /* align-content: center; */
   /* border: 1px solid goldenrod; */
   border-radius: 5px;
+  background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
 
 
 }
@@ -229,8 +235,8 @@
 }
 
 .showBandInfoDiv {
-  background: rgb(52,1,52);
-  padding: 10px;
+  background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
+  padding: 5px;
   display: grid;
 }
 
@@ -251,7 +257,7 @@
   justify-content: flex-end;
   width: 100%;
   padding: 5px;
-}
+  }
 
 .greenButton {
   font-family: arial;
@@ -349,7 +355,7 @@
   font-family: arial;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid rgb(52,1,52);
 }
 
@@ -440,7 +446,7 @@ body {
 
 .availSumTitleArticle {
   padding: 0;
-  background: rgb(52,1,52);
+  background: none;
   margin: auto;
   width: 90%; 
 }
@@ -448,7 +454,7 @@ body {
 .availSumDatesArticle {
   padding: 0;
   /* background: rgb(40, 40, 40); */
-  background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );
+  background: linear-gradient(0deg, goldenrod, rgb(188, 143, 28) 50%, goldenrod );
   border-radius: 5px;
   margin: auto;
   width: 95%; 
@@ -456,14 +462,14 @@ body {
   
 .monthArticle {
   padding: 0;
-  background: rgb(52,1,52);
+  background: none;
   margin: auto;
   width: 95%;
 }
 
 .yearArticle {
   padding: 0;
-  background: rgb(52,1,52);
+  background: none;
   width: 95%;
   margin: auto;
   text-align: center;
@@ -477,7 +483,11 @@ body {
   }
 
 .activeDateArticle {
-  background: rgb(52,1,52);
+  background: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: 95%;
+  margin: auto;
 }
 
 .disclaimerArticle {
@@ -500,7 +510,7 @@ body {
   margin: auto;
   border-collapse: collapse;
   border: none;
-  background-color: black;
+  background-color: none;
   letter-spacing: 1px;
   font-family: sans-serif;
   width: 95%;
@@ -513,35 +523,25 @@ body {
   margin: auto;
   border-collapse: collapse;
   border: none;
-  background-color: rgb(52,1,52);
-  border-color: rgb(52,1,52);
+  background: none;
   letter-spacing: 1px;
   font-family: sans-serif;
   width: 95%;
   height: 50px; 
+  color: goldenrod;
 }
 
 .thDateNude {
   font-size: 12px;
-  /* border: solid black 1px; */
-  background: rgb(52,1,52);
   width: 16.6666%;
-  /* height: 70px; */
 }
 
 .thDayNude {
-  /* border: solid black 1px; */
-  background: rgb(52,1,52);
   width: 16.6666%;
-  /* height: 70px; */
 }
 
 .tdUserNude {
-  /* writing-mode: vertical-lr;
-  text-orientation: mixed; */
-  /* border: solid black 1px; */
   padding: 0%;
-  background: rgb(52,1,52);
   width: 8.3%;
   height: 50px;
   text-align: center;
@@ -549,9 +549,7 @@ body {
 
 .thHeadDate {
   font-size: 0.7em;
-  /* border: solid black 1px; */
-  /* background: rgb(25, 25, 25); */
-  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20)); 
+  /* background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));  */
   width: 16.6666%;
   height: 80px;
 }
@@ -559,42 +557,43 @@ body {
 .thHeadDay {
   font-size: 0.7em; 
   /* border: 1px solid black; */
-  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   
+  /* background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));    */
   min-height: 80px;
+
 }
 
 .thHeadUser {
   writing-mode: vertical-lr;
   text-orientation: mixed;
   font-size: 0.7em;
-  border: 1px solid black;
-  background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));   
+  /* border: 1px solid black; */
+  /* background: linear-gradient(0deg, rgb(20, 20, 20), rgb(50, 50, 50) 50%, rgb(20, 20, 20));    */
   min-height: 80px;
+
   width: 8.3%;
   padding: 5px 0px 5px 0px;
 }
 
 .thDate {
   font-size: 0.8em;
-  border: solid black 1px;
-  background: rgb(50, 47, 47);
-  background: linear-gradient(90deg, rgb(47, 47, 47), rgb(67, 67, 67) 50%, rgb(47, 47, 47)); 
+  /* border: solid black 1px; */
+  /* background: linear-gradient(90deg, rgb(47, 47, 47), rgb(67, 67, 67) 50%, rgb(47, 47, 47));  */
   width: 16.6666%;
   /* height: 80px; */
 }
 
 .thDay {
   font-size: 0.8em;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* background: rgb(72, 72, 72); */
-  background: linear-gradient(90deg, rgb(70, 70, 70), rgb(90, 90, 90) 50%, rgb(70, 70, 70)); 
+  /* background: linear-gradient(90deg, rgb(70, 70, 70), rgb(90, 90, 90) 50%, rgb(70, 70, 70));  */
   width: 16.6666%;
   /* height: 80px; */
 }
 
 .tdUser {
-  border: 1px solid black;
-  background: rgb(108, 107, 107);
+  /* border: 1px solid black; */
+  /* background: rgb(108, 107, 107); */
   width: 8.3%;
   height: 50px;
   text-align: center;
@@ -602,21 +601,21 @@ body {
 
 .thDateHidden {
   font-size: 0em;
-  border: solid black 1px;
-  background: solid black;  width: 16.6666%;
+  /* border: solid black 1px; */
+  /* background: solid black;  width: 16.6666%; */
   height: 80px;
 }
 
 .thDayHidden {
   font-size: 0em;
-  border: 1px solid black;
-  background: solid black;  width: 16.6666%;
+  /* border: 1px solid black; */
+  /* background: solid black;  width: 16.6666%; */
   height: 80px;
 }
 
 .tdUserHidden {
-  border: 1px solid black;
-  background: solid black;
+  /* border: 1px solid black; */
+  /* background: solid black; */
   width: 16.6666%;
   /* height: 80px; */
   text-align: center;
@@ -652,6 +651,7 @@ h2 {
 .h2AvailSum {
   text-align: center;
   color: white;
+  background-color: none;
 }
 
 .h2AvailSumMonth {
@@ -662,7 +662,8 @@ h2 {
 .h2AllAvailDates {
   font-size: 1em;
   text-align: center;
-  color: rgb(225, 213, 32);
+  color: rgb(52,1,52);
+
 }
 
 

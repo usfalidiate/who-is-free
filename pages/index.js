@@ -100,7 +100,7 @@ useEffect(() => {
 
 
   ///// BAND INFORMATION /////
-const [bandInfoToggle, setBandInfoToggle] = useState(true);
+const [bandInfoToggle, setBandInfoToggle] = useState(false);
 const [bandInfoTrig, setBandInfoTrig] = useState(false);
 const [saveBandInfoChangesTrigState, setSaveBandInfoChangesTrigState] = useState(false);
 
@@ -4652,7 +4652,7 @@ function LoginInfoNav() {
       </nav> 
     :
     <div className='showLoginNavDiv'> 
-      <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
+      {/* <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div> */}
       <button 
       className='greenButton'
       onClick={handleToggle}
