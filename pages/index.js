@@ -5596,7 +5596,7 @@ function ShowAllAvailDates () {
         };
         if ( numberOfMembersForAllFree() == true ) {
           console.log('if ran')
-          return [ tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> ]
+          return ( tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> )
         } else {
           console.log('else ran in MapAllFree function')
         } 
