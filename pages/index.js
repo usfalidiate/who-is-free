@@ -4567,54 +4567,7 @@ useEffect(() => {
 //////   DATES WHERE ALL ARE FREE   //////
 const br = <br></br>;
 
-function MapAllFree() {
-  return (
-    daysArray.map((day) => {
-      const numberOfMembersForAllFree = () => {
-        if (numberOfMembersOnLoad == 1) {
-          return ( users.user1[`day${day}`] )
-        };
-        if (numberOfMembersOnLoad == 2) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] )
-        }; 
-        if (numberOfMembersOnLoad == 3) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`]  )
-        }; 
-        if (numberOfMembersOnLoad == 4) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] )
-        } 
-        if (numberOfMembersOnLoad == 5) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] )
-        } 
-        if (numberOfMembersOnLoad == 6) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] )
-        } 
-        if (numberOfMembersOnLoad == 7) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] )
-        } 
-        if (numberOfMembersOnLoad == 8) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] )
-        } 
-        if (numberOfMembersOnLoad == 9) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] )
-        }
-        if (numberOfMembersOnLoad == 10) {
-          return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] && users.user10[`day${day}`]  )
-        } 
-        else {
-          return ( true )
-        }
-      };
-      if ( numberOfMembersForAllFree() == true ) {
-        console.log('if ran')
-        return [ tableDayNameLong(day-1) , ' ', tableDayNameArray[day-1], ' ', monthToNameLong(), br ]
-      } else {
-        console.log('else ran in MapAllFree function')
 
-      } 
-    })
-  )
-};
 
 //////   FUNCTIONS FOR RETURN ELEMENTS   //////
 
@@ -5603,54 +5556,67 @@ function BandInfoInputNav() {
 // };
 
 function ShowAllAvailDates () {
+  function MapAllFree() {
+    return (
+      daysArray.map((day) => {
+        const numberOfMembersForAllFree = () => {
+          if (numberOfMembersOnLoad == 1) {
+            return ( users.user1[`day${day}`] )
+          };
+          if (numberOfMembersOnLoad == 2) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] )
+          }; 
+          if (numberOfMembersOnLoad == 3) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`]  )
+          }; 
+          if (numberOfMembersOnLoad == 4) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] )
+          } 
+          if (numberOfMembersOnLoad == 5) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] )
+          } 
+          if (numberOfMembersOnLoad == 6) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] )
+          } 
+          if (numberOfMembersOnLoad == 7) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] )
+          } 
+          if (numberOfMembersOnLoad == 8) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] )
+          } 
+          if (numberOfMembersOnLoad == 9) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] )
+          }
+          if (numberOfMembersOnLoad == 10) {
+            return ( users.user1[`day${day}`] && users.user2[`day${day}`] && users.user3[`day${day}`] && users.user4[`day${day}`] && users.user5[`day${day}`] && users.user6[`day${day}`] && users.user7[`day${day}`] && users.user8[`day${day}`] && users.user9[`day${day}`] && users.user10[`day${day}`]  )
+          } 
+          else {
+            return ( true )
+          }
+        };
+        if ( numberOfMembersForAllFree() == true ) {
+          console.log('if ran')
+          return [ tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> ]
+        } else {
+          console.log('else ran in MapAllFree function')
+        } 
+      })
+    )
+  };
   return (
     <div className='showAllAvailDatesDiv'>
-    <article className = 'availSumTitleArticle'>
-  <h2 className = 'h2AvailSum'>
-    For the month of <span className = 'h2AvailSumMonth'> {monthToNameLong()} {activeYear}</span>, everyone is free to jam on:
-  </h2>
-</article>
+      <article className = 'availSumTitleArticle'>
+        <h2 className = 'h2AvailSum'>
+          For the month of <span className = 'h2AvailSumMonth'> {monthToNameLong()} {activeYear}</span>, LET US JAM on:
+        </h2>
+      </article>
 
-    <article className = 'availSumDatesArticle'>
-  <h2 className = 'h2AllAvailDates'>
-  
-    <br></br>
-    {/* {allFree1()} 
-    {allFree2()} 
-    {allFree3()} 
-    {allFree4()} 
-    {allFree5()} 
-    {allFree6()} 
-    {allFree7()} 
-    {allFree8()} 
-    {allFree9()} 
-    {allFree10()} 
-    {allFree11()} 
-    {allFree12()} 
-    {allFree13()} 
-    {allFree14()} 
-    {allFree15()} 
-    {allFree16()} 
-    {allFree17()} 
-    {allFree18()} 
-    {allFree19()} 
-    {allFree20()} 
-    {allFree21()} 
-    {allFree22()} 
-    {allFree23()} 
-    {allFree24()} 
-    {allFree25()} 
-    {allFree26()} 
-    {allFree27()} 
-    {allFree28()} 
-    {allFree29()} 
-    {allFree30()} 
-    {allFree31()}  */}
-    <MapAllFree/>
-    &nbsp;
-  </h2>
-</article>
-</div>
+      <article className = 'availSumDatesArticle'>
+        <h2 className = 'h2AllAvailDates'>
+          <MapAllFree/>
+        </h2>
+      </article>
+    </div>
   )
 };
 
@@ -5674,7 +5640,7 @@ function SelectYearArticle() {
 function SelectMonthArticle() {
   return (
     <article className = 'monthArticle' >
-  <h2>Select Month</h2>
+  <h2 className='h2Month'>Select Month</h2>
     <button className = 'buttonMonth' onClick ={()=> setActiveMonth(0)}> Jan </button>
     <button className = 'buttonMonth' onClick ={()=> setActiveMonth(1)}> Feb </button>
     <button className = 'buttonMonth' onClick ={()=> setActiveMonth(2)}> Mar </button>
@@ -5695,8 +5661,8 @@ function SelectMonthArticle() {
 function ActiveDateArticle() {
   return (
     <article className = 'activeDateArticle'>
-  <h2> You are currently looking at: </h2>
-  <h1> { monthToNameLong() } { activeYear } </h1>
+  <h2 className='h2Month'> Availabilities for </h2>
+  <h1 className='h1Table'> { monthToNameLong() } { activeYear } </h1>
 </article>
   )
 }

@@ -680,34 +680,45 @@ h2 {
 
 .h2AvailSum {
   text-align: center;
-  color: white;
+  color: goldenrod;
   background-color: none;
+  font-size: 1em;
 }
 
 .h2AvailSumMonth {
   text-align: center;
-  color: red;
+  color: goldenrod;
+  text-decoration: solid ;
+  text-transform: uppercase;
 }
 
 .h2AllAvailDates {
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
   color: goldenrod;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   font-weight: 940;
-
+  margin: 10px;
+  background-color: purple;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 
 .h2Year{
   text-align: center;
-  color: white;
+  color: goldenrod;
 }
 
 .h2Month{
   text-align: center;
-  color: white;
+  color: goldenrod;
+}
+
+.h1Table {
+  color: goldenrod;
+  text-transform: uppercase;
 }
 
 .h3Disclaimer {
