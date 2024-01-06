@@ -1027,7 +1027,7 @@ async function handleLogin() {
     setCurrentLogName(emailRef.current.value);
     console.log('here emailRef.current.value', emailRef.current.value);
   } catch {
-    alert('The email and/or password was incorrect.')
+    alert('Login Failed - Please Try Again')
   }
   setLoading(false);
 };
@@ -1070,14 +1070,17 @@ function MainTableToggleButton() {
     setBandInfoToggle(false);
   }
   return (
-    <div className='showAvailabilitiesTableButtonDiv'>
-      <button 
-        onClick={run}
-        className='greenButton'
-        > 
-        {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} 
-        </button>
-      </div>
+    currentUser ?     
+      <div className='showAvailabilitiesTableButtonDiv'>
+    <button 
+      onClick={run}
+      className='greenButton'
+      > 
+      {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} 
+      </button>
+    </div>
+  :
+  'No User Logged In'
   )
 };
 
@@ -5174,7 +5177,9 @@ function BandInfoInputNav() {
         ''
         }
 
-    <div className={toggleUpdateBandInfoDiv ? 'updateBandInfoDiv' : 'updateBandInfoDivNone'}>
+    {
+      toggleUpdateBandInfoDiv ? 
+      <div className={'updateBandInfoDiv'}>
       
       <label>
         Update Band Name: 
@@ -5504,12 +5509,15 @@ function BandInfoInputNav() {
       <br/>
         <SaveBandInfoButton/>
         <br/>
-      </div>
+    </div>
+    :
+    <> {currentUser ? 'Band Info Hidden' : 'No User Logged In'} </>
+    }
 
   </div>
     : 
     <div className='hideBandInfoDiv'>
-      <BandInfoToggleButton/>
+      {currentUser ? <BandInfoToggleButton/> : 'No User Logged In'}
     </div>
   )
 };
