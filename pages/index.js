@@ -1024,10 +1024,13 @@ async function handleLogin() {
   setShowLoginInfoNav(false);
   try {
     await login([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
-    setCurrentLogName(emailRef.current.value);
-    console.log('here emailRef.current.value', emailRef.current.value);
+    // setCurrentLogName(emailRef.current.value);
+    console.log('handleLogin try ran');
   } catch {
-    alert('Login Failed - Please Try Again')
+    alert('Login Failed - Please Try Again');
+    console.log('handleLogin catch ran');
+
+
   }
   setLoading(false);
 };
@@ -1080,7 +1083,7 @@ function MainTableToggleButton() {
       </button>
     </div>
   :
-  'No User Logged In'
+  <div className='noUserLoggedInDiv'> No User Logged In </div>
   )
 };
 
@@ -5113,422 +5116,445 @@ function BandInfoInputNav() {
   //   )
   // };
 
+  const onClickreShowBandInfoDiv = () => {
+    setBandInfoToggle(true);
+  };
 
   return (
     bandInfoToggle ? 
-    <div className='bandInfoDiv'>
-      {currentUser ? 
-        <div className='showBandInfoDiv'>
-          <BandInfoToggleButton/>
-            <p className='bandInfoHeading'> Band Name: </p> 
-              <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
-                <br/>
-                  <p className='bandInfoHeading'> Number of Members: </p> 
-                    <div className='currentNumberOfMembersDiv'> {numberOfMembersOnLoad} </div>
-                      <br/>
-                        <p className='bandInfoHeading'> Band Member Names: </p> 
-                          
-                            { numberOfMembersArray().map((user) => {
-                              const run = () => {
-                                if (user == 1) {
-                                  return (userNameOnLoad1)
-                                };
-                                if (user == 2) {
-                                  return (userNameOnLoad2)
-                                };
-                                if (user == 3) {
-                                  return (userNameOnLoad3)
-                                };
-                                if (user == 4) {
-                                  return (userNameOnLoad4)
-                                };
-                                if (user == 5) {
-                                  return (userNameOnLoad5)
-                                };
-                                if (user == 6) {
-                                  return (userNameOnLoad6)
-                                };
-                                if (user == 7) {
-                                  return (userNameOnLoad7)
-                                };
-                                if (user == 8) {
-                                  return (userNameOnLoad8)
-                                };
-                                if (user == 9) {
-                                  return (userNameOnLoad9)
-                                };
-                                if (user == 10) {
-                                  return (userNameOnLoad10)
-                                };
-                              }
-                              return (
-                                <div 
-                                  key={user}
-                                  className='bandMemberNameDiv'
-                                >
-                                  {user}: {run()} <br/>
-                                </div>
-                              )
-                            })}
-                              <br/>
-                              <ToggleUpdateBandInfoDivFunc/>
-        </div>
-        :
-        ''
+      <div className='bandInfoDiv'>
+        {currentUser ? 
+          <div className='showBandInfoDiv'>
+            <BandInfoToggleButton/>
+              <p className='bandInfoHeading'> Band Name: </p> 
+                <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
+                  <br/>
+                    <p className='bandInfoHeading'> Number of Members: </p> 
+                      <div className='currentNumberOfMembersDiv'> {numberOfMembersOnLoad} </div>
+                        <br/>
+                          <p className='bandInfoHeading'> Band Member Names: </p> 
+                            
+                              { numberOfMembersArray().map((user) => {
+                                const run = () => {
+                                  if (user == 1) {
+                                    return (userNameOnLoad1)
+                                  };
+                                  if (user == 2) {
+                                    return (userNameOnLoad2)
+                                  };
+                                  if (user == 3) {
+                                    return (userNameOnLoad3)
+                                  };
+                                  if (user == 4) {
+                                    return (userNameOnLoad4)
+                                  };
+                                  if (user == 5) {
+                                    return (userNameOnLoad5)
+                                  };
+                                  if (user == 6) {
+                                    return (userNameOnLoad6)
+                                  };
+                                  if (user == 7) {
+                                    return (userNameOnLoad7)
+                                  };
+                                  if (user == 8) {
+                                    return (userNameOnLoad8)
+                                  };
+                                  if (user == 9) {
+                                    return (userNameOnLoad9)
+                                  };
+                                  if (user == 10) {
+                                    return (userNameOnLoad10)
+                                  };
+                                }
+                                return (
+                                  <div 
+                                    key={user}
+                                    className='bandMemberNameDiv'
+                                  >
+                                    {user}: {run()} <br/>
+                                  </div>
+                                )
+                              })}
+                                <br/>
+                                <ToggleUpdateBandInfoDivFunc/>
+          </div>
+            :
+            // <div className='noUserLoggedInDiv'> No User Logged In </div>
+          <div> 
+            in ShowBandInfoDiv currentUser = false
+          </div>
         }
 
-    {
-      toggleUpdateBandInfoDiv ? 
-      <div className={'updateBandInfoDiv'}>
-      
-      <label>
-        Update Band Name: 
-        <br/>
-        <input onChange={e => setBandName(e.target.value)}/>
-        <button 
-          onClick={bandNameSubmit}
-          className='purpleButton'
-          > Submit </button>
-
-      </label>
-
-        <br/>
-        <br/>
-
-        <label>
-        Select Number of Band Members: 
-        <br/>
-          <select
-            onChange={e => setNumberOfMembers(e.target.value)}
-            defaultValue={'placeholder'}
-          >
-            <option disabled value={'placeholder'}>#</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-          <button 
-            onClick={bandNumberSubmit}
-            className='purpleButton'
-          > Submit </button>
-
-        </label>
-
-
-        <br/>
-        <br/>
-
-        {/* <UpdateBandMemberName/> */}
-
-        <label>
-          Update Band Members Names: 
-          <br/>
-          { numberOfMembersArray().map((user) => {
-            const onClickRun = () => {
-              // bandMemberNamesSubmitAll();
-              if (user == 1) {
-
-                return (bandMemberNamesSubmit1)
-              };
-              if (user == 2) {
-                return (bandMemberNamesSubmit2)
-              };
-              if (user == 3) {
-                return (bandMemberNamesSubmit3)
-              };
-              if (user == 4) {
-                return (bandMemberNamesSubmit4)
-              };
-              if (user == 5) {
-                return (bandMemberNamesSubmit5)
-              };
-              if (user == 6) {
-                return (bandMemberNamesSubmit6)
-              };
-              if (user == 7) {
-                return (bandMemberNamesSubmit7)
-              };
-              if (user == 8) {
-                return (bandMemberNamesSubmit8)
-              };
-              if (user == 9) {
-                return (bandMemberNamesSubmit9)
-              };
-              if (user == 10) {
-                return (bandMemberNamesSubmit10)
-              };
-            };
-
-            const onChangeRun = (e) => {
-              if (user == 1) {
-                return (setUserName1( e.target.value ))
-              };
-              if (user == 2) {
-                return (setUserName2( e.target.value ))
-              };
-              if (user == 3) {
-                return (setUserName3( e.target.value ))
-              };
-              if (user == 4) {
-                return (setUserName4( e.target.value ))
-              };
-              if (user == 5) {
-                return (setUserName5( e.target.value ))
-              };
-              if (user == 6) {
-                return (setUserName6( e.target.value ))
-              };
-              if (user == 7) {
-                return (setUserName7( e.target.value ))
-              };
-              if (user == 8) {
-                return (setUserName8( e.target.value ))
-              };
-              if (user == 9) {
-                return (setUserName9( e.target.value ))
-              };
-              if (user == 10) {
-                return (setUserName10( e.target.value ))
-              };
-            };
-
-
-            const handleEditUserNameClick = () => {
-              if (user == 1) {
-                setUnlocked1(prev=>!prev);
-
-                // setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-
-              };
-              if (user == 2) {
-                setUnlocked2(prev=>!prev)
-                                
-                setUnlocked1(true);
-                // setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 3) {
-                setUnlocked3(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                // setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 4) {
-                setUnlocked4(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                // setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 5) {
-                setUnlocked5(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                // setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 6) {
-                setUnlocked6(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                // setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 7) {
-                setUnlocked7(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                // setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 8) {
-                setUnlocked8(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                // setUnlocked8(true);
-                setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 9) {
-                setUnlocked9(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                // setUnlocked9(true);
-                setUnlocked10(true);
-              };
-              if (user == 10) {
-                setUnlocked10(prev=>!prev)
-                                
-                setUnlocked1(true);
-                setUnlocked2(true);
-                setUnlocked3(true);
-                setUnlocked4(true);
-                setUnlocked5(true);
-                setUnlocked6(true);
-                setUnlocked7(true);
-                setUnlocked8(true);
-                setUnlocked9(true);
-                // setUnlocked10(true);
-              };
-
-            };
-
-            const unLockedRun = () => {
-              if (user == 1) {
-                return (unlocked1)
-              };
-              if (user == 2) {
-                return (unlocked2)
-              };
-              if (user == 3) {
-                return (unlocked3)
-              };
-              if (user == 4) {
-                return (unlocked4)
-              };
-              if (user == 5) {
-                return (unlocked5)
-              };
-              if (user == 6) {
-                return (unlocked6)
-              };
-              if (user == 7) {
-                return (unlocked7)
-              };
-              if (user == 8) {
-                return (unlocked8)
-              };
-              if (user == 9) {
-                return (unlocked9)
-              };
-              if (user == 10) {
-                return (unlocked10)
-              };
-
-            };
-
-            return (
-              <div key={user}>
-                <button
-                onClick={handleEditUserNameClick}
-                > 
-                {unLockedRun() ? <Image src={unlockIcon2} alt="unlock" /> : <Image src={lockIcon2} alt="Lock"/>}
-                </button>
-              Name {user}:
-              <br/>
-              <input 
-                onChange={e => onChangeRun(e) }
-                disabled={unLockedRun()}
-                />
+        {
+          toggleUpdateBandInfoDiv ? 
+            <div className={'updateBandInfoDiv'}>
+            
+              <label>
+                Update Band Name: 
+                <br/>
+                <input onChange={e => setBandName(e.target.value)}/>
                 <button 
-                  // disabled={unLockedRun}
-                  onClick={ onClickRun() }
+                  onClick={bandNameSubmit}
                   className='purpleButton'
                   > Submit </button>
+
+              </label>
+
                 <br/>
                 <br/>
-              </div>
-              )
-            })
-            }
-        </label>
 
-      <br/>
-      <br/>
-        <SaveBandInfoButton/>
-        <br/>
-    </div>
-    :
-    <> {currentUser ? 'Band Info Hidden' : 'No User Logged In'} </>
-    }
+              <label>
+                Select Number of Band Members: 
+                <br/>
+                <select
+                  onChange={e => setNumberOfMembers(e.target.value)}
+                  defaultValue={'placeholder'}
+                >
+                  <option disabled value={'placeholder'}>#</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <button 
+                  onClick={bandNumberSubmit}
+                  className='purpleButton'
+                > Submit </button>
 
-  </div>
+              </label>
+
+
+              <br/>
+              <br/>
+
+              {/* <UpdateBandMemberName/> */}
+
+              <label>
+                Update Band Members Names: 
+                <br/>
+                { numberOfMembersArray().map((user) => {
+                  const onClickRun = () => {
+                    // bandMemberNamesSubmitAll();
+                    if (user == 1) {
+
+                      return (bandMemberNamesSubmit1)
+                    };
+                    if (user == 2) {
+                      return (bandMemberNamesSubmit2)
+                    };
+                    if (user == 3) {
+                      return (bandMemberNamesSubmit3)
+                    };
+                    if (user == 4) {
+                      return (bandMemberNamesSubmit4)
+                    };
+                    if (user == 5) {
+                      return (bandMemberNamesSubmit5)
+                    };
+                    if (user == 6) {
+                      return (bandMemberNamesSubmit6)
+                    };
+                    if (user == 7) {
+                      return (bandMemberNamesSubmit7)
+                    };
+                    if (user == 8) {
+                      return (bandMemberNamesSubmit8)
+                    };
+                    if (user == 9) {
+                      return (bandMemberNamesSubmit9)
+                    };
+                    if (user == 10) {
+                      return (bandMemberNamesSubmit10)
+                    };
+                  };
+
+                  const onChangeRun = (e) => {
+                    if (user == 1) {
+                      return (setUserName1( e.target.value ))
+                    };
+                    if (user == 2) {
+                      return (setUserName2( e.target.value ))
+                    };
+                    if (user == 3) {
+                      return (setUserName3( e.target.value ))
+                    };
+                    if (user == 4) {
+                      return (setUserName4( e.target.value ))
+                    };
+                    if (user == 5) {
+                      return (setUserName5( e.target.value ))
+                    };
+                    if (user == 6) {
+                      return (setUserName6( e.target.value ))
+                    };
+                    if (user == 7) {
+                      return (setUserName7( e.target.value ))
+                    };
+                    if (user == 8) {
+                      return (setUserName8( e.target.value ))
+                    };
+                    if (user == 9) {
+                      return (setUserName9( e.target.value ))
+                    };
+                    if (user == 10) {
+                      return (setUserName10( e.target.value ))
+                    };
+                  };
+
+
+                  const handleEditUserNameClick = () => {
+                    if (user == 1) {
+                      setUnlocked1(prev=>!prev);
+
+                      // setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+
+                    };
+                    if (user == 2) {
+                      setUnlocked2(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      // setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 3) {
+                      setUnlocked3(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      // setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 4) {
+                      setUnlocked4(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      // setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 5) {
+                      setUnlocked5(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      // setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 6) {
+                      setUnlocked6(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      // setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 7) {
+                      setUnlocked7(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      // setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 8) {
+                      setUnlocked8(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      // setUnlocked8(true);
+                      setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 9) {
+                      setUnlocked9(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      // setUnlocked9(true);
+                      setUnlocked10(true);
+                    };
+                    if (user == 10) {
+                      setUnlocked10(prev=>!prev)
+                                      
+                      setUnlocked1(true);
+                      setUnlocked2(true);
+                      setUnlocked3(true);
+                      setUnlocked4(true);
+                      setUnlocked5(true);
+                      setUnlocked6(true);
+                      setUnlocked7(true);
+                      setUnlocked8(true);
+                      setUnlocked9(true);
+                      // setUnlocked10(true);
+                    };
+
+                  };
+
+                  const unLockedRun = () => {
+                    if (user == 1) {
+                      return (unlocked1)
+                    };
+                    if (user == 2) {
+                      return (unlocked2)
+                    };
+                    if (user == 3) {
+                      return (unlocked3)
+                    };
+                    if (user == 4) {
+                      return (unlocked4)
+                    };
+                    if (user == 5) {
+                      return (unlocked5)
+                    };
+                    if (user == 6) {
+                      return (unlocked6)
+                    };
+                    if (user == 7) {
+                      return (unlocked7)
+                    };
+                    if (user == 8) {
+                      return (unlocked8)
+                    };
+                    if (user == 9) {
+                      return (unlocked9)
+                    };
+                    if (user == 10) {
+                      return (unlocked10)
+                    };
+
+                  };
+
+
+
+
+                  return (
+                    <div key={user}>
+                      <button
+                      onClick={handleEditUserNameClick}
+                      > 
+                      {unLockedRun() ? <Image src={unlockIcon2} alt="unlock" /> : <Image src={lockIcon2} alt="Lock"/>}
+                      </button>
+                    Name {user}:
+                    <br/>
+                    <input 
+                      onChange={e => onChangeRun(e) }
+                      disabled={unLockedRun()}
+                      />
+                      <button 
+                        // disabled={unLockedRun}
+                        onClick={ onClickRun() }
+                        className='purpleButton'
+                        > Submit </button>
+                      <br/>
+                      <br/>
+                    </div>
+                    )
+                  })
+                  }
+              </label>
+
+              <br/>
+              <br/>
+                <SaveBandInfoButton/>
+                <br/>
+            </div>
+          :
+              // <> {currentUser ? 'Band Info Hidden' : 
+              // <div className='noUserLoggedInDiv'> No User Logged In </div>
+              // } </>
+          // <div> toggleUpdateBandInfoDiv is false </div>
+          ''
+        }
+
+      </div>
     : 
-    <div className='hideBandInfoDiv'>
-      {currentUser ? <BandInfoToggleButton/> : 'No User Logged In'}
-    </div>
+    // <div className='hideBandInfoDiv'>
+    //   {currentUser ? <BandInfoToggleButton/> : 
+    //   <div className='noUserLoggedInDiv'> No User Logged In </div>}
+    // </div>
+      <div
+        className='reShowBandInfoButtonDiv'
+      > 
+        <button
+          className='greenButton'
+          onClick={onClickreShowBandInfoDiv}
+        >
+          Show Band Info </button>
+      </div>
   )
 };
 
-function AllNavs() {
-  return (
-    <div className= 'mainDiv'>
+// function AllNavs() {
+//   return (
+//     <div className= 'mainDiv'>
 
-    </div>
-  )
-};
+//     </div>
+//   )
+// };
 
 function ShowAllAvailDates () {
   return (
