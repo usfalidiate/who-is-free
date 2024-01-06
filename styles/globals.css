@@ -78,6 +78,28 @@
   display: none;
 }
 
+.signupDivBG {
+  display: flex;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.signupDiv {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+}
+
 .mainDiv {
   /* background: linear-gradient(0deg, #3e1c1c, #c20909 50%, #3e1c1c );  */
   background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;

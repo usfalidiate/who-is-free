@@ -209,7 +209,7 @@ const [ activeYearPlusFour, setActiveYearPlusFour ] = useState ( currentDate.get
 const [ activeYearPlusFive, setActiveYearPlusFive ] = useState ( currentDate.getFullYear() + 5)
 const [ loadTrig, setLoadTrig ] = useState ( false );
 const [ showMain, setShowMain ] = useState ( false );
-
+const [ openSignupDivState, setOpenSignupDivState ] = useState( false );
 const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31];
 
 //////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
@@ -639,6 +639,8 @@ const [users, setUsers] = useState({
 const [loading, setLoading] = useState(false);
 const emailRef = useRef();
 const passwordRef = useRef();
+const signupEmailRef = useRef();
+const signupPasswordRef = useState();
 const currentUser = useAuth();
 const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -997,14 +999,49 @@ async function signupFillCloud () {
   console.log('signupFillCloud ran');
 };
 
+function openSignupDivFunc() {
+  setOpenSignupDivState(true);
+};
+
+function closeSignupDivFunc() {
+  setOpenSignupDivState(false);
+};
+
+function OpenSignupDivWindow() {
+  return(
+    openSignupDivState ? 
+      <div className='signupDivBG'>
+        <div className='signupDiv'>
+          Signup Div Window
+          <div 
+            className='divFields'
+            id='fields'>
+              <input ref={signupEmailRef} placeholder='User Name'/>
+              <input ref={signupPasswordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
+              <button 
+                className='PWButton'
+                onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
+
+          </div>
+            <button onClick={handleSignup}> Sign Up </button>
+            <button onClick={closeSignupDivFunc}> Close </button>
+        </div>
+      </div>
+
+    :
+    ''
+  )
+};
+
 async function handleSignup() {
   setLoading(true);
   try {
-    await signup([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
+    await signup([signupEmailRef.current.value] + '@gmail.com', signupPasswordRef.current.value);
     console.log('handle signUp try ran');
     signupFillCloud();
+    setOpenSignupDivState(false);
   } catch {
-    console.log*'handleSignup catch ran'
+    console.log('handleSignup catch ran')
     // alert('That user already exists, or your PW was less than 6 characters')
   };
   setLoading(false);
@@ -1055,7 +1092,7 @@ async function handleLogout() {
 };
 
 function togglePasswordVisible() {
-  setPasswordVisible(!passwordVisible);
+  setPasswordVisible(prev => !prev);
 };
 
 
@@ -4636,10 +4673,18 @@ function LoginInfoNav() {
             className='divFields'
           id='fields'>
             <input ref={emailRef} placeholder='User Name'/>
-            <input ref={passwordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
+            <input ref={passwordRef} type={passwordVisible ? 'text' : 'password'} placeholder='Password'/>
             <button 
               className='PWButton'
-              onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
+              onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} 
+            </button>
+            {/* <input
+              id='check'
+              type='checkbox'
+              value={passwordVisible}
+              onChange={() => setPasswordVisible((prev) => !prev)}
+              >
+            </input> */}
 
           </div>
         }
@@ -4647,7 +4692,7 @@ function LoginInfoNav() {
         <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
         <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
         
-        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={handleSignup} > Sign Up </button> </div>}
+        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Sign Up </button> </div>}
         <br></br>
       </nav> 
     :
@@ -5182,7 +5227,7 @@ function BandInfoInputNav() {
             :
             // <div className='noUserLoggedInDiv'> No User Logged In </div>
           <div> 
-            in ShowBandInfoDiv currentUser = false
+            {/* in ShowBandInfoDiv currentUser = false */}
           </div>
         }
 
@@ -5493,19 +5538,20 @@ function BandInfoInputNav() {
 
                   return (
                     <div key={user}>
+                      Name {user}:
+                      <br/>
                       <button
-                      onClick={handleEditUserNameClick}
+                        onClick={handleEditUserNameClick}
                       > 
-                      {unLockedRun() ? <Image src={unlockIcon2} alt="unlock" /> : <Image src={lockIcon2} alt="Lock"/>}
+                        {unLockedRun() ? <Image src={lockIcon2} alt="Lock"/> : <Image src={unlockIcon2} alt="unlock" />}
                       </button>
-                    Name {user}:
-                    <br/>
+
                     <input 
                       onChange={e => onChangeRun(e) }
                       disabled={unLockedRun()}
                       />
                       <button 
-                        // disabled={unLockedRun}
+                        disabled={unLockedRun()}
                         onClick={ onClickRun() }
                         className='purpleButton'
                         > Submit </button>
@@ -6100,6 +6146,8 @@ return (
   <WelcomeScreen/>
 
   <LoginInfoNav/>
+
+  <OpenSignupDivWindow/>
 
   <BandInfoInputNav/>
 
