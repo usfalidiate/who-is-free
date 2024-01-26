@@ -211,6 +211,7 @@ const [ loadTrig, setLoadTrig ] = useState ( false );
 const [ showMain, setShowMain ] = useState ( false );
 const [ openSignupDivState, setOpenSignupDivState ] = useState( false );
 const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31];
+const [showHowToUseDiv, setShowHowToUseDiv] = useState (false);
 
 //////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
 function BandInfoToggleButton() {
@@ -4570,6 +4571,27 @@ const br = <br></br>;
 
 
 //////   FUNCTIONS FOR RETURN ELEMENTS   //////
+function HowToUse() {
+  function CloseButton() {
+    const handleClickCloseButton = () => {
+      setShowHowToUseDiv(false);
+    };
+    return (
+      <>
+        <button
+        onClick={handleClickCloseButton}> Close </button>
+      </>
+    )
+  }
+  return (
+    <div className='howToUseDivBG'>
+      <div className='howToUseDiv'>
+        <CloseButton/>
+        How To Use
+      </div>
+    </div>
+  )
+};
 
 function WelcomeScreen() {
   const handleToggleClick = () => {
@@ -4578,15 +4600,22 @@ function WelcomeScreen() {
     setLoadTrig(prev=>!prev);
   };
 
+  const handleHowToUseClick = () => {
+    setShowHowToUseDiv(true);
+    setUpdateTrig(prev=>!prev);
+    setLoadTrig(prev=>!prev);
+  };
+
   return (
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
       <div className='welcomeDivText'>  Welcome  </div> 
-      <br/>
       <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
+      <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> How To Use </button> </div>
+      {showHowToUseDiv ? <HowToUse/> : ''}
       <div className='welcomeDivLogo'> 
       <Image src={logoCol} alt="Logo" style={{
-        height: '100%',
-        width: '100%',
+        height: 'auto',
+        width: '50%',
         opacity: '0.85'
 
         }} />
@@ -4594,6 +4623,8 @@ function WelcomeScreen() {
     </div>
   )
 };
+
+
 
 function TaglineDiv() {
   return (
