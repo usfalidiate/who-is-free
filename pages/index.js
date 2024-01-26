@@ -4586,8 +4586,14 @@ function HowToUse() {
   return (
     <div className='howToUseDivBG'>
       <div className='howToUseDiv'>
-        <CloseButton/>
         How To Use
+        <br/>
+        First Time User
+        <br/>
+        Checking Availabilities
+        <br/>
+        <div className='closeButtonDiv'> <CloseButton/> </div>
+
       </div>
     </div>
   )
