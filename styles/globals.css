@@ -681,7 +681,7 @@ h2 {
 .h2AvailSum {
   text-align: center;
   color: goldenrod;
-  background-color: none;
+  background: none;
   font-size: 1em;
 }
 

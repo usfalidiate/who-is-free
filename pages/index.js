@@ -5594,15 +5594,22 @@ function ShowAllAvailDates () {
             return ( true )
           }
         };
-        if ( numberOfMembersForAllFree() == true ) {
-          console.log('if ran')
-          return ( tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> )
-        } else {
-          console.log('else ran in MapAllFree function')
-        } 
+          if ( numberOfMembersForAllFree() == true ) {
+            console.log('if ran');
+            return ( 
+
+              // tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> 
+              <div key={day}>
+                {tableDayName(day-1)}  {monthToName()} {tableDayNameArray[day-1]} <br/>
+              </div>
+              )
+          } else {
+            console.log('else ran in MapAllFree function')
+          } 
       })
     )
   };
+
   return (
     <div className='showAllAvailDatesDiv'>
       <article className = 'availSumTitleArticle'>
@@ -5611,6 +5618,7 @@ function ShowAllAvailDates () {
         </h2>
       </article>
 
+    
       <article className = 'availSumDatesArticle'>
         <h2 className = 'h2AllAvailDates'>
           <MapAllFree/>
