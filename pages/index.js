@@ -107,6 +107,7 @@ const [saveBandInfoChangesTrigState, setSaveBandInfoChangesTrigState] = useState
 const [ numberOfMembersOnLoad, setNumberOfMembersOnLoad] = useState(4); 
 const [ bandNameOnLoad, setBandNameOnLoad ] = useState('bandnameonload');
 const [ updateTrig, setUpdateTrig] = useState(false);
+const [ userEmailOnLoad, setUserEmailOnLoad ] = useState('userEmailOnLoad')
 
 const [ userNamesOnLoad, setUserNamesOnLoad ] = useState ({
   nameUser1: '1',
@@ -283,12 +284,13 @@ function SaveBandInfoButton() {
 
 //////   FIRESTORE DOCREF   //////
 
-const docRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
-const setDocRef = doc ( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
+const docRef = doc( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
+const setDocRef = doc( db, uid.toString(), activeYear.toString(), 'Availability', activeMonth.toString() );
 
 //////   FIRESTORE BAND INFO LOAD ON START   //////
-const docRefBandInfo = doc ( db, uid.toString(), 'info' );
-const colRefBandInfo = collection ( db, uid.toString() );
+const docRefBandInfo = doc( db, uid.toString(), 'info' );
+const addDocRefBandInfo = doc( db, uid.toString(), 'info' );
+const colRefBandInfo = collection( db, uid.toString() );
 
 
 //////   INITIAL SET USERS DAY AVAILS TO NULL   //////
@@ -638,12 +640,16 @@ const [users, setUsers] = useState({
 
 //////   LOGIN AND AUTH   //////
 const [loading, setLoading] = useState(false);
-const emailRef = useRef();
+const userNameRef = useRef();
 const passwordRef = useRef();
+const signupUserNameRef = useRef();
 const signupEmailRef = useRef();
-const signupPasswordRef = useState();
+const signupPasswordRef = useRef();
+const signupPasswordRefConfirm = useRef();
 const currentUser = useAuth();
 const [passwordVisible, setPasswordVisible] = useState(false);
+const emailRef = useRef();
+const emailRefConfirm = useRef();
 
 
 function useAuth() {
@@ -662,341 +668,342 @@ function signup(email, password) {
 
 //////   FILLS CLOUD WITH DATA   //////
 async function signupFillCloud () {
-  console.log('signup 1 2 3', bandNameOnLoad, numberOfMembersOnLoad, userNamesOnLoad);
-  console.log('bandNameonLoad in fill', bandNameOnLoad);
-  await setDoc(docRefBandInfo, { numberOfMembers: numberOfMembersOnLoad}, {bandName: bandNameOnLoad},  {userNames: userNamesOnLoad});
-  await setDoc(setDocRef, {
-    user1:[ 
-      {day1: users.user1.day1},
-      {day2: users.user1.day2}, 
-      {day3: users.user1.day3},
-      {day4: users.user1.day4},
-      {day5: users.user1.day5},
-      {day6: users.user1.day6},
-      {day7: users.user1.day7},
-      {day8: users.user1.day8},
-      {day9: users.user1.day9},
-      {day10: users.user1.day10},
-      {day11: users.user1.day11},
-      {day12: users.user1.day12}, 
-      {day13: users.user1.day13},
-      {day14: users.user1.day14},
-      {day15: users.user1.day15},
-      {day16: users.user1.day16},
-      {day17: users.user1.day17},
-      {day18: users.user1.day18},
-      {day19: users.user1.day19},
-      {day20: users.user1.day20},
-      {day21: users.user1.day21},
-      {day22: users.user1.day22}, 
-      {day23: users.user1.day23},
-      {day24: users.user1.day24},
-      {day25: users.user1.day25},
-      {day26: users.user1.day26},
-      {day27: users.user1.day27},
-      {day28: users.user1.day28},
-      {day29: users.user1.day29},
-      {day30: users.user1.day30},
-      {day31: users.user1.day31}, 
-    ],  
-    user2:[ 
-      {day1: users.user2.day1},
-      {day2: users.user2.day2}, 
-      {day3: users.user2.day3},
-      {day4: users.user2.day4},
-      {day5: users.user2.day5},
-      {day6: users.user2.day6},
-      {day7: users.user2.day7},
-      {day8: users.user2.day8},
-      {day9: users.user2.day9},
-      {day10: users.user2.day10},
-      {day11: users.user2.day11},
-      {day12: users.user2.day12}, 
-      {day13: users.user2.day13},
-      {day14: users.user2.day14},
-      {day15: users.user2.day15},
-      {day16: users.user2.day16},
-      {day17: users.user2.day17},
-      {day18: users.user2.day18},
-      {day19: users.user2.day19},
-      {day20: users.user2.day20},
-      {day21: users.user2.day21},
-      {day22: users.user2.day22}, 
-      {day23: users.user2.day23},
-      {day24: users.user2.day24},
-      {day25: users.user2.day25},
-      {day26: users.user2.day26},
-      {day27: users.user2.day27},
-      {day28: users.user2.day28},
-      {day29: users.user2.day29},
-      {day30: users.user2.day30},
-      {day31: users.user2.day31}, 
-    ],
-    user3:[ 
-      {day1: users.user3.day1},
-      {day2: users.user3.day2}, 
-      {day3: users.user3.day3},
-      {day4: users.user3.day4},
-      {day5: users.user3.day5},
-      {day6: users.user3.day6},
-      {day7: users.user3.day7},
-      {day8: users.user3.day8},
-      {day9: users.user3.day9},
-      {day10: users.user3.day10},
-      {day11: users.user3.day11},
-      {day12: users.user3.day12}, 
-      {day13: users.user3.day13},
-      {day14: users.user3.day14},
-      {day15: users.user3.day15},
-      {day16: users.user3.day16},
-      {day17: users.user3.day17},
-      {day18: users.user3.day18},
-      {day19: users.user3.day19},
-      {day20: users.user3.day20},
-      {day21: users.user3.day21},
-      {day22: users.user3.day22}, 
-      {day23: users.user3.day23},
-      {day24: users.user3.day24},
-      {day25: users.user3.day25},
-      {day26: users.user3.day26},
-      {day27: users.user3.day27},
-      {day28: users.user3.day28},
-      {day29: users.user3.day29},
-      {day30: users.user3.day30},
-      {day31: users.user3.day31}, 
-    ],
-    user4:[ 
-      {day1: users.user4.day1},
-      {day2: users.user4.day2}, 
-      {day3: users.user4.day3},
-      {day4: users.user4.day4},
-      {day5: users.user4.day5},
-      {day6: users.user4.day6},
-      {day7: users.user4.day7},
-      {day8: users.user4.day8},
-      {day9: users.user4.day9},
-      {day10: users.user4.day10},
-      {day11: users.user4.day11},
-      {day12: users.user4.day12}, 
-      {day13: users.user4.day13},
-      {day14: users.user4.day14},
-      {day15: users.user4.day15},
-      {day16: users.user4.day16},
-      {day17: users.user4.day17},
-      {day18: users.user4.day18},
-      {day19: users.user4.day19},
-      {day20: users.user4.day20},
-      {day21: users.user4.day21},
-      {day22: users.user4.day22}, 
-      {day23: users.user4.day23},
-      {day24: users.user4.day24},
-      {day25: users.user4.day25},
-      {day26: users.user4.day26},
-      {day27: users.user4.day27},
-      {day28: users.user4.day28},
-      {day29: users.user4.day29},
-      {day30: users.user4.day30},
-      {day31: users.user4.day31}, 
-    ],
-    user5:[ 
-      {day1: users.user5.day1},
-      {day2: users.user5.day2}, 
-      {day3: users.user5.day3},
-      {day4: users.user5.day4},
-      {day5: users.user5.day5},
-      {day6: users.user5.day6},
-      {day7: users.user5.day7},
-      {day8: users.user5.day8},
-      {day9: users.user5.day9},
-      {day10: users.user5.day10},
-      {day11: users.user5.day11},
-      {day12: users.user5.day12}, 
-      {day13: users.user5.day13},
-      {day14: users.user5.day14},
-      {day15: users.user5.day15},
-      {day16: users.user5.day16},
-      {day17: users.user5.day17},
-      {day18: users.user5.day18},
-      {day19: users.user5.day19},
-      {day20: users.user5.day20},
-      {day21: users.user5.day21},
-      {day22: users.user5.day22}, 
-      {day23: users.user5.day23},
-      {day24: users.user5.day24},
-      {day25: users.user5.day25},
-      {day26: users.user5.day26},
-      {day27: users.user5.day27},
-      {day28: users.user5.day28},
-      {day29: users.user5.day29},
-      {day30: users.user5.day30},
-      {day31: users.user5.day31}, 
-    ],  
-    user6:[ 
-      {day1: users.user6.day1},
-      {day2: users.user6.day2}, 
-      {day3: users.user6.day3},
-      {day4: users.user6.day4},
-      {day5: users.user6.day5},
-      {day6: users.user6.day6},
-      {day7: users.user6.day7},
-      {day8: users.user6.day8},
-      {day9: users.user6.day9},
-      {day10: users.user6.day10},
-      {day11: users.user6.day11},
-      {day12: users.user6.day12}, 
-      {day13: users.user6.day13},
-      {day14: users.user6.day14},
-      {day15: users.user6.day15},
-      {day16: users.user6.day16},
-      {day17: users.user6.day17},
-      {day18: users.user6.day18},
-      {day19: users.user6.day19},
-      {day20: users.user6.day20},
-      {day21: users.user6.day21},
-      {day22: users.user6.day22}, 
-      {day23: users.user6.day23},
-      {day24: users.user6.day24},
-      {day25: users.user6.day25},
-      {day26: users.user6.day26},
-      {day27: users.user6.day27},
-      {day28: users.user6.day28},
-      {day29: users.user6.day29},
-      {day30: users.user6.day30},
-      {day31: users.user6.day31}, 
-    ],   
-    user7:[ 
-      {day1: users.user7.day1},
-      {day2: users.user7.day2}, 
-      {day3: users.user7.day3},
-      {day4: users.user7.day4},
-      {day5: users.user7.day5},
-      {day6: users.user7.day6},
-      {day7: users.user7.day7},
-      {day8: users.user7.day8},
-      {day9: users.user7.day9},
-      {day10: users.user7.day10},
-      {day11: users.user7.day11},
-      {day12: users.user7.day12}, 
-      {day13: users.user7.day13},
-      {day14: users.user7.day14},
-      {day15: users.user7.day15},
-      {day16: users.user7.day16},
-      {day17: users.user7.day17},
-      {day18: users.user7.day18},
-      {day19: users.user7.day19},
-      {day20: users.user7.day20},
-      {day21: users.user7.day21},
-      {day22: users.user7.day22}, 
-      {day23: users.user7.day23},
-      {day24: users.user7.day24},
-      {day25: users.user7.day25},
-      {day26: users.user7.day26},
-      {day27: users.user7.day27},
-      {day28: users.user7.day28},
-      {day29: users.user7.day29},
-      {day30: users.user7.day30},
-      {day31: users.user7.day31}, 
-    ],
-    user8:[ 
-      {day1: users.user8.day1},
-      {day2: users.user8.day2}, 
-      {day3: users.user8.day3},
-      {day4: users.user8.day4},
-      {day5: users.user8.day5},
-      {day6: users.user8.day6},
-      {day7: users.user8.day7},
-      {day8: users.user8.day8},
-      {day9: users.user8.day9},
-      {day10: users.user8.day10},
-      {day11: users.user8.day11},
-      {day12: users.user8.day12}, 
-      {day13: users.user8.day13},
-      {day14: users.user8.day14},
-      {day15: users.user8.day15},
-      {day16: users.user8.day16},
-      {day17: users.user8.day17},
-      {day18: users.user8.day18},
-      {day19: users.user8.day19},
-      {day20: users.user8.day20},
-      {day21: users.user8.day21},
-      {day22: users.user8.day22}, 
-      {day23: users.user8.day23},
-      {day24: users.user8.day24},
-      {day25: users.user8.day25},
-      {day26: users.user8.day26},
-      {day27: users.user8.day27},
-      {day28: users.user8.day28},
-      {day29: users.user8.day29},
-      {day30: users.user8.day30},
-      {day31: users.user8.day31}, 
-    ],  
-    user9:[ 
-      {day1: users.user9.day1},
-      {day2: users.user9.day2}, 
-      {day3: users.user9.day3},
-      {day4: users.user9.day4},
-      {day5: users.user9.day5},
-      {day6: users.user9.day6},
-      {day7: users.user9.day7},
-      {day8: users.user9.day8},
-      {day9: users.user9.day9},
-      {day10: users.user9.day10},
-      {day11: users.user9.day11},
-      {day12: users.user9.day12}, 
-      {day13: users.user9.day13},
-      {day14: users.user9.day14},
-      {day15: users.user9.day15},
-      {day16: users.user9.day16},
-      {day17: users.user9.day17},
-      {day18: users.user9.day18},
-      {day19: users.user9.day19},
-      {day20: users.user9.day20},
-      {day21: users.user9.day21},
-      {day22: users.user9.day22}, 
-      {day23: users.user9.day23},
-      {day24: users.user9.day24},
-      {day25: users.user9.day25},
-      {day26: users.user9.day26},
-      {day27: users.user9.day27},
-      {day28: users.user9.day28},
-      {day29: users.user9.day29},
-      {day30: users.user9.day30},
-      {day31: users.user9.day31}, 
-    ], 
-    user10:[ 
-      {day1: users.user10.day1},
-      {day2: users.user10.day2}, 
-      {day3: users.user10.day3},
-      {day4: users.user10.day4},
-      {day5: users.user10.day5},
-      {day6: users.user10.day6},
-      {day7: users.user10.day7},
-      {day8: users.user10.day8},
-      {day9: users.user10.day9},
-      {day10: users.user10.day10},
-      {day11: users.user10.day11},
-      {day12: users.user10.day12}, 
-      {day13: users.user10.day13},
-      {day14: users.user10.day14},
-      {day15: users.user10.day15},
-      {day16: users.user10.day16},
-      {day17: users.user10.day17},
-      {day18: users.user10.day18},
-      {day19: users.user10.day19},
-      {day20: users.user10.day20},
-      {day21: users.user10.day21},
-      {day22: users.user10.day22}, 
-      {day23: users.user10.day23},
-      {day24: users.user10.day24},
-      {day25: users.user10.day25},
-      {day26: users.user10.day26},
-      {day27: users.user10.day27},
-      {day28: users.user10.day28},
-      {day29: users.user10.day29},
-      {day30: users.user10.day30},
-      {day31: users.user10.day31}, 
-    ],          
-  }); 
+  // console.log('signup 1 2 3', bandNameOnLoad, numberOfMembersOnLoad, userNamesOnLoad);
+  // console.log('bandNameonLoad in fill', bandNameOnLoad);
+  // await setDoc(docRefBandInfo, {1:1});
+  await setDoc(docRefBandInfo, { numberOfMembers: numberOfMembersOnLoad}, {bandName: bandNameOnLoad},  {userNames: userNamesOnLoad}, {userEmail: userEmailOnLoad});
+  // await setDoc(setDocRef, {
+  //   user1:[ 
+  //     {day1: users.user1.day1},
+  //     {day2: users.user1.day2}, 
+  //     {day3: users.user1.day3},
+  //     {day4: users.user1.day4},
+  //     {day5: users.user1.day5},
+  //     {day6: users.user1.day6},
+  //     {day7: users.user1.day7},
+  //     {day8: users.user1.day8},
+  //     {day9: users.user1.day9},
+  //     {day10: users.user1.day10},
+  //     {day11: users.user1.day11},
+  //     {day12: users.user1.day12}, 
+  //     {day13: users.user1.day13},
+  //     {day14: users.user1.day14},
+  //     {day15: users.user1.day15},
+  //     {day16: users.user1.day16},
+  //     {day17: users.user1.day17},
+  //     {day18: users.user1.day18},
+  //     {day19: users.user1.day19},
+  //     {day20: users.user1.day20},
+  //     {day21: users.user1.day21},
+  //     {day22: users.user1.day22}, 
+  //     {day23: users.user1.day23},
+  //     {day24: users.user1.day24},
+  //     {day25: users.user1.day25},
+  //     {day26: users.user1.day26},
+  //     {day27: users.user1.day27},
+  //     {day28: users.user1.day28},
+  //     {day29: users.user1.day29},
+  //     {day30: users.user1.day30},
+  //     {day31: users.user1.day31}, 
+  //   ],  
+  //   user2:[ 
+  //     {day1: users.user2.day1},
+  //     {day2: users.user2.day2}, 
+  //     {day3: users.user2.day3},
+  //     {day4: users.user2.day4},
+  //     {day5: users.user2.day5},
+  //     {day6: users.user2.day6},
+  //     {day7: users.user2.day7},
+  //     {day8: users.user2.day8},
+  //     {day9: users.user2.day9},
+  //     {day10: users.user2.day10},
+  //     {day11: users.user2.day11},
+  //     {day12: users.user2.day12}, 
+  //     {day13: users.user2.day13},
+  //     {day14: users.user2.day14},
+  //     {day15: users.user2.day15},
+  //     {day16: users.user2.day16},
+  //     {day17: users.user2.day17},
+  //     {day18: users.user2.day18},
+  //     {day19: users.user2.day19},
+  //     {day20: users.user2.day20},
+  //     {day21: users.user2.day21},
+  //     {day22: users.user2.day22}, 
+  //     {day23: users.user2.day23},
+  //     {day24: users.user2.day24},
+  //     {day25: users.user2.day25},
+  //     {day26: users.user2.day26},
+  //     {day27: users.user2.day27},
+  //     {day28: users.user2.day28},
+  //     {day29: users.user2.day29},
+  //     {day30: users.user2.day30},
+  //     {day31: users.user2.day31}, 
+  //   ],
+  //   user3:[ 
+  //     {day1: users.user3.day1},
+  //     {day2: users.user3.day2}, 
+  //     {day3: users.user3.day3},
+  //     {day4: users.user3.day4},
+  //     {day5: users.user3.day5},
+  //     {day6: users.user3.day6},
+  //     {day7: users.user3.day7},
+  //     {day8: users.user3.day8},
+  //     {day9: users.user3.day9},
+  //     {day10: users.user3.day10},
+  //     {day11: users.user3.day11},
+  //     {day12: users.user3.day12}, 
+  //     {day13: users.user3.day13},
+  //     {day14: users.user3.day14},
+  //     {day15: users.user3.day15},
+  //     {day16: users.user3.day16},
+  //     {day17: users.user3.day17},
+  //     {day18: users.user3.day18},
+  //     {day19: users.user3.day19},
+  //     {day20: users.user3.day20},
+  //     {day21: users.user3.day21},
+  //     {day22: users.user3.day22}, 
+  //     {day23: users.user3.day23},
+  //     {day24: users.user3.day24},
+  //     {day25: users.user3.day25},
+  //     {day26: users.user3.day26},
+  //     {day27: users.user3.day27},
+  //     {day28: users.user3.day28},
+  //     {day29: users.user3.day29},
+  //     {day30: users.user3.day30},
+  //     {day31: users.user3.day31}, 
+  //   ],
+  //   user4:[ 
+  //     {day1: users.user4.day1},
+  //     {day2: users.user4.day2}, 
+  //     {day3: users.user4.day3},
+  //     {day4: users.user4.day4},
+  //     {day5: users.user4.day5},
+  //     {day6: users.user4.day6},
+  //     {day7: users.user4.day7},
+  //     {day8: users.user4.day8},
+  //     {day9: users.user4.day9},
+  //     {day10: users.user4.day10},
+  //     {day11: users.user4.day11},
+  //     {day12: users.user4.day12}, 
+  //     {day13: users.user4.day13},
+  //     {day14: users.user4.day14},
+  //     {day15: users.user4.day15},
+  //     {day16: users.user4.day16},
+  //     {day17: users.user4.day17},
+  //     {day18: users.user4.day18},
+  //     {day19: users.user4.day19},
+  //     {day20: users.user4.day20},
+  //     {day21: users.user4.day21},
+  //     {day22: users.user4.day22}, 
+  //     {day23: users.user4.day23},
+  //     {day24: users.user4.day24},
+  //     {day25: users.user4.day25},
+  //     {day26: users.user4.day26},
+  //     {day27: users.user4.day27},
+  //     {day28: users.user4.day28},
+  //     {day29: users.user4.day29},
+  //     {day30: users.user4.day30},
+  //     {day31: users.user4.day31}, 
+  //   ],
+  //   user5:[ 
+  //     {day1: users.user5.day1},
+  //     {day2: users.user5.day2}, 
+  //     {day3: users.user5.day3},
+  //     {day4: users.user5.day4},
+  //     {day5: users.user5.day5},
+  //     {day6: users.user5.day6},
+  //     {day7: users.user5.day7},
+  //     {day8: users.user5.day8},
+  //     {day9: users.user5.day9},
+  //     {day10: users.user5.day10},
+  //     {day11: users.user5.day11},
+  //     {day12: users.user5.day12}, 
+  //     {day13: users.user5.day13},
+  //     {day14: users.user5.day14},
+  //     {day15: users.user5.day15},
+  //     {day16: users.user5.day16},
+  //     {day17: users.user5.day17},
+  //     {day18: users.user5.day18},
+  //     {day19: users.user5.day19},
+  //     {day20: users.user5.day20},
+  //     {day21: users.user5.day21},
+  //     {day22: users.user5.day22}, 
+  //     {day23: users.user5.day23},
+  //     {day24: users.user5.day24},
+  //     {day25: users.user5.day25},
+  //     {day26: users.user5.day26},
+  //     {day27: users.user5.day27},
+  //     {day28: users.user5.day28},
+  //     {day29: users.user5.day29},
+  //     {day30: users.user5.day30},
+  //     {day31: users.user5.day31}, 
+  //   ],  
+  //   user6:[ 
+  //     {day1: users.user6.day1},
+  //     {day2: users.user6.day2}, 
+  //     {day3: users.user6.day3},
+  //     {day4: users.user6.day4},
+  //     {day5: users.user6.day5},
+  //     {day6: users.user6.day6},
+  //     {day7: users.user6.day7},
+  //     {day8: users.user6.day8},
+  //     {day9: users.user6.day9},
+  //     {day10: users.user6.day10},
+  //     {day11: users.user6.day11},
+  //     {day12: users.user6.day12}, 
+  //     {day13: users.user6.day13},
+  //     {day14: users.user6.day14},
+  //     {day15: users.user6.day15},
+  //     {day16: users.user6.day16},
+  //     {day17: users.user6.day17},
+  //     {day18: users.user6.day18},
+  //     {day19: users.user6.day19},
+  //     {day20: users.user6.day20},
+  //     {day21: users.user6.day21},
+  //     {day22: users.user6.day22}, 
+  //     {day23: users.user6.day23},
+  //     {day24: users.user6.day24},
+  //     {day25: users.user6.day25},
+  //     {day26: users.user6.day26},
+  //     {day27: users.user6.day27},
+  //     {day28: users.user6.day28},
+  //     {day29: users.user6.day29},
+  //     {day30: users.user6.day30},
+  //     {day31: users.user6.day31}, 
+  //   ],   
+  //   user7:[ 
+  //     {day1: users.user7.day1},
+  //     {day2: users.user7.day2}, 
+  //     {day3: users.user7.day3},
+  //     {day4: users.user7.day4},
+  //     {day5: users.user7.day5},
+  //     {day6: users.user7.day6},
+  //     {day7: users.user7.day7},
+  //     {day8: users.user7.day8},
+  //     {day9: users.user7.day9},
+  //     {day10: users.user7.day10},
+  //     {day11: users.user7.day11},
+  //     {day12: users.user7.day12}, 
+  //     {day13: users.user7.day13},
+  //     {day14: users.user7.day14},
+  //     {day15: users.user7.day15},
+  //     {day16: users.user7.day16},
+  //     {day17: users.user7.day17},
+  //     {day18: users.user7.day18},
+  //     {day19: users.user7.day19},
+  //     {day20: users.user7.day20},
+  //     {day21: users.user7.day21},
+  //     {day22: users.user7.day22}, 
+  //     {day23: users.user7.day23},
+  //     {day24: users.user7.day24},
+  //     {day25: users.user7.day25},
+  //     {day26: users.user7.day26},
+  //     {day27: users.user7.day27},
+  //     {day28: users.user7.day28},
+  //     {day29: users.user7.day29},
+  //     {day30: users.user7.day30},
+  //     {day31: users.user7.day31}, 
+  //   ],
+  //   user8:[ 
+  //     {day1: users.user8.day1},
+  //     {day2: users.user8.day2}, 
+  //     {day3: users.user8.day3},
+  //     {day4: users.user8.day4},
+  //     {day5: users.user8.day5},
+  //     {day6: users.user8.day6},
+  //     {day7: users.user8.day7},
+  //     {day8: users.user8.day8},
+  //     {day9: users.user8.day9},
+  //     {day10: users.user8.day10},
+  //     {day11: users.user8.day11},
+  //     {day12: users.user8.day12}, 
+  //     {day13: users.user8.day13},
+  //     {day14: users.user8.day14},
+  //     {day15: users.user8.day15},
+  //     {day16: users.user8.day16},
+  //     {day17: users.user8.day17},
+  //     {day18: users.user8.day18},
+  //     {day19: users.user8.day19},
+  //     {day20: users.user8.day20},
+  //     {day21: users.user8.day21},
+  //     {day22: users.user8.day22}, 
+  //     {day23: users.user8.day23},
+  //     {day24: users.user8.day24},
+  //     {day25: users.user8.day25},
+  //     {day26: users.user8.day26},
+  //     {day27: users.user8.day27},
+  //     {day28: users.user8.day28},
+  //     {day29: users.user8.day29},
+  //     {day30: users.user8.day30},
+  //     {day31: users.user8.day31}, 
+  //   ],  
+  //   user9:[ 
+  //     {day1: users.user9.day1},
+  //     {day2: users.user9.day2}, 
+  //     {day3: users.user9.day3},
+  //     {day4: users.user9.day4},
+  //     {day5: users.user9.day5},
+  //     {day6: users.user9.day6},
+  //     {day7: users.user9.day7},
+  //     {day8: users.user9.day8},
+  //     {day9: users.user9.day9},
+  //     {day10: users.user9.day10},
+  //     {day11: users.user9.day11},
+  //     {day12: users.user9.day12}, 
+  //     {day13: users.user9.day13},
+  //     {day14: users.user9.day14},
+  //     {day15: users.user9.day15},
+  //     {day16: users.user9.day16},
+  //     {day17: users.user9.day17},
+  //     {day18: users.user9.day18},
+  //     {day19: users.user9.day19},
+  //     {day20: users.user9.day20},
+  //     {day21: users.user9.day21},
+  //     {day22: users.user9.day22}, 
+  //     {day23: users.user9.day23},
+  //     {day24: users.user9.day24},
+  //     {day25: users.user9.day25},
+  //     {day26: users.user9.day26},
+  //     {day27: users.user9.day27},
+  //     {day28: users.user9.day28},
+  //     {day29: users.user9.day29},
+  //     {day30: users.user9.day30},
+  //     {day31: users.user9.day31}, 
+  //   ], 
+  //   user10:[ 
+  //     {day1: users.user10.day1},
+  //     {day2: users.user10.day2}, 
+  //     {day3: users.user10.day3},
+  //     {day4: users.user10.day4},
+  //     {day5: users.user10.day5},
+  //     {day6: users.user10.day6},
+  //     {day7: users.user10.day7},
+  //     {day8: users.user10.day8},
+  //     {day9: users.user10.day9},
+  //     {day10: users.user10.day10},
+  //     {day11: users.user10.day11},
+  //     {day12: users.user10.day12}, 
+  //     {day13: users.user10.day13},
+  //     {day14: users.user10.day14},
+  //     {day15: users.user10.day15},
+  //     {day16: users.user10.day16},
+  //     {day17: users.user10.day17},
+  //     {day18: users.user10.day18},
+  //     {day19: users.user10.day19},
+  //     {day20: users.user10.day20},
+  //     {day21: users.user10.day21},
+  //     {day22: users.user10.day22}, 
+  //     {day23: users.user10.day23},
+  //     {day24: users.user10.day24},
+  //     {day25: users.user10.day25},
+  //     {day26: users.user10.day26},
+  //     {day27: users.user10.day27},
+  //     {day28: users.user10.day28},
+  //     {day29: users.user10.day29},
+  //     {day30: users.user10.day30},
+  //     {day31: users.user10.day31}, 
+  //   ],          
+  // }); 
   console.log('signupFillCloud ran');
 };
 
@@ -1013,18 +1020,24 @@ function OpenSignupDivWindow() {
     openSignupDivState ? 
       <div className='signupDivBG'>
         <div className='signupDiv'>
-          Signup Div Window
+          Enter User Name and Create Password <br/>
+          Note: User Name and Password will be shared with all band members.
           <div 
             className='divFields'
             id='fields'>
-              <input ref={signupEmailRef} placeholder='User Name'/>
-              <input ref={signupPasswordRef} type={passwordVisible ? '' : 'password'} placeholder='Password'/>
-              <button 
+              <input ref={signupEmailRef} type='email' placeholder='Enter Email'/>
+              <input ref={signupPasswordRef} type={passwordVisible ? '' : 'password'} placeholder='Create Password'/>
+              <input ref={signupPasswordRefConfirm} type={passwordVisible ? '' : 'password'} placeholder='Confirm Password'/>
+              {/* <input ref={emailRef} placeholder='Enter Email Address' /> */}
+              {/* <input ref={emailRefConfirm} placeholder='Confirm Email Address' /> */}
+
+              {/* <button 
                 className='PWButton'
-                onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} </button>
+                onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} 
+              </button> */}
 
           </div>
-            <button onClick={handleSignup}> Sign Up </button>
+            <button onClick={handleSignup}> Create Account </button>
             <button onClick={closeSignupDivFunc}> Close </button>
         </div>
       </div>
@@ -1036,15 +1049,24 @@ function OpenSignupDivWindow() {
 
 async function handleSignup() {
   setLoading(true);
+if (signupPasswordRef.current.value == signupPasswordRefConfirm.current.value ) {
   try {
-    await signup([signupEmailRef.current.value] + '@gmail.com', signupPasswordRef.current.value);
-    console.log('handle signUp try ran');
-    signupFillCloud();
+    // await signup([signupUserNameRef.current.value] + '@gmail.com', signupPasswordRef.current.value);
+    await signup(signupEmailRef.current.value, signupPasswordRef.current.value);
+    // signupFillCloud();
     setOpenSignupDivState(false);
+    setUserEmailOnLoad(signupEmailRef.current.value);
+    console.log('signupEmailRef.current.value', signupEmailRef.current.value);
+    console.log('handle signUp try ran');
   } catch {
     console.log('handleSignup catch ran')
     // alert('That user already exists, or your PW was less than 6 characters')
   };
+} else {
+  console.log('PWs', signupPasswordRef.current.value, signupPasswordRefConfirm.current.value);
+  alert('Passwords do not match')
+}
+  signupFillCloud();
   setLoading(false);
 };
 
@@ -1061,8 +1083,10 @@ async function handleLogin() {
   setUpdateTrig(prev=>!prev);
   setShowLoginInfoNav(false);
   try {
-    await login([emailRef.current.value] + '@gmail.com', passwordRef.current.value);
-    // setCurrentLogName(emailRef.current.value);
+    // await login([userNameRef.current.value] + '@gmail.com', passwordRef.current.value);
+    await login(emailRef.current.value, passwordRef.current.value);
+
+    // setCurrentLogName(userNameRef.current.value);
     console.log('handleLogin try ran');
   } catch {
     alert('Login Failed - Please Try Again');
@@ -1206,7 +1230,6 @@ useEffect(()=> {
       // IT CAUSES BAND INFO TO BE UPDATED WITH  UNDEFINED DUE TO MISSING DATA FROM FIRESTORE
       if ( docSnap.exists() ) {
         console.log('docSnap exists is true in load band info on start');
-        console.log(bandNameOnLoad, 'bandNameOnLoad')
         setNumberOfMembersOnLoad(cloudState.numberOfMembers);
         setBandNameOnLoad(cloudState.bandName);
         setUserNameOnLoad1(cloudState.userName1);
@@ -1219,6 +1242,7 @@ useEffect(()=> {
         setUserNameOnLoad8(cloudState.userName8);
         setUserNameOnLoad9(cloudState.userName9);
         setUserNameOnLoad10(cloudState.userName10);
+        setUserEmailOnLoad(cloudState.userEmail);
 
       } else {
         console.log('docSnap does not exist, band info not updated');
@@ -4586,12 +4610,27 @@ function HowToUse() {
   return (
     <div className='howToUseDivBG'>
       <div className='howToUseDiv'>
-        How To Use
+        <div className='htuHeading'>
+          Creating a Band Account
+        </div>
+
+        <div className='htuText'>
+          1. Click on the 'Let Us Jam' Button <br/>
+          2. Click on the 'Show Login' Button <br/>
+          3. Click on the 'Create Account' Button <br/>
+          4. Enter a User Name and Password <br/>
+          5. Share this User Name and Password with all members of the band <br/>
+          6. Each band member uses the same User Name and Password to log into the Band Account <br/>
+        </div>
+        
         <br/>
-        First Time User
+        
+        <div className='htuHeading'>
+          General Use
+        </div>
+
         <br/>
-        Checking Availabilities
-        <br/>
+
         <div className='closeButtonDiv'> <CloseButton/> </div>
 
       </div>
@@ -4662,12 +4701,12 @@ function LoginInfoNav() {
           <div 
             className='divFields'
           id='fields'>
-            <input ref={emailRef} placeholder='User Name'/>
+            <input ref={emailRef} type='email' placeholder='Email'/>
             <input ref={passwordRef} type={passwordVisible ? 'text' : 'password'} placeholder='Password'/>
-            <button 
+            {/* <button 
               className='PWButton'
               onClick={ togglePasswordVisible }> {passwordVisible ? <Image src={eyeSlash}/> : <Image src={eye}/>} 
-            </button>
+            </button> */}
             {/* <input
               id='check'
               type='checkbox'
@@ -4682,7 +4721,7 @@ function LoginInfoNav() {
         <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
         <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
         
-        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Sign Up </button> </div>}
+        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Create Account </button> </div>}
         <br></br>
       </nav> 
     :
@@ -4708,7 +4747,7 @@ useEffect(() => {
   };
 
   if (currentUser) {
-    setCurrentLogName(name);
+    setCurrentLogName(currentUser.email);
   } else {
     setCurrentLogName('')
   }
@@ -4731,6 +4770,7 @@ function BandInfoInputNav() {
   const [userName8, setUserName8] = useState(userNameOnLoad8);
   const [userName9, setUserName9] = useState(userNameOnLoad9);
   const [userName10, setUserName10] = useState(userNameOnLoad10);
+  const [userEmail, setUserEmail] = useState(userEmailOnLoad)
 
 
   const bandNameSubmit = async () => {
@@ -4742,6 +4782,20 @@ function BandInfoInputNav() {
         updateDoc(docRefBandInfo, { bandName: bandName});
       } else {
         setDoc(docRefBandInfo, { bandName: bandName});
+      }
+    } catch {
+    }
+  };
+
+  const userEmailSubmit = async () => {
+    setSaveBandInfoChangesTrigState(true);
+    setBandInfoTrig(prev => !prev);
+    try {
+      const docSnap = await getDoc(docRefBandInfo);
+      if (docSnap.exists()) {
+        updateDoc(docRefBandInfo, { userEmail: userEmail});
+      } else {
+        setDoc(docRefBandInfo, { userEmail: userEmail});
       }
     } catch {
     }
@@ -5161,6 +5215,9 @@ function BandInfoInputNav() {
         {currentUser ? 
           <div className='showBandInfoDiv'>
             <BandInfoToggleButton/>
+              <p className='bandInfoHeading'> User Email:</p>
+              <div className='currentBandNameDiv'> {userEmailOnLoad} </div>
+              <br/>
               <p className='bandInfoHeading'> Band Name: </p> 
                 <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
                   <br/>
@@ -5225,6 +5282,21 @@ function BandInfoInputNav() {
           toggleUpdateBandInfoDiv ? 
             <div className={'updateBandInfoDiv'}>
             
+            <label>
+                Update Band Email: 
+                <br/>
+                <input onChange={e => setUserEmail(e.target.value)}/>
+                <button 
+                  onClick={userEmailSubmit}
+                  className='purpleButton'
+                  > Submit </button>
+
+              </label>
+
+                <br/>
+                <br/>
+
+
               <label>
                 Update Band Name: 
                 <br/>

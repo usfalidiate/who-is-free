@@ -133,6 +133,22 @@
   grid-row: 4;
 }
 
+.htuHeading {
+  color: goldenrod;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 900;
+}
+
+.htuText {
+  color: goldenrod;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 600;
+}
+
 .closeButtonDiv {
   justify-self: end;
   align-self: end;
@@ -305,9 +321,9 @@
 
 .divSignupButton {
   display: grid;
-  grid-column-start: 3;
+  grid-column-start: 1;
   grid-column-end: 4;
-  grid-row-start: 3;
+  grid-row-start: 6;
 }
 
 .bandInfoDiv {
@@ -403,7 +419,7 @@
   font-weight: 900;
   font-size: 30px;
   letter-spacing: -0.065em;
-  justify-content: left;
+  justify-content: center;
   width: 100%;
 }
 
