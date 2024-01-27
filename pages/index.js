@@ -30,6 +30,7 @@ import {
   where,
   documentId,
   querySnapshot,
+
 } from 'firebase/firestore';
  
 import { 
@@ -39,7 +40,9 @@ import {
   login,
   signup,
   signOut,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  updateEmail
 } from 'firebase/auth';
 // import { useGridApiContext } from '@mui/x-data-grid';
 import logoCol from '../public/UIELogoWPowName.png';
@@ -213,6 +216,7 @@ const [ showMain, setShowMain ] = useState ( false );
 const [ openSignupDivState, setOpenSignupDivState ] = useState( false );
 const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31];
 const [showHowToUseDiv, setShowHowToUseDiv] = useState (false);
+const [showUpdateEmailDiv, setShowUpdateEmailDiv] = useState(false);
 
 //////   TOGGLES IF BAND INFO SECTION IS SHOWN   //////
 function BandInfoToggleButton() {
@@ -222,7 +226,7 @@ function BandInfoToggleButton() {
   return (
     <div className='toggleBandInfoButtonDiv'>
       <button 
-      className='greenButton'
+      className='purpleButton'
       onClick={changeToggleState}> {bandInfoToggle ? 'Hide Band Info' : 'Show Band Info'} </button>
     </div>
   )
@@ -239,7 +243,7 @@ function ToggleUpdateBandInfoDivFunc() {
     <div className='editBandInfoButtonDiv'>
       <button
         onClick={changeToggleState}
-        className='greenButton'
+        className='purpleButton'
       > {toggleUpdateBandInfoDiv ? 'Hide' : 'Edit Band Information'} </button>
     </div>
   )
@@ -650,6 +654,8 @@ const currentUser = useAuth();
 const [passwordVisible, setPasswordVisible] = useState(false);
 const emailRef = useRef();
 const emailRefConfirm = useRef();
+const emailRefUpdate = useRef();
+const emailRefConfirmUpdate = useRef();
 
 
 function useAuth() {
@@ -1020,10 +1026,10 @@ function OpenSignupDivWindow() {
     openSignupDivState ? 
       <div className='signupDivBG'>
         <div className='signupDiv'>
-          Enter User Name and Create Password <br/>
-          Note: User Name and Password will be shared with all band members.
+          Enter Email and Create Password <br/> <br/>
+          Note: Email and Password will be shared with all band members.
           <div 
-            className='divFields'
+            className='signupFieldDiv'
             id='fields'>
               <input ref={signupEmailRef} type='email' placeholder='Enter Email'/>
               <input ref={signupPasswordRef} type={passwordVisible ? '' : 'password'} placeholder='Create Password'/>
@@ -1037,8 +1043,8 @@ function OpenSignupDivWindow() {
               </button> */}
 
           </div>
-            <button onClick={handleSignup}> Create Account </button>
-            <button onClick={closeSignupDivFunc}> Close </button>
+            <button className='signupButton' onClick={handleSignup}> Create Account </button>
+            <button className='closeButtonDiv' onClick={closeSignupDivFunc}> Close </button>
         </div>
       </div>
 
@@ -1050,12 +1056,13 @@ function OpenSignupDivWindow() {
 async function handleSignup() {
   setLoading(true);
 if (signupPasswordRef.current.value == signupPasswordRefConfirm.current.value ) {
+  console.log('userEmailOnLoad', userEmailOnLoad);
+
   try {
     // await signup([signupUserNameRef.current.value] + '@gmail.com', signupPasswordRef.current.value);
     await signup(signupEmailRef.current.value, signupPasswordRef.current.value);
-    // signupFillCloud();
+    signupFillCloud();
     setOpenSignupDivState(false);
-    setUserEmailOnLoad(signupEmailRef.current.value);
     console.log('signupEmailRef.current.value', signupEmailRef.current.value);
     console.log('handle signUp try ran');
   } catch {
@@ -1065,8 +1072,8 @@ if (signupPasswordRef.current.value == signupPasswordRefConfirm.current.value ) 
 } else {
   console.log('PWs', signupPasswordRef.current.value, signupPasswordRefConfirm.current.value);
   alert('Passwords do not match')
-}
-  signupFillCloud();
+};
+  // signupFillCloud();
   setLoading(false);
 };
 
@@ -1120,6 +1127,31 @@ function togglePasswordVisible() {
   setPasswordVisible(prev => !prev);
 };
 
+function handleResetPW() {
+  sendPasswordResetEmail(auth, currentUser.email)
+    .then(() => {
+      //PW email sent
+      console.log('PW email sent')
+    })
+    .catch ((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('error in handleresetpw', errorMessage)
+    });
+
+};
+
+function openUpdateEmailDiv() {
+  setShowUpdateEmailDiv(true);
+  console.log('showUpdateEmailDiv in open', showUpdateEmailDiv);
+
+};
+
+function closeUpdateEmailDiv() {
+  setShowUpdateEmailDiv(false);
+  console.log('showUpdateEmailDiv in close', showUpdateEmailDiv);
+};
+
 
 
 
@@ -1139,7 +1171,7 @@ function MainTableToggleButton() {
       <div className='showAvailabilitiesTableButtonDiv'>
     <button 
       onClick={run}
-      className='greenButton'
+      className='purpleButton'
       > 
       {showMain ? 'Hide Availabilities Table' : 'Show Availabilities Table'} 
       </button>
@@ -4657,6 +4689,8 @@ function WelcomeScreen() {
       <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
       <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> How To Use </button> </div>
       {showHowToUseDiv ? <HowToUse/> : ''}
+      {<div className='divSignupButton'> <button className='howToUseButton' disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Create Account </button> </div>}
+
       <div className='welcomeDivLogo'> 
       <Image src={logoCol} alt="Logo" style={{
         height: 'auto',
@@ -4681,7 +4715,46 @@ function TaglineDiv() {
   )
 }
 
+function UpdateEmailDiv () {
+  function handleUpdateEmail() {
+    if ( emailRefUpdate.current.value == emailRefConfirmUpdate.current.value ) {
+      updateEmail(auth, 'tester@gmail.com').then(() => {
+        // Email updated!
+        // ...
+        console.log('asdfd', auth )
 
+        alert('email updated')
+      }).catch((error) => {
+        // An error occurred
+        // ...
+        console.log('asd', emailRefUpdate.current.value )
+        alert('error occurred')
+      });
+    } else {
+      alert('emails do not match;')
+    }
+  };
+  return (
+    showUpdateEmailDiv ? 
+    <div className='updateEmailDivBG' >
+      <div className='updateEmailDiv' >
+        Update Email Div
+
+        <div 
+            className='signupFieldDiv'
+            id='fields'>
+              <input ref={emailRefUpdate} placeholder='Enter New Email Address' />
+              <input ref={emailRefConfirmUpdate} placeholder='Confirm New Email Address' />
+              <button onClick={handleUpdateEmail} > Update Email Address </button>
+          </div>
+
+        <button onClick={closeUpdateEmailDiv} >Close</button>
+      </div>
+    </div>
+    :
+    ''
+  )
+}
 
 function LoginInfoNav() {
   const handleToggle = () => {
@@ -4692,7 +4765,7 @@ function LoginInfoNav() {
       <nav className= 'loginInfoDiv' >
         <div className='hideLoginButtonDiv'> 
           <button
-          className='greenButton'
+          className='purpleButton'
           onClick={handleToggle}> Hide Login </button>
         </div>
         <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
@@ -4721,14 +4794,16 @@ function LoginInfoNav() {
         <div className='divLoginButton'> <button disabled={loading || currentUser != null } onClick={handleLogin} > Log In </button> </div>
         <div className='divLogoutButton'> <button disabled={loading || !currentUser } onClick={handleLogout}> Log Out </button> </div>
         
-        {<div className='divSignupButton'> <button disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Create Account </button> </div>}
         <br></br>
+        {/* <div className='divUpdateEmailButton' > <button onClick={openUpdateEmailDiv} > Update Email </button> </div> */}
+        <div className='divResetPW' > <button disabled={loading || !currentUser } onClick={handleResetPW}> Send Email To Reset Password </button> </div>
+        <br/>
       </nav> 
     :
     <div className='showLoginNavDiv'> 
       {/* <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div> */}
       <button 
-      className='greenButton'
+      className='purpleButton'
       onClick={handleToggle}
 
       > {showLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
@@ -5215,8 +5290,8 @@ function BandInfoInputNav() {
         {currentUser ? 
           <div className='showBandInfoDiv'>
             <BandInfoToggleButton/>
-              <p className='bandInfoHeading'> User Email:</p>
-              <div className='currentBandNameDiv'> {userEmailOnLoad} </div>
+              {/* <p className='bandInfoHeading'> User Email:</p>
+              <div className='currentBandNameDiv'> {userEmailOnLoad} </div> */}
               <br/>
               <p className='bandInfoHeading'> Band Name: </p> 
                 <div className='currentBandNameDiv'> {bandNameOnLoad} </div> 
@@ -5648,7 +5723,7 @@ function BandInfoInputNav() {
         className='reShowBandInfoButtonDiv'
       > 
         <button
-          className='greenButton'
+          className='purpleButton'
           onClick={onClickreShowBandInfoDiv}
         >
           Show Band Info </button>
@@ -6231,6 +6306,8 @@ return (
   <LoginInfoNav/>
 
   <OpenSignupDivWindow/>
+
+  {/* <UpdateEmailDiv/> */}
 
   <BandInfoInputNav/>
 

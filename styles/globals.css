@@ -76,7 +76,7 @@
 .welcomeButton {
   background-color: purple;
   color: goldenrod;
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
@@ -89,7 +89,7 @@
   justify-self: end;
   display: grid;
   justify-items: end;
-  grid-row: 5;
+  grid-row: 7;
 
 
 }
@@ -176,8 +176,41 @@
   top: 10%;
   left: 10%;
   z-index: 11;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: row;
+  /* flex-direction: row; */
+  background-color: purple;
+  border-radius: 15px;
+  color: goldenrod;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 600;
+  padding: 15px;
+  align-items: center;
+  /* align-content: center; */
+  /* flex-wrap: wrap; */
+  /* gap: 30px; */
+  border: solid 3px rgb(52,1,52);
+  text-shadow: 1px -1px rgb(52,1,52);
+  
+}
+
+.signupFieldDiv {
+  background-color: none;
+  justify-self: stretch;
   display: flex;
   flex-direction: column;
+}
+
+.signupButton {
+  background-color: goldenrod;
+  color: rgb(52,1,52);
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 900;
+  justify-self: center;
 }
 
 .mainDiv {
@@ -233,12 +266,15 @@
 .loginInfoDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30px 30px 30px 30px 30px;
+  /* grid-template-rows: 30px 30px 30px 30px 30px; */
   background: goldenrod;
   color: black;
   padding: 5px;
   border: 1px solid rgb(52, 1, 52);
+  row-gap: 20px;
 }
+
+
 
 .currentLogDiv {
   display: grid;
@@ -251,6 +287,7 @@
   grid-column-end: 3;
   grid-row-start: 2;
   align-content: center;
+
 }
 
 .currentUIDDiv {
@@ -299,8 +336,10 @@
 
 .divFields{
   grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  /* justify-content: center; */
+  display: grid;
 
 }
 
@@ -308,7 +347,7 @@
   display: grid;
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 3;
+  grid-row-start: 4;
 
 }
 
@@ -316,14 +355,67 @@
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 3;
+  grid-row-start: 4;
 }
 
 .divSignupButton {
   display: grid;
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-row-start: 5;
+}
+
+.divUpdateEmailButton {
+  background-color: none;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 6;
+}
+
+.updateEmailDivBG {
+  display: flex;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.updateEmailDiv {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 11;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: row;
+  /* flex-direction: row; */
+  background-color: purple;
+  border-radius: 15px;
+  color: goldenrod;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 600;
+  padding: 15px;
+  align-items: center;
+  /* align-content: center; */
+  /* flex-wrap: wrap; */
+  /* gap: 30px; */
+  border: solid 3px rgb(52,1,52);
+  text-shadow: 1px -1px rgb(52,1,52);
+}
+
+
+.divResetPW {
+  background-color: none;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 6;
+  display: grid;
 }
 
 .bandInfoDiv {
