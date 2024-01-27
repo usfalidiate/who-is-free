@@ -4672,7 +4672,7 @@ function HowToUse() {
 
 function WelcomeScreen() {
   const handleToggleClick = () => {
-    setToggleWelcomeScreen(prev=>!prev);
+    setToggleWelcomeScreen(false);
     setUpdateTrig(prev=>!prev);
     setLoadTrig(prev=>!prev);
   };
@@ -4754,7 +4754,11 @@ function UpdateEmailDiv () {
     :
     ''
   )
-}
+};
+
+function showWelcomeDiv () {
+  setToggleWelcomeScreen(true);
+};
 
 function LoginInfoNav() {
   const handleToggle = () => {
@@ -4767,6 +4771,8 @@ function LoginInfoNav() {
           <button
           className='purpleButton'
           onClick={handleToggle}> Hide Login </button>
+                <button onClick={showWelcomeDiv} > HOME </button>
+
         </div>
         <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
         <div className='currentLogDiv'> Logged In As: { currentUser ? currentLogName : '' } </div>
@@ -4807,6 +4813,7 @@ function LoginInfoNav() {
       onClick={handleToggle}
 
       > {showLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
+      <button onClick={showWelcomeDiv} > HOME </button>
     </div>
     
   )
