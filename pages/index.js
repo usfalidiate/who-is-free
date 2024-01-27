@@ -244,7 +244,7 @@ function ToggleUpdateBandInfoDivFunc() {
       <button
         onClick={changeToggleState}
         className='purpleButton'
-      > {toggleUpdateBandInfoDiv ? 'Hide' : 'Edit Band Information'} </button>
+      > {toggleUpdateBandInfoDiv ? 'Hide Edit Band Information' : 'Edit Band Information'} </button>
     </div>
   )
 }
@@ -4687,9 +4687,9 @@ function WelcomeScreen() {
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
       <div className='welcomeDivText'>  Welcome  </div> 
       <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
-      <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> How To Use </button> </div>
+      <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> Instructions and FAQs </button> </div>
       {showHowToUseDiv ? <HowToUse/> : ''}
-      {<div className='divSignupButton'> <button className='howToUseButton' disabled={loading || currentUser != null } onClick={openSignupDivFunc} > Create Account </button> </div>}
+      {<div className='divSignupButton'> <button className='howToUseButton' onClick={openSignupDivFunc} > Create Account </button> </div>}
 
       <div className='welcomeDivLogo'> 
       <Image src={logoCol} alt="Logo" style={{
@@ -4767,11 +4767,13 @@ function LoginInfoNav() {
   return (
      showLoginInfoNav ? 
       <nav className= 'loginInfoDiv' >
+
         <div className='hideLoginButtonDiv'> 
+
           <button
-          className='purpleButton'
-          onClick={handleToggle}> Hide Login </button>
-                <button onClick={showWelcomeDiv} > HOME </button>
+            className='purpleButton'
+            onClick={handleToggle}> Hide Login </button>
+
 
         </div>
         <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div>
@@ -4808,17 +4810,25 @@ function LoginInfoNav() {
     :
     <div className='showLoginNavDiv'> 
       {/* <div className='currentUIDDiv'> Current UserID: { currentUser ? uid.slice(0,7) : ''} </div> */}
+
+
       <button 
       className='purpleButton'
       onClick={handleToggle}
 
       > {showLoginInfoNav ? 'Hide Login Details' : 'Show Login'} </button>
-      <button onClick={showWelcomeDiv} > HOME </button>
     </div>
     
   )
 };
 
+function HomeButtonDiv() {
+  return (
+    <div className='homeButtonDiv'>
+      <button className='homeButton' onClick={showWelcomeDiv} > HOME </button>
+    </div>
+  )
+};
 
 //////   SHOW CURRENT LOG IN DETAILS   //////
 useEffect(() => {
@@ -6309,6 +6319,8 @@ return (
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <WelcomeScreen/>
+
+  <HomeButtonDiv/>
 
   <LoginInfoNav/>
 

@@ -126,6 +126,8 @@
   background-color: purple;
   border-radius: 15px;
   padding: 10px;
+  border: solid 3px rgb(52,1,52);
+  text-shadow: 1px -1px rgb(52,1,52);
 }
 
 .howToUseButtonDiv {
@@ -324,7 +326,7 @@
   /* border: 1px solid goldenrod; */
   border-radius: 5px;
   background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
-
+  flex-direction: row;
 
 }
 
@@ -370,6 +372,28 @@
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 6;
+}
+
+.homeButton {
+  font-family: arial;
+  background-color: purple;
+  color: goldenrod;
+  text-transform: uppercase;
+  font-weight: 740;
+  font-size: 12px;
+  letter-spacing: -0.065em;
+  border-radius: 8px;
+  align-self: flex-end;
+  justify-self: flex-end;
+
+}
+
+.homeButtonDiv{
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  background: linear-gradient(0deg, rgb(52,1,52) , rgb(72, 1, 72) 50%, rgb(52,1,52) );  width: 100%;
+
 }
 
 .updateEmailDivBG {
@@ -473,6 +497,7 @@
   letter-spacing: -0.065em;
   justify-content: center;
   border-radius: 8px;
+  align-self: flex-end;
 }
 
 .editBandInfoButtonDiv {
