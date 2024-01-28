@@ -4678,7 +4678,7 @@ function WelcomeScreen() {
 
       <div className='welcomeDivLogo'> 
 
-      <a className='aTagLogo' href="https://instagram.com/usefulidiotevents" target="_blank" rel="noreferrer">
+      {/* <a className='aTagLogo' href="https://instagram.com/usefulidiotevents" target="_blank" rel="noreferrer"> */}
 
       <Image  src={logoCol} alt="Logo" style={{
         height: 'auto',
@@ -4686,7 +4686,7 @@ function WelcomeScreen() {
         opacity: '0.85'
         }} />
         
-      </a>
+      {/* </a> */}
       </div>
 
     </div>
