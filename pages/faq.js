@@ -68,7 +68,7 @@ export default function FAQs() {
 
 
             <div className='htuText'>
-                Yes. Simply create or login to the app using the email and password for as many bands as you'd like.
+                Yes. Simply create or login to the app using the email and password for as many bands as you would like.
             </div>
 
 
