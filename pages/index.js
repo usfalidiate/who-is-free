@@ -4644,8 +4644,9 @@ function HowToUse() {
     <div className='howToUseDivBG'>
       <div className='howToUseDiv'>
         <FAQs/>
-        <div className='closeButtonDiv'> <CloseButton/> </div>
       </div>
+      <div className='closeButtonDiv'> <CloseButton/> </div>
+
     </div>
   )
 };

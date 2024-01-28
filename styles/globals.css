@@ -105,7 +105,7 @@
 }
 
 .howToUseDivBG {
-  display: flex;
+  display: grid;
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0px;
@@ -113,6 +113,9 @@
   width: 100%;
   height: 100%;
   z-index: 5;  
+  padding: 15% 5%;
+  scrollbar-color: rgb(52,1,52);
+
 }
 .howToUseDiv {
   width: 80%;
@@ -129,6 +132,9 @@
   border: solid 3px rgb(52,1,52);
   text-shadow: 1px -1px rgb(52,1,52);
   overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-wrap: normal;
+  scrollbar-color: rgb(52,1,52);
 
 }
 
@@ -137,12 +143,33 @@
   grid-row: 4;
 }
 
-.htuHeading {
+
+.htuMainHeading {
   color: goldenrod;
-  font-size: 25px;
+  font-size: 35px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 900;
+  background-color: rgb(52,1,52);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.htuHeading {
+  color: goldenrod;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: -0.085em;
+  font-weight: 700;
+  background-color: rgb(52,1,52);
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .htuText {
