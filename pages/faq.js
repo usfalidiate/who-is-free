@@ -7,24 +7,28 @@ export default function FAQs() {
             </div>
 
 
-                <br/> 
-
+            <br/>
 
             <div className='htuHeading'>
                 How do I create an account?
             </div>
 
             <div className='htuText'>
-                1. Click on the Let Us Jam Button <br/>
-                2. Click on the Show Login Button <br/>
-                3. Click on the Create Account Button <br/>
-                4. Enter a User Name and Password <br/>
-                5. Share this User Name and Password with all members of the band <br/>
-                6. Each band member uses the same User Name and Password to log into the Band Account <br/>
+                On the home page, click on the Create Account Button. 
+                <br/> <br/>
+                Enter a User Name and Password. 
+                <br/> <br/>
+                Share this User Name and Password with all members of the band. 
+                <br/> <br/>
+                Each band member uses the same User Name and Password to log into the Band Account. 
+                
             </div>
 
+            <br/>
 
-                <br/> 
+
+
+
 
 
             <div className='htuHeading'>
@@ -32,31 +36,37 @@ export default function FAQs() {
             </div>
 
 
-                <br/> 
-
-
             <div className='htuText'>
                 Go to the table....
             </div>
 
+            <br/>
 
-                <br/> 
+
+
+
 
 
             <div className='htuHeading'>
-                How do all band members use the same account?
+                Do all band members use the same account?
             </div>
-
-
-                <br/> 
 
 
             <div className='htuText'>
-                One band member creates the account for the entire band, and then shares the email and password used to create the account. Each band member then logs in using the same email and password. This allows each member to access the same database of availabilities.
+                Yes. 
+                <br/> <br/>
+                One band member creates the account for the entire band, and then shares the email and password used to create the account. 
+                <br/> <br/>
+                Each band member then logs in using the same email and password. 
+                <br/> <br/>
+                This allows each member to access the same database of availabilities.
             </div>
 
+            <br/>
 
-                <br/> 
+
+
+
 
 
             <div className='htuHeading'>
@@ -64,120 +74,83 @@ export default function FAQs() {
             </div>
 
 
-                <br/> 
-
-
             <div className='htuText'>
-                Yes. Simply create or login to the app using the email and password for as many bands as you would like.
+                Yes. 
+                <br/> <br/>
+                Simply create or login to the app using the email and password for as many bands as you would like.
             </div>
 
+            <br/>
 
-                <br/>
+
+
+
+
+
 
             <div className='htuHeading'>
                 Does each member of the band need to buy the app?
             </div>
 
 
-                <br/> 
-
-
             <div className='htuText'>
                 Yes. 
             </div>
 
+            <br/>
 
-                <br/>
+
+
+
+
 
             <div className='htuHeading'>
                 How do I change the password?
             </div>
 
 
-                <br/> 
-
-
             <div className='htuText'>
                 Click on the button to receive an email with a link to reset the password.
             </div>
 
+            <br/>
 
-                <br/>
+
+
+
+
 
             <div className='htuHeading'>
                 How do I change the email address used to log in?
             </div>
 
 
-                <br/> 
-
-
             <div className='htuText'>
-                Currently, you will need to create a new account with the new email address.
+                You will need to create a new account with the new email address.
             </div>
 
+            <br/>
 
-                <br/>
 
-                <div className='htuHeading'>
+
+
+
+
+            <div className='htuHeading'>
                 HEADING
             </div>
-
-
-                <br/> 
 
 
             <div className='htuText'>
                 text
             </div>
 
-
-                <br/>
-
-                <div className='htuHeading'>
-                HEADING
-            </div>
+            <br/>
 
 
-                <br/> 
 
 
-            <div className='htuText'>
-                text
-            </div>
 
-
-                <br/>
-
-                <div className='htuHeading'>
-                HEADING
-            </div>
-
-
-                <br/> 
-
-
-            <div className='htuText'>
-                text
-            </div>
-
-
-                <br/>
-
-                <div className='htuHeading'>
-                HEADING
-            </div>
-
-
-                <br/> 
-
-
-            <div className='htuText'>
-                text
-            </div>
-
-
-                <br/>    
 
         </>
     )

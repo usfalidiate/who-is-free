@@ -94,6 +94,17 @@
 
 }
 
+.aTagLogo {
+  background-color: none;
+  border: none;
+  background-color: none;
+  align-self: end;
+  justify-self: end;
+  display: grid;
+  justify-items: end;
+  grid-row: 7;
+}
+
 .howToUseButton {
   background-color: purple;
   color: goldenrod;
@@ -151,33 +162,40 @@
   letter-spacing: -0.085em;
   font-weight: 900;
   background-color: rgb(52,1,52);
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
 .htuHeading {
   color: goldenrod;
-  font-size: 15px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 700;
   background-color: rgb(52,1,52);
-  border-radius: 10px;
+  border-radius: 5px 5px 0px 0px;
   padding: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .htuText {
   color: goldenrod;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: -0.085em;
-  font-weight: 600;
+  letter-spacing: -0.045em;
+  font-weight: 300;
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(72,1,72);
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  text-align: left;
 }
 
 .closeButtonDiv {
@@ -190,7 +208,7 @@
 }
 
 .signupDivBG {
-  display: flex;
+  display: grid;
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0px;
@@ -198,6 +216,7 @@
   width: 100%;
   height: 100%;
   z-index: 5;
+  padding: 15% 5%;
 }
 
 .signupDiv {
@@ -223,8 +242,14 @@
   /* flex-wrap: wrap; */
   /* gap: 30px; */
   border: solid 3px rgb(52,1,52);
-  text-shadow: 1px -1px rgb(52,1,52);
+  /* text-shadow: 1px -1px rgb(52,1,52); */
   
+}
+.signupDivText {
+  background-color: rgb(52,1,52);
+  border-radius: 15px;
+  padding: 10px;
+  /* font-weight: 100; */
 }
 
 .signupFieldDiv {
@@ -242,6 +267,7 @@
   letter-spacing: -0.085em;
   font-weight: 900;
   justify-self: center;
+  height: 40px;
 }
 
 .mainDiv {
@@ -926,7 +952,7 @@ h2 {
   text-transform: uppercase;
   font-weight: 940;
   margin: 10px;
-  background-color: purple;
+  background: linear-gradient(90deg, rgb(71, 1, 71), purple 50%, rgb(71, 1, 71)); 
   border-radius: 10px;
   padding: 10px;
 }
@@ -968,16 +994,16 @@ h2 {
 }
 
 a {
-  color: black;
+  /* color: black;
   border: 1px solid black;
   margin: 10px solid black;
   text-decoration: none;
-  text-align: center;
+  text-align: center; */
   background: none;
-  border-radius: 5px;
+  /* border-radius: 5px;
   font-size: 1em;
   width: 50px;
-  height: 75px;
+  height: 75px; */
   }
 
 

@@ -1027,8 +1027,11 @@ function OpenSignupDivWindow() {
     openSignupDivState ? 
       <div className='signupDivBG'>
         <div className='signupDiv'>
-          Enter Email and Create Password <br/> <br/>
-          Note: Email and Password will be shared with all band members.
+          <div className='signupDivText'>
+            Enter Email and Create Password <br/> <br/>
+            Note: Email and Password must be shared with all band members.
+          </div>
+
           <div 
             className='signupFieldDiv'
             id='fields'>
@@ -1045,8 +1048,9 @@ function OpenSignupDivWindow() {
 
           </div>
             <button className='signupButton' onClick={handleSignup}> Create Account </button>
-            <button className='closeButtonDiv' onClick={closeSignupDivFunc}> Close </button>
         </div>
+        <div className='closeButtonDiv'> <button  onClick={closeSignupDivFunc}> Close </button> </div>
+
       </div>
 
     :
@@ -4668,18 +4672,23 @@ function WelcomeScreen() {
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
       <div className='welcomeDivText'>  Welcome  </div> 
       <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
-      <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> Instructions and FAQs </button> </div>
+      <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> FAQs </button> </div>
       {showHowToUseDiv ? <HowToUse/> : ''}
       {<div className='divSignupButton'> <button className='howToUseButton' onClick={openSignupDivFunc} > Create Account </button> </div>}
 
       <div className='welcomeDivLogo'> 
-      <Image src={logoCol} alt="Logo" style={{
+
+      <a className='aTagLogo' href="https://instagram.com/usefulidiotevents" target="_blank" rel="noreferrer">
+
+      <Image  src={logoCol} alt="Logo" style={{
         height: 'auto',
         width: '50%',
         opacity: '0.85'
-
         }} />
+        
+      </a>
       </div>
+
     </div>
   )
 };
@@ -5782,7 +5791,7 @@ function ShowAllAvailDates () {
 
               // tableDayName(day-1) , ', ', monthToNameLong(), ' ', tableDayNameArray[day-1],  <br/> 
               <div key={day}>
-                {tableDayName(day-1)}  {monthToName()} {tableDayNameArray[day-1]} <br/>
+                {tableDayName(day-1)}  {monthToName()} {tableDayNameArray[day-1]}
               </div>
               )
           } else {
