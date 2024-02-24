@@ -4670,7 +4670,7 @@ function WelcomeScreen() {
 
   return (
     <div className={toggleWelcomeScreen ? 'welcomeDiv' : 'welcomeDivHidden'}>
-      <div className='welcomeDivText'>  Welcome  </div> 
+      <div className='welcomeDivText'>  Welcome <br/> to <br/> BandJam  </div> 
       <div className='welcomeDivButton'> <button className='welcomeButton' onClick={handleToggleClick}> Let Us Jam </button> </div>
       <div className='howToUseButtonDiv'> <button className='howToUseButton' onClick={handleHowToUseClick}> FAQs </button> </div>
       {showHowToUseDiv ? <HowToUse/> : ''}

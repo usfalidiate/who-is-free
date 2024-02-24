@@ -37,7 +37,11 @@ export default function FAQs() {
 
 
             <div className='htuText'>
-                Go to the table....
+                The app is designed to show when all members of a band or group are available for a jam or rehearsal.
+                <br/> <br/>
+                Each band member can select a particular year and month for which they would like to add their availabilities.
+                <br/> <br/>
+                
             </div>
 
             <br/>
