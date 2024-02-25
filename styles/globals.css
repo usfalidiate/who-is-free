@@ -201,6 +201,10 @@
   text-align: left;
 }
 
+.inputField {
+  height: 50px;
+}
+
 .closeButtonDiv {
   justify-self: end;
   align-self: end;
@@ -588,7 +592,7 @@
   font-family: 'arial';
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 26px;
   letter-spacing: -0.065em;
   justify-content: center;
 
@@ -622,7 +626,7 @@
   font-family: arial;
   text-transform: uppercase;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: -0.065em;
   justify-content: left;
 

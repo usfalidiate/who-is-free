@@ -138,24 +138,6 @@ export default function FAQs() {
 
 
 
-
-
-            <div className='htuHeading'>
-                HEADING
-            </div>
-
-
-            <div className='htuText'>
-                text
-            </div>
-
-            <br/>
-
-
-
-
-
-
         </>
     )
 };

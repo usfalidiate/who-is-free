@@ -4639,7 +4639,7 @@ function HowToUse() {
     };
     return (
       <>
-        <button
+        <button className='closeButton'
         onClick={handleClickCloseButton}> Close </button>
       </>
     )
@@ -4733,7 +4733,7 @@ function UpdateEmailDiv () {
         <div 
             className='signupFieldDiv'
             id='fields'>
-              <input ref={emailRefUpdate} placeholder='Enter New Email Address' />
+              <input className='inputField' ref={emailRefUpdate} placeholder='Enter New Email Address' />
               <input ref={emailRefConfirmUpdate} placeholder='Confirm New Email Address' />
               <button onClick={handleUpdateEmail} > Update Email Address </button>
           </div>
