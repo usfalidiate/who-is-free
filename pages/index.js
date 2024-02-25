@@ -1049,7 +1049,7 @@ function OpenSignupDivWindow() {
           </div>
             <button className='signupButton' onClick={handleSignup}> Create Account </button>
         </div>
-        <div className='closeButtonDiv'> <button  onClick={closeSignupDivFunc}> Close </button> </div>
+        <div className='closeButtonDiv'> <button className='closeButton' onClick={closeSignupDivFunc}> Close </button> </div>
 
       </div>
 

@@ -56,7 +56,7 @@
 }
 
 .welcomeDivText {
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-family: arial;
   font-size: 60px;
   font-weight: 900;
@@ -78,7 +78,7 @@
 
 .welcomeButton {
   background-color: purple;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-size: 35px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -110,7 +110,7 @@
 
 .howToUseButton {
   background-color: purple;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-size: 15px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -159,7 +159,7 @@
 
 
 .htuMainHeading {
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-size: 35px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
@@ -173,7 +173,7 @@
 }
 
 .htuHeading {
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: -0.085em;
@@ -189,7 +189,7 @@
 }
 
 .htuText {
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: -0.045em;
@@ -204,6 +204,12 @@
 .closeButtonDiv {
   justify-self: end;
   align-self: end;
+  height: 50px;
+  z-index: 99;
+}
+
+.closeButton {
+  height: 50px;
 }
 
 .welcomeDivHidden {
@@ -235,7 +241,7 @@
   /* flex-direction: row; */
   background-color: purple;
   border-radius: 15px;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 600;
@@ -263,7 +269,7 @@
 }
 
 .signupButton {
-  background-color: goldenrod;
+  background-color: rgb(251, 187, 25);
   color: rgb(52,1,52);
   border-radius: 10px;
   text-transform: uppercase;
@@ -305,7 +311,7 @@
 
 .noUserLoggedInDiv {
   display: flex;
-  background-color: goldenrod;
+  background-color: rgb(251, 187, 25);
   font-family: arial;
   font-weight: 900;
   text-transform: uppercase;
@@ -435,15 +441,15 @@
 .homeButton {
   font-family: arial;
   background-color: purple;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   font-weight: 740;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: -0.065em;
   border-radius: 8px;
   align-self: flex-end;
   justify-self: flex-end;
-
+  height: 50px;
 }
 
 .homeButtonDiv{
@@ -478,7 +484,7 @@
   /* flex-direction: row; */
   background-color: purple;
   border-radius: 15px;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   letter-spacing: -0.085em;
   font-weight: 600;
@@ -502,7 +508,7 @@
 
 .bandInfoDiv {
   background: rgb(52,1,52);
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   /* border: 1px solid goldenrod; */
   border-radius: 5px;
 }
@@ -535,7 +541,7 @@
 .greenButton {
   font-family: arial;
   background-color: rgb(26,51,10);
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   font-weight: 740;
   font-size: 12px;
@@ -548,14 +554,15 @@
 .purpleButton {
   font-family: arial;
   background-color: purple;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   font-weight: 740;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: -0.065em;
   justify-content: center;
   border-radius: 8px;
   align-self: flex-end;
+  height: 50px;
 }
 
 .editBandInfoButtonDiv {
@@ -567,7 +574,7 @@
 .editBandInfoButton {
   font-family: arial;
   background-color: purple;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
   font-weight: 740;
   font-size: 12px;
@@ -667,7 +674,7 @@
   font-family: arial;
   font-weight: 740;
   text-transform: uppercase;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   /* column-gap: 20px; */
 }
 
@@ -787,7 +794,7 @@ body {
 
 .tableAvails {
   table-layout: auto;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   margin: auto;
   border-collapse: collapse;
   background: none;
@@ -808,7 +815,7 @@ body {
   font-family: sans-serif;
   width: 95%;
   height: 50px; 
-  color: goldenrod;
+  color: rgb(251, 187, 25);
 }
 
 .thDateNude {
@@ -935,14 +942,14 @@ h2 {
 
 .h2AvailSum {
   text-align: center;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   background: none;
   font-size: 1em;
 }
 
 .h2AvailSumMonth {
   text-align: center;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-decoration: solid ;
   text-transform: uppercase;
 }
@@ -950,7 +957,7 @@ h2 {
 .h2AllAvailDates {
   font-size: 15px;
   text-align: center;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   font-weight: 940;
@@ -968,16 +975,16 @@ h2 {
 
 .h2Year{
   text-align: center;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
 }
 
 .h2Month{
   text-align: center;
-  color: goldenrod;
+  color: rgb(251, 187, 25);
 }
 
 .h1Table {
-  color: goldenrod;
+  color: rgb(251, 187, 25);
   text-transform: uppercase;
 }
 
@@ -1142,7 +1149,7 @@ outline: 2px solid rgb(180, 178, 178);
   font-weight: normal;
   font-family: Segoe UI, sans-serif;
   width: 95%;
-  height: 40px;
+  height: 50px;
   border: 1.5px solid black;
   border-radius: 5px;
   opacity: 0.95;
@@ -1163,7 +1170,7 @@ outline: 2px solid rgb(180, 178, 178);
   /* background-color:rgb(113, 5, 5); */
   background: linear-gradient(91.4deg, rgb(185, 37, 37) 0%, rgb(123, 22, 22) 100%); 
   width: 95%;
-  height: 40px;
+  height: 50px;
   border: 1.5px solid black;
   opacity: 0.95;
   border-radius: 5px;
